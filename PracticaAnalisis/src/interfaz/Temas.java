@@ -46,14 +46,29 @@ public class Temas extends javax.swing.JFrame {
         botonVolver.setBounds(20, 50, 180, 90);
 
         botonEc1Var.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Temas 1 .png"))); // NOI18N
+        botonEc1Var.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEc1VarActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonEc1Var);
         botonEc1Var.setBounds(310, 230, 420, 120);
 
         botonSisEcu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Temas 2.png"))); // NOI18N
+        botonSisEcu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSisEcuActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonSisEcu);
         botonSisEcu.setBounds(310, 370, 430, 130);
 
         botonInterp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Temas 3.png"))); // NOI18N
+        botonInterp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonInterpActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonInterp);
         botonInterp.setBounds(300, 510, 440, 120);
 
@@ -73,6 +88,36 @@ public class Temas extends javax.swing.JFrame {
         home.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_botonVolverActionPerformed
+
+    private void botonEc1VarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEc1VarActionPerformed
+        // TODO add your handling code here:
+        Ecuaciones1Var ec = new Ecuaciones1Var();
+        ec.setVisible(true);
+        ec.setSize(1024,768);
+        ec.setResizable(false);
+        ec.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonEc1VarActionPerformed
+
+    private void botonSisEcuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSisEcuActionPerformed
+        // TODO add your handling code here:
+        SistemaEcuaciones se = new SistemaEcuaciones();
+        se.setVisible(true);
+        se.setSize(1024,768);
+        se.setResizable(false);
+        se.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonSisEcuActionPerformed
+
+    private void botonInterpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInterpActionPerformed
+        // TODO add your handling code here:
+        Interpolacion in = new Interpolacion();
+        in.setVisible(true);
+        in.setSize(1024,768);
+        in.setResizable(false);
+        in.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonInterpActionPerformed
 
     /**
      * @param args the command line arguments

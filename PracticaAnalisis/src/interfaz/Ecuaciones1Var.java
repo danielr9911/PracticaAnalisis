@@ -27,21 +27,137 @@ public class Ecuaciones1Var extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        botonVolver = new javax.swing.JButton();
+        botonFunciones = new javax.swing.JButton();
+        botonBusInc = new javax.swing.JButton();
+        botonGraficador = new javax.swing.JButton();
+        botonIntevalo = new javax.swing.JButton();
+        botonAbierto = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        botonVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
+        botonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonVolver);
+        botonVolver.setBounds(20, 650, 190, 90);
+
+        botonFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ecuaciones 1.png"))); // NOI18N
+        botonFunciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonFuncionesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonFunciones);
+        botonFunciones.setBounds(360, 260, 300, 80);
+
+        botonBusInc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ecuaciones 3.png"))); // NOI18N
+        botonBusInc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBusIncActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonBusInc);
+        botonBusInc.setBounds(360, 450, 300, 90);
+
+        botonGraficador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ecuaciones 2.png"))); // NOI18N
+        botonGraficador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGraficadorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonGraficador);
+        botonGraficador.setBounds(370, 350, 290, 90);
+
+        botonIntevalo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ecuaciones 4.png"))); // NOI18N
+        botonIntevalo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIntevaloActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonIntevalo);
+        botonIntevalo.setBounds(360, 550, 300, 90);
+
+        botonAbierto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ecuaciones 5.png"))); // NOI18N
+        botonAbierto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAbiertoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonAbierto);
+        botonAbierto.setBounds(360, 650, 310, 90);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Ecuaciones de una variable.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 1024, 768);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
+        // TODO add your handling code here:
+        Temas temas = new Temas();
+        temas.setVisible(true);
+        temas.setSize(1024,768);
+        temas.setResizable(false);
+        temas.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonVolverActionPerformed
+
+    private void botonGraficadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGraficadorActionPerformed
+        // TODO add your handling code here:
+        Graficador gr = new Graficador();
+        gr.setVisible(true);
+        gr.setSize(1024,768);
+        gr.setResizable(false);
+        gr.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonGraficadorActionPerformed
+
+    private void botonFuncionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFuncionesActionPerformed
+        // TODO add your handling code here:
+        Funciones func = new Funciones();
+        func.setVisible(true);
+        func.setSize(1024,768);
+        func.setResizable(false);
+        func.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonFuncionesActionPerformed
+
+    private void botonBusIncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBusIncActionPerformed
+        // TODO add your handling code here:
+        BusquedasIncr bi = new BusquedasIncr();
+        bi.setVisible(true);
+        bi.setSize(1024,768);
+        bi.setResizable(false);
+        bi.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonBusIncActionPerformed
+
+    private void botonIntevaloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIntevaloActionPerformed
+        // TODO add your handling code here:
+        Intervalo inter = new Intervalo();
+        inter.setVisible(true);
+        inter.setSize(1024,768);
+        inter.setResizable(false);
+        inter.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonIntevaloActionPerformed
+
+    private void botonAbiertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAbiertoActionPerformed
+        // TODO add your handling code here:
+        Abierto ab = new Abierto();
+        ab.setVisible(true);
+        ab.setSize(1024,768);
+        ab.setResizable(false);
+        ab.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonAbiertoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +195,12 @@ public class Ecuaciones1Var extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAbierto;
+    private javax.swing.JButton botonBusInc;
+    private javax.swing.JButton botonFunciones;
+    private javax.swing.JButton botonGraficador;
+    private javax.swing.JButton botonIntevalo;
+    private javax.swing.JButton botonVolver;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
