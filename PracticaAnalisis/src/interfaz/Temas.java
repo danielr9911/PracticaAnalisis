@@ -36,7 +36,7 @@ public class Temas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        botonVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
+        botonVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonRegresar.png"))); // NOI18N
         botonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonVolverActionPerformed(evt);
@@ -45,7 +45,7 @@ public class Temas extends javax.swing.JFrame {
         getContentPane().add(botonVolver);
         botonVolver.setBounds(20, 50, 180, 90);
 
-        botonEc1Var.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Temas 1 .png"))); // NOI18N
+        botonEc1Var.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonTemas1.png"))); // NOI18N
         botonEc1Var.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonEc1VarActionPerformed(evt);
@@ -54,7 +54,8 @@ public class Temas extends javax.swing.JFrame {
         getContentPane().add(botonEc1Var);
         botonEc1Var.setBounds(310, 230, 420, 120);
 
-        botonSisEcu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Temas 2.png"))); // NOI18N
+        botonSisEcu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonTemas2.png"))); // NOI18N
+        botonSisEcu.setToolTipText("");
         botonSisEcu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSisEcuActionPerformed(evt);
@@ -63,7 +64,7 @@ public class Temas extends javax.swing.JFrame {
         getContentPane().add(botonSisEcu);
         botonSisEcu.setBounds(310, 370, 430, 130);
 
-        botonInterp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Temas 3.png"))); // NOI18N
+        botonInterp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonTemas3.png"))); // NOI18N
         botonInterp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonInterpActionPerformed(evt);

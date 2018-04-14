@@ -28,7 +28,7 @@
     <Component class="javax.swing.JButton" name="botonVolver">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/Boton Regresar.png"/>
+          <Image iconType="3" name="/imagenes/BotonRegresar.png"/>
         </Property>
       </Properties>
       <Events>
@@ -43,7 +43,7 @@
     <Component class="javax.swing.JButton" name="botonFunciones">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/Boton Ecuaciones 1.png"/>
+          <Image iconType="3" name="/imagenes/BotonEcuaciones1.png"/>
         </Property>
       </Properties>
       <Events>
@@ -58,7 +58,7 @@
     <Component class="javax.swing.JButton" name="botonBusInc">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/Boton Ecuaciones 3.png"/>
+          <Image iconType="3" name="/imagenes/BotonEcuaciones3.png"/>
         </Property>
       </Properties>
       <Events>
@@ -73,7 +73,7 @@
     <Component class="javax.swing.JButton" name="botonGraficador">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/Boton Ecuaciones 2.png"/>
+          <Image iconType="3" name="/imagenes/BotonEcuaciones2.png"/>
         </Property>
       </Properties>
       <Events>
@@ -88,7 +88,7 @@
     <Component class="javax.swing.JButton" name="botonIntevalo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/Boton Ecuaciones 4.png"/>
+          <Image iconType="3" name="/imagenes/BotonEcuaciones4.png"/>
         </Property>
       </Properties>
       <Events>
@@ -103,7 +103,7 @@
     <Component class="javax.swing.JButton" name="botonAbierto">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/Boton Ecuaciones 5.png"/>
+          <Image iconType="3" name="/imagenes/BotonEcuaciones5.png"/>
         </Property>
       </Properties>
       <Events>

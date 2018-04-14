@@ -38,7 +38,7 @@ public class Ecuaciones1Var extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        botonVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
+        botonVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonRegresar.png"))); // NOI18N
         botonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonVolverActionPerformed(evt);
@@ -47,7 +47,7 @@ public class Ecuaciones1Var extends javax.swing.JFrame {
         getContentPane().add(botonVolver);
         botonVolver.setBounds(20, 650, 190, 90);
 
-        botonFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ecuaciones 1.png"))); // NOI18N
+        botonFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonEcuaciones1.png"))); // NOI18N
         botonFunciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonFuncionesActionPerformed(evt);
@@ -56,7 +56,7 @@ public class Ecuaciones1Var extends javax.swing.JFrame {
         getContentPane().add(botonFunciones);
         botonFunciones.setBounds(360, 260, 300, 80);
 
-        botonBusInc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ecuaciones 3.png"))); // NOI18N
+        botonBusInc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonEcuaciones3.png"))); // NOI18N
         botonBusInc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonBusIncActionPerformed(evt);
@@ -65,7 +65,7 @@ public class Ecuaciones1Var extends javax.swing.JFrame {
         getContentPane().add(botonBusInc);
         botonBusInc.setBounds(360, 450, 300, 90);
 
-        botonGraficador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ecuaciones 2.png"))); // NOI18N
+        botonGraficador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonEcuaciones2.png"))); // NOI18N
         botonGraficador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonGraficadorActionPerformed(evt);
@@ -74,7 +74,7 @@ public class Ecuaciones1Var extends javax.swing.JFrame {
         getContentPane().add(botonGraficador);
         botonGraficador.setBounds(370, 350, 290, 90);
 
-        botonIntevalo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ecuaciones 4.png"))); // NOI18N
+        botonIntevalo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonEcuaciones4.png"))); // NOI18N
         botonIntevalo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonIntevaloActionPerformed(evt);
@@ -83,7 +83,7 @@ public class Ecuaciones1Var extends javax.swing.JFrame {
         getContentPane().add(botonIntevalo);
         botonIntevalo.setBounds(360, 550, 300, 90);
 
-        botonAbierto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ecuaciones 5.png"))); // NOI18N
+        botonAbierto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonEcuaciones5.png"))); // NOI18N
         botonAbierto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonAbiertoActionPerformed(evt);

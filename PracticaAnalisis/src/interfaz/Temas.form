@@ -28,7 +28,7 @@
     <Component class="javax.swing.JButton" name="botonVolver">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/Boton Regresar.png"/>
+          <Image iconType="3" name="/imagenes/BotonRegresar.png"/>
         </Property>
       </Properties>
       <Events>
@@ -43,7 +43,7 @@
     <Component class="javax.swing.JButton" name="botonEc1Var">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/Boton Temas 1 .png"/>
+          <Image iconType="3" name="/imagenes/BotonTemas1.png"/>
         </Property>
       </Properties>
       <Events>
@@ -58,8 +58,9 @@
     <Component class="javax.swing.JButton" name="botonSisEcu">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/Boton Temas 2.png"/>
+          <Image iconType="3" name="/imagenes/BotonTemas2.png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSisEcuActionPerformed"/>
@@ -73,7 +74,7 @@
     <Component class="javax.swing.JButton" name="botonInterp">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/Boton Temas 3.png"/>
+          <Image iconType="3" name="/imagenes/BotonTemas3.png"/>
         </Property>
       </Properties>
       <Events>
