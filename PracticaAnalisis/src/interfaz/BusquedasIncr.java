@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Daniel Rendon M
@@ -27,21 +29,81 @@ public class BusquedasIncr extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        textXo = new javax.swing.JTextField();
+        textDelta = new javax.swing.JTextField();
+        textIter = new javax.swing.JTextField();
+        botonRegresar = new javax.swing.JButton();
+        botonAyuda = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        textXo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        textXo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textXoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(textXo);
+        textXo.setBounds(540, 280, 290, 50);
+
+        textDelta.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        getContentPane().add(textDelta);
+        textDelta.setBounds(540, 380, 290, 50);
+
+        textIter.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        getContentPane().add(textIter);
+        textIter.setBounds(540, 490, 290, 50);
+
+        botonRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
+        botonRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegresarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonRegresar);
+        botonRegresar.setBounds(40, 40, 80, 80);
+
+        botonAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ayuda.png"))); // NOI18N
+        botonAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAyudaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonAyuda);
+        botonAyuda.setBounds(860, 100, 110, 110);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CalcularBoton.png"))); // NOI18N
+        getContentPane().add(jButton1);
+        jButton1.setBounds(500, 620, 370, 100);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BusquedasIncrementales.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 1024, 768);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void textXoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textXoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textXoActionPerformed
+
+    private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
+        // TODO add your handling code here:
+        Ecuaciones1Var ec = new Ecuaciones1Var();
+        ec.setVisible(true);
+        ec.setSize(1024,768);
+        ec.setResizable(false);
+        ec.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonRegresarActionPerformed
+
+    private void botonAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAyudaActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Este es el texto de ayuda", "AYUDA - Busquedas incrementales", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/CalcularBoton.png")));
+    }//GEN-LAST:event_botonAyudaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +141,12 @@ public class BusquedasIncr extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAyuda;
+    private javax.swing.JButton botonRegresar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField textDelta;
+    private javax.swing.JTextField textIter;
+    private javax.swing.JTextField textXo;
     // End of variables declaration//GEN-END:variables
 }

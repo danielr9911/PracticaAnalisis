@@ -28,7 +28,7 @@
     <Component class="javax.swing.JButton" name="botonVolver">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/BotonRegresar.png"/>
+          <Image iconType="3" name="/imagenes/Boton Regresar.png"/>
         </Property>
       </Properties>
       <Events>
@@ -36,14 +36,14 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="20" y="50" width="180" height="90"/>
+          <AbsoluteConstraints x="30" y="50" width="80" height="80"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="botonEc1Var">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/BotonTemas1.png"/>
+          <Image iconType="3" name="/imagenes/Boton Temas 1 .png"/>
         </Property>
       </Properties>
       <Events>
@@ -58,7 +58,7 @@
     <Component class="javax.swing.JButton" name="botonSisEcu">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/BotonTemas2.png"/>
+          <Image iconType="3" name="/imagenes/Boton Temas 2.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
@@ -67,14 +67,14 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="310" y="370" width="430" height="130"/>
+          <AbsoluteConstraints x="310" y="370" width="430" height="120"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="botonInterp">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/BotonTemas3.png"/>
+          <Image iconType="3" name="/imagenes/Boton Temas 3.png"/>
         </Property>
       </Properties>
       <Events>
@@ -82,7 +82,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="300" y="510" width="440" height="120"/>
+          <AbsoluteConstraints x="310" y="510" width="430" height="120"/>
         </Constraint>
       </Constraints>
     </Component>

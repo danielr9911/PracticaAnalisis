@@ -28,7 +28,7 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/BotonIniciar.png"/>
+          <Image iconType="3" name="/imagenes/Boton Pagina Principal.png"/>
         </Property>
       </Properties>
       <Events>
@@ -36,14 +36,14 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="200" y="230" width="670" height="150"/>
+          <AbsoluteConstraints x="190" y="250" width="630" height="120"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/Home.png"/>
+          <Image iconType="3" name="/imagenes/Pagina Principal.png"/>
         </Property>
       </Properties>
       <Constraints>

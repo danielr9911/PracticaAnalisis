@@ -38,16 +38,16 @@ public class Ecuaciones1Var extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        botonVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonRegresar.png"))); // NOI18N
+        botonVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
         botonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonVolverActionPerformed(evt);
             }
         });
         getContentPane().add(botonVolver);
-        botonVolver.setBounds(20, 650, 190, 90);
+        botonVolver.setBounds(20, 40, 80, 80);
 
-        botonFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonEcuaciones1.png"))); // NOI18N
+        botonFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ecuaciones 1.png"))); // NOI18N
         botonFunciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonFuncionesActionPerformed(evt);
@@ -56,41 +56,41 @@ public class Ecuaciones1Var extends javax.swing.JFrame {
         getContentPane().add(botonFunciones);
         botonFunciones.setBounds(360, 260, 300, 80);
 
-        botonBusInc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonEcuaciones3.png"))); // NOI18N
+        botonBusInc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ecuaciones 3.png"))); // NOI18N
         botonBusInc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonBusIncActionPerformed(evt);
             }
         });
         getContentPane().add(botonBusInc);
-        botonBusInc.setBounds(360, 450, 300, 90);
+        botonBusInc.setBounds(360, 460, 300, 80);
 
-        botonGraficador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonEcuaciones2.png"))); // NOI18N
+        botonGraficador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ecuaciones 2.png"))); // NOI18N
         botonGraficador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonGraficadorActionPerformed(evt);
             }
         });
         getContentPane().add(botonGraficador);
-        botonGraficador.setBounds(370, 350, 290, 90);
+        botonGraficador.setBounds(360, 360, 300, 80);
 
-        botonIntevalo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonEcuaciones4.png"))); // NOI18N
+        botonIntevalo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ecuaciones 4.png"))); // NOI18N
         botonIntevalo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonIntevaloActionPerformed(evt);
             }
         });
         getContentPane().add(botonIntevalo);
-        botonIntevalo.setBounds(360, 550, 300, 90);
+        botonIntevalo.setBounds(360, 560, 300, 80);
 
-        botonAbierto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonEcuaciones5.png"))); // NOI18N
+        botonAbierto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ecuaciones 5.png"))); // NOI18N
         botonAbierto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonAbiertoActionPerformed(evt);
             }
         });
         getContentPane().add(botonAbierto);
-        botonAbierto.setBounds(360, 650, 310, 90);
+        botonAbierto.setBounds(360, 660, 300, 80);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Ecuaciones de una variable.png"))); // NOI18N
         getContentPane().add(jLabel1);
