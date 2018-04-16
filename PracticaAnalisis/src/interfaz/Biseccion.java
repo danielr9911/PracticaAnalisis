@@ -34,10 +34,10 @@ public class Biseccion extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         buttonGroup1 = new javax.swing.ButtonGroup();
-        textXs = new javax.swing.JTextField();
-        textXi = new javax.swing.JTextField();
-        textIteraciones = new javax.swing.JTextField();
-        textTolerancia = new javax.swing.JTextField();
+        xSuperiorBiseccion = new javax.swing.JTextField();
+        xInferiorBiseccion = new javax.swing.JTextField();
+        iteracionesBiseccion = new javax.swing.JTextField();
+        toleranciaBiseccion = new javax.swing.JTextField();
         botonRegresar = new javax.swing.JButton();
         botonAyuda = new javax.swing.JButton();
         botonCalcularBiseccion = new javax.swing.JButton();
@@ -52,31 +52,35 @@ public class Biseccion extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        textXs.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        textXs.addActionListener(new java.awt.event.ActionListener() {
+        xSuperiorBiseccion.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        xSuperiorBiseccion.setSize(new java.awt.Dimension(290, 50));
+        xSuperiorBiseccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textXsActionPerformed(evt);
+                xSuperiorBiseccionActionPerformed(evt);
             }
         });
-        getContentPane().add(textXs);
-        textXs.setBounds(480, 300, 220, 40);
+        getContentPane().add(xSuperiorBiseccion);
+        xSuperiorBiseccion.setBounds(480, 300, 260, 50);
 
-        textXi.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        textXi.addActionListener(new java.awt.event.ActionListener() {
+        xInferiorBiseccion.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        xInferiorBiseccion.setSize(new java.awt.Dimension(290, 50));
+        xInferiorBiseccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textXiActionPerformed(evt);
+                xInferiorBiseccionActionPerformed(evt);
             }
         });
-        getContentPane().add(textXi);
-        textXi.setBounds(480, 240, 220, 40);
+        getContentPane().add(xInferiorBiseccion);
+        xInferiorBiseccion.setBounds(480, 230, 260, 50);
 
-        textIteraciones.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        getContentPane().add(textIteraciones);
-        textIteraciones.setBounds(480, 390, 220, 40);
+        iteracionesBiseccion.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        iteracionesBiseccion.setSize(new java.awt.Dimension(290, 50));
+        getContentPane().add(iteracionesBiseccion);
+        iteracionesBiseccion.setBounds(480, 380, 290, 50);
 
-        textTolerancia.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        getContentPane().add(textTolerancia);
-        textTolerancia.setBounds(480, 470, 220, 40);
+        toleranciaBiseccion.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        toleranciaBiseccion.setSize(new java.awt.Dimension(290, 50));
+        getContentPane().add(toleranciaBiseccion);
+        toleranciaBiseccion.setBounds(480, 450, 260, 50);
 
         botonRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
         botonRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -131,13 +135,13 @@ public class Biseccion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textXsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textXsActionPerformed
+    private void xSuperiorBiseccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xSuperiorBiseccionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textXsActionPerformed
+    }//GEN-LAST:event_xSuperiorBiseccionActionPerformed
 
-    private void textXiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textXiActionPerformed
+    private void xInferiorBiseccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xInferiorBiseccionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textXiActionPerformed
+    }//GEN-LAST:event_xInferiorBiseccionActionPerformed
 
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
         // TODO add your handling code here:
@@ -151,7 +155,7 @@ public class Biseccion extends javax.swing.JFrame {
 
     private void botonAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAyudaActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, null, "AYUDA - Busquedas incrementales", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/Biseccion Ayuda.png")));
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Biseccion", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/Biseccion Ayuda.png")));
     }//GEN-LAST:event_botonAyudaActionPerformed
 
     private void botonCalcularBiseccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularBiseccionActionPerformed
@@ -214,12 +218,12 @@ public class Biseccion extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton errorABSBiseccion;
     private javax.swing.JRadioButton errorRelBiseccion;
+    private javax.swing.JTextField iteracionesBiseccion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField textIteraciones;
-    private javax.swing.JTextField textTolerancia;
-    private javax.swing.JTextField textXi;
-    private javax.swing.JTextField textXs;
+    private javax.swing.JTextField toleranciaBiseccion;
+    private javax.swing.JTextField xInferiorBiseccion;
+    private javax.swing.JTextField xSuperiorBiseccion;
     // End of variables declaration//GEN-END:variables
 }
