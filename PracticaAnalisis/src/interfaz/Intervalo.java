@@ -27,21 +27,65 @@ public class Intervalo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        botonBiseccion = new javax.swing.JButton();
+        botonReglaFalsa = new javax.swing.JButton();
+        botonRegresarIntervalo = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLabel1.setText("jLabel1");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        botonBiseccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonBiseccion.png"))); // NOI18N
+        botonBiseccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBiseccionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonBiseccion);
+        botonBiseccion.setBounds(220, 350, 630, 150);
+
+        botonReglaFalsa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonReglaFalsa.png"))); // NOI18N
+        getContentPane().add(botonReglaFalsa);
+        botonReglaFalsa.setBounds(220, 550, 630, 160);
+
+        botonRegresarIntervalo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
+        botonRegresarIntervalo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegresarIntervaloActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonRegresarIntervalo);
+        botonRegresarIntervalo.setBounds(50, 90, 80, 80);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/MetodosPorIntervalo.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 1024, 768);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonBiseccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBiseccionActionPerformed
+        // TODO add your handling code here:
+        Biseccion biseccion = new Biseccion();
+        biseccion.setVisible(true);
+        biseccion.setSize(1024,768);
+        biseccion.setResizable(false);
+        biseccion.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonBiseccionActionPerformed
+
+    private void botonRegresarIntervaloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarIntervaloActionPerformed
+        // TODO add your handling code here:
+        Ecuaciones1Var ec = new Ecuaciones1Var();
+        ec.setVisible(true);
+        ec.setSize(1024,768);
+        ec.setResizable(false);
+        ec.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonRegresarIntervaloActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +123,10 @@ public class Intervalo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonBiseccion;
+    private javax.swing.JButton botonReglaFalsa;
+    private javax.swing.JButton botonRegresarIntervalo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
