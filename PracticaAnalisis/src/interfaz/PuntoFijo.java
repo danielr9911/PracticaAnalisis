@@ -131,7 +131,7 @@ public class PuntoFijo extends javax.swing.JFrame {
 
     private void botonRegresarPuntoFijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarPuntoFijoActionPerformed
         // TODO add your handling code here:
-        Abiertos abiertos = new Abiertos();
+        Abierto abiertos = new Abierto();
         abiertos.setVisible(true);
         abiertos.setSize(1024,768);
         abiertos.setResizable(false);

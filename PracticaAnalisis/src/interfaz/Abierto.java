@@ -38,6 +38,11 @@ public class Abierto extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         botonPuntoFijo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonPuntoFijo.png"))); // NOI18N
+        botonPuntoFijo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonPuntoFijoActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonPuntoFijo);
         botonPuntoFijo.setBounds(180, 300, 630, 100);
 
@@ -89,6 +94,16 @@ public class Abierto extends javax.swing.JFrame {
         ec.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_botonRegresarMetodosAbiertosActionPerformed
+
+    private void botonPuntoFijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPuntoFijoActionPerformed
+        // TODO add your handling code here:
+        PuntoFijo pf = new PuntoFijo();
+        pf.setVisible(true);
+        pf.setSize(1024,768);
+        pf.setResizable(false);
+        pf.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonPuntoFijoActionPerformed
 
     /**
      * @param args the command line arguments
