@@ -48,6 +48,11 @@ public class Intervalo extends javax.swing.JFrame {
         botonBiseccion.setBounds(220, 350, 630, 150);
 
         botonReglaFalsa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonReglaFalsa.png"))); // NOI18N
+        botonReglaFalsa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonReglaFalsaActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonReglaFalsa);
         botonReglaFalsa.setBounds(220, 550, 630, 160);
 
@@ -86,6 +91,16 @@ public class Intervalo extends javax.swing.JFrame {
         ec.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_botonRegresarIntervaloActionPerformed
+
+    private void botonReglaFalsaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReglaFalsaActionPerformed
+        // TODO add your handling code here:
+        ReglaFalsa reglf = new ReglaFalsa();
+        reglf.setVisible(true);
+        reglf.setSize(1024,768);
+        reglf.setResizable(false);
+        reglf.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonReglaFalsaActionPerformed
 
     /**
      * @param args the command line arguments

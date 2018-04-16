@@ -102,7 +102,7 @@ public class BusquedasIncr extends javax.swing.JFrame {
 
     private void botonAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAyudaActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Este es el texto de ayuda", "AYUDA - Busquedas incrementales", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/CalcularBoton.png")));
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Busquedas incrementales", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/Busquedas Incrementales Ayuda.png")));
     }//GEN-LAST:event_botonAyudaActionPerformed
 
     /**
