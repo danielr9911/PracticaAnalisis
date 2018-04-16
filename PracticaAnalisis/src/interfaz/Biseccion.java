@@ -156,6 +156,12 @@ public class Biseccion extends javax.swing.JFrame {
 
     private void botonCalcularBiseccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularBiseccionActionPerformed
         // TODO add your handling code here:
+        ResultadosBiseccion resultadosBiseccion = new ResultadosBiseccion();
+        resultadosBiseccion.setVisible(true);
+        resultadosBiseccion.setSize(1024,768);
+        resultadosBiseccion.setResizable(false);
+        resultadosBiseccion.setLocationRelativeTo(null);
+        dispose();
     }//GEN-LAST:event_botonCalcularBiseccionActionPerformed
 
     private void errorRelBiseccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_errorRelBiseccionActionPerformed
