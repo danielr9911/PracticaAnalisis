@@ -5,6 +5,8 @@
  */
 package practicaanalisis;
 
+import interfaz.Home;
+
 /**
  *
  * @author Daniel Rendon M
@@ -16,6 +18,12 @@ public class PracticaAnalisis {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        System.out.println("Starting...");
+        Home home = new Home();
+        home.setVisible(true);
+        home.setSize(1024,768);
+        home.setResizable(false);
+        home.setLocationRelativeTo(null);
     }
     
 }
