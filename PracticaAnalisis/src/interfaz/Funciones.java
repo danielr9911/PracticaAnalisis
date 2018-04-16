@@ -28,11 +28,11 @@ public class Funciones extends javax.swing.JFrame {
     private void initComponents() {
 
         fx = new javax.swing.JTextField();
+        botonGuardarFunciones = new javax.swing.JButton();
+        botonRegresarFunciones = new javax.swing.JButton();
         gx = new javax.swing.JTextField();
         fPrimaX = new javax.swing.JTextField();
         fDoblePrimaX = new javax.swing.JTextField();
-        botonGuardarFunciones = new javax.swing.JButton();
-        botonRegresarFunciones = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,23 +41,6 @@ public class Funciones extends javax.swing.JFrame {
         fx.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(fx);
         fx.setBounds(230, 290, 660, 50);
-
-        gx.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        gx.setPreferredSize(new java.awt.Dimension(290, 50));
-        gx.setSize(new java.awt.Dimension(660, 50));
-        getContentPane().add(gx);
-        gx.setBounds(230, 360, 290, 50);
-
-        fPrimaX.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        fPrimaX.setSize(new java.awt.Dimension(660, 50));
-        getContentPane().add(fPrimaX);
-        fPrimaX.setBounds(230, 430, 290, 50);
-
-        fDoblePrimaX.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        fDoblePrimaX.setPreferredSize(new java.awt.Dimension(290, 50));
-        fDoblePrimaX.setSize(new java.awt.Dimension(660, 50));
-        getContentPane().add(fDoblePrimaX);
-        fDoblePrimaX.setBounds(230, 510, 290, 50);
 
         botonGuardarFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/GuardarBoton.png"))); // NOI18N
         getContentPane().add(botonGuardarFunciones);
@@ -71,6 +54,21 @@ public class Funciones extends javax.swing.JFrame {
         });
         getContentPane().add(botonRegresarFunciones);
         botonRegresarFunciones.setBounds(50, 100, 80, 80);
+
+        gx.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        gx.setSize(new java.awt.Dimension(660, 50));
+        getContentPane().add(gx);
+        gx.setBounds(230, 360, 660, 50);
+
+        fPrimaX.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        fPrimaX.setSize(new java.awt.Dimension(660, 50));
+        getContentPane().add(fPrimaX);
+        fPrimaX.setBounds(230, 430, 660, 50);
+
+        fDoblePrimaX.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        fDoblePrimaX.setSize(new java.awt.Dimension(660, 50));
+        getContentPane().add(fDoblePrimaX);
+        fDoblePrimaX.setBounds(230, 510, 660, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Funciones.png"))); // NOI18N
         getContentPane().add(jLabel1);
