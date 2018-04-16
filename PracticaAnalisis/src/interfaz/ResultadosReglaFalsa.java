@@ -38,6 +38,11 @@ public class ResultadosReglaFalsa extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         xInferiorResultadosReglaFalsa.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        xInferiorResultadosReglaFalsa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xInferiorResultadosReglaFalsaActionPerformed(evt);
+            }
+        });
         getContentPane().add(xInferiorResultadosReglaFalsa);
         xInferiorResultadosReglaFalsa.setBounds(230, 100, 240, 50);
 
@@ -81,6 +86,10 @@ public class ResultadosReglaFalsa extends javax.swing.JFrame {
         reglaFalsa.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_botonRegresarResultadosReglaFalsaActionPerformed
+
+    private void xInferiorResultadosReglaFalsaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xInferiorResultadosReglaFalsaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_xInferiorResultadosReglaFalsaActionPerformed
 
     /**
      * @param args the command line arguments

@@ -83,6 +83,12 @@ public class Abierto extends javax.swing.JFrame {
 
     private void botonNewtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNewtonActionPerformed
         // TODO add your handling code here:
+        Newton newton = new Newton();
+        newton.setVisible(true);
+        newton.setSize(1024,768);
+        newton.setResizable(false);
+        newton.setLocationRelativeTo(null);
+        dispose();
     }//GEN-LAST:event_botonNewtonActionPerformed
 
     private void botonRegresarMetodosAbiertosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarMetodosAbiertosActionPerformed
