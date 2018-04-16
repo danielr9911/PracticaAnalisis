@@ -57,11 +57,21 @@ public class Abierto extends javax.swing.JFrame {
 
         botonSecante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonSecante.png"))); // NOI18N
         botonSecante.setToolTipText("");
+        botonSecante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSecanteActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonSecante);
         botonSecante.setBounds(180, 530, 630, 110);
 
         botonRaicesMultiples.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonRaicesMultiples.png"))); // NOI18N
         botonRaicesMultiples.setToolTipText("");
+        botonRaicesMultiples.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRaicesMultiplesActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonRaicesMultiples);
         botonRaicesMultiples.setBounds(177, 639, 630, 110);
 
@@ -110,6 +120,26 @@ public class Abierto extends javax.swing.JFrame {
         pf.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_botonPuntoFijoActionPerformed
+
+    private void botonSecanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSecanteActionPerformed
+        // TODO add your handling code here:
+        Secante secante = new Secante();
+        secante.setVisible(true);
+        secante.setSize(1024,768);
+        secante.setResizable(false);
+        secante.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonSecanteActionPerformed
+
+    private void botonRaicesMultiplesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRaicesMultiplesActionPerformed
+        // TODO add your handling code here:
+        RaicesMultiples raicesMultiples = new RaicesMultiples();
+        raicesMultiples.setVisible(true);
+        raicesMultiples.setSize(1024,768);
+        raicesMultiples.setResizable(false);
+        raicesMultiples.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonRaicesMultiplesActionPerformed
 
     /**
      * @param args the command line arguments
