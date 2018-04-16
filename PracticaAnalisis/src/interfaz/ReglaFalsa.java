@@ -103,6 +103,11 @@ public class ReglaFalsa extends javax.swing.JFrame {
         botonAyudaReglaFalsa.setBounds(890, 60, 110, 110);
 
         botonCalcularReglaFalsa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CalcularBoton.png"))); // NOI18N
+        botonCalcularReglaFalsa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCalcularReglaFalsaActionPerformed(evt);
+            }
+        });
         add(botonCalcularReglaFalsa);
         botonCalcularReglaFalsa.setBounds(350, 650, 380, 100);
 
@@ -137,6 +142,16 @@ public class ReglaFalsa extends javax.swing.JFrame {
         inter.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_botonRegresarReglaFalsaActionPerformed
+
+    private void botonCalcularReglaFalsaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularReglaFalsaActionPerformed
+        // TODO add your handling code here:
+        ResultadosReglaFalsa RreglaFalsa = new ResultadosReglaFalsa();
+        RreglaFalsa.setVisible(true);
+        RreglaFalsa.setSize(1024,768);
+        RreglaFalsa.setResizable(false);
+        RreglaFalsa.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonCalcularReglaFalsaActionPerformed
     
     private void groupButton(){
         ButtonGroup bgroup = new ButtonGroup();
