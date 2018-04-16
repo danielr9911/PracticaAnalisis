@@ -27,21 +27,67 @@ public class Funciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        fx = new javax.swing.JTextField();
+        gx = new javax.swing.JTextField();
+        fPrimaX = new javax.swing.JTextField();
+        fDoblePrimaX = new javax.swing.JTextField();
+        botonGuardarFunciones = new javax.swing.JButton();
+        botonRegresarFunciones = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        fx.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        getContentPane().add(fx);
+        fx.setBounds(230, 290, 660, 50);
+
+        gx.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        gx.setPreferredSize(new java.awt.Dimension(290, 50));
+        gx.setSize(new java.awt.Dimension(660, 50));
+        getContentPane().add(gx);
+        gx.setBounds(230, 360, 290, 50);
+
+        fPrimaX.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        fPrimaX.setSize(new java.awt.Dimension(660, 50));
+        getContentPane().add(fPrimaX);
+        fPrimaX.setBounds(230, 430, 290, 50);
+
+        fDoblePrimaX.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        fDoblePrimaX.setPreferredSize(new java.awt.Dimension(290, 50));
+        fDoblePrimaX.setSize(new java.awt.Dimension(660, 50));
+        getContentPane().add(fDoblePrimaX);
+        fDoblePrimaX.setBounds(230, 510, 290, 50);
+
+        botonGuardarFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/GuardarBoton.png"))); // NOI18N
+        getContentPane().add(botonGuardarFunciones);
+        botonGuardarFunciones.setBounds(340, 640, 380, 100);
+
+        botonRegresarFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
+        botonRegresarFunciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegresarFuncionesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonRegresarFunciones);
+        botonRegresarFunciones.setBounds(50, 100, 80, 80);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Funciones.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 1024, 768);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonRegresarFuncionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarFuncionesActionPerformed
+        // TODO add your handling code here:
+        Ecuaciones1Var ec = new Ecuaciones1Var();
+        ec.setVisible(true);
+        ec.setSize(1024,768);
+        ec.setResizable(false);
+        ec.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonRegresarFuncionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +125,12 @@ public class Funciones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonGuardarFunciones;
+    private javax.swing.JButton botonRegresarFunciones;
+    private javax.swing.JTextField fDoblePrimaX;
+    private javax.swing.JTextField fPrimaX;
+    private javax.swing.JTextField fx;
+    private javax.swing.JTextField gx;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
