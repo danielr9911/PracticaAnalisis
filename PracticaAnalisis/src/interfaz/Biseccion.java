@@ -8,6 +8,7 @@ package interfaz;
 import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
+import static practicaanalisis.Funcion.callFunction;
 
 /**
  *
@@ -53,34 +54,30 @@ public class Biseccion extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         xSuperiorBiseccion.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        xSuperiorBiseccion.setSize(new java.awt.Dimension(290, 50));
         xSuperiorBiseccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 xSuperiorBiseccionActionPerformed(evt);
             }
         });
         getContentPane().add(xSuperiorBiseccion);
-        xSuperiorBiseccion.setBounds(480, 300, 260, 50);
+        xSuperiorBiseccion.setBounds(480, 300, 290, 50);
 
         xInferiorBiseccion.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        xInferiorBiseccion.setSize(new java.awt.Dimension(290, 50));
         xInferiorBiseccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 xInferiorBiseccionActionPerformed(evt);
             }
         });
         getContentPane().add(xInferiorBiseccion);
-        xInferiorBiseccion.setBounds(480, 230, 260, 50);
+        xInferiorBiseccion.setBounds(480, 230, 290, 50);
 
         iteracionesBiseccion.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        iteracionesBiseccion.setSize(new java.awt.Dimension(290, 50));
         getContentPane().add(iteracionesBiseccion);
         iteracionesBiseccion.setBounds(480, 380, 290, 50);
 
         toleranciaBiseccion.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        toleranciaBiseccion.setSize(new java.awt.Dimension(290, 50));
         getContentPane().add(toleranciaBiseccion);
-        toleranciaBiseccion.setBounds(480, 450, 260, 50);
+        toleranciaBiseccion.setBounds(480, 450, 290, 50);
 
         botonRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
         botonRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -160,12 +157,42 @@ public class Biseccion extends javax.swing.JFrame {
 
     private void botonCalcularBiseccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularBiseccionActionPerformed
         // TODO add your handling code here:
-        ResultadosBiseccion resultadosBiseccion = new ResultadosBiseccion();
-        resultadosBiseccion.setVisible(true);
-        resultadosBiseccion.setSize(1024,768);
-        resultadosBiseccion.setResizable(false);
-        resultadosBiseccion.setLocationRelativeTo(null);
-        dispose();
+        
+        double xi = Double.parseDouble(xInferiorBiseccion.getText());
+        double xs = Double.parseDouble(xSuperiorBiseccion.getText());
+        int iter = Integer.parseInt(iteracionesBiseccion.getText());
+        int tol = Integer.parseInt(toleranciaBiseccion.getText());
+        errorABSBiseccion.setActionCommand("0");
+        errorRelBiseccion.setActionCommand("1");
+        int err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        
+        String mensaje = "";
+        double fxi = callFunction("f", xi);
+        double fxs = callFunction("f", xs);
+        if (fxi == 0){
+            mensaje = xi + " es una raiz";
+        }else if (fxs == 0){
+            mensaje = xs + " es una raiz";
+        }else if(fxi * fxs > 0){
+            mensaje = "El intervalo ingresado no es valido";
+        }else if (iter <= 0){
+            mensaje = "El numero de iteraciones debe de ser mayor a cero";
+        }else if(tol <= 0){
+            mensaje = "La tolerancia debe de ser mayor a cero";
+        }else {
+            
+            //Conexion con Python
+            
+            
+            ResultadosBiseccion resultadosBiseccion = new ResultadosBiseccion();
+            resultadosBiseccion.setVisible(true);
+            resultadosBiseccion.setSize(1024,768);
+            resultadosBiseccion.setResizable(false);
+            resultadosBiseccion.setLocationRelativeTo(null);
+            dispose();
+        }
+        JOptionPane.showMessageDialog(rootPane, mensaje);
+        
     }//GEN-LAST:event_botonCalcularBiseccionActionPerformed
 
     private void errorRelBiseccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_errorRelBiseccionActionPerformed

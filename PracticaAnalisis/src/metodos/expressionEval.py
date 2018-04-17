@@ -1,8 +1,13 @@
 from py_expression_eval import Parser
 
-if __name__ == '__main__':
-    parser = Parser()
-    exp = "2+2"
-    eval = parser.parse(exp)
-    res = eval.evaluate({})
-    print (res)
+class ExpressionEval:
+    __gui = None
+
+    def __init__(self, gui):
+        self.__gui = gui
+
+    def funcion(func,i):
+        parser = Parser()
+        funcion = parser.parse(func)
+        res = funcion.evaluate({"x": i})
+        return res

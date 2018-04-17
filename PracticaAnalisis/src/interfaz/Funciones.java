@@ -5,6 +5,9 @@
  */
 package interfaz;
 
+import javax.swing.JOptionPane;
+import practicaanalisis.Funcion;
+
 /**
  *
  * @author Daniel Rendon M
@@ -16,6 +19,10 @@ public class Funciones extends javax.swing.JFrame {
      */
     public Funciones() {
         initComponents();
+        fx.setText(Funcion.f);
+        fPrimaX.setText(Funcion.df);
+        fDoblePrimaX.setText(Funcion.ddf);
+        gx.setText(Funcion.g);
     }
 
     /**
@@ -43,6 +50,11 @@ public class Funciones extends javax.swing.JFrame {
         fx.setBounds(230, 290, 660, 50);
 
         botonGuardarFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/GuardarBoton.png"))); // NOI18N
+        botonGuardarFunciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGuardarFuncionesActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonGuardarFunciones);
         botonGuardarFunciones.setBounds(340, 640, 380, 100);
 
@@ -56,17 +68,14 @@ public class Funciones extends javax.swing.JFrame {
         botonRegresarFunciones.setBounds(50, 100, 80, 80);
 
         gx.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        gx.setSize(new java.awt.Dimension(660, 50));
         getContentPane().add(gx);
         gx.setBounds(230, 360, 660, 50);
 
         fPrimaX.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        fPrimaX.setSize(new java.awt.Dimension(660, 50));
         getContentPane().add(fPrimaX);
         fPrimaX.setBounds(230, 430, 660, 50);
 
         fDoblePrimaX.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        fDoblePrimaX.setSize(new java.awt.Dimension(660, 50));
         getContentPane().add(fDoblePrimaX);
         fDoblePrimaX.setBounds(230, 510, 660, 50);
 
@@ -86,6 +95,21 @@ public class Funciones extends javax.swing.JFrame {
         ec.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_botonRegresarFuncionesActionPerformed
+
+    private void botonGuardarFuncionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarFuncionesActionPerformed
+        // TODO add your handling code here:
+        String funF = fx.getText();
+        String funDF = fPrimaX.getText();
+        String funDDF = fDoblePrimaX.getText();
+        String funG = gx.getText();
+        
+        Funcion.setF(funF);
+        Funcion.setDF(funDF);
+        Funcion.setDDF(funDDF);
+        Funcion.setG(funG);
+        
+        JOptionPane.showMessageDialog(rootPane, "Funciones guardadas exitosamente");
+    }//GEN-LAST:event_botonGuardarFuncionesActionPerformed
 
     /**
      * @param args the command line arguments

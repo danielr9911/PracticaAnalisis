@@ -13,6 +13,8 @@ import interfaz.Home;
  */
 public class PracticaAnalisis {
 
+    
+    
     /**
      * @param args the command line arguments
      */
