@@ -1,10 +1,35 @@
+from py_expression_eval import Parser
+
 def f(i):
-    return i+1
+    sFuncion = "x*log(x)-x"
+    parser = Parser()
+    funcion = parser.parse(sFuncion)
+    res = funcion.evaluate({"x": i})
+    return res
 
 def df(i):
-    return i+1
+    sFuncion = "log(x)"
+    parser = Parser()
+    funcion = parser.parse(sFuncion)
+    res = funcion.evaluate({"x": i})
+    return res
 
-def newton(self, x0, tol, iter):
+def ddf(i):
+    sFuncion = "1/x"
+    parser = Parser()
+    funcion = parser.parse(sFuncion)
+    res = funcion.evaluate({"x": i})
+    return res
+
+def g(i):
+    sFuncion = "x*log(x)"
+    parser = Parser()
+    funcion = parser.parse(sFuncion)
+    res = funcion.evaluate({"x": i})
+    return res
+
+
+def newton(x0, tol, iter):
     fx = f(x0)
     dfx = df(x0)
     cont = 0
@@ -22,3 +47,6 @@ def newton(self, x0, tol, iter):
         print(x1, " es aproximación a una raíz con una tolerancia de ", tol)
     else:
         print("Fracaso en ", iter, " iteraciones")
+
+if __name__ == '__main__':
+    print (newton(x0=2.5,tol=0.0005,iter=11))

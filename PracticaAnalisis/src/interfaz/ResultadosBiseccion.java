@@ -14,9 +14,26 @@ public class ResultadosBiseccion extends javax.swing.JFrame {
     /**
      * Creates new form ResultadosBiseccion
      */
-    public ResultadosBiseccion() {
+    public ResultadosBiseccion(double xi, double xs, double tol, double iter, Double[][] dat, String res) {
         initComponents();
+        tableBiseccion.setModel(new javax.swing.table.DefaultTableModel(
+            dat,
+            new String [] {
+                "n", "Xi", "Xs", "Xm", "f(Xm)", "Error"
+            }
+        ));
+        textResultado.setText(res);
+        valorInicialIntervaloABiseccion.setText(String.valueOf(xi));
+        valorInicialIntervaloBBiseccion.setText(String.valueOf(xs));
+        iteracionesBiseccion.setText(String.valueOf(iter));
+        toleranciaBiseccion.setText(String.valueOf(tol));
+        valorInicialIntervaloABiseccion.setEditable(false);
+        valorInicialIntervaloBBiseccion.setEditable(false);
+        iteracionesBiseccion.setEditable(false);
+        toleranciaBiseccion.setEditable(false);
     }
+    
+            
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,6 +49,9 @@ public class ResultadosBiseccion extends javax.swing.JFrame {
         iteracionesBiseccion = new javax.swing.JTextField();
         toleranciaBiseccion = new javax.swing.JTextField();
         botonRegresarResultadosBiseccion = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableBiseccion = new javax.swing.JTable();
+        textResultado = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,6 +87,28 @@ public class ResultadosBiseccion extends javax.swing.JFrame {
         getContentPane().add(botonRegresarResultadosBiseccion);
         botonRegresarResultadosBiseccion.setBounds(40, 50, 80, 80);
 
+        tableBiseccion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tableBiseccion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tableBiseccion);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(80, 280, 840, 180);
+
+        textResultado.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        textResultado.setText("jLabel2");
+        getContentPane().add(textResultado);
+        textResultado.setBounds(90, 580, 820, 70);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Resultado Biseccion.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1030, 710);
@@ -87,46 +129,19 @@ public class ResultadosBiseccion extends javax.swing.JFrame {
         biseccion.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_botonRegresarResultadosBiseccionActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResultadosBiseccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResultadosBiseccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResultadosBiseccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResultadosBiseccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ResultadosBiseccion().setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresarResultadosBiseccion;
     private javax.swing.JTextField iteracionesBiseccion;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tableBiseccion;
+    private javax.swing.JLabel textResultado;
     private javax.swing.JTextField toleranciaBiseccion;
     private javax.swing.JTextField valorInicialIntervaloABiseccion;
     private javax.swing.JTextField valorInicialIntervaloBBiseccion;

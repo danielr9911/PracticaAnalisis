@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package practicaanalisis;
+import java.util.Properties;
 import org.python.core.PyInstance; 
 import org.python.util.PythonInterpreter; 
 
@@ -14,7 +15,7 @@ import org.python.util.PythonInterpreter;
 public class PythonConnection {
     PythonInterpreter interpreter = null;  
 
-   public PythonConnection(){  
+   public PythonConnection(){
       PythonInterpreter.initialize(System.getProperties(),  
                                    System.getProperties(), new String[0]);  
 

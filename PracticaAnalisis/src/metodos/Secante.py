@@ -1,7 +1,34 @@
-def f(i):
-    return i+1
+from py_expression_eval import Parser
 
-def secante(self, x0, x1, Tol, iteraciones):
+def f(i):
+    sFuncion = "x*log(x)-x"
+    parser = Parser()
+    funcion = parser.parse(sFuncion)
+    res = funcion.evaluate({"x": i})
+    return res
+
+def df(i):
+    sFuncion = "log(x)"
+    parser = Parser()
+    funcion = parser.parse(sFuncion)
+    res = funcion.evaluate({"x": i})
+    return res
+
+def ddf(i):
+    sFuncion = "1/x"
+    parser = Parser()
+    funcion = parser.parse(sFuncion)
+    res = funcion.evaluate({"x": i})
+    return res
+
+def g(i):
+    sFuncion = "x*log(x)"
+    parser = Parser()
+    funcion = parser.parse(sFuncion)
+    res = funcion.evaluate({"x": i})
+    return res
+
+def secante(x0, x1, Tol, iteraciones):
     fx0 = f(x0)
     if (fx0 == 0):
         print (x0 ,"es raíz")
@@ -27,3 +54,6 @@ def secante(self, x0, x1, Tol, iteraciones):
         print("Hay una posible raíz múltiple")
     else:
         print("fracaso en", iteraciones, "iteraciones")
+
+if __name__ == '__main__':
+    print (secante(x0=2.5,x1=3.0,Tol=0.0005,iteraciones=11))

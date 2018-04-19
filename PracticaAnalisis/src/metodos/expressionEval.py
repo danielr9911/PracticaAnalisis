@@ -1,4 +1,4 @@
-from py_expression_eval import Parser
+import py_expression_eval
 
 class ExpressionEval:
     __gui = None
@@ -7,7 +7,7 @@ class ExpressionEval:
         self.__gui = gui
 
     def funcion(func,i):
-        parser = Parser()
+        parser = py_expression_eval.Parser()
         funcion = parser.parse(func)
         res = funcion.evaluate({"x": i})
         return res

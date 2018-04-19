@@ -2,7 +2,28 @@ from py_expression_eval import Parser
 
 
 def f(i):
-    sFuncion = "exp(3*x-12) + x*cos(3*x) - x^2 + 4"
+    sFuncion = "x*log(x)-x"
+    parser = Parser()
+    funcion = parser.parse(sFuncion)
+    res = funcion.evaluate({"x": i})
+    return res
+
+def df(i):
+    sFuncion = "log(x)"
+    parser = Parser()
+    funcion = parser.parse(sFuncion)
+    res = funcion.evaluate({"x": i})
+    return res
+
+def ddf(i):
+    sFuncion = "1/x"
+    parser = Parser()
+    funcion = parser.parse(sFuncion)
+    res = funcion.evaluate({"x": i})
+    return res
+
+def g(i):
+    sFuncion = "x*log(x)"
     parser = Parser()
     funcion = parser.parse(sFuncion)
     res = funcion.evaluate({"x": i})
@@ -61,4 +82,4 @@ def biseccion(xi, xs, tol, iter):
 
 
 if __name__ == '__main__':
-    print (biseccion(xi=2,xs=3,tol=0.0005,iter=11))
+    print (biseccion(xi=2.6,xs=3.1,tol=0.0005,iter=11))

@@ -9,6 +9,7 @@ import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import static practicaanalisis.Funcion.callFunction;
+import practicaanalisis.Metodos;
 
 /**
  *
@@ -160,13 +161,15 @@ public class Biseccion extends javax.swing.JFrame {
         
         double xi = Double.parseDouble(xInferiorBiseccion.getText());
         double xs = Double.parseDouble(xSuperiorBiseccion.getText());
+        double tol = Double.parseDouble(toleranciaBiseccion.getText());
         int iter = Integer.parseInt(iteracionesBiseccion.getText());
-        int tol = Integer.parseInt(toleranciaBiseccion.getText());
         errorABSBiseccion.setActionCommand("0");
         errorRelBiseccion.setActionCommand("1");
         int err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
         
         String mensaje = "";
+        boolean correct = false;
+        Double[][] data = null;
         double fxi = callFunction("f", xi);
         double fxs = callFunction("f", xs);
         if (fxi == 0){
@@ -180,18 +183,24 @@ public class Biseccion extends javax.swing.JFrame {
         }else if(tol <= 0){
             mensaje = "La tolerancia debe de ser mayor a cero";
         }else {
+            Metodos.biseccion(xi,xs, iter, tol);
+            //Resultados
+            System.out.println("Ejecuto biseccion");
+            data = Metodos.data;
+            mensaje = Metodos.mens;
             
-            //Conexion con Python
-            
-            
-            ResultadosBiseccion resultadosBiseccion = new ResultadosBiseccion();
+            ResultadosBiseccion resultadosBiseccion = new ResultadosBiseccion(xi, xs,tol, iter, data,mensaje);
             resultadosBiseccion.setVisible(true);
             resultadosBiseccion.setSize(1024,768);
             resultadosBiseccion.setResizable(false);
             resultadosBiseccion.setLocationRelativeTo(null);
             dispose();
+            correct = true;
         }
-        JOptionPane.showMessageDialog(rootPane, mensaje);
+        if (!correct){
+            JOptionPane.showMessageDialog(rootPane, mensaje);
+        }
+        
         
     }//GEN-LAST:event_botonCalcularBiseccionActionPerformed
 

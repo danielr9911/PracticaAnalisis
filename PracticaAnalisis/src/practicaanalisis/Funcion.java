@@ -39,16 +39,16 @@ public class Funcion {
         double result;
         switch(fun){
             case "f":
-                result = pythonConn(f,x);
+                result = funcion(f,x);
                 break;
             case "df":
-                result = pythonConn(df,x);
+                result = funcion(df,x);
                 break;
             case "ddf":
-                result = pythonConn(ddf,x);
+                result = funcion(ddf,x);
                 break;
             case "g":
-                result = pythonConn(g,x);
+                result = funcion(g,x);
                 break;
             default:
                 result = 0;
@@ -57,7 +57,7 @@ public class Funcion {
         return result;
     }
     
-    public static double pythonConn(String fun, double x){
+    public static double funcion(String fun, double x){
         PyString pfun = new PyString(fun);
         PyFloat px = new PyFloat(x);
         PyObject res = ee.invoke("funcion", pfun, px);
@@ -67,7 +67,7 @@ public class Funcion {
     
     public static void init(){
         PythonConnection pc = new PythonConnection();  
-        pc.execfile("src\\metodos\\expressionEval.py");  
-        ee = pc.createClass("ExpressionEval", "None"); 
+        pc.execfile("src\\metodos\\Metodos.py");  
+        ee = pc.createClass("Metodos", "None"); 
     }
 }
