@@ -5,6 +5,9 @@
  */
 package interfaz;
 
+import javax.swing.JOptionPane;
+import practicaanalisis.Metodos;
+
 /**
  *
  * @author carlosruiz
@@ -37,20 +40,18 @@ public class RaicesMultiples extends javax.swing.JFrame{
         jRadioButton2 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setLayout(null);
+        getContentPane().setLayout(null);
 
         x0RaicesMultiples.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        x0RaicesMultiples.setSize(new java.awt.Dimension(610, 45));
-        add(x0RaicesMultiples);
-        x0RaicesMultiples.setBounds(240, 225, 610, 45);
+        getContentPane().add(x0RaicesMultiples);
+        x0RaicesMultiples.setBounds(370, 225, 480, 45);
 
         iteracionesRaicesMultiples.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        add(iteracionesRaicesMultiples);
+        getContentPane().add(iteracionesRaicesMultiples);
         iteracionesRaicesMultiples.setBounds(370, 315, 480, 40);
 
         toleranciaRaicesMultiples.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        toleranciaRaicesMultiples.setSize(new java.awt.Dimension(480, 45));
-        add(toleranciaRaicesMultiples);
+        getContentPane().add(toleranciaRaicesMultiples);
         toleranciaRaicesMultiples.setBounds(370, 415, 480, 45);
 
         botonRegresarRaicesMultiples.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
@@ -59,7 +60,7 @@ public class RaicesMultiples extends javax.swing.JFrame{
                 botonRegresarRaicesMultiplesActionPerformed(evt);
             }
         });
-        add(botonRegresarRaicesMultiples);
+        getContentPane().add(botonRegresarRaicesMultiples);
         botonRegresarRaicesMultiples.setBounds(60, 50, 80, 80);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CalcularBoton.png"))); // NOI18N
@@ -68,19 +69,19 @@ public class RaicesMultiples extends javax.swing.JFrame{
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1);
+        getContentPane().add(jButton1);
         jButton1.setBounds(340, 589, 380, 100);
 
         buttonGroup1.add(jRadioButton1);
-        add(jRadioButton1);
-        jRadioButton1.setBounds(420, 520, 30, 23);
+        getContentPane().add(jRadioButton1);
+        jRadioButton1.setBounds(420, 520, 30, 21);
 
         buttonGroup1.add(jRadioButton2);
-        add(jRadioButton2);
-        jRadioButton2.setBounds(800, 520, 28, 23);
+        getContentPane().add(jRadioButton2);
+        jRadioButton2.setBounds(800, 520, 21, 21);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/RaicesMultiples.png"))); // NOI18N
-        add(jLabel1);
+        getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1024, 768);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -96,12 +97,41 @@ public class RaicesMultiples extends javax.swing.JFrame{
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        ResultadosRaicesMultiples resultadosRaicesMultiples = new ResultadosRaicesMultiples();
-        resultadosRaicesMultiples.setVisible(true);
-        resultadosRaicesMultiples.setSize(1024,768);
-        resultadosRaicesMultiples.setResizable(false);
-        resultadosRaicesMultiples.setLocationRelativeTo(null);
-        dispose();
+        double x0 = Double.parseDouble(x0RaicesMultiples.getText());
+        double tol = Double.parseDouble(toleranciaRaicesMultiples.getText());
+        int iter = Integer.parseInt(iteracionesRaicesMultiples.getText());
+        
+        jRadioButton1.setActionCommand("0");
+        jRadioButton2.setActionCommand("1");
+        int err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        
+        String mensaje = "";
+        boolean correct = false;
+        Double[][] data = null;
+        
+        if (iter <= 0){
+            mensaje = "El numero de iteraciones debe de ser mayor a cero";
+        }else if(tol <= 0){
+            mensaje = "La tolerancia debe de ser mayor a cero";
+        }else {
+            Metodos.raicesMultiples(x0, iter, tol, err);
+            //Resultados
+            data = Metodos.data;
+            mensaje = Metodos.mens;
+            
+            
+            ResultadosRaicesMultiples resultadosRaicesMultiples = new ResultadosRaicesMultiples(x0,tol, iter, data,mensaje);
+            resultadosRaicesMultiples.setVisible(true);
+            resultadosRaicesMultiples.setSize(1024,768);
+            resultadosRaicesMultiples.setResizable(false);
+            resultadosRaicesMultiples.setLocationRelativeTo(null);
+            dispose();
+        }
+        if (!correct){
+            JOptionPane.showMessageDialog(rootPane, mensaje);
+        }
+                
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

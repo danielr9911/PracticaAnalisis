@@ -14,7 +14,7 @@ public class ResultadosBiseccion extends javax.swing.JFrame {
     /**
      * Creates new form ResultadosBiseccion
      */
-    public ResultadosBiseccion(double xi, double xs, double tol, double iter, Double[][] dat, String res) {
+    public ResultadosBiseccion(double xi, double xs, double tol, int iter, Double[][] dat, String res) {
         initComponents();
         tableBiseccion.setModel(new javax.swing.table.DefaultTableModel(
             dat,

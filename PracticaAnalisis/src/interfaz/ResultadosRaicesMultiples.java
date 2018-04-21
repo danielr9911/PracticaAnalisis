@@ -14,8 +14,21 @@ public class ResultadosRaicesMultiples extends javax.swing.JFrame {
     /**
      * Creates new form ResultadosRaicesMultiples
      */
-    public ResultadosRaicesMultiples() {
+    public ResultadosRaicesMultiples(double x0, double tol, int iter, Double[][] dat, String res) {
         initComponents();
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            dat,
+            new String [] {
+                "n", "Xn", "f(Xm)", "f'(Xm)", "f''(Xm)", "Error"
+            }
+        ));
+        jLabel2.setText(res);
+        x0RaicesMultiples.setText(String.valueOf(x0));
+        iteracionesRaicesMultiples.setText(String.valueOf(iter));
+        toleranciaRaicesMultiples.setText(String.valueOf(tol));
+        x0RaicesMultiples.setEditable(false);
+        iteracionesRaicesMultiples.setEditable(false);
+        toleranciaRaicesMultiples.setEditable(false);
     }
 
     /**
@@ -31,6 +44,9 @@ public class ResultadosRaicesMultiples extends javax.swing.JFrame {
         x0RaicesMultiples = new javax.swing.JTextField();
         iteracionesRaicesMultiples = new javax.swing.JTextField();
         toleranciaRaicesMultiples = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,14 +66,34 @@ public class ResultadosRaicesMultiples extends javax.swing.JFrame {
         x0RaicesMultiples.setBounds(240, 105, 680, 45);
 
         iteracionesRaicesMultiples.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        iteracionesRaicesMultiples.setSize(new java.awt.Dimension(140, 45));
         getContentPane().add(iteracionesRaicesMultiples);
         iteracionesRaicesMultiples.setBounds(370, 160, 140, 50);
 
         toleranciaRaicesMultiples.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        toleranciaRaicesMultiples.setSize(new java.awt.Dimension(210, 45));
         getContentPane().add(toleranciaRaicesMultiples);
         toleranciaRaicesMultiples.setBounds(710, 160, 210, 60);
+
+        jTable1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(110, 280, 810, 240);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(120, 640, 800, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ResultadoRaicesMultiples.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -76,45 +112,13 @@ public class ResultadosRaicesMultiples extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_botonRegresarResultadosRaicesMultiplesActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResultadosRaicesMultiples.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResultadosRaicesMultiples.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResultadosRaicesMultiples.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResultadosRaicesMultiples.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ResultadosRaicesMultiples().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresarResultadosRaicesMultiples;
     private javax.swing.JTextField iteracionesRaicesMultiples;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField toleranciaRaicesMultiples;
     private javax.swing.JTextField x0RaicesMultiples;
     // End of variables declaration//GEN-END:variables
