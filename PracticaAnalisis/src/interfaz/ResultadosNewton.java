@@ -99,7 +99,7 @@ public class ResultadosNewton extends javax.swing.JFrame {
         jScrollPane1.setBounds(160, 270, 790, 310);
 
         textResultado.setColumns(20);
-        textResultado.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        textResultado.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         textResultado.setRows(5);
         jScrollPane2.setViewportView(textResultado);
 
