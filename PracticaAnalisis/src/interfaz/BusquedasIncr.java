@@ -125,12 +125,12 @@ public class BusquedasIncr extends javax.swing.JFrame {
         if (fxi == 0){
             mensaje = x0 + " es una raiz";               
         }else {
-            Metodos.busquedas_incrementales(x0, delta);
+            Metodos.busquedas_incrementales(x0, delta, iter);
             //Resultados
             data = Metodos.data;
             mensaje = Metodos.mens;
             
-            ResultadosBusquedas resultadosBusquedas = new ResultadosBusquedas(x0, delta, data, mensaje);
+            ResultadosBusquedas resultadosBusquedas = new ResultadosBusquedas(x0, delta, iter, data, mensaje);
             resultadosBusquedas.setVisible(true);
             resultadosBusquedas.setSize(1024,768);
             resultadosBusquedas.setResizable(false);

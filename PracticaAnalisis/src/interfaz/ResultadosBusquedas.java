@@ -14,8 +14,23 @@ public class ResultadosBusquedas extends javax.swing.JFrame {
     /**
      * Creates new form ResultadosBusquedas
      */
-    public ResultadosBusquedas() {
+    public ResultadosBusquedas(double x0, double delta, int iter, Double[][] dat, String res) {
         initComponents();
+        tableBusquedas.setModel(new javax.swing.table.DefaultTableModel(
+            dat,
+            new String [] {
+                "n", "Xn", "FXn"
+            }
+        ));
+        textResultado.setText(res);
+        valorInicialBusquedas.setText(String.valueOf(x0));
+        deltaBusquedas.setText(String.valueOf(delta));
+        iteracionesBusquedas.setText(String.valueOf(iter));
+        
+        valorInicialBusquedas.setEditable(false);
+        deltaBusquedas.setEditable(false);
+        iteracionesBusquedas.setEditable(false);
+        
     }
 
     /**
@@ -27,57 +42,76 @@ public class ResultadosBusquedas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        deltaBusquedas = new javax.swing.JTextField();
+        iteracionesBusquedas = new javax.swing.JTextField();
+        valorInicialBusquedas = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableBusquedas = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textResultado = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLabel1.setText("jLabel1");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        deltaBusquedas.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        getContentPane().add(deltaBusquedas);
+        deltaBusquedas.setBounds(280, 160, 290, 50);
+
+        iteracionesBusquedas.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        getContentPane().add(iteracionesBusquedas);
+        iteracionesBusquedas.setBounds(680, 100, 290, 50);
+
+        valorInicialBusquedas.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        valorInicialBusquedas.setSize(new java.awt.Dimension(240, 50));
+        getContentPane().add(valorInicialBusquedas);
+        valorInicialBusquedas.setBounds(240, 100, 240, 50);
+
+        tableBusquedas.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        tableBusquedas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tableBusquedas);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(40, 270, 940, 290);
+
+        textResultado.setColumns(20);
+        textResultado.setRows(5);
+        jScrollPane2.setViewportView(textResultado);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(40, 640, 940, 90);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ResultadosBusquedasIncrementales.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 1020, 768);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResultadosBusquedas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResultadosBusquedas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResultadosBusquedas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResultadosBusquedas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ResultadosBusquedas().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField deltaBusquedas;
+    private javax.swing.JTextField iteracionesBusquedas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tableBusquedas;
+    private javax.swing.JTextArea textResultado;
+    private javax.swing.JTextField valorInicialBusquedas;
     // End of variables declaration//GEN-END:variables
 }

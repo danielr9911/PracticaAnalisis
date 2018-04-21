@@ -166,6 +166,40 @@ public class Metodos {
         
     }
      
+     public static void busquedas_incrementales(double x0, double delta, int iter){
+        init();
+        PyFloat px0 = new PyFloat(x0);        
+        PyInteger piter = new PyInteger(iter);
+        PyFloat pdel = new PyFloat(delta);
+        PyString pfun = new PyString(Funcion.f);                
+        PyObject[] po = new PyObject[4];
+        po[0] = pfun;
+        po[1] = px0;
+        po[2] = pdel;   
+        po[3] = piter;        
+        
+        PyObject res = me.invoke("busquedas_incrementales", po);
+        //Iterable<PyObject> it = res.asIterable();
+        Iterator<PyObject> it = res.asIterable().iterator();
+        mens = it.next().asString();
+        
+        Iterable<PyObject> itData = it.next().asIterable();
+        ArrayList<Double[]> matrix = new ArrayList<>();
+        for(PyObject i: itData){
+            int contj = 0;
+            Double[] fila = new Double[4];
+            for(PyObject j:i.asIterable()){
+                System.out.println(contj);
+                System.out.println(j.asDouble());
+                fila[contj] = j.asDouble();
+                contj++;
+            }
+            matrix.add(fila);
+        }
+        data = matrix.toArray(new Double[matrix.size()][]);
+        
+    }
+     
     public static void init(){
         PythonConnection pc = new PythonConnection();  
         pc.execfile("src/metodos/Metodos.py");  
