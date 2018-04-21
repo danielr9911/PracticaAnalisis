@@ -193,5 +193,39 @@ class Metodos:
 
 
 
+def busquedas_incrementales(self, f, x0, delta, iter):
+    self.mensaje = ""
+    self.data = []
+    fx0 = self.funcion(f,x0)
+    contador = 0
+    fila = [] #iter, xn, fXn, error
+    fila.append(contador)
+    fila.append(x0)
+    fila.append(fx0)
+    fila.append(0)
+    self.data.append(fila)
+    if fx0 == 0:
+        self.mensaje =  "%f es una raíz" %x0
+    else:
+        x1 = x0 + delta
+        cont = 1
+        fx1 = self.funcion(f, x1)
+        while fx0 * fx1 > 0 and cont < iter:
+            x0 = x1
+            fx0 = fx1
+            x1 = x0 + delta
+            fx1 = self.funcion(f, x1)
+            cont = cont + 1
+            fila = []
+            fila.append(cont)
+            fila.append(x0)
+            fila.append(fx0)            
+            self.data.append(fila)
+        if fx1 == 0:
+            self.mensaje = "%f es una raíz" %x1
+        elif fx0 * fx1 < 0:
+            self.mensaje = "Hay una raíz entre %f" %(x0, x1)
+        else:
+            self.mensaje = "Fracaso en iteraciones %d" %iter
 
 
