@@ -267,16 +267,21 @@ class Metodos:
                 fx1 = self.funcion(f, x1)
                 cont = cont + 1
                 fila = []
-                fila.append(cont)
+                fila.append(cont-1)
                 fila.append(x0)
                 fila.append(fx0)
                 self.data.append(fila)
+            fila = []
+            fila.append(cont)
+            fila.append(x1)
+            fila.append(fx1)
+            self.data.append(fila)
             if fx1 == 0:
                 self.mensaje = "%f es una raiz" %x1
             elif fx0 * fx1 < 0:
                 self.mensaje = "Hay una raiz entre %f y %f" %(x0, x1)
             else:
                 self.mensaje = "Fracaso en iteraciones %d" %iter
-                
+
         return (self.mensaje, self.data)
 
