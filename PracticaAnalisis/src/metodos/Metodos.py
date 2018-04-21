@@ -251,11 +251,10 @@ def busquedas_incrementales(self, f, x0, delta, iter):
     self.data = []
     fx0 = self.funcion(f,x0)
     contador = 0
-    fila = [] #iter, xn, fXn, error
+    fila = [] #iter, xn, fXn,
     fila.append(contador)
     fila.append(x0)
     fila.append(fx0)
-    fila.append(0)
     self.data.append(fila)
     if fx0 == 0:
         self.mensaje =  "%f es una raiz" %x0
@@ -277,7 +276,7 @@ def busquedas_incrementales(self, f, x0, delta, iter):
         if fx1 == 0:
             self.mensaje = "%f es una raiz" %x1
         elif fx0 * fx1 < 0:
-            self.mensaje = "Hay una raiz entre %f" %(x0, x1)
+            self.mensaje = "Hay una raiz entre %f y %f" %(x0, x1)
         else:
             self.mensaje = "Fracaso en iteraciones %d" %iter
 
