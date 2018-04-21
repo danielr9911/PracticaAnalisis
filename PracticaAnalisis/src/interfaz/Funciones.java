@@ -40,6 +40,7 @@ public class Funciones extends javax.swing.JFrame {
         gx = new javax.swing.JTextField();
         fPrimaX = new javax.swing.JTextField();
         fDoblePrimaX = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,6 +80,15 @@ public class Funciones extends javax.swing.JFrame {
         getContentPane().add(fDoblePrimaX);
         fDoblePrimaX.setBounds(230, 510, 660, 50);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ayuda.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(890, 20, 110, 110);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Funciones.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1024, 768);
@@ -110,6 +120,12 @@ public class Funciones extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(rootPane, "Funciones guardadas exitosamente");
     }//GEN-LAST:event_botonGuardarFuncionesActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Funciones", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/FuncionesAyuda.png")));
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,6 +169,7 @@ public class Funciones extends javax.swing.JFrame {
     private javax.swing.JTextField fPrimaX;
     private javax.swing.JTextField fx;
     private javax.swing.JTextField gx;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
