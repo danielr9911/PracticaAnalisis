@@ -49,13 +49,14 @@ public class ResultadosPuntoFijo extends javax.swing.JFrame {
         botonRegresarResultadosPuntoFijo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablePuntoFijo = new javax.swing.JTable();
-        textResultado = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textResultado = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        xInicialPuntoFijo.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        xInicialPuntoFijo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         xInicialPuntoFijo.setSize(new java.awt.Dimension(240, 50));
         xInicialPuntoFijo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,11 +66,12 @@ public class ResultadosPuntoFijo extends javax.swing.JFrame {
         getContentPane().add(xInicialPuntoFijo);
         xInicialPuntoFijo.setBounds(240, 100, 240, 50);
 
-        iteracionesPuntoFijo.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        iteracionesPuntoFijo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         iteracionesPuntoFijo.setSize(new java.awt.Dimension(240, 50));
         getContentPane().add(iteracionesPuntoFijo);
         iteracionesPuntoFijo.setBounds(380, 160, 240, 50);
 
+        toleranciaPuntoFijo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         toleranciaPuntoFijo.setSize(new java.awt.Dimension(240, 50));
         getContentPane().add(toleranciaPuntoFijo);
         toleranciaPuntoFijo.setBounds(680, 100, 240, 50);
@@ -83,7 +85,7 @@ public class ResultadosPuntoFijo extends javax.swing.JFrame {
         getContentPane().add(botonRegresarResultadosPuntoFijo);
         botonRegresarResultadosPuntoFijo.setBounds(40, 30, 80, 80);
 
-        tablePuntoFijo.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        tablePuntoFijo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tablePuntoFijo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -98,12 +100,15 @@ public class ResultadosPuntoFijo extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tablePuntoFijo);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(70, 280, 900, 290);
+        jScrollPane1.setBounds(60, 270, 930, 300);
 
-        textResultado.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        textResultado.setText("jLabel2");
-        getContentPane().add(textResultado);
-        textResultado.setBounds(100, 680, 870, 30);
+        textResultado.setColumns(20);
+        textResultado.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        textResultado.setRows(5);
+        jScrollPane2.setViewportView(textResultado);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(60, 610, 930, 140);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ResultadoPuntoFijo.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -133,8 +138,9 @@ public class ResultadosPuntoFijo extends javax.swing.JFrame {
     private javax.swing.JTextField iteracionesPuntoFijo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tablePuntoFijo;
-    private javax.swing.JLabel textResultado;
+    private javax.swing.JTextArea textResultado;
     private javax.swing.JTextField toleranciaPuntoFijo;
     private javax.swing.JTextField xInicialPuntoFijo;
     // End of variables declaration//GEN-END:variables

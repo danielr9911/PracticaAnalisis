@@ -32,6 +32,10 @@ public class ResultadosReglaFalsa extends javax.swing.JFrame {
         iteracionesResultdosReglaFalsa = new javax.swing.JTextField();
         toleranciaResultadosReglaFalsa = new javax.swing.JTextField();
         botonRegresarResultadosReglaFalsa = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textResult = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableReglaFalsa = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,6 +73,29 @@ public class ResultadosReglaFalsa extends javax.swing.JFrame {
         });
         getContentPane().add(botonRegresarResultadosReglaFalsa);
         botonRegresarResultadosReglaFalsa.setBounds(40, 30, 80, 80);
+
+        textResult.setColumns(20);
+        textResult.setRows(5);
+        jScrollPane1.setViewportView(textResult);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(60, 610, 930, 150);
+
+        tableReglaFalsa.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tableReglaFalsa);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(60, 270, 930, 300);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Resultado Regla Falsa.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -130,6 +157,10 @@ public class ResultadosReglaFalsa extends javax.swing.JFrame {
     private javax.swing.JButton botonRegresarResultadosReglaFalsa;
     private javax.swing.JTextField iteracionesResultdosReglaFalsa;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tableReglaFalsa;
+    private javax.swing.JTextArea textResult;
     private javax.swing.JTextField toleranciaResultadosReglaFalsa;
     private javax.swing.JTextField xInferiorResultadosReglaFalsa;
     private javax.swing.JTextField xSuperiorResultadosReglaFalsa;
