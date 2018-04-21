@@ -106,9 +106,9 @@ class Metodos:
             fila.append(error)
             self.data.append(fila)
         if fx == 0:
-            self.mensaje= "%f es una raíz" %x0
+            self.mensaje= "%f es una raiz" %x0
         elif error < tol:
-            self.mensaje = "%f es aproximación a una raíz con una tolerancia de %f" % (x1, tol)
+            self.mensaje = "%f es aproximacion a una raiz con una tolerancia de %f" % (x1, tol)
         else:
             self.mensje = "Fracaso en %d iteraciones" %iter
         print(self.mensaje, self.data)
@@ -150,7 +150,7 @@ class Metodos:
         elif error < tol:
             self.mensaje = "%f es aproximacion a una raiz con una tolerancia de %f" % (x1, tol)
         elif dfx == 0:
-            self.mensaje = "%f es una posible raíz múltiple" % (x1)
+            self.mensaje = "%f es una posible raiz multiple" % (x1)
         else:
             self.mensaje = "Fracaso en %d iteraciones" % iter
         print(self.mensaje, self.data)
@@ -184,7 +184,7 @@ class Metodos:
             fila.append(error)
             self.data.append(fila)
         if yn == 0:
-            self.mensaje = "%f es raíz" %x0
+            self.mensaje = "%f es raiz" %x0
         elif error < tol :
             self.mensaje = "%f es aproximacion con una tol: %f" %(x0, tol)
         else:
@@ -205,7 +205,7 @@ def busquedas_incrementales(self, f, x0, delta, iter):
     fila.append(0)
     self.data.append(fila)
     if fx0 == 0:
-        self.mensaje =  "%f es una raíz" %x0
+        self.mensaje =  "%f es una raiz" %x0
     else:
         x1 = x0 + delta
         cont = 1
@@ -222,9 +222,9 @@ def busquedas_incrementales(self, f, x0, delta, iter):
             fila.append(fx0)            
             self.data.append(fila)
         if fx1 == 0:
-            self.mensaje = "%f es una raíz" %x1
+            self.mensaje = "%f es una raiz" %x1
         elif fx0 * fx1 < 0:
-            self.mensaje = "Hay una raíz entre %f" %(x0, x1)
+            self.mensaje = "Hay una raiz entre %f" %(x0, x1)
         else:
             self.mensaje = "Fracaso en iteraciones %d" %iter
 
