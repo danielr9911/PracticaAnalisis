@@ -14,8 +14,24 @@ public class ResultadosPuntoFijo extends javax.swing.JFrame {
     /**
      * Creates new form ResultadosPuntoFijo
      */
-    public ResultadosPuntoFijo() {
+    public ResultadosPuntoFijo(double x0, double tol, int iter, Double[][] dat, String res) {
         initComponents();
+        tablePuntoFijo.setModel(new javax.swing.table.DefaultTableModel(
+            dat,
+            new String [] {
+                "n", "X0", "f(Xm)", "Error"
+            }
+        ));
+        
+        textResultado.setText(res);
+        xInicialPuntoFijo.setText(String.valueOf(x0));       
+        iteracionesPuntoFijo.setText(String.valueOf(iter));
+        toleranciaPuntoFijo.setText(String.valueOf(tol));
+        
+        xInicialPuntoFijo.setEditable(false);
+        iteracionesPuntoFijo.setEditable(false);
+        toleranciaPuntoFijo.setEditable(false);
+        
     }
 
     /**
@@ -31,6 +47,9 @@ public class ResultadosPuntoFijo extends javax.swing.JFrame {
         iteracionesPuntoFijo = new javax.swing.JTextField();
         toleranciaPuntoFijo = new javax.swing.JTextField();
         botonRegresarResultadosPuntoFijo = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablePuntoFijo = new javax.swing.JTable();
+        textResultado = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -38,6 +57,11 @@ public class ResultadosPuntoFijo extends javax.swing.JFrame {
 
         xInicialPuntoFijo.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         xInicialPuntoFijo.setSize(new java.awt.Dimension(240, 50));
+        xInicialPuntoFijo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xInicialPuntoFijoActionPerformed(evt);
+            }
+        });
         getContentPane().add(xInicialPuntoFijo);
         xInicialPuntoFijo.setBounds(240, 100, 240, 50);
 
@@ -59,6 +83,28 @@ public class ResultadosPuntoFijo extends javax.swing.JFrame {
         getContentPane().add(botonRegresarResultadosPuntoFijo);
         botonRegresarResultadosPuntoFijo.setBounds(40, 30, 80, 80);
 
+        tablePuntoFijo.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        tablePuntoFijo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tablePuntoFijo);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(70, 280, 900, 290);
+
+        textResultado.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        textResultado.setText("jLabel2");
+        getContentPane().add(textResultado);
+        textResultado.setBounds(100, 680, 870, 30);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ResultadoPuntoFijo.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1024, 768);
@@ -76,45 +122,19 @@ public class ResultadosPuntoFijo extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_botonRegresarResultadosPuntoFijoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResultadosPuntoFijo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResultadosPuntoFijo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResultadosPuntoFijo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResultadosPuntoFijo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void xInicialPuntoFijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xInicialPuntoFijoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_xInicialPuntoFijoActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ResultadosPuntoFijo().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresarResultadosPuntoFijo;
     private javax.swing.JTextField iteracionesPuntoFijo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablePuntoFijo;
+    private javax.swing.JLabel textResultado;
     private javax.swing.JTextField toleranciaPuntoFijo;
     private javax.swing.JTextField xInicialPuntoFijo;
     // End of variables declaration//GEN-END:variables
