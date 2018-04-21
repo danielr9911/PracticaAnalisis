@@ -154,9 +154,7 @@ public class Metodos {
         for(PyObject i: itData){
             int contj = 0;
             Double[] fila = new Double[4];
-            for(PyObject j:i.asIterable()){
-                System.out.println(contj);
-                System.out.println(j.asDouble());
+            for(PyObject j:i.asIterable()){                
                 fila[contj] = j.asDouble();
                 contj++;
             }
@@ -188,9 +186,7 @@ public class Metodos {
         for(PyObject i: itData){
             int contj = 0;
             Double[] fila = new Double[4];
-            for(PyObject j:i.asIterable()){
-                System.out.println(contj);
-                System.out.println(j.asDouble());
+            for(PyObject j:i.asIterable()){                
                 fila[contj] = j.asDouble();
                 contj++;
             }
