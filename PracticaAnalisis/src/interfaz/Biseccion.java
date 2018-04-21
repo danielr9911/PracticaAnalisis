@@ -183,9 +183,8 @@ public class Biseccion extends javax.swing.JFrame {
         }else if(tol <= 0){
             mensaje = "La tolerancia debe de ser mayor a cero";
         }else {
-            Metodos.biseccion(xi,xs, iter, tol);
+            Metodos.biseccion(xi,xs, iter, tol, err);
             //Resultados
-            System.out.println("Ejecuto biseccion");
             data = Metodos.data;
             mensaje = Metodos.mens;
             

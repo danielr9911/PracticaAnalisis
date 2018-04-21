@@ -15,13 +15,13 @@ class Metodos:
         res = funcion.evaluate({"x": i})
         return res
 
-    def biseccion(self, f, xi, xs, tol, iter):
+    def biseccion(self, f, xi, xs, tol, iter, err):
         fxi = self.funcion(f,xi)
         fxs = self.funcion(f, xs)
         if fxi == 0:
-            self.mensaje = "%f es una raíz" % xi
+            self.mensaje = "%f es una raiz" % xi
         elif fxs == 0:
-            self.mensaje = "%f es una raíz" % xs
+            self.mensaje = "%f es una raiz" % xs
         elif fxi * fxs < 0:
             xm = (xi + xs) / 2
             fxm = self.funcion(f, xm)
@@ -45,7 +45,10 @@ class Metodos:
                 xaux = xm
                 xm = (xi + xs) / 2
                 fxm = self.funcion(f, xm)
-                error = abs(xm - xaux)
+                if err == 0:
+                    error = abs(xm - xaux)
+                else:
+                    error = abs((xm - xaux) / xm)
                 cont = cont + 1
                 fila = []
                 fila.append(cont - 1)
@@ -56,12 +59,11 @@ class Metodos:
                 fila.append(error)
                 self.data.append(fila)
             if fxm == 0:
-                self.mensaje = "%f es una raíz" % xm
+                self.mensaje = "%f es una raiz" % xm
             elif error < tol:
-                self.mensaje = "%f es aproximación a una raíz con una tolerancia de %f" % (xm, tol)
+                self.mensaje = "%f es aproximacion a una raiz con una tolerancia de %f" % (xm, tol)
             else:
                 self.mensaje = "Fracaso en %d iteraciones" % iter
         else:
             self.mensaje = "El intervalo es inadecuado"
-        print(self.mensaje, self.data)
         return (self.mensaje, self.data)

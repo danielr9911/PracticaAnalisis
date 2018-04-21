@@ -29,7 +29,7 @@ def g(i):
     res = funcion.evaluate({"x": i})
     return res
 
-def biseccion(xi, xs, tol, iter):
+def biseccion(xi, xs, tol, iter, err):
     tabla = []
     fxi = f(xi)
     fxs = f(xs)
@@ -60,7 +60,10 @@ def biseccion(xi, xs, tol, iter):
             xaux = xm
             xm = (xi + xs) / 2
             fxm = f(xm)
-            error = abs(xm - xaux)
+            if err == 0:
+                error = abs(xm - xaux)
+            else:
+                error = abs((xm - xaux)/xm)
             cont = cont + 1
             fila = []
             fila.append(cont - 1)
