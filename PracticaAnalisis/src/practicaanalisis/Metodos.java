@@ -94,7 +94,78 @@ public class Metodos {
         data = matrix.toArray(new Double[matrix.size()][]);
      
      }
+    
+     public static void newton(double xi, int iter, double tol, int err){
+        init();
+        PyFloat pxi = new PyFloat(xi);
+        PyInteger piter = new PyInteger(iter);
+        PyFloat ptol = new PyFloat(tol);
+        PyString pfun = new PyString(Funcion.f);
+        PyString pdfun = new PyString(Funcion.df);
+        PyInteger perr = new PyInteger(err);
+        PyObject[] po = new PyObject[6];
+        po[0] = pfun;
+        po[1] = pdfun;
+        po[2] = pxi;
+        po[3] = ptol;
+        po[4] = piter;
+        po[5] = perr;
+        PyObject res = me.invoke("newton", po);
+        Iterator<PyObject> it = res.asIterable().iterator();
+        mens = it.next().asString();
         
+        Iterable<PyObject> itData = it.next().asIterable();
+        ArrayList<Double[]> matrix = new ArrayList<>();
+        for(PyObject i: itData){
+            int contj = 0;
+            Double[] fila = new Double[5];
+            for(PyObject j:i.asIterable()){
+                fila[contj] = j.asDouble();
+                contj++;
+            }
+            matrix.add(fila);
+        }
+        data = matrix.toArray(new Double[matrix.size()][]);
+    }
+     
+     public static void PuntoFijo(double x0, int iter, double tol, int err){
+        init();
+        PyFloat px0 = new PyFloat(x0);        
+        PyInteger piter = new PyInteger(iter);
+        PyFloat ptol = new PyFloat(tol);
+        PyString pfun = new PyString(Funcion.f);
+        PyString pgfun = new PyString(Funcion.g);
+        PyInteger perr = new PyInteger(err);
+        PyObject[] po = new PyObject[6];
+        po[0] = pfun;
+        po[1] = pgfun;
+        po[2] = px0;   
+        po[3] = piter;
+        po[4] = ptol;
+        po[5] = perr;
+        
+        PyObject res = me.invoke("punto_fijo", po);
+        //Iterable<PyObject> it = res.asIterable();
+        Iterator<PyObject> it = res.asIterable().iterator();
+        mens = it.next().asString();
+        
+        Iterable<PyObject> itData = it.next().asIterable();
+        ArrayList<Double[]> matrix = new ArrayList<>();
+        for(PyObject i: itData){
+            int contj = 0;
+            Double[] fila = new Double[4];
+            for(PyObject j:i.asIterable()){
+                System.out.println(contj);
+                System.out.println(j.asDouble());
+                fila[contj] = j.asDouble();
+                contj++;
+            }
+            matrix.add(fila);
+        }
+        data = matrix.toArray(new Double[matrix.size()][]);
+        
+    }
+     
     public static void init(){
         PythonConnection pc = new PythonConnection();  
         pc.execfile("src/metodos/Metodos.py");  
