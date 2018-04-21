@@ -8,6 +8,8 @@ package interfaz;
 import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
+import static practicaanalisis.Funcion.callFunction;
+import practicaanalisis.Metodos;
 
 /**
  *
@@ -57,6 +59,11 @@ public class Newton extends javax.swing.JFrame {
 
         xInicialNewton.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         xInicialNewton.setSize(new java.awt.Dimension(300, 50));
+        xInicialNewton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xInicialNewtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(xInicialNewton);
         xInicialNewton.setBounds(380, 220, 300, 50);
 
@@ -137,53 +144,53 @@ public class Newton extends javax.swing.JFrame {
 
     private void calcularNewtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularNewtonActionPerformed
         // TODO add your handling code here:
-        ResultadosNewton Rnewton = new ResultadosNewton();
-        Rnewton.setVisible(true);
-        Rnewton.setSize(1024,768);
-        Rnewton.setResizable(false);
-        Rnewton.setLocationRelativeTo(null);
-        dispose();
+        double xi = Double.parseDouble(xInicialNewton.getText());
+        double tol = Double.parseDouble(toleranciaNewton.getText());
+        int iter = Integer.parseInt(iteracionesNewton.getText());
+        errorABSNewton.setActionCommand("0");
+        errorRelNewton.setActionCommand("1");
+        int err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        
+        String mensaje = "";
+        boolean correct = false;
+        Double[][] data = null;
+        double fxi = callFunction("f", xi);
+        double dfxi = callFunction("df", xi);
+        if (fxi == 0){
+            mensaje = xi + " es una raiz";
+        }else if (dfxi == 0){
+            mensaje = xi + " es una posible raiz múltiple";
+        }else if (iter <= 0){
+            mensaje = "El numero de iteraciones debe de ser mayor a cero";
+        }else if(tol <= 0){
+            mensaje = "La tolerancia debe de ser mayor a cero";
+        }else {
+            Metodos.newton(xi,iter, tol, err);
+            //Resultados
+            data = Metodos.data;
+            mensaje = Metodos.mens;
+            
+            ResultadosNewton Rnewton = new ResultadosNewton(xi,iter,tol,data,mensaje);
+            Rnewton.setVisible(true);
+            Rnewton.setSize(1024,768);
+            Rnewton.setResizable(false);
+            Rnewton.setLocationRelativeTo(null);
+            dispose();
+        }
+        if (!correct){
+            JOptionPane.showMessageDialog(rootPane, mensaje);
+        } 
     }//GEN-LAST:event_calcularNewtonActionPerformed
+
+    private void xInicialNewtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xInicialNewtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_xInicialNewtonActionPerformed
 
     private void groupButton(){
         ButtonGroup bgroup = new ButtonGroup();
         
         bgroup.add(errorABSNewton);
         bgroup.add(errorRelNewton);
-    }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Newton.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Newton.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Newton.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Newton.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Newton().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
