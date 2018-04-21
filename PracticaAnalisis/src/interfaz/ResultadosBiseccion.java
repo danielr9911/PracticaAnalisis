@@ -44,6 +44,8 @@ public class ResultadosBiseccion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         valorInicialIntervaloABiseccion = new javax.swing.JTextField();
         valorInicialIntervaloBBiseccion = new javax.swing.JTextField();
         iteracionesBiseccion = new javax.swing.JTextField();
@@ -51,8 +53,13 @@ public class ResultadosBiseccion extends javax.swing.JFrame {
         botonRegresarResultadosBiseccion = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableBiseccion = new javax.swing.JTable();
-        textResultado = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        textResultado = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -102,12 +109,15 @@ public class ResultadosBiseccion extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tableBiseccion);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(80, 280, 840, 180);
+        jScrollPane1.setBounds(50, 240, 930, 300);
 
+        textResultado.setColumns(20);
         textResultado.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        textResultado.setText("jLabel2");
-        getContentPane().add(textResultado);
-        textResultado.setBounds(90, 580, 820, 70);
+        textResultado.setRows(5);
+        jScrollPane3.setViewportView(textResultado);
+
+        getContentPane().add(jScrollPane3);
+        jScrollPane3.setBounds(50, 580, 930, 120);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Resultado Biseccion.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -140,8 +150,11 @@ public class ResultadosBiseccion extends javax.swing.JFrame {
     private javax.swing.JTextField iteracionesBiseccion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTable tableBiseccion;
-    private javax.swing.JLabel textResultado;
+    private javax.swing.JTextArea textResultado;
     private javax.swing.JTextField toleranciaBiseccion;
     private javax.swing.JTextField valorInicialIntervaloABiseccion;
     private javax.swing.JTextField valorInicialIntervaloBBiseccion;
