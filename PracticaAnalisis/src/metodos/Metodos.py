@@ -177,6 +177,7 @@ class Metodos:
                 error = abs((xn - x0)/xn)
             x0 = xn
             contador = contador + 1
+            fila = []
             fila.append(contador)
             fila.append(x0)
             fila.append(yn)
@@ -188,7 +189,6 @@ class Metodos:
             self.mensaje = "%f es aproximacion con una tol: %f" %(x0, tol)
         else:
             self.mensaje = "El metodo fracaso en %d iteraciones" %iter
-        
         return (self.mensaje, self.data)
 
 
