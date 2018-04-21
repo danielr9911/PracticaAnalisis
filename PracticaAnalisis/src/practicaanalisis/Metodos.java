@@ -58,7 +58,7 @@ public class Metodos {
     
     public static void init(){
         PythonConnection pc = new PythonConnection();  
-        pc.execfile("src\\metodos\\Metodos.py");  
+        pc.execfile("src/metodos/Metodos.py");  
         me = pc.createClass("Metodos", "None"); 
     }
 }

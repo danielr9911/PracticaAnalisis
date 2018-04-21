@@ -67,7 +67,7 @@ public class Funcion {
     
     public static void init(){
         PythonConnection pc = new PythonConnection();  
-        pc.execfile("src\\metodos\\Metodos.py");  
+        pc.execfile("src/metodos/Metodos.py");  
         ee = pc.createClass("Metodos", "None"); 
     }
 }
