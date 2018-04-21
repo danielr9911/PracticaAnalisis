@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
 from py_expression_eval import Parser
+
+
 
 def f(i):
     sFuncion = "x*log(x)-x"
@@ -29,7 +32,7 @@ def g(i):
     return res
 
 
-def newton(x0, tol, iter):
+def newton(self, f, x0, tol, iter, error):
     fx = f(x0)
     dfx = df(x0)
     cont = 0
@@ -50,3 +53,4 @@ def newton(x0, tol, iter):
 
 if __name__ == '__main__':
     print (newton(x0=2.5,tol=0.0005,iter=11))
+
