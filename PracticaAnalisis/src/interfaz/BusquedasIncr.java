@@ -6,6 +6,8 @@
 package interfaz;
 
 import javax.swing.JOptionPane;
+import static practicaanalisis.Funcion.callFunction;
+import practicaanalisis.Metodos;
 
 /**
  *
@@ -34,7 +36,7 @@ public class BusquedasIncr extends javax.swing.JFrame {
         textIter = new javax.swing.JTextField();
         botonRegresar = new javax.swing.JButton();
         botonAyuda = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        botonCalcularBusquedas = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,9 +77,14 @@ public class BusquedasIncr extends javax.swing.JFrame {
         getContentPane().add(botonAyuda);
         botonAyuda.setBounds(860, 100, 110, 110);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CalcularBoton.png"))); // NOI18N
-        getContentPane().add(jButton1);
-        jButton1.setBounds(500, 620, 370, 100);
+        botonCalcularBusquedas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CalcularBoton.png"))); // NOI18N
+        botonCalcularBusquedas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCalcularBusquedasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonCalcularBusquedas);
+        botonCalcularBusquedas.setBounds(500, 620, 370, 100);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BusquedasIncrementales.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -104,6 +111,37 @@ public class BusquedasIncr extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, null, "AYUDA - Busquedas incrementales", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/Busquedas Incrementales Ayuda.png")));
     }//GEN-LAST:event_botonAyudaActionPerformed
+
+    private void botonCalcularBusquedasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularBusquedasActionPerformed
+        // TODO add your handling code here:
+        double x0 = Double.parseDouble(textXo.getText());
+        double delta = Double.parseDouble(textDelta.getText());       
+        int iter = Integer.parseInt(textIter.getText());  
+        
+        String mensaje = "";
+        boolean correct = false;
+        Double[][] data = null;
+        double fxi = callFunction("f", x0);       
+        if (fxi == 0){
+            mensaje = x0 + " es una raiz";               
+        }else {
+            Metodos.busquedas_incrementales(x0, delta);
+            //Resultados
+            data = Metodos.data;
+            mensaje = Metodos.mens;
+            
+            ResultadosBusquedas resultadosBusquedas = new ResultadosBusquedas(x0, delta, data, mensaje);
+            resultadosBusquedas.setVisible(true);
+            resultadosBusquedas.setSize(1024,768);
+            resultadosBusquedas.setResizable(false);
+            resultadosBusquedas.setLocationRelativeTo(null);
+            dispose();
+            correct = true;
+        }
+        if (!correct){
+            JOptionPane.showMessageDialog(rootPane, mensaje);
+        }
+    }//GEN-LAST:event_botonCalcularBusquedasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,8 +180,8 @@ public class BusquedasIncr extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAyuda;
+    private javax.swing.JButton botonCalcularBusquedas;
     private javax.swing.JButton botonRegresar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField textDelta;
     private javax.swing.JTextField textIter;

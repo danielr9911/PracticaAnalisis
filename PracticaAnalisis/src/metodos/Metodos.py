@@ -106,9 +106,9 @@ class Metodos:
             fila.append(error)
             self.data.append(fila)
         if fx == 0:
-            self.mensaje= "%f es una raíz" %x0
+            self.mensaje= "%f es una raiz" %x0
         elif error < tol:
-            self.mensaje = "%f es aproximación a una raíz con una tolerancia de %f" % (x1, tol)
+            self.mensaje = "%f es aproximacion a una raiz con una tolerancia de %f" % (x1, tol)
         else:
             self.mensje = "Fracaso en %d iteraciones" %iter
         print(self.mensaje, self.data)
@@ -150,7 +150,7 @@ class Metodos:
         elif error < tol:
             self.mensaje = "%f es aproximacion a una raiz con una tolerancia de %f" % (x1, tol)
         elif dfx == 0:
-            self.mensaje = "%f es una posible raíz múltiple" % (x1)
+            self.mensaje = "%f es una posible raiz multiple" % (x1)
         else:
             self.mensaje = "Fracaso en %d iteraciones" % iter
         print(self.mensaje, self.data)
@@ -184,7 +184,7 @@ class Metodos:
             fila.append(error)
             self.data.append(fila)
         if yn == 0:
-            self.mensaje = "%f es raíz" %x0
+            self.mensaje = "%f es raiz" %x0
         elif error < tol :
             self.mensaje = "%f es aproximacion con una tol: %f" %(x0, tol)
         else:
@@ -193,5 +193,39 @@ class Metodos:
 
 
 
+def busquedas_incrementales(self, f, x0, delta, iter):
+    self.mensaje = ""
+    self.data = []
+    fx0 = self.funcion(f,x0)
+    contador = 0
+    fila = [] #iter, xn, fXn, error
+    fila.append(contador)
+    fila.append(x0)
+    fila.append(fx0)
+    fila.append(0)
+    self.data.append(fila)
+    if fx0 == 0:
+        self.mensaje =  "%f es una raiz" %x0
+    else:
+        x1 = x0 + delta
+        cont = 1
+        fx1 = self.funcion(f, x1)
+        while fx0 * fx1 > 0 and cont < iter:
+            x0 = x1
+            fx0 = fx1
+            x1 = x0 + delta
+            fx1 = self.funcion(f, x1)
+            cont = cont + 1
+            fila = []
+            fila.append(cont)
+            fila.append(x0)
+            fila.append(fx0)            
+            self.data.append(fila)
+        if fx1 == 0:
+            self.mensaje = "%f es una raiz" %x1
+        elif fx0 * fx1 < 0:
+            self.mensaje = "Hay una raiz entre %f" %(x0, x1)
+        else:
+            self.mensaje = "Fracaso en iteraciones %d" %iter
 
 
