@@ -1,18 +1,23 @@
-def f(i):
-    return i+1
-
-def reglaFalsa(self, xi, xs, tol, iter):
-    fxi = f(xi)
-    fxs = f(xs)
+def reglaFalsa(self, f, xi, xs, tol, iter, err):
+    fxi = self.function(f,xi)
+    fxs = self.function(f,xs)
     if fxi == 0:
-        print(xi, " es una raíz")
+        self.mensaje = "%f es una raíz") % xi
     elif fxs == 0:
-        print(xs, " es una raíz")
+        self. mensaje = "%f es una raíz" % xs
     elif fxi * fxs < 0:
         xm = xi - ((fxi)*(xs-xi)/(fxs-fxi))
-        fxm = f(xm)
+        fxm = self.function(f,xm)
         cont = 1
         error = tol + 1
+        fila = []
+        fila.append(cont - 1)
+        fila.append(xi)
+        fila.append(xs)
+        fila.append(xm)
+        fila.append(fxm)
+        fila.append(0)
+        self.data.append(fila)
         while fxm != 0 and error > tol and cont < iter:
             if fxi * fxm < 0:
                 xs = xm
@@ -22,14 +27,28 @@ def reglaFalsa(self, xi, xs, tol, iter):
                 fxi = fxm
             xaux = xm
             xm = xi - ((fxi) * (xs - xi) / (fxs - fxi))
-            fxm = f(xm)
-            error = abs(xm - xaux)
+            fxm = self.function(xm)
+            if err == 0:
+                error = abs(xm - xaux)
+            else:
+                error = abs((xm - xaux) / xm)
             cont = cont + 1
+            fila = []
+            fila.append(cont - 1)
+            fila.append(xi)
+            fila.append(xs)
+            fila.append(xm)
+            fila.append(fxm)
+            fila.append(error)
+            self.data.append(fila)
         if fxm == 0:
-            print(xm, " es una raíz")
+            self.mensaje = "%f es una raiz" % xm
         elif error < tol:
-            print(xm, " es aproximación a una raíz con una tolerancia de ", tol)
+            self.mensaje = "%f es aproximación a una raiz con una tolerancia de %f " % (xm, tol)
         else:
-            print("Fracaso en ", iter, " iteraciones")
+            self.mensaje = "Fracaso en %d iteraciones" % iter
     else:
-        print("El intervalo es inadecuado")
+        self.mensaje = "El intervalo es inadecuado"
+    return (self.mensaje, self.data)
+
+
