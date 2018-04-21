@@ -16,13 +16,13 @@ public class ResultadosRaicesMultiples extends javax.swing.JFrame {
      */
     public ResultadosRaicesMultiples(double x0, double tol, int iter, Double[][] dat, String res) {
         initComponents();
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableRaicesMultiples.setModel(new javax.swing.table.DefaultTableModel(
             dat,
             new String [] {
                 "n", "Xn", "f(Xm)", "f'(Xm)", "f''(Xm)", "Error"
             }
         ));
-        jLabel2.setText(res);
+        textResult.setText(res);
         x0RaicesMultiples.setText(String.valueOf(x0));
         iteracionesRaicesMultiples.setText(String.valueOf(iter));
         toleranciaRaicesMultiples.setText(String.valueOf(tol));
@@ -45,8 +45,9 @@ public class ResultadosRaicesMultiples extends javax.swing.JFrame {
         iteracionesRaicesMultiples = new javax.swing.JTextField();
         toleranciaRaicesMultiples = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        tableRaicesMultiples = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textResult = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,20 +62,20 @@ public class ResultadosRaicesMultiples extends javax.swing.JFrame {
         getContentPane().add(botonRegresarResultadosRaicesMultiples);
         botonRegresarResultadosRaicesMultiples.setBounds(50, 30, 80, 80);
 
-        x0RaicesMultiples.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        x0RaicesMultiples.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         getContentPane().add(x0RaicesMultiples);
         x0RaicesMultiples.setBounds(240, 105, 680, 45);
 
-        iteracionesRaicesMultiples.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        iteracionesRaicesMultiples.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         getContentPane().add(iteracionesRaicesMultiples);
         iteracionesRaicesMultiples.setBounds(370, 160, 140, 50);
 
-        toleranciaRaicesMultiples.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        toleranciaRaicesMultiples.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         getContentPane().add(toleranciaRaicesMultiples);
         toleranciaRaicesMultiples.setBounds(710, 160, 210, 60);
 
-        jTable1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableRaicesMultiples.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tableRaicesMultiples.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -85,15 +86,18 @@ public class ResultadosRaicesMultiples extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableRaicesMultiples);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(110, 280, 810, 240);
+        jScrollPane1.setBounds(60, 270, 930, 290);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(120, 640, 800, 40);
+        textResult.setColumns(20);
+        textResult.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        textResult.setRows(5);
+        jScrollPane2.setViewportView(textResult);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(60, 610, 930, 140);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ResultadoRaicesMultiples.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -116,9 +120,10 @@ public class ResultadosRaicesMultiples extends javax.swing.JFrame {
     private javax.swing.JButton botonRegresarResultadosRaicesMultiples;
     private javax.swing.JTextField iteracionesRaicesMultiples;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tableRaicesMultiples;
+    private javax.swing.JTextArea textResult;
     private javax.swing.JTextField toleranciaRaicesMultiples;
     private javax.swing.JTextField x0RaicesMultiples;
     // End of variables declaration//GEN-END:variables

@@ -64,19 +64,19 @@ public class ResultadosBiseccion extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        valorInicialIntervaloABiseccion.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        valorInicialIntervaloABiseccion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         getContentPane().add(valorInicialIntervaloABiseccion);
         valorInicialIntervaloABiseccion.setBounds(230, 80, 240, 50);
 
-        valorInicialIntervaloBBiseccion.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        valorInicialIntervaloBBiseccion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         getContentPane().add(valorInicialIntervaloBBiseccion);
         valorInicialIntervaloBBiseccion.setBounds(230, 130, 240, 50);
 
-        iteracionesBiseccion.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        iteracionesBiseccion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         getContentPane().add(iteracionesBiseccion);
         iteracionesBiseccion.setBounds(680, 80, 240, 50);
 
-        toleranciaBiseccion.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        toleranciaBiseccion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         toleranciaBiseccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 toleranciaBiseccionActionPerformed(evt);

@@ -28,7 +28,7 @@
     <Component class="javax.swing.JTextField" name="xInicialPuntoFijo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="24" style="0"/>
+          <Font name="Tahoma" size="24" style="0"/>
         </Property>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[240, 50]"/>
@@ -46,7 +46,7 @@
     <Component class="javax.swing.JTextField" name="iteracionesPuntoFijo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="24" style="0"/>
+          <Font name="Tahoma" size="24" style="0"/>
         </Property>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[240, 50]"/>
@@ -60,6 +60,9 @@
     </Component>
     <Component class="javax.swing.JTextField" name="toleranciaPuntoFijo">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="24" style="0"/>
+        </Property>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[240, 50]"/>
         </Property>
@@ -91,7 +94,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="70" y="280" width="900" height="290"/>
+          <AbsoluteConstraints x="60" y="270" width="930" height="300"/>
         </Constraint>
       </Constraints>
 
@@ -100,7 +103,7 @@
         <Component class="javax.swing.JTable" name="tablePuntoFijo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Grande" size="18" style="0"/>
+              <Font name="Tahoma" size="18" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">
@@ -114,19 +117,29 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="textResultado">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="24" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="jLabel2"/>
-      </Properties>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="100" y="680" width="870" height="-1"/>
+          <AbsoluteConstraints x="60" y="610" width="930" height="140"/>
         </Constraint>
       </Constraints>
-    </Component>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="textResultado">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="24" style="0"/>
+            </Property>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">

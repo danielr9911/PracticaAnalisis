@@ -31,25 +31,26 @@ public class ResultadosSecante extends javax.swing.JFrame  {
         iteracionesSecante = new javax.swing.JTextField();
         toleranciaSecante = new javax.swing.JTextField();
         botonRegresarResultadoSecante = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textResult = new javax.swing.JTextArea();
         x1Secante = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableSecante = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
 
         x0Secante.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        x0Secante.setSize(new java.awt.Dimension(260, 45));
         getContentPane().add(x0Secante);
         x0Secante.setBounds(240, 110, 260, 50);
 
         iteracionesSecante.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        iteracionesSecante.setSize(new java.awt.Dimension(260, 45));
         getContentPane().add(iteracionesSecante);
-        iteracionesSecante.setBounds(700, 110, 260, 45);
+        iteracionesSecante.setBounds(700, 110, 260, 50);
 
         toleranciaSecante.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        toleranciaSecante.setSize(new java.awt.Dimension(260, 45));
         getContentPane().add(toleranciaSecante);
-        toleranciaSecante.setBounds(700, 160, 260, 45);
+        toleranciaSecante.setBounds(700, 155, 260, 50);
 
         botonRegresarResultadoSecante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
         botonRegresarResultadoSecante.addActionListener(new java.awt.event.ActionListener() {
@@ -58,16 +59,40 @@ public class ResultadosSecante extends javax.swing.JFrame  {
             }
         });
         getContentPane().add(botonRegresarResultadoSecante);
-        botonRegresarResultadoSecante.setBounds(160, 20, 80, 80);
+        botonRegresarResultadoSecante.setBounds(80, 50, 80, 80);
+
+        textResult.setColumns(20);
+        textResult.setRows(5);
+        jScrollPane1.setViewportView(textResult);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(60, 610, 910, 130);
 
         x1Secante.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        x1Secante.setSize(new java.awt.Dimension(260, 45));
+        x1Secante.setSize(new java.awt.Dimension(260, 50));
         getContentPane().add(x1Secante);
         x1Secante.setBounds(240, 160, 170, 30);
 
+        tableSecante.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tableSecante);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(60, 270, 910, 290);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ResultadoSecante.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1024, 768);
+        jLabel1.setBounds(0, 0, 1020, 760);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonRegresarResultadoSecanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarResultadoSecanteActionPerformed
@@ -85,6 +110,10 @@ public class ResultadosSecante extends javax.swing.JFrame  {
     private javax.swing.JButton botonRegresarResultadoSecante;
     private javax.swing.JTextField iteracionesSecante;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tableSecante;
+    private javax.swing.JTextArea textResult;
     private javax.swing.JTextField toleranciaSecante;
     private javax.swing.JTextField x0Secante;
     private javax.swing.JTextField x1Secante;

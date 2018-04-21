@@ -53,16 +53,16 @@ public class ResultadosNewton extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        xInicialNewton.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        xInicialNewton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         xInicialNewton.setSize(new java.awt.Dimension(240, 50));
         getContentPane().add(xInicialNewton);
         xInicialNewton.setBounds(240, 100, 240, 50);
 
-        iteracionesNewton.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        iteracionesNewton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         getContentPane().add(iteracionesNewton);
         iteracionesNewton.setBounds(360, 160, 120, 50);
 
-        toleranciaNewton.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        toleranciaNewton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         toleranciaNewton.setSize(new java.awt.Dimension(240, 50));
         toleranciaNewton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +96,7 @@ public class ResultadosNewton extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tableNewton);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(160, 270, 790, 310);
+        jScrollPane1.setBounds(60, 270, 890, 300);
 
         textResultado.setColumns(20);
         textResultado.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -104,7 +104,7 @@ public class ResultadosNewton extends javax.swing.JFrame {
         jScrollPane2.setViewportView(textResultado);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(160, 600, 790, 120);
+        jScrollPane2.setBounds(60, 610, 890, 120);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ResultadoNewton.png"))); // NOI18N
         getContentPane().add(jLabel1);
