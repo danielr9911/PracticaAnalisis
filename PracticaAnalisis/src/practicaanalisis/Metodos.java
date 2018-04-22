@@ -56,6 +56,39 @@ public class Metodos {
         data = matrix.toArray(new Double[matrix.size()][]);
     }
     
+    public static void reglaFalsa(double xi, double xs, int iter, double tol, int err){
+       init();
+        PyFloat pxi = new PyFloat(xi);
+        PyFloat pxs = new PyFloat(xs);
+        PyInteger piter = new PyInteger(iter);
+        PyFloat ptol = new PyFloat(tol);
+        PyString pfun = new PyString(Funcion.f);
+        PyInteger perr = new PyInteger(err);
+        PyObject[] po = new PyObject[6];
+        po[0] = pfun;
+        po[1] = pxi;
+        po[2] = pxs;
+        po[3] = ptol;
+        po[4] = piter;
+        po[5] = perr;
+        PyObject res = me.invoke("reglaFalsa", po);
+        Iterator<PyObject> it = res.asIterable().iterator();
+        mens = it.next().asString();
+        
+        Iterable<PyObject> itData = it.next().asIterable();
+        ArrayList<Double[]> matriz = new ArrayList<>();
+        for(PyObject i: itData){
+            int contadorj = 0;
+            Double[] fila = new Double[6];
+            for(PyObject j: i.asIterable()){
+                fila[contadorj] = j.asDouble();
+                contadorj++;
+            }
+            matriz.add(fila);
+        }
+        data = matriz.toArray(new Double[matriz.size()][]);
+    }
+    
      public static void raicesMultiples(double x0, int iter, double tol, int err){
         init();
         PyFloat px0 = new PyFloat(x0);

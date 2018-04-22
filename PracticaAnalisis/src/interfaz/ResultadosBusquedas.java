@@ -30,7 +30,7 @@ public class ResultadosBusquedas extends javax.swing.JFrame {
         valorInicialBusquedas.setEditable(false);
         deltaBusquedas.setEditable(false);
         iteracionesBusquedas.setEditable(false);
-        
+        textResultado.setEditable(false);
     }
 
     /**

@@ -8,6 +8,8 @@ package interfaz;
 import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
+import static practicaanalisis.Funcion.callFunction;
+import practicaanalisis.Metodos;
 
 /**
  *
@@ -120,6 +122,10 @@ public class ReglaFalsa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_xSuperiorReglaFalsaActionPerformed
 
+     private void xInferiorReglaFalsaActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+        // TODO add your handling code here:
+    }  
+     
     private void errorRelReglaFalsaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_errorRelReglaFalsaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_errorRelReglaFalsaActionPerformed
@@ -145,12 +151,45 @@ public class ReglaFalsa extends javax.swing.JFrame {
 
     private void botonCalcularReglaFalsaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularReglaFalsaActionPerformed
         // TODO add your handling code here:
-        ResultadosReglaFalsa RreglaFalsa = new ResultadosReglaFalsa();
-        RreglaFalsa.setVisible(true);
-        RreglaFalsa.setSize(1024,768);
-        RreglaFalsa.setResizable(false);
-        RreglaFalsa.setLocationRelativeTo(null);
-        dispose();
+        
+        double xi = Double.parseDouble(xInferiorReglaFalsa.getText());
+        double xs = Double.parseDouble(xSuperiorReglaFalsa.getText());
+        double tol = Double.parseDouble(toleranciaReglaFalsa.getText());
+        int iter = Integer.parseInt(iteracionesReglaFalsa.getText());
+        errorABSReglaFalsa.setActionCommand("0");
+        errorRelReglaFalsa.setActionCommand("1");
+        int err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        
+        String mensaje = "";
+        boolean correct = false;
+        Double[][] data = null;
+        double fxi = callFunction("f", xi);
+        double fxs = callFunction("f", xs);
+        if(fxi == 0){
+            mensaje = xi + "es una raíz";
+        }else if (fxs == 0){
+            mensaje = xs + " es una raiz";
+        }else if(fxi * fxs > 0){
+            mensaje = "El intervalo ingresado no es valido";
+        }else if (iter <= 0){
+            mensaje = "El numero de iteraciones debe de ser mayor a cero";
+        }else if(tol <= 0){
+            mensaje = "La tolerancia debe de ser mayor a cero";
+        }else {
+            Metodos.reglaFalsa(xi, xs, iter, tol, err);
+            data = Metodos.data;
+            mensaje = Metodos.mens;
+            ResultadosReglaFalsa resultadosReglaFalsa = new ResultadosReglaFalsa(xi, xs, tol, iter, data, mensaje);
+            resultadosReglaFalsa.setVisible(true);
+            resultadosReglaFalsa.setSize(1024,768);
+            resultadosReglaFalsa.setResizable(false);
+            resultadosReglaFalsa.setLocationRelativeTo(null);
+            dispose();
+            correct = true;
+        }
+        if(!correct){
+            JOptionPane.showMessageDialog(rootPane, mensaje);
+        }
     }//GEN-LAST:event_botonCalcularReglaFalsaActionPerformed
     
     private void groupButton(){
@@ -159,8 +198,8 @@ public class ReglaFalsa extends javax.swing.JFrame {
         bgroup.add(errorABSReglaFalsa);
         bgroup.add(errorRelReglaFalsa);
     }
-    
-    public static void main(String args[]) {
+
+        public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -191,7 +230,7 @@ public class ReglaFalsa extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAyudaReglaFalsa;
     private javax.swing.JButton botonCalcularReglaFalsa;

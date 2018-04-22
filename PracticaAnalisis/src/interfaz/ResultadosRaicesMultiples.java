@@ -29,6 +29,7 @@ public class ResultadosRaicesMultiples extends javax.swing.JFrame {
         x0RaicesMultiples.setEditable(false);
         iteracionesRaicesMultiples.setEditable(false);
         toleranciaRaicesMultiples.setEditable(false);
+        textResult.setEditable(false);
     }
 
     /**

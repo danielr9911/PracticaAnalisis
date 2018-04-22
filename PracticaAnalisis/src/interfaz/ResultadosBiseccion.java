@@ -31,6 +31,7 @@ public class ResultadosBiseccion extends javax.swing.JFrame {
         valorInicialIntervaloBBiseccion.setEditable(false);
         iteracionesBiseccion.setEditable(false);
         toleranciaBiseccion.setEditable(false);
+        textResultado.setEditable(false);
     }
     
             

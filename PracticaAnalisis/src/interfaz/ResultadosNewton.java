@@ -29,6 +29,7 @@ public class ResultadosNewton extends javax.swing.JFrame {
         xInicialNewton.setEditable(false);
         iteracionesNewton.setEditable(false);
         toleranciaNewton.setEditable(false);
+        textResultado.setEditable(false);
     }
 
     /**

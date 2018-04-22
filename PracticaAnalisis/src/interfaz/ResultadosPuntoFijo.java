@@ -31,6 +31,7 @@ public class ResultadosPuntoFijo extends javax.swing.JFrame {
         xInicialPuntoFijo.setEditable(false);
         iteracionesPuntoFijo.setEditable(false);
         toleranciaPuntoFijo.setEditable(false);
+        textResultado.setEditable(false);
         
     }
 

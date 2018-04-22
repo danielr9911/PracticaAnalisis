@@ -101,7 +101,7 @@ class Metodos:
                     fxi = fxm
                 xaux = xm
                 xm = xi - ((fxi) * (xs - xi) / (fxs - fxi))
-                fxm = self.funcion(xm)
+                fxm = self.funcion(f, xm)
                 if err == 0:
                     error = abs(xm - xaux)
                 else:
@@ -123,6 +123,7 @@ class Metodos:
                 self.mensaje = "Fracaso en %d iteraciones" % iter
         else:
             self.mensaje = "El intervalo es inadecuado"
+        print(self.mensaje, self.data)
         return (self.mensaje, self.data)
 
     def raicesMultiples(self, f, df, ddf, x0, tol, iter, err):

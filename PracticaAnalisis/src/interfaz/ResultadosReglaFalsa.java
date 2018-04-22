@@ -14,8 +14,24 @@ public class ResultadosReglaFalsa extends javax.swing.JFrame {
     /**
      * Creates new form ResultadosReglaFalsa
      */
-    public ResultadosReglaFalsa() {
+    public ResultadosReglaFalsa(double xi, double xs, double tol, int iter, Double[][] dat, String res) {
         initComponents();
+        tableReglaFalsa.setModel(new javax.swing.table.DefaultTableModel(
+            dat,
+            new String[]{
+                "n", "Xi", "Xs", "Xm", "f(Xm)", "Error"
+            }
+        ));
+        textResultado.setText(res);
+        xInferiorResultadosReglaFalsa.setText(String.valueOf(xi));
+        xSuperiorResultadosReglaFalsa.setText(String.valueOf(xs));
+        iteracionesResultdosReglaFalsa.setText(String.valueOf(iter));
+        toleranciaResultadosReglaFalsa.setText(String.valueOf(tol));
+        xInferiorResultadosReglaFalsa.setEditable(false);
+        xSuperiorResultadosReglaFalsa.setEditable(false);
+        iteracionesResultdosReglaFalsa.setEditable(false);
+        toleranciaResultadosReglaFalsa.setEditable(false);
+        textResultado.setEditable(false);
     }
 
     /**
@@ -33,7 +49,7 @@ public class ResultadosReglaFalsa extends javax.swing.JFrame {
         toleranciaResultadosReglaFalsa = new javax.swing.JTextField();
         botonRegresarResultadosReglaFalsa = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        textResult = new javax.swing.JTextArea();
+        textResultado = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableReglaFalsa = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -74,9 +90,9 @@ public class ResultadosReglaFalsa extends javax.swing.JFrame {
         getContentPane().add(botonRegresarResultadosReglaFalsa);
         botonRegresarResultadosReglaFalsa.setBounds(40, 30, 80, 80);
 
-        textResult.setColumns(20);
-        textResult.setRows(5);
-        jScrollPane1.setViewportView(textResult);
+        textResultado.setColumns(20);
+        textResultado.setRows(5);
+        jScrollPane1.setViewportView(textResultado);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(60, 610, 930, 150);
@@ -118,40 +134,6 @@ public class ResultadosReglaFalsa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_xInferiorResultadosReglaFalsaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResultadosReglaFalsa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResultadosReglaFalsa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResultadosReglaFalsa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResultadosReglaFalsa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ResultadosReglaFalsa().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresarResultadosReglaFalsa;
@@ -160,7 +142,7 @@ public class ResultadosReglaFalsa extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tableReglaFalsa;
-    private javax.swing.JTextArea textResult;
+    private javax.swing.JTextArea textResultado;
     private javax.swing.JTextField toleranciaResultadosReglaFalsa;
     private javax.swing.JTextField xInferiorResultadosReglaFalsa;
     private javax.swing.JTextField xSuperiorResultadosReglaFalsa;
