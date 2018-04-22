@@ -71,6 +71,8 @@ class Metodos:
         return (self.mensaje, self.data)
 
     def reglaFalsa(self, f, xi, xs, tol, iter, err):
+        self.mensaje = ""
+        self.data = []
         fxi = self.funcion(f, xi)
         fxs = self.funcion(f, xs)
         if fxi == 0:
@@ -168,8 +170,8 @@ class Metodos:
         return (self.mensaje, self.data)
 
     def newton(self, f, df, x0, tol, iter, err):
-        mensaje = ""
-        data = []
+        self.mensaje = ""
+        self.data = []
         fx = self.funcion(f,x0)
         dfx = self.funcion(df, x0)
         cont = 0
@@ -285,3 +287,50 @@ class Metodos:
 
         return (self.mensaje, self.data)
 
+    def secante(self, f, x0, x1, tol, iter, err):
+        self.mensaje = ""
+        self.data = []
+        fx0 = self.funcion(f,x0)
+        if (fx0 == 0):
+            self.mensaje = "%f es raíz", x0
+        else:
+            fx1 = self.funcion(f,x1)
+            contador = 0
+            error = tol + 1
+            denominador = fx1 - fx0
+            fila = []
+            fila.append(cont)
+            fila.append(xi)
+            fila.append(xs)
+            fila.append(xm)
+            fila.append(fxm)
+            fila.append(0)
+            self.data.append(fila)
+        while error > tol and  fx1 != 0 and denominador != 0 and contador < iter:
+            x2 = x1 - ( (fx1 * (x1 - x0)/denominador) )
+            if err == 0:
+                error = abs(x2 - x1)
+            else:
+                error = abs((x2 - x1)/x2)
+            x0 = x1
+            fx0 = fx1
+            x1 = x2
+            fx1 = self.funcion(f,x1)
+            denominador = fx1 - fx0
+            contador = contador + 1
+            fila = []
+            fila.append(cont - 1)
+            fila.append(xi)
+            fila.append(xs)
+            fila.append(xm)
+            fila.append(fxm)
+            fila.append(error)
+            self.data.append(fila)
+        if fx1 == 0:
+            self.mensaje = "%f es una raíz" % x1
+        elif error < Tol:
+            self.mensaje = "%f es aproximación a una raíz con una tolerancia de %f" % (x1, tol)
+        elif denominador == 0:
+            self.mensaje = "Hay una posible raíz múltiple"
+        else:
+            self.mensaje = "fracaso en %d iteraciones" % iter
