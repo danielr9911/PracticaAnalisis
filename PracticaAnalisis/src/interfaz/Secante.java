@@ -41,6 +41,7 @@ public class Secante extends javax.swing.JFrame {
         errorAbsSecante = new javax.swing.JRadioButton();
         errorRelSecante = new javax.swing.JRadioButton();
         calcularSecante = new javax.swing.JButton();
+        ayudaSecante = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
@@ -91,6 +92,15 @@ public class Secante extends javax.swing.JFrame {
         });
         getContentPane().add(calcularSecante);
         calcularSecante.setBounds(330, 600, 380, 100);
+
+        ayudaSecante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ayuda.png"))); // NOI18N
+        ayudaSecante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaSecanteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ayudaSecante);
+        ayudaSecante.setBounds(850, 60, 110, 110);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Secante.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -154,8 +164,14 @@ public class Secante extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_errorAbsSecanteActionPerformed
 
+    private void ayudaSecanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaSecanteActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Secante", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/SecanteAyuda.png")));
+    }//GEN-LAST:event_ayudaSecanteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ayudaSecante;
     private javax.swing.JButton botonRegresarSecante;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton calcularSecante;

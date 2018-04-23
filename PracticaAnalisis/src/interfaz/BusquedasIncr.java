@@ -49,15 +49,15 @@ public class BusquedasIncr extends javax.swing.JFrame {
             }
         });
         getContentPane().add(textXo);
-        textXo.setBounds(540, 280, 290, 50);
+        textXo.setBounds(240, 300, 590, 50);
 
         textDelta.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         getContentPane().add(textDelta);
-        textDelta.setBounds(540, 380, 290, 50);
+        textDelta.setBounds(270, 390, 560, 50);
 
         textIter.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         getContentPane().add(textIter);
-        textIter.setBounds(540, 490, 290, 50);
+        textIter.setBounds(370, 490, 460, 50);
 
         botonRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
         botonRegresar.addActionListener(new java.awt.event.ActionListener() {

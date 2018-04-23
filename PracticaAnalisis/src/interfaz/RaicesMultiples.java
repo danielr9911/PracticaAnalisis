@@ -38,6 +38,7 @@ public class RaicesMultiples extends javax.swing.JFrame{
         jButton1 = new javax.swing.JButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
+        ayudaRaices = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
@@ -74,11 +75,20 @@ public class RaicesMultiples extends javax.swing.JFrame{
 
         buttonGroup1.add(jRadioButton1);
         getContentPane().add(jRadioButton1);
-        jRadioButton1.setBounds(420, 520, 30, 21);
+        jRadioButton1.setBounds(420, 520, 30, 23);
 
         buttonGroup1.add(jRadioButton2);
         getContentPane().add(jRadioButton2);
-        jRadioButton2.setBounds(800, 520, 21, 21);
+        jRadioButton2.setBounds(800, 520, 28, 23);
+
+        ayudaRaices.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ayuda.png"))); // NOI18N
+        ayudaRaices.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaRaicesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ayudaRaices);
+        ayudaRaices.setBounds(890, 40, 110, 110);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/RaicesMultiples.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -134,8 +144,14 @@ public class RaicesMultiples extends javax.swing.JFrame{
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void ayudaRaicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaRaicesActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Raices Múltiples", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/RaicesAyuda.png")));
+    }//GEN-LAST:event_ayudaRaicesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ayudaRaices;
     private javax.swing.JButton botonRegresarRaicesMultiples;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField iteracionesRaicesMultiples;
