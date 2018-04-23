@@ -24,11 +24,21 @@
       <file leaf-file-name="Metodos.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Metodos.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="125" column="37" lean-forward="false" selection-start-line="125" selection-start-column="37" selection-end-line="125" selection-end-column="37" />
+            <state relative-caret-position="1523">
+              <caret line="335" column="41" lean-forward="false" selection-start-line="335" selection-start-column="41" selection-end-line="335" selection-end-column="41" />
               <folding>
-                <marker date="1524436651486" expanded="true" signature="77:9396" ph="..." />
+                <marker date="1524443234402" expanded="true" signature="77:9396" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Secante.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Secante.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-228">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -166,7 +176,7 @@
         <state relative-caret-position="690">
           <caret line="46" column="25" lean-forward="false" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
           <folding>
-            <marker date="1524436651486" expanded="true" signature="77:9396" ph="..." />
+            <marker date="1524443234402" expanded="true" signature="77:9396" ph="..." />
           </folding>
         </state>
       </provider>
@@ -184,7 +194,7 @@
         <state relative-caret-position="330">
           <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
           <folding>
-            <marker date="1524436651486" expanded="true" signature="77:9396" ph="..." />
+            <marker date="1524443234402" expanded="true" signature="77:9396" ph="..." />
           </folding>
         </state>
       </provider>
@@ -210,7 +220,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Secante.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-228">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -218,10 +228,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Metodos.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="125" column="37" lean-forward="false" selection-start-line="125" selection-start-column="37" selection-end-line="125" selection-end-column="37" />
+        <state relative-caret-position="1523">
+          <caret line="335" column="41" lean-forward="false" selection-start-line="335" selection-start-column="41" selection-end-line="335" selection-end-column="41" />
           <folding>
-            <marker date="1524436651486" expanded="true" signature="77:9396" ph="..." />
+            <marker date="1524443234402" expanded="true" signature="77:9396" ph="..." />
           </folding>
         </state>
       </provider>

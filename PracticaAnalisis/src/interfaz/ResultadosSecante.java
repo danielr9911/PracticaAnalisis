@@ -14,8 +14,25 @@ public class ResultadosSecante extends javax.swing.JFrame  {
     /**
      * Creates new form ResultadosSecante
      */
-    public ResultadosSecante() {
+    public ResultadosSecante(double x0, double x1, double tol, int iter, Double[][] dat, String res) {
         initComponents();
+        tableSecante.setModel(new javax.swing.table.DefaultTableModel(
+            dat,
+            new String []{
+                "n", "Xn", "f(Xm)", "Error"
+            }
+        ));
+       
+        textResult.setText(res);
+        x0Secante.setText(String.valueOf(x0));
+        x1Secante.setText(String.valueOf(x1));
+        iteracionesSecante.setText(String.valueOf(iter));
+        toleranciaSecante.setText(String.valueOf(tol));
+        textResult.setEditable(false);
+        x0Secante.setEditable(false);
+        x1Secante.setEditable(false);
+        iteracionesSecante.setEditable(false);
+        toleranciaSecante.setEditable(false);
     }
 
     /**
@@ -49,6 +66,11 @@ public class ResultadosSecante extends javax.swing.JFrame  {
         iteracionesSecante.setBounds(700, 110, 260, 50);
 
         toleranciaSecante.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        toleranciaSecante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toleranciaSecanteActionPerformed(evt);
+            }
+        });
         getContentPane().add(toleranciaSecante);
         toleranciaSecante.setBounds(700, 155, 260, 50);
 
@@ -69,7 +91,6 @@ public class ResultadosSecante extends javax.swing.JFrame  {
         jScrollPane1.setBounds(60, 610, 910, 130);
 
         x1Secante.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        x1Secante.setSize(new java.awt.Dimension(260, 50));
         getContentPane().add(x1Secante);
         x1Secante.setBounds(240, 160, 170, 30);
 
@@ -104,6 +125,10 @@ public class ResultadosSecante extends javax.swing.JFrame  {
         secante.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_botonRegresarResultadoSecanteActionPerformed
+
+    private void toleranciaSecanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toleranciaSecanteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_toleranciaSecanteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

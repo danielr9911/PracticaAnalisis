@@ -289,24 +289,31 @@ class Metodos:
         return (self.mensaje, self.data)
 
     def secante(self, f, x0, x1, tol, iter, err):
+        print(iter)
         self.mensaje = ""
         self.data = []
         fx0 = self.funcion(f,x0)
         if (fx0 == 0):
-            self.mensaje = "%f es raíz", x0
+            self.mensaje = "%f es raíz" % x0
         else:
             fx1 = self.funcion(f,x1)
             contador = 0
             error = tol + 1
             denominador = fx1 - fx0
             fila = []
-            fila.append(cont)
-            fila.append(xi)
-            fila.append(xs)
-            fila.append(xm)
-            fila.append(fxm)
+            fila.append(contador)
+            fila.append(x0)
+            fila.append(fx0)
             fila.append(0)
             self.data.append(fila)
+            contador = contador + 1
+            fila = []
+            fila.append(contador)
+            fila.append(x1)
+            fila.append(fx1)
+            fila.append(0)
+            self.data.append(fila)
+            contador = contador + 1
         while error > tol and  fx1 != 0 and denominador != 0 and contador < iter:
             x2 = x1 - ( (fx1 * (x1 - x0)/denominador) )
             if err == 0:
@@ -320,18 +327,18 @@ class Metodos:
             denominador = fx1 - fx0
             contador = contador + 1
             fila = []
-            fila.append(cont - 1)
-            fila.append(xi)
-            fila.append(xs)
-            fila.append(xm)
-            fila.append(fxm)
+            fila.append(contador - 1)
+            fila.append(x1)
+            fila.append(fx1)
             fila.append(error)
             self.data.append(fila)
         if fx1 == 0:
-            self.mensaje = "%f es una raíz" % x1
-        elif error < Tol:
-            self.mensaje = "%f es aproximación a una raíz con una tolerancia de %f" % (x1, tol)
+            self.mensaje = "%f es una raiz" % x1
+        elif error < tol:
+            self.mensaje = "%f es aproximación a una raiz con una tolerancia de %f" % (x1, tol)
         elif denominador == 0:
-            self.mensaje = "Hay una posible raíz múltiple"
+            self.mensaje = "Hay una posible raiz multiple"
         else:
             self.mensaje = "fracaso en %d iteraciones" % iter
+        print(self.mensaje, self.data)
+        return (self.mensaje, self.data)

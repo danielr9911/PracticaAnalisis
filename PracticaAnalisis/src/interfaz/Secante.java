@@ -5,6 +5,11 @@
  */
 package interfaz;
 
+import static java.awt.image.ImageObserver.HEIGHT;
+import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
+import static practicaanalisis.Funcion.callFunction;
+import practicaanalisis.Metodos;
 /**
  *
  * @author carlosruiz
@@ -38,22 +43,22 @@ public class Secante extends javax.swing.JFrame {
         calcularSecante = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setLayout(null);
+        getContentPane().setLayout(null);
 
         x0Secante.setSize(new java.awt.Dimension(610, 45));
-        add(x0Secante);
+        getContentPane().add(x0Secante);
         x0Secante.setBounds(240, 210, 610, 45);
 
         x1Secante.setSize(new java.awt.Dimension(610, 45));
-        add(x1Secante);
+        getContentPane().add(x1Secante);
         x1Secante.setBounds(240, 270, 610, 45);
 
         iteracionesSecante.setSize(new java.awt.Dimension(480, 45));
-        add(iteracionesSecante);
+        getContentPane().add(iteracionesSecante);
         iteracionesSecante.setBounds(370, 340, 480, 45);
 
         toleranciaSecante.setSize(new java.awt.Dimension(480, 45));
-        add(toleranciaSecante);
+        getContentPane().add(toleranciaSecante);
         toleranciaSecante.setBounds(370, 410, 480, 45);
 
         botonRegresarSecante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
@@ -62,15 +67,20 @@ public class Secante extends javax.swing.JFrame {
                 botonRegresarSecanteActionPerformed(evt);
             }
         });
-        add(botonRegresarSecante);
+        getContentPane().add(botonRegresarSecante);
         botonRegresarSecante.setBounds(160, 70, 80, 80);
 
         buttonGroup1.add(errorAbsSecante);
-        add(errorAbsSecante);
+        errorAbsSecante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                errorAbsSecanteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(errorAbsSecante);
         errorAbsSecante.setBounds(420, 520, 30, 23);
 
         buttonGroup1.add(errorRelSecante);
-        add(errorRelSecante);
+        getContentPane().add(errorRelSecante);
         errorRelSecante.setBounds(800, 520, 30, 23);
 
         calcularSecante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CalcularBoton.png"))); // NOI18N
@@ -79,11 +89,11 @@ public class Secante extends javax.swing.JFrame {
                 calcularSecanteActionPerformed(evt);
             }
         });
-        add(calcularSecante);
+        getContentPane().add(calcularSecante);
         calcularSecante.setBounds(330, 600, 380, 100);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Secante.png"))); // NOI18N
-        add(jLabel1);
+        getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1024, 768);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -99,13 +109,50 @@ public class Secante extends javax.swing.JFrame {
 
     private void calcularSecanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularSecanteActionPerformed
         // TODO add your handling code here:
-        ResultadosSecante resultadosSecante = new ResultadosSecante();
-        resultadosSecante.setVisible(true);
-        resultadosSecante.setSize(1024,768);
-        resultadosSecante.setResizable(false);
-        resultadosSecante.setLocationRelativeTo(null);
-        dispose();
+        double x0 = Double.parseDouble(x0Secante.getText());
+        double x1 = Double.parseDouble(x1Secante.getText());
+        double tol = Double.parseDouble(toleranciaSecante.getText());
+        int iter = Integer.parseInt(iteracionesSecante.getText());
+        errorAbsSecante.setActionCommand("0");
+        errorRelSecante.setActionCommand("1");
+        int err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        
+        String mensaje ="";
+        boolean correct = false;
+        Double[][] data = null;
+        
+        double fx0 = callFunction("f", x0);
+        double fx1 = callFunction("f", x1);
+        
+        if(fx0 == 0){
+            mensaje = x0 + "es una raiz";
+        }else if(fx1 == 0){
+            mensaje = x1 + "es una raiz";
+        }else if(iter <= 0){
+            mensaje = "El numero de iteraciones debe ser mayor a cero";
+        }else if(tol <=0){
+            mensaje = "La tolerancia debe ser mayor a cero";
+        }else{
+            Metodos.secante(x0,x1,tol,iter,err);
+            data = Metodos.data;
+            mensaje = Metodos.mens;
+            
+            ResultadosSecante resultadosSecante = new ResultadosSecante(x0,x1,tol,iter,data,mensaje);
+            resultadosSecante.setVisible(true);
+            resultadosSecante.setSize(1024,768);
+            resultadosSecante.setResizable(false);
+            resultadosSecante.setLocationRelativeTo(null);
+            dispose();
+            correct = true;
+        }
+        if (!correct){
+            JOptionPane.showMessageDialog(rootPane, mensaje);
+        }
     }//GEN-LAST:event_calcularSecanteActionPerformed
+
+    private void errorAbsSecanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_errorAbsSecanteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_errorAbsSecanteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
