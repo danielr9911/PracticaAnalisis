@@ -50,6 +50,7 @@ public class ResultadosBusquedas extends javax.swing.JFrame {
         tableBusquedas = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         textResultado = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
@@ -94,6 +95,15 @@ public class ResultadosBusquedas extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(40, 640, 940, 90);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(50, 30, 80, 80);
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ResultadosBusquedasIncrementales.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2);
@@ -102,10 +112,21 @@ public class ResultadosBusquedas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        BusquedasIncr bi = new BusquedasIncr();
+        bi.setVisible(true);
+        bi.setSize(1024,768);
+        bi.setResizable(false);
+        bi.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField deltaBusquedas;
     private javax.swing.JTextField iteracionesBusquedas;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

@@ -143,7 +143,7 @@ class Metodos:
         fila.append(0)
         self.data.append(fila)
         while fx != 0 and error > tol and cont < iter:
-            x1 = x0 - ((fx *dfx) / ((dfx**2) - (fx*ddfx)))
+            x1 = x0 - ((fx * dfx) / ((dfx**2) - (fx*ddfx)))
             fx = self.funcion(f,x1)
             dfx = self.funcion(df,x1)
             ddfx = self.funcion(ddf, x1)
@@ -162,9 +162,9 @@ class Metodos:
             fila.append(error)
             self.data.append(fila)
         if fx == 0:
-            self.mensaje= "%f es una raiz" %x0
+            self.mensaje= "%f es una raiz" % x0
         elif error < tol:
-            self.mensaje = "%f es aproximacion a una raiz con una tolerancia de %f" % (x1, tol)
+            self.mensaje = "%f es aproximacion a una raiz con una tolerancia de %f" % (x0, tol)
         else:
             self.mensje = "Fracaso en %d iteraciones" %iter
         print(self.mensaje, self.data)
@@ -294,7 +294,7 @@ class Metodos:
         self.data = []
         fx0 = self.funcion(f,x0)
         if (fx0 == 0):
-            self.mensaje = "%f es raíz" % x0
+            self.mensaje = "%f es raiz" % x0
         else:
             fx1 = self.funcion(f,x1)
             contador = 0
@@ -335,7 +335,7 @@ class Metodos:
         if fx1 == 0:
             self.mensaje = "%f es una raiz" % x1
         elif error < tol:
-            self.mensaje = "%f es aproximación a una raiz con una tolerancia de %f" % (x1, tol)
+            self.mensaje = "%f es aproximacion a una raiz con una tolerancia de %f" % (x1, tol)
         elif denominador == 0:
             self.mensaje = "Hay una posible raiz multiple"
         else:

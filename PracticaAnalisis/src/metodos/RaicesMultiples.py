@@ -44,9 +44,9 @@ def raicesMultiples(self, f, df, ddf, x0, tol, iter, err):
         fila.append(error)
         self.data.append(fila)
     if fx == 0:
-        self.mensaje = "%f es una raíz" % x0
+        self.mensaje = "%f es una raiz" % x0
     elif error < tol:
-        self.mensaje = "%f es aproximación a una raíz con una tolerancia de %f" % (x1, tol)
+        self.mensaje = "%f es aproximación a una raiz con una tolerancia de %f" % (x1, tol)
     else:
         self.mensje = "Fracaso en %d iteraciones" % iter
     print(self.mensaje, self.data)
