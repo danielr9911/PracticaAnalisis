@@ -116,6 +116,11 @@ public class ReglaFalsa extends javax.swing.JFrame {
         botonCalcularReglaFalsa.setBounds(580, 640, 380, 100);
 
         funcionesReglaFalsa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
+        funcionesReglaFalsa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funcionesReglaFalsaActionPerformed(evt);
+            }
+        });
         getContentPane().add(funcionesReglaFalsa);
         funcionesReglaFalsa.setBounds(170, 645, 300, 90);
 
@@ -198,6 +203,16 @@ public class ReglaFalsa extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, mensaje);
         }
     }//GEN-LAST:event_botonCalcularReglaFalsaActionPerformed
+
+    private void funcionesReglaFalsaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcionesReglaFalsaActionPerformed
+        // TODO add your handling code here:
+        Funciones func = new Funciones("reglafalsa");
+        func.setVisible(true);
+        func.setSize(1024,768);
+        func.setResizable(false);
+        func.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_funcionesReglaFalsaActionPerformed
     
     private void groupButton(){
         ButtonGroup bgroup = new ButtonGroup();

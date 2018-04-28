@@ -128,6 +128,11 @@ public class Biseccion extends javax.swing.JFrame {
         errorABSBiseccion.setBounds(430, 590, 30, 30);
 
         funcionesBiseccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
+        funcionesBiseccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funcionesBiseccionActionPerformed(evt);
+            }
+        });
         getContentPane().add(funcionesBiseccion);
         funcionesBiseccion.setBounds(170, 645, 310, 90);
 
@@ -216,6 +221,16 @@ public class Biseccion extends javax.swing.JFrame {
     private void errorABSBiseccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_errorABSBiseccionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_errorABSBiseccionActionPerformed
+
+    private void funcionesBiseccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcionesBiseccionActionPerformed
+        // TODO add your handling code here:
+        Funciones func = new Funciones("biseccion");
+        func.setVisible(true);
+        func.setSize(1024,768);
+        func.setResizable(false);
+        func.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_funcionesBiseccionActionPerformed
     
     private void groupButton(){
         ButtonGroup bgroup = new ButtonGroup();
