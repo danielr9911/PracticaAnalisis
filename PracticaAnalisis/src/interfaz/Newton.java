@@ -115,6 +115,11 @@ public class Newton extends javax.swing.JFrame {
         calcularNewton.setBounds(520, 600, 380, 100);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(160, 605, 310, 90);
 
@@ -192,6 +197,16 @@ public class Newton extends javax.swing.JFrame {
     private void xInicialNewtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xInicialNewtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_xInicialNewtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Funciones func = new Funciones("newton");
+        func.setVisible(true);
+        func.setSize(1024,768);
+        func.setResizable(false);
+        func.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void groupButton(){
         ButtonGroup bgroup = new ButtonGroup();

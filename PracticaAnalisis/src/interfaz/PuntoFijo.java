@@ -109,6 +109,11 @@ public class PuntoFijo extends javax.swing.JFrame {
         calcularPuntoFijo.setBounds(540, 590, 380, 100);
 
         funcionesPuntoFijo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
+        funcionesPuntoFijo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funcionesPuntoFijoActionPerformed(evt);
+            }
+        });
         getContentPane().add(funcionesPuntoFijo);
         funcionesPuntoFijo.setBounds(160, 600, 310, 80);
 
@@ -182,6 +187,16 @@ public class PuntoFijo extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, null, "AYUDA - Punto Fijo", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/Punto Fijo Ayuda.png")));
     }//GEN-LAST:event_ayudaPuntoFijoActionPerformed
+
+    private void funcionesPuntoFijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcionesPuntoFijoActionPerformed
+        // TODO add your handling code here:
+        Funciones func = new Funciones("puntofijo");
+        func.setVisible(true);
+        func.setSize(1024,768);
+        func.setResizable(false);
+        func.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_funcionesPuntoFijoActionPerformed
 
     private void groupButton(){
         ButtonGroup bgroup = new ButtonGroup();
