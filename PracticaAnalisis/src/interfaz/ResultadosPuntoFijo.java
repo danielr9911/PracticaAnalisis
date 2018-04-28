@@ -14,7 +14,7 @@ public class ResultadosPuntoFijo extends javax.swing.JFrame {
     /**
      * Creates new form ResultadosPuntoFijo
      */
-    public ResultadosPuntoFijo(double x0, double tol, int iter, Double[][] dat, String res) {
+    public ResultadosPuntoFijo(double x0, double tol, int iter, Object[][] dat, String res) {
         initComponents();
         tablePuntoFijo.setModel(new javax.swing.table.DefaultTableModel(
             dat,

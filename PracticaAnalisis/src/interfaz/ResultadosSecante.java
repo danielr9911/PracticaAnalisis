@@ -10,11 +10,12 @@ package interfaz;
  * @author carlosruiz
  */
 public class ResultadosSecante extends javax.swing.JFrame  {
+    private static java.text.DecimalFormat sf = new java.text.DecimalFormat("0.#E0");
 
     /**
      * Creates new form ResultadosSecante
      */
-    public ResultadosSecante(double x0, double x1, double tol, int iter, Double[][] dat, String res) {
+    public ResultadosSecante(double x0, double x1, double tol, int iter, Object[][] dat, String res) {
         initComponents();
         tableSecante.setModel(new javax.swing.table.DefaultTableModel(
             dat,

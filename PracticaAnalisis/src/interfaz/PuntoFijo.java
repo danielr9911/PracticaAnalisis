@@ -16,6 +16,7 @@ import practicaanalisis.Metodos;
  * @author pedrosalzedo
  */
 public class PuntoFijo extends javax.swing.JFrame {
+    private static java.text.DecimalFormat sf = new java.text.DecimalFormat("0.#E0");
 
     /**
      * Creates new form PuntoFijo
@@ -146,9 +147,10 @@ public class PuntoFijo extends javax.swing.JFrame {
             Metodos.PuntoFijo(x0, iter, tol, err);
             //Resultados
             data = Metodos.data;
+            Object[][] newData = formatearData(data);
             mensaje = Metodos.mens;
             
-            ResultadosPuntoFijo RpuntoFijo = new ResultadosPuntoFijo(x0, tol, iter, data, mensaje);
+            ResultadosPuntoFijo RpuntoFijo = new ResultadosPuntoFijo(x0, tol, iter, newData, mensaje);
             RpuntoFijo.setVisible(true);
             RpuntoFijo.setSize(1024,768);
             RpuntoFijo.setResizable(false);
@@ -181,6 +183,19 @@ public class PuntoFijo extends javax.swing.JFrame {
         
         bgroup.add(errorABSPuntoFijo);
         bgroup.add(errorRelPuntoFijo);
+    }
+    
+    private Object[][] formatearData(Double[][] data) {
+        Object[][] newData = new Object[data.length][];
+        for(int i = 0; i < data.length; i++){
+            newData[i] = new Object[4];
+            newData[i][0] = data[i][0].intValue();
+            newData[i][1] = data[i][1];
+            newData[i][2] = sf.format(data[i][2]);
+            newData[i][3] = sf.format(data[i][3]);           
+            
+        }
+        return newData;
     }
 
 

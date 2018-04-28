@@ -14,6 +14,7 @@ import practicaanalisis.Metodos;
  * @author Daniel Rendon M
  */
 public class BusquedasIncr extends javax.swing.JFrame {
+    private static java.text.DecimalFormat sf = new java.text.DecimalFormat("0.#E0");
 
     /**
      * Creates new form BusquedasIncr
@@ -128,9 +129,10 @@ public class BusquedasIncr extends javax.swing.JFrame {
             Metodos.busquedas_incrementales(x0, delta, iter);
             //Resultados
             data = Metodos.data;
+            Object[][] newData = formatearData(data);
             mensaje = Metodos.mens;
             
-            ResultadosBusquedas resultadosBusquedas = new ResultadosBusquedas(x0, delta, iter, data, mensaje);
+            ResultadosBusquedas resultadosBusquedas = new ResultadosBusquedas(x0, delta, iter, newData, mensaje);
             resultadosBusquedas.setVisible(true);
             resultadosBusquedas.setSize(1024,768);
             resultadosBusquedas.setResizable(false);
@@ -143,6 +145,16 @@ public class BusquedasIncr extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonCalcularBusquedasActionPerformed
 
+    private Object[][] formatearData(Double[][] data) {
+        Object[][] newData = new Object[data.length][];
+        for(int i = 0; i < data.length; i++){
+            newData[i] = new Object[3];
+            newData[i][0] = data[i][0].intValue();
+            newData[i][1] = data[i][1];
+            newData[i][2] = sf.format(data[i][2]);
+        }
+        return newData;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

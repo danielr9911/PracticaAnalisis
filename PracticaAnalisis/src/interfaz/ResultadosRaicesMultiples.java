@@ -14,7 +14,7 @@ public class ResultadosRaicesMultiples extends javax.swing.JFrame {
     /**
      * Creates new form ResultadosRaicesMultiples
      */
-    public ResultadosRaicesMultiples(double x0, double tol, int iter, Double[][] dat, String res) {
+    public ResultadosRaicesMultiples(double x0, double tol, int iter, Object[][] dat, String res) {
         initComponents();
         tableRaicesMultiples.setModel(new javax.swing.table.DefaultTableModel(
             dat,

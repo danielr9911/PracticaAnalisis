@@ -14,7 +14,7 @@ public class ResultadosBusquedas extends javax.swing.JFrame {
     /**
      * Creates new form ResultadosBusquedas
      */
-    public ResultadosBusquedas(double x0, double delta, int iter, Double[][] dat, String res) {
+    public ResultadosBusquedas(double x0, double delta, int iter, Object[][] dat, String res) {
         initComponents();
         tableBusquedas.setModel(new javax.swing.table.DefaultTableModel(
             dat,

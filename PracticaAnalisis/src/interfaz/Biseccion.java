@@ -237,12 +237,10 @@ public class Biseccion extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private Object[][] formatearData(Double[][] data) {
-        System.out.println(data.length);
         Object[][] newData = new Object[data.length][];
         for(int i = 0; i < data.length; i++){
-            int temp = data[i][0].intValue();
             newData[i] = new Object[6];
-            newData[i][0] = temp;
+            newData[i][0] = data[i][0].intValue();
             newData[i][1] = data[i][1];
             newData[i][2] = data[i][2];
             newData[i][3] = data[i][3];

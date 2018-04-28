@@ -15,6 +15,7 @@ import practicaanalisis.Metodos;
  * @author carlosruiz
  */
 public class Secante extends javax.swing.JFrame {
+    private static java.text.DecimalFormat sf = new java.text.DecimalFormat("0.#E0");
 
     /**
      * Creates new form ResultadosRaicesMultiples
@@ -149,9 +150,10 @@ public class Secante extends javax.swing.JFrame {
         }else{
             Metodos.secante(x0,x1,tol,iter,err);
             data = Metodos.data;
+            Object[][] newData = formatearData(data);
             mensaje = Metodos.mens;
             
-            ResultadosSecante resultadosSecante = new ResultadosSecante(x0,x1,tol,iter,data,mensaje);
+            ResultadosSecante resultadosSecante = new ResultadosSecante(x0,x1,tol,iter,newData,mensaje);
             resultadosSecante.setVisible(true);
             resultadosSecante.setSize(1024,768);
             resultadosSecante.setResizable(false);
@@ -172,7 +174,19 @@ public class Secante extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, null, "AYUDA - Secante", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/SecanteAyuda.png")));
     }//GEN-LAST:event_ayudaSecanteActionPerformed
-
+    
+    private Object[][] formatearData(Double[][] data) {
+        Object[][] newData = new Object[data.length][];
+        for(int i = 0; i < data.length; i++){
+            newData[i] = new Object[4];
+            newData[i][0] = data[i][0].intValue();
+            newData[i][1] = data[i][1];                     
+            newData[i][2] = sf.format(data[i][2]);
+            newData[i][3] = sf.format(data[i][3]); 
+            
+        }
+        return newData;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ayudaSecante;

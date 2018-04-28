@@ -14,7 +14,7 @@ public class ResultadosNewton extends javax.swing.JFrame {
     /**
      * Creates new form ResultadosNewton
      */
-    public ResultadosNewton(double x0, int iter, double tol, Double[][] dat, String res) {
+    public ResultadosNewton(double x0, int iter, double tol, Object[][] dat, String res) {
         initComponents();
         tableNewton.setModel(new javax.swing.table.DefaultTableModel(
             dat,

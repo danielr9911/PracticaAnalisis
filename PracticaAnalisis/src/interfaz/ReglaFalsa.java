@@ -16,6 +16,7 @@ import practicaanalisis.Metodos;
  * @author pedrosalzedo
  */
 public class ReglaFalsa extends javax.swing.JFrame {
+    private static java.text.DecimalFormat sf = new java.text.DecimalFormat("0.#E0");
 
     /**
      * Creates new form ReglaFalsa
@@ -178,8 +179,9 @@ public class ReglaFalsa extends javax.swing.JFrame {
         }else {
             Metodos.reglaFalsa(xi, xs, iter, tol, err);
             data = Metodos.data;
+            Object[][] newData = formatearData(data);
             mensaje = Metodos.mens;
-            ResultadosReglaFalsa resultadosReglaFalsa = new ResultadosReglaFalsa(xi, xs, tol, iter, data, mensaje);
+            ResultadosReglaFalsa resultadosReglaFalsa = new ResultadosReglaFalsa(xi, xs, tol, iter, newData, mensaje);
             resultadosReglaFalsa.setVisible(true);
             resultadosReglaFalsa.setSize(1024,768);
             resultadosReglaFalsa.setResizable(false);
@@ -197,6 +199,21 @@ public class ReglaFalsa extends javax.swing.JFrame {
         
         bgroup.add(errorABSReglaFalsa);
         bgroup.add(errorRelReglaFalsa);
+    }
+    
+    private Object[][] formatearData(Double[][] data) {
+        Object[][] newData = new Object[data.length][];
+        for(int i = 0; i < data.length; i++){
+            newData[i] = new Object[6];
+            newData[i][0] = data[i][0].intValue();
+            newData[i][1] = data[i][1];
+            newData[i][2] = data[i][2];
+            newData[i][3] = data[i][3];            
+            newData[i][4] = sf.format(data[i][4]);
+            newData[i][5] = sf.format(data[i][5]); 
+            
+        }
+        return newData;
     }
 
 

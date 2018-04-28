@@ -10,11 +10,12 @@ package interfaz;
  * @author pedrosalzedo
  */
 public class ResultadosReglaFalsa extends javax.swing.JFrame {
+    private static java.text.DecimalFormat sf = new java.text.DecimalFormat("0.#E0");
 
     /**
      * Creates new form ResultadosReglaFalsa
      */
-    public ResultadosReglaFalsa(double xi, double xs, double tol, int iter, Double[][] dat, String res) {
+    public ResultadosReglaFalsa(double xi, double xs, double tol, int iter, Object[][] dat, String res) {
         initComponents();
         tableReglaFalsa.setModel(new javax.swing.table.DefaultTableModel(
             dat,

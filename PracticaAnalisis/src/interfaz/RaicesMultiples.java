@@ -13,6 +13,7 @@ import practicaanalisis.Metodos;
  * @author carlosruiz
  */
 public class RaicesMultiples extends javax.swing.JFrame{
+    private static java.text.DecimalFormat sf = new java.text.DecimalFormat("0.#E0");
 
     /**
      * Creates new form RaicesMultiples
@@ -127,10 +128,11 @@ public class RaicesMultiples extends javax.swing.JFrame{
             Metodos.raicesMultiples(x0, iter, tol, err);
             //Resultados
             data = Metodos.data;
+            Object[][] newData = formatearData(data);
             mensaje = Metodos.mens;
             
             
-            ResultadosRaicesMultiples resultadosRaicesMultiples = new ResultadosRaicesMultiples(x0,tol, iter, data,mensaje);
+            ResultadosRaicesMultiples resultadosRaicesMultiples = new ResultadosRaicesMultiples(x0,tol, iter, newData, mensaje);
             resultadosRaicesMultiples.setVisible(true);
             resultadosRaicesMultiples.setSize(1024,768);
             resultadosRaicesMultiples.setResizable(false);
@@ -148,7 +150,21 @@ public class RaicesMultiples extends javax.swing.JFrame{
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, null, "AYUDA - Raices Múltiples", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/RaicesAyuda.png")));
     }//GEN-LAST:event_ayudaRaicesActionPerformed
-
+    
+    private Object[][] formatearData(Double[][] data) {
+        Object[][] newData = new Object[data.length][];
+        for(int i = 0; i < data.length; i++){
+            newData[i] = new Object[6];
+            newData[i][0] = data[i][0].intValue();
+            newData[i][1] = data[i][1];
+            newData[i][2] = sf.format(data[i][2]);
+            newData[i][3] = sf.format(data[i][3]);  
+            newData[i][4] = sf.format(data[i][4]);
+            newData[i][5] = sf.format(data[i][5]); 
+            
+        }
+        return newData;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ayudaRaices;

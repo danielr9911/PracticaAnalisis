@@ -16,6 +16,7 @@ import practicaanalisis.Metodos;
  * @author pedrosalzedo
  */
 public class Newton extends javax.swing.JFrame {
+    private static java.text.DecimalFormat sf = new java.text.DecimalFormat("0.#E0");
 
     /**
      * Creates new form Newton
@@ -168,9 +169,10 @@ public class Newton extends javax.swing.JFrame {
             Metodos.newton(xi,iter, tol, err);
             //Resultados
             data = Metodos.data;
+            Object[][] newData = formatearData(data);
             mensaje = Metodos.mens;
             
-            ResultadosNewton Rnewton = new ResultadosNewton(xi,iter,tol,data,mensaje);
+            ResultadosNewton Rnewton = new ResultadosNewton(xi,iter,tol,newData,mensaje);
             Rnewton.setVisible(true);
             Rnewton.setSize(1024,768);
             Rnewton.setResizable(false);
@@ -191,6 +193,20 @@ public class Newton extends javax.swing.JFrame {
         
         bgroup.add(errorABSNewton);
         bgroup.add(errorRelNewton);
+    }
+    
+    private Object[][] formatearData(Double[][] data) {
+        Object[][] newData = new Object[data.length][];
+        for(int i = 0; i < data.length; i++){
+            newData[i] = new Object[5];
+            newData[i][0] = data[i][0].intValue();
+            newData[i][1] = data[i][1];
+            newData[i][2] = sf.format(data[i][2]);
+            newData[i][3] = sf.format(data[i][3]);
+            newData[i][4] = sf.format(data[i][4]);
+            
+        }
+        return newData;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
