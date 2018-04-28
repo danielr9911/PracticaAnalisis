@@ -121,7 +121,7 @@ public class Ecuaciones1Var extends javax.swing.JFrame {
 
     private void botonFuncionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFuncionesActionPerformed
         // TODO add your handling code here:
-        Funciones func = new Funciones();
+        Funciones func = new Funciones("nada");
         func.setVisible(true);
         func.setSize(1024,768);
         func.setResizable(false);
