@@ -43,6 +43,7 @@ public class PuntoFijo extends javax.swing.JFrame {
         botonRegresarPuntoFijo = new javax.swing.JButton();
         ayudaPuntoFijo = new javax.swing.JButton();
         calcularPuntoFijo = new javax.swing.JButton();
+        funcionesPuntoFijo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -105,7 +106,11 @@ public class PuntoFijo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(calcularPuntoFijo);
-        calcularPuntoFijo.setBounds(320, 640, 380, 100);
+        calcularPuntoFijo.setBounds(540, 590, 380, 100);
+
+        funcionesPuntoFijo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
+        getContentPane().add(funcionesPuntoFijo);
+        funcionesPuntoFijo.setBounds(160, 600, 310, 80);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/PuntoFijo.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -206,6 +211,7 @@ public class PuntoFijo extends javax.swing.JFrame {
     private javax.swing.JButton calcularPuntoFijo;
     private javax.swing.JRadioButton errorABSPuntoFijo;
     private javax.swing.JRadioButton errorRelPuntoFijo;
+    private javax.swing.JButton funcionesPuntoFijo;
     private javax.swing.JTextField iteracionesPuntoFijo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField toleranciaPuntoFijo;

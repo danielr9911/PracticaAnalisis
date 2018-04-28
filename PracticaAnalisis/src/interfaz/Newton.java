@@ -43,6 +43,7 @@ public class Newton extends javax.swing.JFrame {
         botonRegresarNewton = new javax.swing.JButton();
         botonAyudaNewton = new javax.swing.JButton();
         calcularNewton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -111,7 +112,11 @@ public class Newton extends javax.swing.JFrame {
             }
         });
         getContentPane().add(calcularNewton);
-        calcularNewton.setBounds(300, 640, 380, 100);
+        calcularNewton.setBounds(520, 600, 380, 100);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
+        getContentPane().add(jButton1);
+        jButton1.setBounds(160, 605, 310, 90);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Newton.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -217,6 +222,7 @@ public class Newton extends javax.swing.JFrame {
     private javax.swing.JRadioButton errorABSNewton;
     private javax.swing.JRadioButton errorRelNewton;
     private javax.swing.JTextField iteracionesNewton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField toleranciaNewton;
     private javax.swing.JTextField xInicialNewton;
