@@ -41,6 +41,7 @@ public class Funciones extends javax.swing.JFrame {
         fPrimaX = new javax.swing.JTextField();
         fDoblePrimaX = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        regresarMetodo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,7 +58,7 @@ public class Funciones extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonGuardarFunciones);
-        botonGuardarFunciones.setBounds(340, 640, 380, 100);
+        botonGuardarFunciones.setBounds(560, 620, 380, 100);
 
         botonRegresarFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
         botonRegresarFunciones.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +89,10 @@ public class Funciones extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1);
         jButton1.setBounds(890, 20, 110, 110);
+
+        regresarMetodo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/RegresarMetodo.png"))); // NOI18N
+        getContentPane().add(regresarMetodo);
+        regresarMetodo.setBounds(120, 615, 430, 110);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Funciones.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -138,5 +143,6 @@ public class Funciones extends javax.swing.JFrame {
     private javax.swing.JTextField gx;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton regresarMetodo;
     // End of variables declaration//GEN-END:variables
 }
