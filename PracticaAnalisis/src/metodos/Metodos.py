@@ -21,9 +21,9 @@ class Metodos:
         fxi = self.funcion(f,xi)
         fxs = self.funcion(f, xs)
         if fxi == 0:
-            self.mensaje = "%f es una raiz" % xi
+            self.mensaje = "%s es una raiz" % str(xi)
         elif fxs == 0:
-            self.mensaje = "%f es una raiz" % xs
+            self.mensaje = "%s es una raiz" % str(xs)
         elif fxi * fxs < 0:
             xm = (xi + xs) / 2
             fxm = self.funcion(f, xm)
@@ -61,9 +61,9 @@ class Metodos:
                 fila.append(error)
                 self.data.append(fila)
             if fxm == 0:
-                self.mensaje = "%f es una raiz" % xm
+                self.mensaje = "%s es una raiz" % str(xm)
             elif error < tol:
-                self.mensaje = "%f es aproximacion a una raiz con una tolerancia de %f" % (xm, tol)
+                self.mensaje = "%s es aproximacion a una raiz con una tolerancia de %s" % (str(xm), str(tol))
             else:
                 self.mensaje = "Fracaso en %d iteraciones" % iter
         else:
@@ -76,9 +76,9 @@ class Metodos:
         fxi = self.funcion(f, xi)
         fxs = self.funcion(f, xs)
         if fxi == 0:
-            self.mensaje = "%f es una raíz" % xi
+            self.mensaje = "%s es una raíz" % str(xi)
         elif fxs == 0:
-            self.mensaje = "%f es una raíz" % xs
+            self.mensaje = "%s es una raíz" % str(xs)
         elif fxi * fxs < 0:
             xm = xi - ((fxi) * (xs - xi) / (fxs - fxi))
             fxm = self.funcion(f, xm)
@@ -116,9 +116,9 @@ class Metodos:
                 fila.append(error)
                 self.data.append(fila)
             if fxm == 0:
-                self.mensaje = "%f es una raiz" % xm
+                self.mensaje = "%s es una raiz" % str(xm)
             elif error < tol:
-                self.mensaje = "%f es aproximacion a una raiz con una tolerancia de %f " % (xm, tol)
+                self.mensaje = "%s es aproximacion a una raiz con una tolerancia de %s " % (str(xm), str(tol))
             else:
                 self.mensaje = "Fracaso en %d iteraciones" % iter
         else:
@@ -162,9 +162,9 @@ class Metodos:
             fila.append(error)
             self.data.append(fila)
         if fx == 0:
-            self.mensaje= "%f es una raiz" % x0
+            self.mensaje= "%s es una raiz" % str(x0)
         elif error < tol:
-            self.mensaje = "%f es aproximacion a una raiz con una tolerancia de %f" % (x0, tol)
+            self.mensaje = "%s es aproximacion a una raiz con una tolerancia de %s" % (str(x0), str(tol))
         else:
             self.mensje = "Fracaso en %d iteraciones" %iter
         print(self.mensaje, self.data)
@@ -202,11 +202,11 @@ class Metodos:
             fila.append(error)
             self.data.append(fila)
         if fx == 0:
-            self.mensaje = "%f es una raiz" % x0
+            self.mensaje = "%s es una raiz" % str(x0)
         elif error < tol:
-            self.mensaje = "%f es aproximacion a una raiz con una tolerancia de %f" % (x1, tol)
+            self.mensaje = "%s es aproximacion a una raiz con una tolerancia de %s" % (str(x1), str(tol))
         elif dfx == 0:
-            self.mensaje = "%f es una posible raiz multiple" % (x1)
+            self.mensaje = "%s es una posible raiz multiple" % str(x1)
         else:
             self.mensaje = "Fracaso en %d iteraciones" % iter
         print(self.mensaje, self.data)
@@ -240,11 +240,11 @@ class Metodos:
             fila.append(error)
             self.data.append(fila)
         if yn == 0:
-            self.mensaje = "%f es raiz" %x0
+            self.mensaje = "%s es raiz" % str(x0)
         elif error < tol :
-            self.mensaje = "%f es aproximacion con una tol: %f" %(x0, tol)
+            self.mensaje = "%s es aproximacion con una tol: %s" % (str(x0), str(tol))
         else:
-            self.mensaje = "El metodo fracaso en %d iteraciones" %iter
+            self.mensaje = "El metodo fracaso en %d iteraciones" % iter
         return (self.mensaje, self.data)
 
     def busquedas_incrementales(self, f, x0, delta, iter):
@@ -258,7 +258,7 @@ class Metodos:
         fila.append(fx0)
         self.data.append(fila)
         if fx0 == 0:
-            self.mensaje =  "%f es una raiz" %x0
+            self.mensaje =  "%s es una raiz" % str(x0)
         else:
             x1 = x0 + delta
             cont = 1
@@ -280,21 +280,20 @@ class Metodos:
             fila.append(fx1)
             self.data.append(fila)
             if fx1 == 0:
-                self.mensaje = "%f es una raiz" %x1
+                self.mensaje = "%s es una raiz" % str(x1)
             elif fx0 * fx1 < 0:
-                self.mensaje = "Hay una raiz entre %f y %f" %(x0, x1)
+                self.mensaje = "Hay una raiz entre %s y %s" % (str(x0, x1))
             else:
                 self.mensaje = "Fracaso en iteraciones %d" %iter
 
         return (self.mensaje, self.data)
 
-    def secante(self, f, x0, x1, tol, iter, err):
-        print(iter)
+    def secante(self, f, x0, x1, tol, iter, err):        
         self.mensaje = ""
         self.data = []
         fx0 = self.funcion(f,x0)
         if (fx0 == 0):
-            self.mensaje = "%f es raiz" % x0
+            self.mensaje = "%s es raiz" % str(x0)
         else:
             fx1 = self.funcion(f,x1)
             contador = 0
@@ -333,9 +332,9 @@ class Metodos:
             fila.append(error)
             self.data.append(fila)
         if fx1 == 0:
-            self.mensaje = "%f es una raiz" % x1
+            self.mensaje = "%s es una raiz" % str(x1)
         elif error < tol:
-            self.mensaje = "%f es aproximacion a una raiz con una tolerancia de %f" % (x1, tol)
+            self.mensaje = "%s es aproximacion a una raiz con una tolerancia de %s" % (str(x1), str(tol))
         elif denominador == 0:
             self.mensaje = "Hay una posible raiz multiple"
         else:
