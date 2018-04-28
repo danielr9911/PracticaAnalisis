@@ -45,6 +45,7 @@ public class Biseccion extends javax.swing.JFrame {
         botonCalcularBiseccion = new javax.swing.JButton();
         errorRelBiseccion = new javax.swing.JRadioButton();
         errorABSBiseccion = new javax.swing.JRadioButton();
+        funcionesBiseccion = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
@@ -105,7 +106,7 @@ public class Biseccion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonCalcularBiseccion);
-        botonCalcularBiseccion.setBounds(340, 650, 370, 100);
+        botonCalcularBiseccion.setBounds(580, 640, 370, 100);
 
         buttonGroup1.add(errorRelBiseccion);
         errorRelBiseccion.setToolTipText("");
@@ -125,6 +126,10 @@ public class Biseccion extends javax.swing.JFrame {
         });
         getContentPane().add(errorABSBiseccion);
         errorABSBiseccion.setBounds(430, 590, 30, 30);
+
+        funcionesBiseccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
+        getContentPane().add(funcionesBiseccion);
+        funcionesBiseccion.setBounds(170, 645, 310, 90);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Biseccion Pagina Principal.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -227,6 +232,7 @@ public class Biseccion extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton errorABSBiseccion;
     private javax.swing.JRadioButton errorRelBiseccion;
+    private javax.swing.JButton funcionesBiseccion;
     private javax.swing.JTextField iteracionesBiseccion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

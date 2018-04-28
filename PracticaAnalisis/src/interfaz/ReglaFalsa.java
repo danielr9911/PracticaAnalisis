@@ -44,12 +44,13 @@ public class ReglaFalsa extends javax.swing.JFrame {
         botonRegresarReglaFalsa = new javax.swing.JButton();
         botonAyudaReglaFalsa = new javax.swing.JButton();
         botonCalcularReglaFalsa = new javax.swing.JButton();
+        funcionesReglaFalsa = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setLayout(null);
+        getContentPane().setLayout(null);
 
         xInferiorReglaFalsa.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        add(xInferiorReglaFalsa);
+        getContentPane().add(xInferiorReglaFalsa);
         xInferiorReglaFalsa.setBounds(460, 210, 300, 50);
 
         xSuperiorReglaFalsa.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
@@ -58,15 +59,15 @@ public class ReglaFalsa extends javax.swing.JFrame {
                 xSuperiorReglaFalsaActionPerformed(evt);
             }
         });
-        add(xSuperiorReglaFalsa);
+        getContentPane().add(xSuperiorReglaFalsa);
         xSuperiorReglaFalsa.setBounds(460, 290, 300, 50);
 
         iteracionesReglaFalsa.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        add(iteracionesReglaFalsa);
+        getContentPane().add(iteracionesReglaFalsa);
         iteracionesReglaFalsa.setBounds(460, 370, 300, 50);
 
         toleranciaReglaFalsa.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        add(toleranciaReglaFalsa);
+        getContentPane().add(toleranciaReglaFalsa);
         toleranciaReglaFalsa.setBounds(460, 450, 300, 50);
 
         buttonGroup1.add(errorRelReglaFalsa);
@@ -75,7 +76,7 @@ public class ReglaFalsa extends javax.swing.JFrame {
                 errorRelReglaFalsaActionPerformed(evt);
             }
         });
-        add(errorRelReglaFalsa);
+        getContentPane().add(errorRelReglaFalsa);
         errorRelReglaFalsa.setBounds(880, 590, 120, 23);
 
         buttonGroup1.add(errorABSReglaFalsa);
@@ -84,7 +85,7 @@ public class ReglaFalsa extends javax.swing.JFrame {
                 errorABSReglaFalsaActionPerformed(evt);
             }
         });
-        add(errorABSReglaFalsa);
+        getContentPane().add(errorABSReglaFalsa);
         errorABSReglaFalsa.setBounds(420, 590, 28, 23);
 
         botonRegresarReglaFalsa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
@@ -93,7 +94,7 @@ public class ReglaFalsa extends javax.swing.JFrame {
                 botonRegresarReglaFalsaActionPerformed(evt);
             }
         });
-        add(botonRegresarReglaFalsa);
+        getContentPane().add(botonRegresarReglaFalsa);
         botonRegresarReglaFalsa.setBounds(70, 70, 80, 80);
 
         botonAyudaReglaFalsa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ayuda.png"))); // NOI18N
@@ -102,7 +103,7 @@ public class ReglaFalsa extends javax.swing.JFrame {
                 botonAyudaReglaFalsaActionPerformed(evt);
             }
         });
-        add(botonAyudaReglaFalsa);
+        getContentPane().add(botonAyudaReglaFalsa);
         botonAyudaReglaFalsa.setBounds(890, 60, 110, 110);
 
         botonCalcularReglaFalsa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CalcularBoton.png"))); // NOI18N
@@ -111,11 +112,15 @@ public class ReglaFalsa extends javax.swing.JFrame {
                 botonCalcularReglaFalsaActionPerformed(evt);
             }
         });
-        add(botonCalcularReglaFalsa);
-        botonCalcularReglaFalsa.setBounds(350, 650, 380, 100);
+        getContentPane().add(botonCalcularReglaFalsa);
+        botonCalcularReglaFalsa.setBounds(580, 640, 380, 100);
+
+        funcionesReglaFalsa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
+        getContentPane().add(funcionesReglaFalsa);
+        funcionesReglaFalsa.setBounds(170, 645, 300, 90);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Regla Falsa Pagina Principal.png"))); // NOI18N
-        add(jLabel1);
+        getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1024, 768);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -225,6 +230,7 @@ public class ReglaFalsa extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton errorABSReglaFalsa;
     private javax.swing.JRadioButton errorRelReglaFalsa;
+    private javax.swing.JButton funcionesReglaFalsa;
     private javax.swing.JTextField iteracionesReglaFalsa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField toleranciaReglaFalsa;

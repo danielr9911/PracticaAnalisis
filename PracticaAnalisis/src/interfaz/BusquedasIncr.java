@@ -38,6 +38,7 @@ public class BusquedasIncr extends javax.swing.JFrame {
         botonRegresar = new javax.swing.JButton();
         botonAyuda = new javax.swing.JButton();
         botonCalcularBusquedas = new javax.swing.JButton();
+        funcionesBusquedasIncrementales = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,6 +87,10 @@ public class BusquedasIncr extends javax.swing.JFrame {
         });
         getContentPane().add(botonCalcularBusquedas);
         botonCalcularBusquedas.setBounds(500, 620, 370, 100);
+
+        funcionesBusquedasIncrementales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
+        getContentPane().add(funcionesBusquedasIncrementales);
+        funcionesBusquedasIncrementales.setBounds(165, 625, 300, 90);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BusquedasIncrementales.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -157,10 +162,12 @@ public class BusquedasIncr extends javax.swing.JFrame {
     }
 
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAyuda;
     private javax.swing.JButton botonCalcularBusquedas;
     private javax.swing.JButton botonRegresar;
+    private javax.swing.JButton funcionesBusquedasIncrementales;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField textDelta;
     private javax.swing.JTextField textIter;
