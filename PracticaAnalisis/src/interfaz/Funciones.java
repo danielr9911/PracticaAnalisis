@@ -13,12 +13,18 @@ import practicaanalisis.Funcion;
  * @author Daniel Rendon M
  */
 public class Funciones extends javax.swing.JFrame {
-
+    static private String metodo = "";
     /**
      * Creates new form Funciones
+     * @param met
      */
-    public Funciones() {
+    public Funciones(String met) {
         initComponents();
+        if (met == "nada"){
+            regresarMetodo.setVisible(false);
+        }else{
+            metodo = met;
+        }
         fx.setText(Funcion.f);
         fPrimaX.setText(Funcion.df);
         fDoblePrimaX.setText(Funcion.ddf);
@@ -58,7 +64,7 @@ public class Funciones extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonGuardarFunciones);
-        botonGuardarFunciones.setBounds(560, 620, 380, 100);
+        botonGuardarFunciones.setBounds(570, 620, 370, 100);
 
         botonRegresarFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
         botonRegresarFunciones.addActionListener(new java.awt.event.ActionListener() {
@@ -91,6 +97,11 @@ public class Funciones extends javax.swing.JFrame {
         jButton1.setBounds(890, 20, 110, 110);
 
         regresarMetodo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/RegresarMetodo.png"))); // NOI18N
+        regresarMetodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regresarMetodoActionPerformed(evt);
+            }
+        });
         getContentPane().add(regresarMetodo);
         regresarMetodo.setBounds(120, 615, 430, 110);
 
@@ -131,6 +142,72 @@ public class Funciones extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, null, "AYUDA - Funciones", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/FuncionesAyuda.png")));
     
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void regresarMetodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarMetodoActionPerformed
+        // TODO add your handling code here:
+        switch (metodo){
+            case "busquedasincrementales":
+                BusquedasIncr bi = new BusquedasIncr();
+                bi.setVisible(true);
+                bi.setSize(1024,768);
+                bi.setResizable(false);
+                bi.setLocationRelativeTo(null);
+                dispose();
+                break;
+            case "biseccion":
+                Biseccion biseccion = new Biseccion();
+                biseccion.setVisible(true);
+                biseccion.setSize(1024,768);
+                biseccion.setResizable(false);
+                biseccion.setLocationRelativeTo(null);
+                dispose();
+                break;
+            case "reglafalsa":
+                ReglaFalsa reglf = new ReglaFalsa();
+                reglf.setVisible(true);
+                reglf.setSize(1024,768);
+                reglf.setResizable(false);
+                reglf.setLocationRelativeTo(null);
+                dispose();
+                break;
+            case "puntofijo":
+                PuntoFijo pf = new PuntoFijo();
+                pf.setVisible(true);
+                pf.setSize(1024,768);
+                pf.setResizable(false);
+                pf.setLocationRelativeTo(null);
+                dispose();
+                break;
+            case "newton":
+                Newton newton = new Newton();
+                newton.setVisible(true);
+                newton.setSize(1024,768);
+                newton.setResizable(false);
+                newton.setLocationRelativeTo(null);
+                dispose();
+                break;
+            case "secante":
+                Secante secante = new Secante();
+                secante.setVisible(true);
+                secante.setSize(1024,768);
+                secante.setResizable(false);
+                secante.setLocationRelativeTo(null);
+                dispose();
+                break;
+            case "raicesmultiples":
+                RaicesMultiples raicesMultiples = new RaicesMultiples();
+                raicesMultiples.setVisible(true);
+                raicesMultiples.setSize(1024,768);
+                raicesMultiples.setResizable(false);
+                raicesMultiples.setLocationRelativeTo(null);
+                dispose();
+                break;
+            default:
+                
+                break;
+            
+        }
+    }//GEN-LAST:event_regresarMetodoActionPerformed
 
 
 
