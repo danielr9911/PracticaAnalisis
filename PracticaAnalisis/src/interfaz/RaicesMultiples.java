@@ -14,6 +14,7 @@ import practicaanalisis.Metodos;
  */
 public class RaicesMultiples extends javax.swing.JFrame{
     private static java.text.DecimalFormat sf = new java.text.DecimalFormat("0.#E0");
+    
 
     /**
      * Creates new form RaicesMultiples
@@ -40,6 +41,7 @@ public class RaicesMultiples extends javax.swing.JFrame{
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         ayudaRaices = new javax.swing.JButton();
+        botonMisFunciones = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
@@ -72,7 +74,7 @@ public class RaicesMultiples extends javax.swing.JFrame{
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(340, 589, 380, 100);
+        jButton1.setBounds(550, 610, 380, 100);
 
         buttonGroup1.add(jRadioButton1);
         getContentPane().add(jRadioButton1);
@@ -90,6 +92,16 @@ public class RaicesMultiples extends javax.swing.JFrame{
         });
         getContentPane().add(ayudaRaices);
         ayudaRaices.setBounds(890, 40, 110, 110);
+
+        botonMisFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
+        botonMisFunciones.setToolTipText("");
+        botonMisFunciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonMisFuncionesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonMisFunciones);
+        botonMisFunciones.setBounds(190, 620, 300, 80);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/RaicesMultiples.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -150,6 +162,16 @@ public class RaicesMultiples extends javax.swing.JFrame{
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, null, "AYUDA - Raices Múltiples", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/RaicesAyuda.png")));
     }//GEN-LAST:event_ayudaRaicesActionPerformed
+
+    private void botonMisFuncionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMisFuncionesActionPerformed
+        // TODO add your handling code here:
+        Funciones func = new Funciones("raicesmultiples");
+        func.setVisible(true);
+        func.setSize(1024,768);
+        func.setResizable(false);
+        func.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonMisFuncionesActionPerformed
     
     private Object[][] formatearData(Double[][] data) {
         Object[][] newData = new Object[data.length][];
@@ -168,6 +190,7 @@ public class RaicesMultiples extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ayudaRaices;
+    private javax.swing.JButton botonMisFunciones;
     private javax.swing.JButton botonRegresarRaicesMultiples;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField iteracionesRaicesMultiples;

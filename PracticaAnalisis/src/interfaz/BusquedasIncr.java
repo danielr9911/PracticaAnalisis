@@ -89,6 +89,11 @@ public class BusquedasIncr extends javax.swing.JFrame {
         botonCalcularBusquedas.setBounds(500, 620, 370, 100);
 
         funcionesBusquedasIncrementales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
+        funcionesBusquedasIncrementales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funcionesBusquedasIncrementalesActionPerformed(evt);
+            }
+        });
         getContentPane().add(funcionesBusquedasIncrementales);
         funcionesBusquedasIncrementales.setBounds(165, 625, 300, 90);
 
@@ -149,6 +154,10 @@ public class BusquedasIncr extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, mensaje);
         }
     }//GEN-LAST:event_botonCalcularBusquedasActionPerformed
+
+    private void funcionesBusquedasIncrementalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcionesBusquedasIncrementalesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_funcionesBusquedasIncrementalesActionPerformed
 
     private Object[][] formatearData(Double[][] data) {
         Object[][] newData = new Object[data.length][];

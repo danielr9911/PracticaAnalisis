@@ -43,6 +43,7 @@ public class Secante extends javax.swing.JFrame {
         errorRelSecante = new javax.swing.JRadioButton();
         calcularSecante = new javax.swing.JButton();
         ayudaSecante = new javax.swing.JButton();
+        botonMisFunciones = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
@@ -96,7 +97,7 @@ public class Secante extends javax.swing.JFrame {
             }
         });
         getContentPane().add(calcularSecante);
-        calcularSecante.setBounds(330, 600, 380, 100);
+        calcularSecante.setBounds(550, 630, 380, 100);
 
         ayudaSecante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ayuda.png"))); // NOI18N
         ayudaSecante.addActionListener(new java.awt.event.ActionListener() {
@@ -106,6 +107,15 @@ public class Secante extends javax.swing.JFrame {
         });
         getContentPane().add(ayudaSecante);
         ayudaSecante.setBounds(850, 60, 110, 110);
+
+        botonMisFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
+        botonMisFunciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonMisFuncionesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonMisFunciones);
+        botonMisFunciones.setBounds(160, 640, 300, 80);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Secante.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -174,6 +184,16 @@ public class Secante extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, null, "AYUDA - Secante", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/SecanteAyuda.png")));
     }//GEN-LAST:event_ayudaSecanteActionPerformed
+
+    private void botonMisFuncionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMisFuncionesActionPerformed
+        // TODO add your handling code here:
+        Funciones func = new Funciones("secante");
+        func.setVisible(true);
+        func.setSize(1024,768);
+        func.setResizable(false);
+        func.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonMisFuncionesActionPerformed
     
     private Object[][] formatearData(Double[][] data) {
         Object[][] newData = new Object[data.length][];
@@ -190,6 +210,7 @@ public class Secante extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ayudaSecante;
+    private javax.swing.JButton botonMisFunciones;
     private javax.swing.JButton botonRegresarSecante;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton calcularSecante;
