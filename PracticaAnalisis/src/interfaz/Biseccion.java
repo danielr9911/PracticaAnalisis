@@ -16,7 +16,7 @@ import practicaanalisis.Metodos;
  * @author pedrosalzedo
  */
 public class Biseccion extends javax.swing.JFrame {
-
+    private static java.text.DecimalFormat sf = new java.text.DecimalFormat("0.#E0");
     /**
      * Creates new form Biseccion
      */
@@ -186,9 +186,10 @@ public class Biseccion extends javax.swing.JFrame {
             Metodos.biseccion(xi,xs, iter, tol, err);
             //Resultados
             data = Metodos.data;
+            Object[][] newData = formatearData(data);
             mensaje = Metodos.mens;
             
-            ResultadosBiseccion resultadosBiseccion = new ResultadosBiseccion(xi, xs,tol, iter, data,mensaje);
+            ResultadosBiseccion resultadosBiseccion = new ResultadosBiseccion(xi, xs,tol, iter, newData,mensaje);
             resultadosBiseccion.setVisible(true);
             resultadosBiseccion.setSize(1024,768);
             resultadosBiseccion.setResizable(false);
@@ -234,4 +235,20 @@ public class Biseccion extends javax.swing.JFrame {
     private javax.swing.JTextField xInferiorBiseccion;
     private javax.swing.JTextField xSuperiorBiseccion;
     // End of variables declaration//GEN-END:variables
+
+    private Object[][] formatearData(Double[][] data) {
+        System.out.println(data.length);
+        Object[][] newData = new Object[data.length][];
+        for(int i = 0; i < data.length; i++){
+            int temp = data[i][0].intValue();
+            newData[i] = new Object[6];
+            newData[i][0] = temp;
+            newData[i][1] = data[i][1];
+            newData[i][2] = data[i][2];
+            newData[i][3] = data[i][3];
+            newData[i][4] = sf.format(data[i][4]);
+            newData[i][5] = sf.format(data[i][5]);
+        }
+        return newData;
+    }
 }
