@@ -127,18 +127,38 @@ public class MetodosDirectos extends javax.swing.JFrame {
         ayudaPivoteoParcial.setBounds(375, 270, 50, 50);
 
         ayudaPivoteoTotal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaPivoteoTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaPivoteoTotalActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaPivoteoTotal);
         ayudaPivoteoTotal.setBounds(685, 270, 50, 50);
 
         ayudaCrout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaCrout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaCroutActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaCrout);
         ayudaCrout.setBounds(135, 505, 50, 50);
 
         ayudaDoolittle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaDoolittle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaDoolittleActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaDoolittle);
         ayudaDoolittle.setBounds(385, 505, 50, 50);
 
         ayudaCholesky.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaCholesky.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaCholeskyActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaCholesky);
         ayudaCholesky.setBounds(690, 505, 50, 50);
 
@@ -192,6 +212,26 @@ public class MetodosDirectos extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, null, "AYUDA - Pivoteo Parcial", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaPivoteoParcial.png")));
     }//GEN-LAST:event_ayudaPivoteoParcialActionPerformed
+
+    private void ayudaPivoteoTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaPivoteoTotalActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Pivoteo Total", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaPivoteoTotal.png")));
+    }//GEN-LAST:event_ayudaPivoteoTotalActionPerformed
+
+    private void ayudaCroutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaCroutActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Crout", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaCrout.png")));
+    }//GEN-LAST:event_ayudaCroutActionPerformed
+
+    private void ayudaDoolittleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaDoolittleActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Doolittle", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaDoolittle.png")));
+    }//GEN-LAST:event_ayudaDoolittleActionPerformed
+
+    private void ayudaCholeskyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaCholeskyActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Cholesky", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaCholesky.png")));
+    }//GEN-LAST:event_ayudaCholeskyActionPerformed
 
     /**
      * @param args the command line arguments
