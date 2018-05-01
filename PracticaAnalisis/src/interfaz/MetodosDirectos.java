@@ -5,6 +5,9 @@
  */
 package interfaz;
 
+import static java.awt.image.ImageObserver.HEIGHT;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author carlosruiz
@@ -38,6 +41,11 @@ public class MetodosDirectos extends javax.swing.JFrame {
         jRadioButton4 = new javax.swing.JRadioButton();
         jRadioButton5 = new javax.swing.JRadioButton();
         ayudaSimple = new javax.swing.JButton();
+        ayudaPivoteoParcial = new javax.swing.JButton();
+        ayudaPivoteoTotal = new javax.swing.JButton();
+        ayudaCrout = new javax.swing.JButton();
+        ayudaDoolittle = new javax.swing.JButton();
+        ayudaCholesky = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -91,8 +99,38 @@ public class MetodosDirectos extends javax.swing.JFrame {
         jRadioButton5.setBounds(860, 525, 28, 23);
 
         ayudaSimple.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaSimple.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaSimpleActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaSimple);
         ayudaSimple.setBounds(130, 270, 50, 50);
+
+        ayudaPivoteoParcial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaPivoteoParcial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaPivoteoParcialActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ayudaPivoteoParcial);
+        ayudaPivoteoParcial.setBounds(375, 270, 50, 50);
+
+        ayudaPivoteoTotal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        getContentPane().add(ayudaPivoteoTotal);
+        ayudaPivoteoTotal.setBounds(685, 270, 50, 50);
+
+        ayudaCrout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        getContentPane().add(ayudaCrout);
+        ayudaCrout.setBounds(135, 505, 50, 50);
+
+        ayudaDoolittle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        getContentPane().add(ayudaDoolittle);
+        ayudaDoolittle.setBounds(385, 505, 50, 50);
+
+        ayudaCholesky.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        getContentPane().add(ayudaCholesky);
+        ayudaCholesky.setBounds(690, 505, 50, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/MetodosDirectos.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -135,6 +173,16 @@ public class MetodosDirectos extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_miMatrizActionPerformed
 
+    private void ayudaSimpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaSimpleActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Simple", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaSimple.png")));
+    }//GEN-LAST:event_ayudaSimpleActionPerformed
+
+    private void ayudaPivoteoParcialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaPivoteoParcialActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Pivoteo Parcial", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaPivoteoParcial.png")));
+    }//GEN-LAST:event_ayudaPivoteoParcialActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -171,6 +219,11 @@ public class MetodosDirectos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ayudaCholesky;
+    private javax.swing.JButton ayudaCrout;
+    private javax.swing.JButton ayudaDoolittle;
+    private javax.swing.JButton ayudaPivoteoParcial;
+    private javax.swing.JButton ayudaPivoteoTotal;
     private javax.swing.JButton ayudaSimple;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton calcularMetodosDirectos;
