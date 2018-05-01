@@ -37,6 +37,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jRadioButton5 = new javax.swing.JRadioButton();
+        ayudaSimple = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,6 +53,11 @@ public class MetodosDirectos extends javax.swing.JFrame {
         regresarMetodosDirectos.setBounds(50, 60, 80, 80);
 
         miMatriz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMiMatriz.png"))); // NOI18N
+        miMatriz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miMatrizActionPerformed(evt);
+            }
+        });
         getContentPane().add(miMatriz);
         miMatriz.setBounds(200, 640, 300, 90);
 
@@ -84,6 +90,10 @@ public class MetodosDirectos extends javax.swing.JFrame {
         getContentPane().add(jRadioButton5);
         jRadioButton5.setBounds(860, 525, 28, 23);
 
+        ayudaSimple.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        getContentPane().add(ayudaSimple);
+        ayudaSimple.setBounds(130, 270, 50, 50);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/MetodosDirectos.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1024, 768);
@@ -114,6 +124,16 @@ public class MetodosDirectos extends javax.swing.JFrame {
     private void simpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_simpleActionPerformed
+
+    private void miMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miMatrizActionPerformed
+        // TODO add your handling code here:
+        MiMatriz miMatriz = new MiMatriz();
+        miMatriz.setVisible(true);
+        miMatriz.setSize(1024,768);
+        miMatriz.setResizable(false);
+        miMatriz.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_miMatrizActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,6 +171,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ayudaSimple;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton calcularMetodosDirectos;
     private javax.swing.JLabel jLabel1;
