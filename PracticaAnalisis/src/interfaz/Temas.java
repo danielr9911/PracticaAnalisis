@@ -102,7 +102,7 @@ public class Temas extends javax.swing.JFrame {
 
     private void botonSisEcuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSisEcuActionPerformed
         // TODO add your handling code here:
-        SistemaEcuaciones se = new SistemaEcuaciones();
+        SistemasEcuaciones se = new SistemasEcuaciones();
         se.setVisible(true);
         se.setSize(1024,768);
         se.setResizable(false);
