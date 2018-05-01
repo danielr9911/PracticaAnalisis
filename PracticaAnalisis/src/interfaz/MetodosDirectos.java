@@ -78,6 +78,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
         getContentPane().add(calcularMetodosDirectos);
         calcularMetodosDirectos.setBounds(510, 640, 300, 90);
 
+        buttonGroup1.add(simple);
         simple.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 simpleActionPerformed(evt);
@@ -85,15 +86,24 @@ public class MetodosDirectos extends javax.swing.JFrame {
         });
         getContentPane().add(simple);
         simple.setBounds(280, 285, 30, 23);
+
+        buttonGroup1.add(pivoteoParcial);
         getContentPane().add(pivoteoParcial);
         pivoteoParcial.setBounds(620, 285, 28, 23);
+
+        buttonGroup1.add(pivoteoTotal);
         getContentPane().add(pivoteoTotal);
         pivoteoTotal.setBounds(910, 285, 28, 23);
+
+        buttonGroup1.add(jRadioButton1);
         getContentPane().add(jRadioButton1);
         jRadioButton1.setBounds(270, 525, 28, 23);
+
+        buttonGroup1.add(jRadioButton4);
         getContentPane().add(jRadioButton4);
         jRadioButton4.setBounds(560, 525, 28, 23);
 
+        buttonGroup1.add(jRadioButton5);
         jRadioButton5.setToolTipText("");
         getContentPane().add(jRadioButton5);
         jRadioButton5.setBounds(860, 525, 28, 23);
