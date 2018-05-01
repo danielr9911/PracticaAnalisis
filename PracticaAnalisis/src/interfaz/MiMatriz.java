@@ -113,7 +113,7 @@ public class MiMatriz extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 270, 800, 380);
+        jScrollPane1.setBounds(20, 240, 800, 410);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,7 +130,7 @@ public class MiMatriz extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(900, 270, 90, 380);
+        jScrollPane2.setBounds(850, 240, 140, 410);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/MiMatriz.png"))); // NOI18N
         getContentPane().add(jLabel1);
