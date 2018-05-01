@@ -68,7 +68,7 @@ class PivoteoParcial:
             x[i] = (Ab[i][n] - sumatoria) / float(Ab[i][i])
         return x
 
-    def metodoPivoteoParcial(self, tam, A, b):
+    def metodoPivoteoParcial(self, A, b, tam):
         Ab = self.matrixAum(A, b, tam)
         self.matrixFinal = self.eliminacion_gaussiana_pivoteo(Ab, tam)
         print("\n", "The final matrix is:\n ", self.matrixFinal, "\n")
