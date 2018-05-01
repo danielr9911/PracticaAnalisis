@@ -17,6 +17,7 @@ public class Metodos2 {
     public static PyInstance me;
     public static Double[][] a = null;
     public static Double[] b = null;
+    public static int tam = 0;
     
     public static void pivoteoParcial(Double[][] a, double[] b, int n){
         init();
@@ -30,6 +31,8 @@ public class Metodos2 {
         PyObject res = me.invoke("metodoPivoteoParcial", po);
         //Interpretar res
     }
+    
+    
     
     public static void init(){
         PythonConnection pc = new PythonConnection();  

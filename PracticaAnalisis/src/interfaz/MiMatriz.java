@@ -5,7 +5,11 @@
  */
 package interfaz;
 
+import java.util.Arrays;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import practicaanalisis.Metodos2;
 
 /**
  *
@@ -18,8 +22,30 @@ public class MiMatriz extends javax.swing.JFrame {
      */
     public MiMatriz() {
         initComponents();
+        jTextField1.setText(String.valueOf(Metodos2.tam));
+        if(Metodos2.tam != 0){
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                Metodos2.a,
+                new String [Metodos2.tam]
+            ));
+            Double[][] matrizB = new Double[Metodos2.tam][1];
+            for(int i=0; i<matrizB.length; i++){
+                matrizB[i][0] = Metodos2.b[i];
+            }
+            jTable2.setModel(new javax.swing.table.DefaultTableModel(
+                matrizB,
+                new String [1]
+            ));
+        }else{
+            jTable1.setVisible(false);
+            jTable2.setVisible(false);   
+        }
+        System.out.println("A:" + Arrays.toString(Metodos2.a));
+        System.out.println("B:" + Arrays.toString(Metodos2.b));
+        System.out.println("n:" + Metodos2.tam);
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,6 +61,8 @@ public class MiMatriz extends javax.swing.JFrame {
         guardarMatriz = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,6 +81,11 @@ public class MiMatriz extends javax.swing.JFrame {
         jTextField1.setBounds(360, 135, 320, 50);
 
         actualizarN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonActualizarN.png"))); // NOI18N
+        actualizarN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actualizarNActionPerformed(evt);
+            }
+        });
         getContentPane().add(actualizarN);
         actualizarN.setBounds(700, 140, 140, 40);
 
@@ -76,10 +109,28 @@ public class MiMatriz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setTableHeader(null);
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 200, 980, 450);
+        jScrollPane1.setBounds(20, 270, 800, 380);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable2.setTableHeader(null);
+        jScrollPane2.setViewportView(jTable2);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(900, 270, 90, 380);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/MiMatriz.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -100,9 +151,57 @@ public class MiMatriz extends javax.swing.JFrame {
 
     private void guardarMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarMatrizActionPerformed
         // TODO add your handling code here:
+        Metodos2.tam = Integer.parseInt(jTextField1.getText());
+        Metodos2.a = getTableData(jTable1);
+        Double[][] arregloB = getTableData(jTable2);
+        Double[] matrizB = new Double[arregloB.length];
+        for(int i=0; i < matrizB.length; i++){
+            matrizB[i] = arregloB[i][0];
+        }
+        Metodos2.b = matrizB;
+        System.out.println(Arrays.toString(Metodos2.b));
         
+        System.out.println("A:" + Arrays.toString(Metodos2.a));
+        System.out.println("B:" + Arrays.toString(Metodos2.b));
+        System.out.println("n:" + Metodos2.tam);
         JOptionPane.showMessageDialog(rootPane, "Matriz guardada exitosamente");
     }//GEN-LAST:event_guardarMatrizActionPerformed
+
+    
+    
+    private void actualizarNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarNActionPerformed
+        // TODO add your handling code here
+        int n = Integer.parseInt(jTextField1.getText());
+        //Metodos2.tam = n;
+        
+        Double[][] matrizA = new Double[n][n];
+        for(int i=0; i<matrizA.length; i++){
+            for(int j=0; j<matrizA[i].length; j++){
+                matrizA[i][j] = 0.0;
+            }
+        }
+        jTable1.setVisible(true);
+        jTable2.setVisible(true);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            matrizA,
+            new String [n]
+        ));
+        
+        Double[][] matrizB = new Double[n][1];
+        for(int i=0; i<matrizB.length; i++){
+            matrizB[i][0] = 0.0;
+        }
+        System.out.println(Arrays.toString(matrizB));
+        System.out.println(Arrays.toString(matrizB[0]));
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            matrizB,
+            new String [1]
+        ));
+        
+        System.out.println("A:" + Arrays.toString(Metodos2.a));
+        System.out.println("B:" + Arrays.toString(Metodos2.b));
+        System.out.println("n:" + Metodos2.tam);
+    }//GEN-LAST:event_actualizarNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,12 +238,24 @@ public class MiMatriz extends javax.swing.JFrame {
         });
     }
 
+    public static Double[][] getTableData (JTable table) {
+        DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+        int nRow = dtm.getRowCount(), nCol = dtm.getColumnCount();
+        Double[][] tableData = new Double[nRow][nCol];
+        for (int i = 0 ; i < nRow ; i++)
+            for (int j = 0 ; j < nCol ; j++)
+                tableData[i][j] = Double.parseDouble(dtm.getValueAt(i,j).toString());                
+        return tableData;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actualizarN;
     private javax.swing.JButton guardarMatriz;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton regresarMiMatriz;
     // End of variables declaration//GEN-END:variables
