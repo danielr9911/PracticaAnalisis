@@ -40,6 +40,6 @@ public class Metodos2 {
     public static void init(){
         PythonConnection pc = new PythonConnection();  
         pc.execfile("src/metodos/Metodos2.py");  
-        me = pc.createClass("Metodos", "None"); 
+        me = pc.createClass("Metodos2", "None"); 
     }
 }
