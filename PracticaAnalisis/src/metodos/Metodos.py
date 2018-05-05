@@ -282,7 +282,7 @@ class Metodos:
             if fx1 == 0:
                 self.mensaje = "%s es una raiz" % str(x1)
             elif fx0 * fx1 < 0:
-                self.mensaje = "Hay una raiz entre %s y %s" % (str(x0, x1))
+                self.mensaje = "Hay una raiz entre %s y %s" % (str(x0), str(x1))
             else:
                 self.mensaje = "Fracaso en iteraciones %d" %iter
 
