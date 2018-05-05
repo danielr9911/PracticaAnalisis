@@ -202,6 +202,14 @@ public class Funciones extends javax.swing.JFrame {
                 raicesMultiples.setLocationRelativeTo(null);
                 dispose();
                 break;
+            case "graficador":
+                Graficador gr = new Graficador();
+                gr.setVisible(true);
+                gr.setSize(1024,768);
+                gr.setResizable(false);
+                gr.setLocationRelativeTo(null);
+                dispose();
+                break;
             default:
                 
                 break;

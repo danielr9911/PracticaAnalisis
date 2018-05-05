@@ -5,6 +5,9 @@
  */
 package interfaz;
 
+import static java.awt.image.ImageObserver.HEIGHT;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Daniel Rendon M
@@ -28,6 +31,27 @@ public class Graficador extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        ayudaGraficador = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        fX = new javax.swing.JCheckBox();
+        botonMisFunciones = new javax.swing.JButton();
+        gX = new javax.swing.JCheckBox();
+        dfX = new javax.swing.JCheckBox();
+        ddfX = new javax.swing.JCheckBox();
+        funcionAdicional1 = new javax.swing.JTextField();
+        botonGraficar = new javax.swing.JButton();
+        funcionAdicional2 = new javax.swing.JTextField();
+        funcionAdicional3 = new javax.swing.JTextField();
+        funcionAdicional4 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        fA1 = new javax.swing.JCheckBox();
+        fA2 = new javax.swing.JCheckBox();
+        fA3 = new javax.swing.JCheckBox();
+        fA4 = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -40,7 +64,134 @@ public class Graficador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(60, 120, 80, 80);
+        jButton1.setBounds(70, 70, 80, 80);
+
+        ayudaGraficador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ayuda.png"))); // NOI18N
+        ayudaGraficador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaGraficadorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ayudaGraficador);
+        ayudaGraficador.setBounds(870, 30, 110, 110);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(20, 160, 970, 450);
+
+        fX.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        fX.setText("F(x)");
+        fX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fXActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fX);
+        fX.setBounds(30, 620, 65, 27);
+
+        botonMisFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
+        botonMisFunciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonMisFuncionesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonMisFunciones);
+        botonMisFunciones.setBounds(20, 660, 300, 80);
+
+        gX.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        gX.setText("G(x)");
+        getContentPane().add(gX);
+        gX.setBounds(90, 620, 68, 27);
+
+        dfX.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        dfX.setText("F'(x)");
+        dfX.setToolTipText("");
+        getContentPane().add(dfX);
+        dfX.setBounds(160, 620, 70, 27);
+
+        ddfX.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        ddfX.setText("F''(x)");
+        getContentPane().add(ddfX);
+        ddfX.setBounds(230, 620, 73, 27);
+
+        funcionAdicional1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        funcionAdicional1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funcionAdicional1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(funcionAdicional1);
+        funcionAdicional1.setBounds(380, 640, 320, 32);
+
+        botonGraficar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonGraficar.png"))); // NOI18N
+        getContentPane().add(botonGraficar);
+        botonGraficar.setBounds(710, 660, 300, 80);
+
+        funcionAdicional2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        getContentPane().add(funcionAdicional2);
+        funcionAdicional2.setBounds(380, 670, 320, 32);
+
+        funcionAdicional3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        getContentPane().add(funcionAdicional3);
+        funcionAdicional3.setBounds(380, 703, 320, 26);
+
+        funcionAdicional4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        getContentPane().add(funcionAdicional4);
+        funcionAdicional4.setBounds(380, 730, 320, 32);
+
+        jLabel2.setFont(new java.awt.Font("Avenir Next", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(174, 10, 5));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Funciones Adicionales");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(390, 616, 300, 20);
+
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(174, 10, 5));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("1");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(360, 640, 20, 30);
+
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(174, 10, 5));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("2");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(360, 670, 20, 30);
+
+        jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(174, 10, 5));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("3");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(360, 700, 20, 30);
+
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(174, 10, 5));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("4");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(360, 730, 20, 30);
+
+        fA1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        fA1.setText("F.A.1");
+        fA1.setToolTipText("");
+        getContentPane().add(fA1);
+        fA1.setBounds(710, 620, 80, 27);
+
+        fA2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        fA2.setText("F.A.2");
+        getContentPane().add(fA2);
+        fA2.setBounds(780, 620, 77, 27);
+
+        fA3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        fA3.setText("F.A.3");
+        getContentPane().add(fA3);
+        fA3.setBounds(850, 620, 80, 27);
+
+        fA4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        fA4.setText("F.A.4");
+        getContentPane().add(fA4);
+        fA4.setBounds(920, 620, 80, 27);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Graficador.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -59,9 +210,53 @@ public class Graficador extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void fXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fXActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fXActionPerformed
+
+    private void ayudaGraficadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaGraficadorActionPerformed
+        // TODO add your handling code here:
+          JOptionPane.showMessageDialog(null, null, "AYUDA - Graficador", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/ayudaGraficador.png")));
+    }//GEN-LAST:event_ayudaGraficadorActionPerformed
+
+    private void funcionAdicional1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcionAdicional1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_funcionAdicional1ActionPerformed
+
+    private void botonMisFuncionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMisFuncionesActionPerformed
+        // TODO add your handling code here:
+        Funciones func = new Funciones("graficador");
+        func.setVisible(true);
+        func.setSize(1024,768);
+        func.setResizable(false);
+        func.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonMisFuncionesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ayudaGraficador;
+    private javax.swing.JButton botonGraficar;
+    private javax.swing.JButton botonMisFunciones;
+    private javax.swing.JCheckBox ddfX;
+    private javax.swing.JCheckBox dfX;
+    private javax.swing.JCheckBox fA1;
+    private javax.swing.JCheckBox fA2;
+    private javax.swing.JCheckBox fA3;
+    private javax.swing.JCheckBox fA4;
+    private javax.swing.JCheckBox fX;
+    private javax.swing.JTextField funcionAdicional1;
+    private javax.swing.JTextField funcionAdicional2;
+    private javax.swing.JTextField funcionAdicional3;
+    private javax.swing.JTextField funcionAdicional4;
+    private javax.swing.JCheckBox gX;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
