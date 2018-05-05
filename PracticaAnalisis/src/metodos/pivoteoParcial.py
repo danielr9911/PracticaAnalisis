@@ -16,7 +16,7 @@ def interpretarMatriz(tam,b,a):
     b = b[1:-1]
     matrizB = np.fromstring(b,dtype=float,sep=",")
     a = a[1:-1]
-    temp = a.split(";")
+    temp = a.split(":")    
     for i in range(tam):
         fila = temp[i]
         fila = fila[1:-1]

@@ -46,7 +46,7 @@ public class Metodos2 {
         */
         String matrizA = "[";
         for (Double[] a1 : a) {
-            String mtemp = Arrays.toString(a1) + ";";
+            String mtemp = Arrays.toString(a1) + ":";
             mtemp = mtemp.replace(" ", "");
             matrizA = matrizA + mtemp ;
         }
