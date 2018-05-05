@@ -24,7 +24,7 @@ public class Metodos2 {
     public static Double[][] matizFinal = null;
     public static String resX= "";
     
-    public static void pivoteoParcial(Double[][] a, Double[] b, int n) throws URISyntaxException{
+    public static void pivoteoParcial(Double[][] a, Double[] b, int n) {
         //init();
         /*
         PyArray pa = new PyArray(Double.class,a);
