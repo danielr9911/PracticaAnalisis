@@ -5,6 +5,7 @@
  */
 package practicaanalisis;
 
+import java.io.File;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 import org.python.core.PyInstance;
@@ -47,8 +48,10 @@ public class Metodos2 {
         System.out.println(n);
         String args = n +" "+matrizB+" "+matrizA;
         
-        String ruta = Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
-        ruta = ruta + "/metodos/pivoteoParcial.py";
+        //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+        String ruta = new File(".").getAbsolutePath();
+        ruta = ruta.substring(0,ruta.length()-1) + "/build/classes/";
+        ruta = ruta + "metodos/pivoteoParcial.py"+"\"";
         String comando = "python3 " + ruta + " " + args;
         System.out.println(comando);
         //Interpretar res
