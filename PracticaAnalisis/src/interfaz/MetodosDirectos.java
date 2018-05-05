@@ -213,8 +213,11 @@ public class MetodosDirectos extends javax.swing.JFrame {
                     String output = "";
                     while ((s = Metodos2.stdOutput.readLine()) != null) {
                     //System.out.println(s);
-                    output = output + (s + "\n");
-                }
+                        output = output + (s + "\n");
+                    }
+                    System.out.println("SALIDA JAVA");
+                    System.out.println(output);
+                    System.out.println("FIN SALIDA JAVA");
                 }
             } catch (IOException ex) {
                 Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
