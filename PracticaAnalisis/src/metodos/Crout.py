@@ -3,17 +3,6 @@ import sys
 from math import *
 
 class Crout:
-    __gui = None
-    mensaje = ""
-    data = []
-
-    def __init__(self, gui):
-        self.__gui = gui
-
-    def matrixAum(self, A, b ,n):
-        for i in range(n):
-            Ab = A[i].append(b[i])
-        return Ab
     '''
     def readMatrix(file,size):
         L = np.zeros((size, size))
@@ -63,14 +52,15 @@ class Crout:
         return L,U
     '''
 
-    def progressive(self, Z,B,L,n):
+    def progressiveCrout(self, Z,B,L,n):
         for i in range (n):
             sum=0.0
             for p in range(i):
                 sum += L[i][p]*Z[p]
             Z[i]=(B[i]-sum)/L[i][i]
         return Z
-    def regressiveC(self, X,Z,U,n):
+
+    def regressiveCrout(self, X,Z,U,n):
         for i in range (n-1,-1,-1):
             sum=0.0
             for p in range(i+1,n):
@@ -78,7 +68,7 @@ class Crout:
             X[i]=(Z[i]-sum)/U[i][i]
         return X
 
-    def Crout(self, A, b, n):
+    def Crout(self, A, B, n):
         L = np.zeros((n, n))
         U = np.zeros((n, n))
         Z = np.zeros(n)
@@ -105,10 +95,17 @@ class Crout:
                     suma3+=L[k][h]*U[h][j]
                 U[k][j]=(A[k][j]-suma3)/float(L[k][k]) 
 
-        return L,U
+            print ("Iteracion: ",k)
+            print ("Matrix L")
+            print (np.array(L))
+            print ("\n")
+            print ("Matrix U")
+            print (np.array(U))
+            print ("\n")
+        
+        Z=progressiveCrout(self, Z,B,L,n)
+        X=regressiveCrout(self, X,Z,U,n)
 
-        Z=progressive(Z,B,L,size)
-        X=regressiveC(X,Z,U,size)
         print ("Matrix A")
         print (np.array(A))
         print ("\n")
@@ -124,6 +121,8 @@ class Crout:
 
         print ("Vector X")
         print (np.array(X))
+
+        return L,U
 
     '''    
     def main():
