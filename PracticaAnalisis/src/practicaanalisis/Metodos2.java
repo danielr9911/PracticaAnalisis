@@ -18,8 +18,10 @@ public class Metodos2 {
     public static Double[][] a = null;
     public static Double[] b = null;
     public static int tam = 0;
+    public static Double[][] matizFinal = null;
+    public static String resX= "";
     
-    public static void pivoteoParcial(Double[][] a, double[] b, int n){
+    public static void pivoteoParcial(Double[][] a, Double[] b, int n){
         init();
         PyArray pa = new PyArray(Double.class,a);
         PyArray pb = new PyArray(Double.class,b);
@@ -29,6 +31,7 @@ public class Metodos2 {
         po[1] = pb;
         po[2] = ptam;
         PyObject res = me.invoke("metodoPivoteoParcial", po);
+        
         //Interpretar res
     }
     
@@ -37,6 +40,6 @@ public class Metodos2 {
     public static void init(){
         PythonConnection pc = new PythonConnection();  
         pc.execfile("src/metodos/Metodos2.py");  
-        me = pc.createClass("Metodos", "None"); 
+        me = pc.createClass("Metodos2", "None"); 
     }
 }

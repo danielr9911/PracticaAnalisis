@@ -7,6 +7,7 @@ package interfaz;
 
 import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.JOptionPane;
+import practicaanalisis.Metodos2;
 
 /**
  *
@@ -181,6 +182,41 @@ public class MetodosDirectos extends javax.swing.JFrame {
 
     private void calcularMetodosDirectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularMetodosDirectosActionPerformed
         // TODO add your handling code here:
+        simple.setActionCommand("0");
+        pivoteoParcial.setActionCommand("1");
+        pivoteoTotal.setActionCommand("2");
+        jRadioButton1.setActionCommand("3");
+        jRadioButton4.setActionCommand("4");
+        jRadioButton5.setActionCommand("5");
+        int metodo = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        
+        switch(metodo){
+            case 0:
+                //Simple
+                
+                break;
+            case 1:
+                //Parcial
+                Metodos2.pivoteoParcial(Metodos2.a, Metodos2.b, Metodos2.tam);
+                break;
+            case 2:
+                //Total
+                break;
+            case 3:
+                //Crout
+                break;
+            case 4:
+                //Doolittle
+                break;
+            case 5:
+                //Cholesky
+                break;
+            default:
+                break;
+                
+                
+        }
+        
         ResultadosMetodosDirectos resultadosMetodosDirectos = new ResultadosMetodosDirectos();
         resultadosMetodosDirectos.setVisible(true);
         resultadosMetodosDirectos.setSize(1024,768);
