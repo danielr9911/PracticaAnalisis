@@ -6,6 +6,9 @@
 package interfaz;
 
 import static java.awt.image.ImageObserver.HEIGHT;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import practicaanalisis.Metodos2;
 
@@ -198,6 +201,24 @@ public class MetodosDirectos extends javax.swing.JFrame {
             case 1:
                 //Parcial
                 Metodos2.pivoteoParcial(Metodos2.a, Metodos2.b, Metodos2.tam);
+            try {
+                String s = null;
+                boolean error=false;
+                while ((s = Metodos2.stdError.readLine()) != null) {
+                    JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                    error=true;
+                } 
+                if(!error){
+                    //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                    String output = "";
+                    while ((s = Metodos2.stdOutput.readLine()) != null) {
+                    //System.out.println(s);
+                    output = output + (s + "\n");
+                }
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 break;
             case 2:
                 //Total
