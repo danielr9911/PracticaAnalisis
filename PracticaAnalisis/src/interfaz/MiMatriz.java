@@ -155,9 +155,9 @@ public class MiMatriz extends javax.swing.JFrame {
         Metodos2.tam = 4;
         //Metodos2.a = {};
         Metodos2.b = new Double[4];
-        Double[] tb = {10.0,-10.0,32.0,-21.0};
+        Double[] tb = {-12.0,13.0,31.0,-32.0};
         Metodos2.b = tb;
-        Double[][] ta = {{2.0,-3.0,4.0,1.0},{-4.0,2.0,1.0,-2.0},{1.0,3.0,-5.0,3.0},{-3.0,-1.0,1.0,-1.0}};
+        Double[][] ta = {{-7.0,2.0,-3.0,4.0},{5.0,-1.0,14.0,-1.0},{1.0,9.0,-7.0,13.0},{-12.0,13.0,-8.0,-4.0}};
         Metodos2.a = ta;
         
         /*
