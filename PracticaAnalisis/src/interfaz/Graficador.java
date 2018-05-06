@@ -34,9 +34,21 @@ public class Graficador extends javax.swing.JFrame {
     
     private    JEP miEvaluador;
     private    JEP miEvaluador2;
+    private    JEP miEvaluador3;
+    private    JEP miEvaluador4;
+    private    JEP miEvaluador5;
+    private    JEP miEvaluador6;
+    private    JEP miEvaluador7;
     
     //Si hay error de sintaxis en la función
     boolean    errorEnExpresion;
+    boolean    errorEnExpresion2;
+    boolean    errorEnExpresion3;
+    boolean    errorEnExpresion4;
+    boolean    errorEnExpresion5;
+    boolean    errorEnExpresion6;
+    boolean    errorEnExpresion7;
+    
     boolean    errorEnNumero   ;
     
     // Cantidad de puntos que grafica
@@ -66,6 +78,29 @@ public class Graficador extends javax.swing.JFrame {
      */
     public Graficador() {
         initComponents();
+        fA1.setEnabled(false);
+        fA2.setEnabled(false);
+        fA3.setEnabled(false);
+        if(Funcion.f.equals("")){
+            fX.setEnabled(false);
+        }else{
+            fX.setEnabled(true);
+        }
+        if(Funcion.df.equals("")){
+            dfX.setEnabled(false);
+        }else{
+            dfX.setEnabled(true);
+        }
+        if(Funcion.ddf.equals("")){
+            ddfX.setEnabled(false);
+        }else{
+            ddfX.setEnabled(true);
+        }
+        if(Funcion.g.equals("")){
+            gX.setEnabled(false);
+        }else{
+            gX.setEnabled(true);
+        }
         //imagen de fondo
         imageIcon = new ImageIcon(getClass().getResource("/imagenes/background.jpg"));
 
@@ -80,6 +115,48 @@ public class Graficador extends javax.swing.JFrame {
         miEvaluador.addVariable("x", 0);
         miEvaluador.setImplicitMul(true); //permite 2x en vez de 2*x
  
+        miEvaluador2 = new JEP();
+        miEvaluador2.addStandardFunctions();  //agrega las funciones matematicas comunes
+        miEvaluador2.addStandardConstants();
+        miEvaluador2.addComplex();
+        miEvaluador2.addVariable("x", 0);
+        miEvaluador2.setImplicitMul(true); 
+        
+        miEvaluador3 = new JEP();
+        miEvaluador3.addStandardFunctions();  //agrega las funciones matematicas comunes
+        miEvaluador3.addStandardConstants();
+        miEvaluador3.addComplex();
+        miEvaluador3.addVariable("x", 0);
+        miEvaluador3.setImplicitMul(true); //permite 2x en vez de 2*x
+        
+        miEvaluador4 = new JEP();
+        miEvaluador4.addStandardFunctions();  //agrega las funciones matematicas comunes
+        miEvaluador4.addStandardConstants();
+        miEvaluador4.addComplex();
+        miEvaluador4.addVariable("x", 0);
+        miEvaluador4.setImplicitMul(true); //permite 2x en vez de 2*x
+        
+        miEvaluador5 = new JEP();
+        miEvaluador5.addStandardFunctions();  //agrega las funciones matematicas comunes
+        miEvaluador5.addStandardConstants();
+        miEvaluador5.addComplex();
+        miEvaluador5.addVariable("x", 0);
+        miEvaluador5.setImplicitMul(true); //permite 2x en vez de 2*x
+        
+        miEvaluador6 = new JEP();
+        miEvaluador6.addStandardFunctions();  //agrega las funciones matematicas comunes
+        miEvaluador6.addStandardConstants();
+        miEvaluador6.addComplex();
+        miEvaluador6.addVariable("x", 0);
+        miEvaluador6.setImplicitMul(true); //permite 2x en vez de 2*x
+        
+        miEvaluador7 = new JEP();
+        miEvaluador7.addStandardFunctions();  //agrega las funciones matematicas comunes
+        miEvaluador7.addStandardConstants();
+        miEvaluador7.addComplex();
+        miEvaluador7.addVariable("x", 0);
+        miEvaluador7.setImplicitMul(true); //permite 2x en vez de 2*x
+        
         escalaX=30;
         escalaY=30;
         x0=Gancho/2;
@@ -162,18 +239,18 @@ public class Graficador extends javax.swing.JFrame {
         gX.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         gX.setText("G(x)");
         getContentPane().add(gX);
-        gX.setBounds(90, 620, 68, 27);
+        gX.setBounds(240, 620, 68, 27);
 
         dfX.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         dfX.setText("F'(x)");
         dfX.setToolTipText("");
         getContentPane().add(dfX);
-        dfX.setBounds(160, 620, 70, 27);
+        dfX.setBounds(100, 620, 70, 27);
 
         ddfX.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         ddfX.setText("F''(x)");
         getContentPane().add(ddfX);
-        ddfX.setBounds(230, 620, 73, 27);
+        ddfX.setBounds(170, 620, 73, 27);
 
         funcionAdicional1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         funcionAdicional1.addActionListener(new java.awt.event.ActionListener() {
@@ -299,6 +376,25 @@ public class Graficador extends javax.swing.JFrame {
         fun1 = funA1;
         fun2 = funA2;
         fun3 = funA3;
+        if(fun1.equals("")){
+            fA1.setEnabled(false);
+            fA1.setSelected(false);
+        }else{
+            fA1.setEnabled(true);
+        }
+        if(fun2.equals("")){
+            fA2.setEnabled(false);
+            fA2.setSelected(false);
+        }else{
+            fA2.setEnabled(true);
+        }
+        if(fun3.equals("")){
+            fA3.setEnabled(false);
+            fA3.setSelected(false);
+        }else{
+            fA3.setEnabled(true);
+        }
+        
         graficadorClasico.repaint();
         
     }//GEN-LAST:event_botonGraficarActionPerformed
@@ -396,6 +492,7 @@ public class ZonaGrafica extends JPanel  implements MouseListener, MouseMotionLi
         ap.drawImage(imageIcon.getImage(), 0, 0, getWidth(), getHeight(), null);
         //setBackground(new Color(36,85,102)); //COLOR FONDO/////////////////////////////////////////////////
         int xi=0,yi=0,xi1=0,yi1=0,numPuntos=1;
+        
         int cxmin,cxmax,cymin,cymax;
         double valxi=0.0, valxi1=0.0, valyi=0.0,valyi1=0.0;
         Thread animation;
@@ -462,47 +559,258 @@ public class ZonaGrafica extends JPanel  implements MouseListener, MouseMotionLi
             }
         }
         
-        g.setPaint(new Color(29,220,248));//COLOR DE LA FUNCION
+        //g.setPaint(new Color(29,220,248));//COLOR DE LA FUNCION
         
-        g.setStroke(grosor1);
+        //g.setStroke(grosor1);
   
-        miEvaluador.parseExpression(Graficador.fun1);
-        //miEvaluador.parseExpression(Graficador.fun2);
-        //miEvaluador.parseExpression(Graficador.fun3);
-        //miEvaluador.parseExpression(Funcion.f);
-        //miEvaluador.parseExpression(Funcion.df);
-        //miEvaluador.parseExpression(Funcion.ddf);
-        //miEvaluador.parseExpression(Funcion.g);
-        errorEnExpresion = miEvaluador.hasError(); //hay error?
+        //miEvaluador.parseExpression(Graficador.fun1);
+        //miEvaluador2.parseExpression(Graficador.fun2);
         
+        
+        
+        
+        //errorEnExpresion = miEvaluador.hasError(); //hay error?
+        //errorEnExpresion2 = miEvaluador2.hasError(); //hay error?
+        
+        
+        
+        if (fA1.isSelected()){
+            miEvaluador.parseExpression(Graficador.fun1);
+            errorEnExpresion = miEvaluador.hasError(); //hay error?
+        }
+        if (fA2.isSelected()){
+            miEvaluador2.parseExpression(Graficador.fun2);
+            errorEnExpresion2 = miEvaluador2.hasError(); //hay error?
+        }
+        if (fA3.isSelected()){
+            miEvaluador3.parseExpression(Graficador.fun3);
+            errorEnExpresion3 = miEvaluador3.hasError(); //hay error?
+        }
+        if (fX.isSelected()){
+            miEvaluador4.parseExpression(Funcion.f);
+            errorEnExpresion4 = miEvaluador4.hasError(); //hay error?
+        }
+        if (dfX.isSelected()){
+            miEvaluador5.parseExpression(Funcion.df);
+            errorEnExpresion5 = miEvaluador5.hasError(); //hay error?
+        }
+        if (ddfX.isSelected()){
+            miEvaluador6.parseExpression(Funcion.ddf);
+            errorEnExpresion6 = miEvaluador6.hasError(); //hay error?
+        }
+        if (gX.isSelected()){
+            miEvaluador7.parseExpression(Funcion.g);
+            errorEnExpresion7 = miEvaluador7.hasError(); //hay error?
+        }
 
-        if(!errorEnExpresion){   
+        if(!errorEnExpresion && !errorEnExpresion2 && !errorEnExpresion3
+                 && !errorEnExpresion4 && !errorEnExpresion5
+                 && !errorEnExpresion6 && !errorEnExpresion7){   
             //CICLO QUE PINTA LA FUNCION
-            for(int i=(xg+intervaloA*escalaX);i<(xg+intervaloB*escalaY)-1;i++)//numPuntos
-            {
-                valxi =xmin +i*1.0/escalaX;
-                valxi1=xmin+(i+1)*1.0/escalaX;
-                miEvaluador.addVariable("x", valxi);
-                valyi=miEvaluador.getValue();  
-                miEvaluador.addVariable("x", valxi1);
-                valyi1 =  miEvaluador.getValue();
-                xi =(int)Math.round(escalaX*(valxi));
-                yi =(int)Math.round(escalaY*valyi); 
-                xi1=(int)Math.round(escalaX*(valxi1));
-                yi1=(int)Math.round(escalaY*valyi1); 
+            
+            if (fA1.isSelected()){
+                g.setPaint(new Color(231,76,60));
+                g.setStroke(grosor1);
+                for(int i=(xg+intervaloA*escalaX);i<(xg+intervaloB*escalaY)-1;i++)//numPuntos
+                {
+                    valxi =xmin +i*1.0/escalaX;
+                    valxi1=xmin+(i+1)*1.0/escalaX;
+                    miEvaluador.addVariable("x", valxi);
+                    valyi=miEvaluador.getValue();  
+                    miEvaluador.addVariable("x", valxi1);
+                    valyi1 =  miEvaluador.getValue();
+                    xi =(int)Math.round(escalaX*(valxi));
+                    yi =(int)Math.round(escalaY*valyi); 
+                    xi1=(int)Math.round(escalaX*(valxi1));
+                    yi1=(int)Math.round(escalaY*valyi1); 
 
-                //control de discontinuidades groseras y complejos
-                //control de puntos
-                if(i%(100-puntosInt)==0){
-                    Complex valC = miEvaluador.getComplexValue();
-                    //System.out.println("valc "+valC);
-                    double imgx = (double)Math.abs(valC.im()); 
-                    if(dist(valxi,valyi,valxi1,valyi1)< 1000 && imgx==0)
-                    {
-                        g.draw(new Line2D.Double(xg+xi,yg-yi,xg+xi1,yg-yi1)); 
+                    //control de discontinuidades groseras y complejos
+                    //control de puntos
+                    if(i%(100-puntosInt)==0){
+                        Complex valC = miEvaluador.getComplexValue();
+                        //System.out.println("valc "+valC);
+                        double imgx = (double)Math.abs(valC.im()); 
+                        if(dist(valxi,valyi,valxi1,valyi1)< 1000 && imgx==0)
+                        {
+                            g.draw(new Line2D.Double(xg+xi,yg-yi,xg+xi1,yg-yi1)); 
+                        }
                     }
-                }
-            }//fin del for 
+                }//fin del for
+            }
+            if (fA2.isSelected()){
+                g.setPaint(new Color(142,68,173));
+                g.setStroke(grosor1);
+                for(int i=(xg+intervaloA*escalaX);i<(xg+intervaloB*escalaY)-1;i++)//numPuntos
+                {
+                    valxi =xmin +i*1.0/escalaX;
+                    valxi1=xmin+(i+1)*1.0/escalaX;
+                    miEvaluador2.addVariable("x", valxi);
+                    valyi=miEvaluador2.getValue();  
+                    miEvaluador2.addVariable("x", valxi1);
+                    valyi1 =  miEvaluador2.getValue();
+                    xi =(int)Math.round(escalaX*(valxi));
+                    yi =(int)Math.round(escalaY*valyi); 
+                    xi1=(int)Math.round(escalaX*(valxi1));
+                    yi1=(int)Math.round(escalaY*valyi1); 
+
+                    //control de discontinuidades groseras y complejos
+                    //control de puntos
+                    if(i%(100-puntosInt)==0){
+                        Complex valC = miEvaluador2.getComplexValue();
+                        //System.out.println("valc "+valC);
+                        double imgx = (double)Math.abs(valC.im()); 
+                        if(dist(valxi,valyi,valxi1,valyi1)< 1000 && imgx==0)
+                        {
+                            g.draw(new Line2D.Double(xg+xi,yg-yi,xg+xi1,yg-yi1)); 
+                        }
+                    }
+                }//fin del for
+            }
+            if (fA3.isSelected()){
+                g.setPaint(new Color(46,204,113));
+                g.setStroke(grosor1);
+                for(int i=(xg+intervaloA*escalaX);i<(xg+intervaloB*escalaY)-1;i++)//numPuntos
+                {
+                    valxi =xmin +i*1.0/escalaX;
+                    valxi1=xmin+(i+1)*1.0/escalaX;
+                    miEvaluador3.addVariable("x", valxi);
+                    valyi=miEvaluador3.getValue();  
+                    miEvaluador3.addVariable("x", valxi1);
+                    valyi1 =  miEvaluador3.getValue();
+                    xi =(int)Math.round(escalaX*(valxi));
+                    yi =(int)Math.round(escalaY*valyi); 
+                    xi1=(int)Math.round(escalaX*(valxi1));
+                    yi1=(int)Math.round(escalaY*valyi1); 
+
+                    //control de discontinuidades groseras y complejos
+                    //control de puntos
+                    if(i%(100-puntosInt)==0){
+                        Complex valC = miEvaluador3.getComplexValue();
+                        //System.out.println("valc "+valC);
+                        double imgx = (double)Math.abs(valC.im()); 
+                        if(dist(valxi,valyi,valxi1,valyi1)< 1000 && imgx==0)
+                        {
+                            g.draw(new Line2D.Double(xg+xi,yg-yi,xg+xi1,yg-yi1)); 
+                        }
+                    }
+                }//fin del for
+            }
+            if (fX.isSelected()){
+                g.setPaint(new Color(244,208,63));
+                g.setStroke(grosor1);
+                for(int i=(xg+intervaloA*escalaX);i<(xg+intervaloB*escalaY)-1;i++)//numPuntos
+                {
+                    valxi =xmin +i*1.0/escalaX;
+                    valxi1=xmin+(i+1)*1.0/escalaX;
+                    miEvaluador4.addVariable("x", valxi);
+                    valyi=miEvaluador4.getValue();  
+                    miEvaluador4.addVariable("x", valxi1);
+                    valyi1 =  miEvaluador4.getValue();
+                    xi =(int)Math.round(escalaX*(valxi));
+                    yi =(int)Math.round(escalaY*valyi); 
+                    xi1=(int)Math.round(escalaX*(valxi1));
+                    yi1=(int)Math.round(escalaY*valyi1); 
+
+                    //control de discontinuidades groseras y complejos
+                    //control de puntos
+                    if(i%(100-puntosInt)==0){
+                        Complex valC = miEvaluador4.getComplexValue();
+                        //System.out.println("valc "+valC);
+                        double imgx = (double)Math.abs(valC.im()); 
+                        if(dist(valxi,valyi,valxi1,valyi1)< 1000 && imgx==0)
+                        {
+                            g.draw(new Line2D.Double(xg+xi,yg-yi,xg+xi1,yg-yi1)); 
+                        }
+                    }
+                }//fin del for
+            }
+            if (ddfX.isSelected()){
+                g.setPaint(new Color(230,77,255));
+                g.setStroke(grosor1);
+                for(int i=(xg+intervaloA*escalaX);i<(xg+intervaloB*escalaY)-1;i++)//numPuntos
+                {
+                    valxi =xmin +i*1.0/escalaX;
+                    valxi1=xmin+(i+1)*1.0/escalaX;
+                    miEvaluador5.addVariable("x", valxi);
+                    valyi=miEvaluador5.getValue();  
+                    miEvaluador5.addVariable("x", valxi1);
+                    valyi1 =  miEvaluador5.getValue();
+                    xi =(int)Math.round(escalaX*(valxi));
+                    yi =(int)Math.round(escalaY*valyi); 
+                    xi1=(int)Math.round(escalaX*(valxi1));
+                    yi1=(int)Math.round(escalaY*valyi1); 
+
+                    //control de discontinuidades groseras y complejos
+                    //control de puntos
+                    if(i%(100-puntosInt)==0){
+                        Complex valC = miEvaluador5.getComplexValue();
+                        //System.out.println("valc "+valC);
+                        double imgx = (double)Math.abs(valC.im()); 
+                        if(dist(valxi,valyi,valxi1,valyi1)< 1000 && imgx==0)
+                        {
+                            g.draw(new Line2D.Double(xg+xi,yg-yi,xg+xi1,yg-yi1)); 
+                        }
+                    }
+                }//fin del for
+            }
+            if (gX.isSelected()){
+                g.setPaint(new Color(255,146,57));
+                g.setStroke(grosor1);
+                for(int i=(xg+intervaloA*escalaX);i<(xg+intervaloB*escalaY)-1;i++)//numPuntos
+                {
+                    valxi =xmin +i*1.0/escalaX;
+                    valxi1=xmin+(i+1)*1.0/escalaX;
+                    miEvaluador6.addVariable("x", valxi);
+                    valyi=miEvaluador6.getValue();  
+                    miEvaluador6.addVariable("x", valxi1);
+                    valyi1 =  miEvaluador6.getValue();
+                    xi =(int)Math.round(escalaX*(valxi));
+                    yi =(int)Math.round(escalaY*valyi); 
+                    xi1=(int)Math.round(escalaX*(valxi1));
+                    yi1=(int)Math.round(escalaY*valyi1); 
+
+                    //control de discontinuidades groseras y complejos
+                    //control de puntos
+                    if(i%(100-puntosInt)==0){
+                        Complex valC = miEvaluador6.getComplexValue();
+                        //System.out.println("valc "+valC);
+                        double imgx = (double)Math.abs(valC.im()); 
+                        if(dist(valxi,valyi,valxi1,valyi1)< 1000 && imgx==0)
+                        {
+                            g.draw(new Line2D.Double(xg+xi,yg-yi,xg+xi1,yg-yi1)); 
+                        }
+                    }
+                }//fin del for
+            }
+            if (dfX.isSelected()){
+                g.setPaint(new Color(18,25,178));
+                g.setStroke(grosor1);
+                for(int i=(xg+intervaloA*escalaX);i<(xg+intervaloB*escalaY)-1;i++)//numPuntos
+                {
+                    valxi =xmin +i*1.0/escalaX;
+                    valxi1=xmin+(i+1)*1.0/escalaX;
+                    miEvaluador7.addVariable("x", valxi);
+                    valyi=miEvaluador7.getValue();  
+                    miEvaluador7.addVariable("x", valxi1);
+                    valyi1 =  miEvaluador7.getValue();
+                    xi =(int)Math.round(escalaX*(valxi));
+                    yi =(int)Math.round(escalaY*valyi); 
+                    xi1=(int)Math.round(escalaX*(valxi1));
+                    yi1=(int)Math.round(escalaY*valyi1); 
+
+                    //control de discontinuidades groseras y complejos
+                    //control de puntos
+                    if(i%(100-puntosInt)==0){
+                        Complex valC = miEvaluador7.getComplexValue();
+                        //System.out.println("valc "+valC);
+                        double imgx = (double)Math.abs(valC.im()); 
+                        if(dist(valxi,valyi,valxi1,valyi1)< 1000 && imgx==0)
+                        {
+                            g.draw(new Line2D.Double(xg+xi,yg-yi,xg+xi1,yg-yi1)); 
+                        }
+                    }
+                }//fin del for
+            }
         }
         
     }//Graficar
