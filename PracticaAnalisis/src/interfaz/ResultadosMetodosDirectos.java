@@ -5,17 +5,66 @@
  */
 package interfaz;
 
+import java.util.Arrays;
+import practicaanalisis.Metodos2;
+
 /**
  *
  * @author carlosruiz
  */
 public class ResultadosMetodosDirectos extends javax.swing.JFrame {
 
+    public static String resultado;
+    public static String matrizFinal;
+    public static String etapas;
+    
     /**
      * Creates new form PivoteoParcial
      */
-    public ResultadosMetodosDirectos() {
+    public ResultadosMetodosDirectos(String res, String matriz, String eta) {
+        
         initComponents();
+        resultado = res;
+        matrizFinal = matriz;
+        etapas = eta;
+        jTextArea1.setText(resultado);
+        
+        System.out.println("RESULTADOOO");
+        System.out.println(matrizFinal);
+        matrizFinal = matrizFinal.replace("[ ", "");
+        matrizFinal = matrizFinal.replace("[", "");
+        matrizFinal = matrizFinal.replace("]", "");
+        matrizFinal = matrizFinal.replace("\n", "");
+        matrizFinal =  matrizFinal.replaceAll("\\s+"," ");
+        matrizFinal = matrizFinal.replace(" ", "!");
+        
+        //matrizFinal = matrizFinal.replace(".!", ".0!");
+        
+        /*matrizFinal = matrizFinal.replace("[", "");
+        matrizFinal = matrizFinal.replace("]", "");
+        matrizFinal = matrizFinal.replace("\n", "");
+        matrizFinal = matrizFinal.replace("    ", "!");
+        matrizFinal = matrizFinal.replace("  ", "!");
+        matrizFinal = matrizFinal.replace("! ", "!");*/
+        System.out.println(matrizFinal);
+        String[] arrMatrizFinal = matrizFinal.split("!"); 
+        System.out.println(Arrays.toString(arrMatrizFinal));
+        Double[][] dMatrizFinal = new Double[Metodos2.tam][Metodos2.tam+1];
+        int cont = 0;
+        for (int i = 0; i < Metodos2.tam; i++) {
+            for (int j = 0; j < Metodos2.tam+1; j++) {
+                dMatrizFinal[i][j] = Double.parseDouble(arrMatrizFinal[cont]);
+                cont++;
+            }
+        }
+        System.out.println("dMatrizFinal");
+        System.out.println(dMatrizFinal);
+        
+        TablaPivoteoParcial.setModel(new javax.swing.table.DefaultTableModel(
+                dMatrizFinal,
+                new String [Metodos2.tam]
+            ));
+        
     }
 
     /**
@@ -98,7 +147,9 @@ public class ResultadosMetodosDirectos extends javax.swing.JFrame {
 
     private void verEtapasPivoteoParcialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verEtapasPivoteoParcialActionPerformed
         // TODO add your handling code here:
-        EtapasMetodosDirectos etapasMetodosDirectos = new EtapasMetodosDirectos();
+        
+        
+        EtapasMetodosDirectos etapasMetodosDirectos = new EtapasMetodosDirectos(resultado, matrizFinal, etapas);
         etapasMetodosDirectos.setVisible(true);
         etapasMetodosDirectos.setSize(1024,768);
         etapasMetodosDirectos.setResizable(false);
@@ -106,41 +157,7 @@ public class ResultadosMetodosDirectos extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_verEtapasPivoteoParcialActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResultadosMetodosDirectos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResultadosMetodosDirectos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResultadosMetodosDirectos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResultadosMetodosDirectos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ResultadosMetodosDirectos().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaPivoteoParcial;

@@ -18,6 +18,10 @@ import practicaanalisis.Metodos2;
  */
 public class MetodosDirectos extends javax.swing.JFrame {
 
+    public static String resultado;
+    public static String matrizFinal;
+    public static String etapas;
+    
     /**
      * Creates new form MetodosDirectos
      */
@@ -215,9 +219,20 @@ public class MetodosDirectos extends javax.swing.JFrame {
                     //System.out.println(s);
                         output = output + (s + "\n");
                     }
+                    
+                    String[] arrOutput = output.split("!");
+                    etapas = arrOutput[0];
+                    matrizFinal = arrOutput[1];
+                    resultado = arrOutput[2];
                     System.out.println("SALIDA JAVA");
-                    System.out.println(output);
+                    System.out.println(etapas);
+                    System.out.println("--");
+                    System.out.println(matrizFinal);
+                    System.out.println("---");
+                    System.out.println(resultado);
                     System.out.println("FIN SALIDA JAVA");
+                    
+                    
                 }
             } catch (IOException ex) {
                 Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
@@ -241,7 +256,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
                 
         }
         
-        ResultadosMetodosDirectos resultadosMetodosDirectos = new ResultadosMetodosDirectos();
+        ResultadosMetodosDirectos resultadosMetodosDirectos = new ResultadosMetodosDirectos(resultado, matrizFinal, etapas);
         resultadosMetodosDirectos.setVisible(true);
         resultadosMetodosDirectos.setSize(1024,768);
         resultadosMetodosDirectos.setResizable(false);
