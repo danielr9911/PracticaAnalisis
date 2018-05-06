@@ -31,7 +31,6 @@ public class Graficador extends javax.swing.JFrame {
     public static String fun1 = "";
     public static String fun2 = "";
     public static String fun3 = "";
-    public static String fun4 = "";
     
     private    JEP miEvaluador;
     private    JEP miEvaluador2;
@@ -297,11 +296,9 @@ public class Graficador extends javax.swing.JFrame {
         String funA1 = funcionAdicional1.getText();
         String funA2 = funcionAdicional2.getText();
         String funA3 = funcionAdicional3.getText();
-        String funA4 = funcionAdicional4.getText();
         fun1 = funA1;
         fun2 = funA2;
         fun3 = funA3;
-        fun4 = funA4;
         graficadorClasico.repaint();
         
     }//GEN-LAST:event_botonGraficarActionPerformed
@@ -472,7 +469,6 @@ public class ZonaGrafica extends JPanel  implements MouseListener, MouseMotionLi
         miEvaluador.parseExpression(Graficador.fun1);
         //miEvaluador.parseExpression(Graficador.fun2);
         //miEvaluador.parseExpression(Graficador.fun3);
-        //miEvaluador.parseExpression(Graficador.fun4);
         //miEvaluador.parseExpression(Funcion.f);
         //miEvaluador.parseExpression(Funcion.df);
         //miEvaluador.parseExpression(Funcion.ddf);
