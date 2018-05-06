@@ -34,6 +34,7 @@ public class Graficador extends javax.swing.JFrame {
     public static String fun4 = "";
     
     private    JEP miEvaluador;
+    private    JEP miEvaluador2;
     
     //Si hay error de sintaxis en la función
     boolean    errorEnExpresion;
@@ -108,16 +109,13 @@ public class Graficador extends javax.swing.JFrame {
         botonGraficar = new javax.swing.JButton();
         funcionAdicional2 = new javax.swing.JTextField();
         funcionAdicional3 = new javax.swing.JTextField();
-        funcionAdicional4 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         fA1 = new javax.swing.JCheckBox();
         fA2 = new javax.swing.JCheckBox();
         fA3 = new javax.swing.JCheckBox();
-        fA4 = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         graficadorClasico = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -204,10 +202,6 @@ public class Graficador extends javax.swing.JFrame {
         getContentPane().add(funcionAdicional3);
         funcionAdicional3.setBounds(380, 703, 320, 26);
 
-        funcionAdicional4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        getContentPane().add(funcionAdicional4);
-        funcionAdicional4.setBounds(380, 730, 320, 32);
-
         jLabel2.setFont(new java.awt.Font("Avenir Next", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(174, 10, 5));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -236,33 +230,21 @@ public class Graficador extends javax.swing.JFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(360, 700, 20, 30);
 
-        jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(174, 10, 5));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("4");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(360, 730, 20, 30);
-
         fA1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         fA1.setText("F.A.1");
         fA1.setToolTipText("");
         getContentPane().add(fA1);
-        fA1.setBounds(710, 620, 80, 27);
+        fA1.setBounds(730, 620, 80, 27);
 
         fA2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         fA2.setText("F.A.2");
         getContentPane().add(fA2);
-        fA2.setBounds(780, 620, 77, 27);
+        fA2.setBounds(820, 620, 77, 27);
 
         fA3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         fA3.setText("F.A.3");
         getContentPane().add(fA3);
-        fA3.setBounds(850, 620, 80, 27);
-
-        fA4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        fA4.setText("F.A.4");
-        getContentPane().add(fA4);
-        fA4.setBounds(920, 620, 80, 27);
+        fA3.setBounds(910, 620, 80, 27);
 
         graficadorClasico = new ZonaGrafica();
         jScrollPane1.setViewportView(graficadorClasico);
@@ -334,12 +316,10 @@ public class Graficador extends javax.swing.JFrame {
     private javax.swing.JCheckBox fA1;
     private javax.swing.JCheckBox fA2;
     private javax.swing.JCheckBox fA3;
-    private javax.swing.JCheckBox fA4;
     private javax.swing.JCheckBox fX;
     private javax.swing.JTextField funcionAdicional1;
     private javax.swing.JTextField funcionAdicional2;
     private javax.swing.JTextField funcionAdicional3;
-    private javax.swing.JTextField funcionAdicional4;
     private javax.swing.JCheckBox gX;
     private javax.swing.JPanel graficadorClasico;
     private javax.swing.JButton jButton1;
@@ -348,7 +328,6 @@ public class Graficador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
