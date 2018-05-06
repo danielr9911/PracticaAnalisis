@@ -18,7 +18,7 @@ public class Funcion {
     public static String f = "";
     public static String df = "";
     public static String ddf = "";
-    public static String g = "";
+    public static String g = "";   
     public static PyInstance ee;
     
     public static void setF(String fun){
