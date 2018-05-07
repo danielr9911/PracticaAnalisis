@@ -28,6 +28,7 @@ public class Metodos2 {
     public static int tam = 0;
     public static Double[][] matizFinal = null;
     public static String resX= "";
+    public static int[] vectorMarcas = null;
     
     public static BufferedReader stdOutput = null;
     public static BufferedReader stdError = null;
@@ -81,6 +82,50 @@ public class Metodos2 {
         
         
     }
+    
+    public static void pivoteoTotal(Double[][] a, Double[] b, int n) {        
+        
+        /*for (int i = 1; i < n; i++){
+            vectorMarcas[i-1] = i;
+        }*/
+        String matrizA = "[";
+        for (Double[] a1 : a) {
+            String mtemp = Arrays.toString(a1) + ":";
+            mtemp = mtemp.replace(" ", "");
+            matrizA = matrizA + mtemp ;
+        }
+        matrizA = matrizA.substring(0,matrizA.length()-1);
+        matrizA = matrizA + "]";
+        String matrizB = Arrays.toString(b);
+        matrizB = matrizB.replace(" ", "");
+        System.out.println(matrizA);
+        System.out.println(Arrays.toString(b));
+        System.out.println(n);
+        String args = n +" "+matrizB+" "+matrizA;
+        
+        //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+        String ruta = new File(".").getAbsolutePath();
+        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        ruta = ruta + "metodos/pivoteoTotal2.py";
+        String comando = "python " + ruta + " " + args;
+        System.out.println(comando);
+        
+        try {
+            Process p = Runtime.getRuntime().exec(comando);
+            stdOutput = new BufferedReader(new 
+                 InputStreamReader(p.getInputStream()));
+
+            stdError = new BufferedReader(new 
+                 InputStreamReader(p.getErrorStream()));
+            //Interpretar res
+        } catch (IOException ex) {
+            Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //Tenemos salida y salidaError
+        
+        
+    }
+    
     
     
     /*
