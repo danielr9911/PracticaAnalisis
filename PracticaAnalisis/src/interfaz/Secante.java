@@ -6,7 +6,6 @@
 package interfaz;
 
 import static java.awt.image.ImageObserver.HEIGHT;
-import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import static practicaanalisis.Funcion.callFunction;
 import practicaanalisis.Metodos;

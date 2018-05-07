@@ -20,7 +20,7 @@ public class Funciones extends javax.swing.JFrame {
      */
     public Funciones(String met) {
         initComponents();
-        if (met == "nada"){
+        if ("nada".equals(met)){
             regresarMetodo.setVisible(false);
         }else{
             metodo = met;

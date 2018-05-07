@@ -17,6 +17,9 @@ public class EtapasMetodosDirectos extends javax.swing.JFrame {
     
     /**
      * Creates new form EtapasMetodosDirectos
+     * @param res
+     * @param matriz
+     * @param eta
      */
     public EtapasMetodosDirectos(String res, String matriz, String eta) {
         initComponents();

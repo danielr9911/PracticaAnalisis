@@ -5,7 +5,6 @@
  */
 package interfaz;
 
-import java.util.Arrays;
 import practicaanalisis.Metodos2;
 
 /**
@@ -29,8 +28,8 @@ public class ResultadosMetodosDirectos extends javax.swing.JFrame {
         etapas = eta;
         jTextArea1.setText(resultado);
         
-        System.out.println("RESULTADOOO");
-        System.out.println(matrizFinal);
+        //System.out.println("RESULTADOOO");
+        //System.out.println(matrizFinal);
         matrizFinal = matrizFinal.replace("[ ", "");
         matrizFinal = matrizFinal.replace("[", "");
         matrizFinal = matrizFinal.replace("]", "");
@@ -46,9 +45,9 @@ public class ResultadosMetodosDirectos extends javax.swing.JFrame {
         matrizFinal = matrizFinal.replace("    ", "!");
         matrizFinal = matrizFinal.replace("  ", "!");
         matrizFinal = matrizFinal.replace("! ", "!");*/
-        System.out.println(matrizFinal);
+        //System.out.println(matrizFinal);
         String[] arrMatrizFinal = matrizFinal.split("!"); 
-        System.out.println(Arrays.toString(arrMatrizFinal));
+        //System.out.println(Arrays.toString(arrMatrizFinal));
         Double[][] dMatrizFinal = new Double[Metodos2.tam][Metodos2.tam+1];
         int cont = 0;
         for (int i = 0; i < Metodos2.tam; i++) {
@@ -57,8 +56,8 @@ public class ResultadosMetodosDirectos extends javax.swing.JFrame {
                 cont++;
             }
         }
-        System.out.println("dMatrizFinal");
-        System.out.println(dMatrizFinal);
+        //System.out.println("dMatrizFinal");
+        //System.out.println(dMatrizFinal);
         
         TablaPivoteoParcial.setModel(new javax.swing.table.DefaultTableModel(
                 dMatrizFinal,
@@ -123,6 +122,8 @@ public class ResultadosMetodosDirectos extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TablaPivoteoParcial.setTableHeader(null);
+        TablaPivoteoParcial.setUpdateSelectionOnSort(false);
         jScrollPane2.setViewportView(TablaPivoteoParcial);
 
         getContentPane().add(jScrollPane2);

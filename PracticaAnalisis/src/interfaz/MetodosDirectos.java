@@ -7,7 +7,6 @@ package interfaz;
 
 import static java.awt.image.ImageObserver.HEIGHT;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -225,13 +224,13 @@ public class MetodosDirectos extends javax.swing.JFrame {
                     etapas = arrOutput[0];
                     matrizFinal = arrOutput[1];
                     resultado = arrOutput[2];
-                    System.out.println("SALIDA JAVA");
-                    System.out.println(etapas);
-                    System.out.println("--");
-                    System.out.println(matrizFinal);
-                    System.out.println("---");
-                    System.out.println(resultado);
-                    System.out.println("FIN SALIDA JAVA");
+                    //System.out.println("SALIDA JAVA");
+                    //System.out.println(etapas);
+                    //System.out.println("--");
+                    //System.out.println(matrizFinal);
+                    //System.out.println("---");
+                    //System.out.println(resultado);
+                    //System.out.println("FIN SALIDA JAVA");
                     
                     
                 }
@@ -242,7 +241,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
             case 2:
                 //Total
                 Metodos2.pivoteoTotal(Metodos2.a, Metodos2.b, Metodos2.tam);
-                System.out.println("SALI DEL python");
+                //System.out.println("SALI DEL python");
                 try {
                     String s = null;
                     
@@ -255,7 +254,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
                         //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
                         String output = "";
                         while ((s = Metodos2.stdOutput.readLine()) != null) {
-                            System.out.println(s);
+                            //System.out.println(s);
                             output = output + (s + "\n");
                         }
 
@@ -263,13 +262,13 @@ public class MetodosDirectos extends javax.swing.JFrame {
                         etapas = arrOutput[0];
                         matrizFinal = arrOutput[1];
                         resultado = arrOutput[2];
-                        System.out.println("SALIDA JAVA");
-                        System.out.println(etapas);
-                        System.out.println("--");
-                        System.out.println(matrizFinal);
-                        System.out.println("---");
-                        System.out.println(resultado);
-                        System.out.println("FIN SALIDA JAVA");
+                        //System.out.println("SALIDA JAVA");
+                        //System.out.println(etapas);
+                        //System.out.println("--");
+                        //System.out.println(matrizFinal);
+                        //System.out.println("---");
+                        //System.out.println(resultado);
+                        //System.out.println("FIN SALIDA JAVA");
                         
 
                     }
@@ -306,11 +305,11 @@ public class MetodosDirectos extends javax.swing.JFrame {
 
     private void miMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miMatrizActionPerformed
         // TODO add your handling code here:
-        MiMatriz miMatriz = new MiMatriz();
-        miMatriz.setVisible(true);
-        miMatriz.setSize(1024,768);
-        miMatriz.setResizable(false);
-        miMatriz.setLocationRelativeTo(null);
+        MiMatriz miM = new MiMatriz();
+        miM.setVisible(true);
+        miM.setSize(1024,768);
+        miM.setResizable(false);
+        miM.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_miMatrizActionPerformed
 
@@ -344,40 +343,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, null, "AYUDA - Cholesky", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaCholesky.png")));
     }//GEN-LAST:event_ayudaCholeskyActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MetodosDirectos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MetodosDirectos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MetodosDirectos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MetodosDirectos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MetodosDirectos().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ayudaCholesky;

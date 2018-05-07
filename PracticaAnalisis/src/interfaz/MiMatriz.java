@@ -5,7 +5,6 @@
  */
 package interfaz;
 
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -40,9 +39,9 @@ public class MiMatriz extends javax.swing.JFrame {
             jTable1.setVisible(false);
             jTable2.setVisible(false);   
         }
-        System.out.println("A:" + Arrays.toString(Metodos2.a));
-        System.out.println("B:" + Arrays.toString(Metodos2.b));
-        System.out.println("n:" + Metodos2.tam);
+        //System.out.println("A:" + Arrays.toString(Metodos2.a));
+        //System.out.println("B:" + Arrays.toString(Metodos2.b));
+        //System.out.println("n:" + Metodos2.tam);
     }
 
     
@@ -170,11 +169,11 @@ public class MiMatriz extends javax.swing.JFrame {
         }
         Metodos2.b = matrizB;
         */
-        System.out.println(Arrays.toString(Metodos2.b));
+        //System.out.println(Arrays.toString(Metodos2.b));
         
-        System.out.println("A:" + Arrays.toString(Metodos2.a));
-        System.out.println("B:" + Arrays.toString(Metodos2.b));
-        System.out.println("n:" + Metodos2.tam);
+        //System.out.println("A:" + Arrays.toString(Metodos2.a));
+        //System.out.println("B:" + Arrays.toString(Metodos2.b));
+        //System.out.println("n:" + Metodos2.tam);
         JOptionPane.showMessageDialog(rootPane, "Matriz guardada exitosamente");
     }//GEN-LAST:event_guardarMatrizActionPerformed
 
@@ -202,52 +201,18 @@ public class MiMatriz extends javax.swing.JFrame {
         for(int i=0; i<matrizB.length; i++){
             matrizB[i][0] = 0.0;
         }
-        System.out.println(Arrays.toString(matrizB));
-        System.out.println(Arrays.toString(matrizB[0]));
+        //System.out.println(Arrays.toString(matrizB));
+        //System.out.println(Arrays.toString(matrizB[0]));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             matrizB,
             new String [1]
         ));
         
-        System.out.println("A:" + Arrays.toString(Metodos2.a));
-        System.out.println("B:" + Arrays.toString(Metodos2.b));
-        System.out.println("n:" + Metodos2.tam);
+        //System.out.println("A:" + Arrays.toString(Metodos2.a));
+        //System.out.println("B:" + Arrays.toString(Metodos2.b));
+        //System.out.println("n:" + Metodos2.tam);
     }//GEN-LAST:event_actualizarNActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MiMatriz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MiMatriz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MiMatriz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MiMatriz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MiMatriz().setVisible(true);
-            }
-        });
-    }
 
     public static Double[][] getTableData (JTable table) {
         DefaultTableModel dtm = (DefaultTableModel) table.getModel();

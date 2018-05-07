@@ -55,9 +55,9 @@ public class Metodos2 {
         matrizA = matrizA + "]";
         String matrizB = Arrays.toString(b);
         matrizB = matrizB.replace(" ", "");
-        System.out.println(matrizA);
-        System.out.println(Arrays.toString(b));
-        System.out.println(n);
+        //System.out.println(matrizA);
+        //System.out.println(Arrays.toString(b));
+        //System.out.println(n);
         String args = n +" "+matrizB+" "+matrizA;
         
         //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
@@ -101,9 +101,9 @@ public class Metodos2 {
         matrizA = matrizA + "]";
         String matrizB = Arrays.toString(b);
         matrizB = matrizB.replace(" ", "");
-        System.out.println(matrizA);
-        System.out.println(Arrays.toString(b));
-        System.out.println(n);
+        //System.out.println(matrizA);
+        //System.out.println(Arrays.toString(b));
+        //System.out.println(n);
         String args = n +" "+matrizB+" "+matrizA;
         
         //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();

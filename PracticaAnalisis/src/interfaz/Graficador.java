@@ -8,20 +8,14 @@ package interfaz;
 import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.JOptionPane;
 import javax.swing.*;
-import javax.swing.event.*;
-import javax.swing.text.*;
 import javax.swing.BorderFactory; 
 import javax.swing.border.Border;
-import javax.swing.border.TitledBorder;
-import java.net.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
 import org.nfunk.jep.*;  
 import org.nfunk.jep.type.*;
-import org.lsmp.djep.djep.DJep;
 import practicaanalisis.Funcion;
-import practicaanalisis.GraficadorClasico;
 /**
  *
  * @author Daniel Rendon M
@@ -440,6 +434,7 @@ public class ZonaGrafica extends JPanel  implements MouseListener, MouseMotionLi
     }
     
     
+    @Override
     public void mousePressed(MouseEvent evt)
     {
         if (dragging)
@@ -451,12 +446,14 @@ public class ZonaGrafica extends JPanel  implements MouseListener, MouseMotionLi
         dragging = true;
     }
 
+    @Override
     public void mouseReleased(MouseEvent evt)
     {
         dragging = false;
         repaint();
     }
 
+    @Override
     public void mouseDragged(MouseEvent evt)
     {
         if (dragging == false)
@@ -468,6 +465,7 @@ public class ZonaGrafica extends JPanel  implements MouseListener, MouseMotionLi
         repaint();
     }
     
+    @Override
     public void mouseWheelMoved(MouseWheelEvent evt) {
         int zoom = evt.getWheelRotation();
         escalaY += -zoom;
@@ -476,11 +474,16 @@ public class ZonaGrafica extends JPanel  implements MouseListener, MouseMotionLi
     }
 
            //el resto hace nada 
+    @Override
     public void mouseMoved(MouseEvent evt) {}
+    @Override
     public void mouseClicked(MouseEvent evt) { }
+    @Override
     public void mouseEntered(MouseEvent evt) { }
+    @Override
     public void mouseExited(MouseEvent evt) { }
 
+    @Override
     public void paintComponent(Graphics g)
     {
          super.paintComponent(g);
