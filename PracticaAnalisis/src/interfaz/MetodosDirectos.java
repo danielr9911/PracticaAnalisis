@@ -200,43 +200,77 @@ public class MetodosDirectos extends javax.swing.JFrame {
         switch(metodo){
             case 0:
                 //Simple
+                Metodos2.gaussianaSimple(Metodos2.a, Metodos2.b, Metodos2.tam);
+                try {
+                    String s = null;
+                    
+                    boolean error=false;
+                    while ((s = Metodos2.stdError.readLine()) != null) {
+                        JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                        error=true;
+                    } 
+                    if(!error){
+                        //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                        String output = "";
+                        while ((s = Metodos2.stdOutput.readLine()) != null) {
+                            System.out.println(s);
+                            output = output + (s + "\n");
+                        }
+
+                        String[] arrOutput = output.split("!");
+                        etapas = arrOutput[0];
+                        matrizFinal = arrOutput[1];
+                        resultado = arrOutput[2];
+                        //System.out.println("SALIDA JAVA");
+                        //System.out.println(etapas);
+                        //System.out.println("--");
+                        //System.out.println(matrizFinal);
+                        //System.out.println("---");
+                        //System.out.println(resultado);
+                        //System.out.println("FIN SALIDA JAVA");
+                        
+
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 
                 break;
             case 1:
                 //Parcial
                 Metodos2.pivoteoParcial(Metodos2.a, Metodos2.b, Metodos2.tam);
-            try {
-                String s = null;
-                boolean error=false;
-                while ((s = Metodos2.stdError.readLine()) != null) {
-                    JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
-                    error=true;
-                } 
-                if(!error){
-                    //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
-                    String output = "";
-                    while ((s = Metodos2.stdOutput.readLine()) != null) {
-                    //System.out.println(s);
-                        output = output + (s + "\n");
+                try {
+                    String s = null;
+                    boolean error=false;
+                    while ((s = Metodos2.stdError.readLine()) != null) {
+                        JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                        error=true;
+                    } 
+                    if(!error){
+                        //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                        String output = "";
+                        while ((s = Metodos2.stdOutput.readLine()) != null) {
+                            System.out.println(s);
+                            output = output + (s + "\n");
+                        }
+
+                        String[] arrOutput = output.split("!");
+                        etapas = arrOutput[0];
+                        matrizFinal = arrOutput[1];
+                        resultado = arrOutput[2];
+                        //System.out.println("SALIDA JAVA");
+                        //System.out.println(etapas);
+                        //System.out.println("--");
+                        //System.out.println(matrizFinal);
+                        //System.out.println("---");
+                        //System.out.println(resultado);
+                        //System.out.println("FIN SALIDA JAVA");
+
+
                     }
-                    
-                    String[] arrOutput = output.split("!");
-                    etapas = arrOutput[0];
-                    matrizFinal = arrOutput[1];
-                    resultado = arrOutput[2];
-                    //System.out.println("SALIDA JAVA");
-                    //System.out.println(etapas);
-                    //System.out.println("--");
-                    //System.out.println(matrizFinal);
-                    //System.out.println("---");
-                    //System.out.println(resultado);
-                    //System.out.println("FIN SALIDA JAVA");
-                    
-                    
+                } catch (IOException ex) {
+                    Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (IOException ex) {
-                Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
-            }
                 break;
             case 2:
                 //Total

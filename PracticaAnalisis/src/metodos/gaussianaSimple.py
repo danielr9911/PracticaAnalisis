@@ -29,7 +29,8 @@ def interpretarMatriz(tam,b,a):
 
 def eliminacionGaussiana(Ab,tam):
     for k in range(1,tam):
-        print("+ ETAPA %d \n") % k-1
+        num = k-1
+        print("+ ETAPA %d \n") % num
         print("Multiplicadores")
         for i in range(k,tam):
             multiplicador = Ab[i][k-1]/float(Ab[k-1][k-1])
@@ -64,6 +65,7 @@ def main():
     print("!")
     print(matrizFinal)
     x = sustitucionRegresiva(matrizFinal, tam)
+    print("!")
     for i, x in enumerate(x):
         print("x{0} = {1}  ".format(i + 1, x))
 

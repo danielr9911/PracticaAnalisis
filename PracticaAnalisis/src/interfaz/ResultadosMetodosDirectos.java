@@ -5,6 +5,9 @@
  */
 package interfaz;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 import practicaanalisis.Metodos2;
 
 /**
@@ -47,7 +50,16 @@ public class ResultadosMetodosDirectos extends javax.swing.JFrame {
         matrizFinal = matrizFinal.replace("! ", "!");*/
         //System.out.println(matrizFinal);
         String[] arrMatrizFinal = matrizFinal.split("!"); 
-        //System.out.println(Arrays.toString(arrMatrizFinal));
+        
+        System.out.println("Array ANTES");
+        System.out.println(Arrays.toString(arrMatrizFinal));
+        List<String> list = new ArrayList<String>(Arrays.asList(arrMatrizFinal));
+        list.remove("");
+        arrMatrizFinal = list.toArray(new String[0]);
+        
+        System.out.println("ARRAY FINAL");
+        System.out.println(matrizFinal);
+        System.out.println(Arrays.toString(arrMatrizFinal));
         Double[][] dMatrizFinal = new Double[Metodos2.tam][Metodos2.tam+1];
         int cont = 0;
         for (int i = 0; i < Metodos2.tam; i++) {
