@@ -1,70 +1,118 @@
-# -*- coding: utf-8 -*-
+import sys
 import numpy as np
-from py_expression_eval import Parser
 
-class PivoteoTotal:
-    __gui = None
-    matrizFinal = []
-    resultX = ""
-    matrizEtapas = []
+def matrixAum(A,b,tam):
+    aTemp = A.tolist()
+    for i in range(tam):
+        filaTemp = aTemp[i]
+        filaTemp.append(b[i])
+        aTemp[i] = np.array(filaTemp)
+    Ab = np.array(aTemp)
+    return Ab
 
-    def __init__(self, gui):
-        self.__gui = gui
-
-    def matrixAum(self,A,b,n):
-        #Pegarle a la matriz A la matriz B para ahorrar procesamiento
-        for i in range(n):
-            A[i].append(b[i])
-        return A
-
-
-    def pivoteo_total(self,Ab,k,marcas,n):
-        #inicializar marcas
-        mayor = 0
-        fila_mayor = k
-        columna_mayor = k
-        for r in range(k,n):
-            for s in range(k,n):
-                if abs(Ab[r][s]) > mayor:
-                    mayor = abs(Ab[r][s])
-                    fila_mayor = r
-                    columna_mayor = s
-        if mayor == 0:
-            return "El sistema tiene infinitas soluciones"
-        else:
-            if fila_mayor != k:
-                aux= np.array(Ab[fila_mayor])
-                Ab[fila_mayor]=Ab[k]
-                Ab[k]=aux
-            if columna_mayor != k:
-                for row in Ab:
-                    row[k],row[columna_mayor] = row[columna_mayor],row[k]
-                marcas[k],marcas[columna_mayor] = marcas[columna_mayor],marcas[k]
-        return Ab,marcas
-
-    def eliminacion_gaussiana_pivoteo(self,Ab,n):
-        marcas = np.arange(n)
-        print "Matrix  \n",np.array(Ab)
-        for k in range(0,n-1):
-            print "Iter ",k, "\n"
-            Ab,marcas = pivoteo_total(Ab,k,marcas,n)
-            print "\n","Marcas ",marcas
-            for i in range(k+1,n):
-                multiplicador = Ab[i][k]/float(Ab[k][k])
-                print "Multiplier : ",i," ",multiplicador,"\n"
-                for j in range(k,n+1):
-                    Ab[i][j] = Ab[i][j] - multiplicador * Ab[k][j]
-
-            print "\n","Matrix  \n",np.array(Ab),"\n"
-
-        return Ab,marcas
+def interpretarMatriz(tam,b,a):
+    matrizB = np.zeros(tam)
+    matrizA = []
+    b = b[1:-1]
+    matrizB = np.fromstring(b,dtype=float,sep=",")
+    a = a[1:-1]
+    temp = a.split(":")    
+    for i in range(tam):
+        fila = temp[i]
+        fila = fila[1:-1]
+        mtemp = np.fromstring(fila,dtype=float,sep=",")
+        matrizA.append(mtemp)
+    matrizA = np.array(matrizA)
+    return matrizB, matrizA
 
 
-    def sustitucion_regresiva(self,Ab,n):
-        x= np.zeros(n)
-        for i in range(n-1,-1,-1):
-            sumatoria = 0.0
-            for p in range(i+1,n):
-                sumatoria += Ab[i][p]*x[p]
-            x[i] = (Ab[i][n]-sumatoria)/float(Ab[i][i])
-        return x
+def pivoteoTotal(Ab, k, marcas, tam):
+    mayor = 0
+    fila_mayor = k
+    columna_mayor = k
+    for r in range(k,tam):
+        for s in range(k,tam):
+            if abs(Ab[r][s]) > mayor:
+                mayor = abs(Ab[r][s])
+                fila_mayor = r
+                columna_mayor = s
+    if mayor == 0:
+        return "El sistema tiene infinitas soluciones"
+    else:
+        if fila_mayor != k:
+            aux= np.array(Ab[fila_mayor]).tolist()
+            Ab[fila_mayor]=Ab[k]
+            Ab[k]=np.array(aux)
+        if columna_mayor != k:
+            for row in Ab:
+                temp = float(row[columna_mayor])
+                row[columna_mayor] = row[k]
+                row[k] = temp
+
+                #row[k] = row[columna_mayor]
+                #row[columna_mayor] = row[k]
+            marcTemp = marcas[columna_mayor].tolist()
+            marcas[columna_mayor] = marcas[k]
+            marcas[k] = np.array(marcTemp)
+
+            #marcas[k]=marcas[columna_mayor]
+            #marcas[columna_mayor] = marcas[k]
+    return Ab,marcas
+
+def gaussianaConPivoteoTotal(Ab, tam):
+    marcas = np.arange(tam)
+    for k in range(0, tam - 1):
+        print("+ ETAPA %d \n") %k
+        #print ("Iteracion ", k, "\tam")
+        #print (Ab)
+        Ab, marcas = pivoteoTotal(Ab, k, marcas, tam)
+        #print("PIVOTEO PARCIAL:")
+        #print (Ab)
+        print("Multiplicadores")
+        for i in range(k + 1, tam):
+            multiplicador = Ab[i][k] / Ab[k][k]
+            print("- Multiplicador %d = %f") %(i, multiplicador)
+            #print ("Multiplicador ", i, " = ", multiplicador)
+            for j in range(k, tam + 1):
+                Ab[i][j] = Ab[i][j] - multiplicador * Ab[k][j]
+        print("\nMatriz parcial")
+        arregloParcial = np.array(Ab) 
+        np.set_printoptions(suppress=True)
+        print(arregloParcial)
+        print("\n-------------------------------------------------------\n")
+        #print ("\tam", "Matriz parcial  \tam", np.array(Ab), "\tam")
+    return Ab, marcas
+
+
+def sustitucionRegresiva(matrizFinal, tam):
+    x = np.zeros(tam)
+    for i in range(tam - 1, -1, -1):
+        sumatoria = 0.0
+        for p in range(i + 1, tam):
+            sumatoria += matrizFinal[i][p] * x[p]
+        x[i] = (matrizFinal[i][tam] - sumatoria) / float(matrizFinal[i][i])
+    return x
+
+
+def main():
+    tam = int(sys.argv[1])
+    b = sys.argv[2]
+    a = sys.argv[3]
+    
+
+    matrizB, matrizA = interpretarMatriz(tam, b, a)
+    #print(matrizB)
+    #print(matrizA)
+    Ab = matrixAum(matrizA, matrizB, tam)
+    #print(Ab)
+    matrizFinal, marcas = gaussianaConPivoteoTotal(Ab, tam)
+    print("!")
+    print(matrizFinal)
+    #print ("Matriz final\tam ", matrizFinal)
+    
+    x = sustitucionRegresiva(matrizFinal, tam)
+    print("!")
+    for i, x in zip(marcas, x):
+        print ("x{0} = {1}  ".format(i + 1, x))
+
+main()
