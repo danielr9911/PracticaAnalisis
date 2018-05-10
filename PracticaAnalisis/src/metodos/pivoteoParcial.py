@@ -57,7 +57,7 @@ def pivoteoParcial(Ab, k, tam):
 def gaussianaConPivoteoParcial(Ab, tam):
     marcas = np.arange(tam)
     for k in range(0, tam - 1):
-        print("+ ITERACION %d \n") %k
+        print("+ ETAPA %d \n") %k
         #print ("Iteracion ", k, "\n")
         #print (Ab)
         Ab = pivoteoParcial(Ab, k, tam)
