@@ -156,7 +156,8 @@ public class MiMatriz extends javax.swing.JFrame {
         Metodos2.b = new Double[4];
         Double[] tb = {-12.0,13.0,31.0,-32.0};
         Metodos2.b = tb;
-        Double[][] ta = {{-7.0,2.0,-3.0,4.0},{5.0,-1.0,14.0,-1.0},{1.0,9.0,-7.0,13.0},{-12.0,13.0,-8.0,-4.0}};
+        //Double[][] ta = {{-7.0,2.0,-3.0,4.0},{5.0,-1.0,14.0,-1.0},{1.0,9.0,-7.0,13.0},{-12.0,13.0,-8.0,-4.0}};
+        Double[][] ta = {{-7.0,0.0,-3.0,4.0},{5.0,0.0,14.0,-1.0},{1.0,0.0,-7.0,13.0},{-12.0,0.0,-8.0,-4.0}};
         Metodos2.a = ta;
         
         /*
@@ -180,16 +181,17 @@ public class MiMatriz extends javax.swing.JFrame {
     
     
     private void actualizarNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarNActionPerformed
-        // TODO add your handling code here
+        // TODO add your handling code here      
         int n = Integer.parseInt(jTextField1.getText());
         //Metodos2.tam = n;
-        
+        if(n > 0){
         Double[][] matrizA = new Double[n][n];
         for(int i=0; i<matrizA.length; i++){
             for(int j=0; j<matrizA[i].length; j++){
                 matrizA[i][j] = 0.0;
             }
         }
+        
         jTable1.setVisible(true);
         jTable2.setVisible(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -211,6 +213,9 @@ public class MiMatriz extends javax.swing.JFrame {
         //System.out.println("A:" + Arrays.toString(Metodos2.a));
         //System.out.println("B:" + Arrays.toString(Metodos2.b));
         //System.out.println("n:" + Metodos2.tam);
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Recuerde que el valor de N debe ser mayor a cero");
+        }
     }//GEN-LAST:event_actualizarNActionPerformed
 
 

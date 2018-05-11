@@ -45,9 +45,9 @@ public class MetodosDirectos extends javax.swing.JFrame {
         simple = new javax.swing.JRadioButton();
         pivoteoParcial = new javax.swing.JRadioButton();
         pivoteoTotal = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        crout = new javax.swing.JRadioButton();
+        doolittle = new javax.swing.JRadioButton();
+        cholesky = new javax.swing.JRadioButton();
         ayudaSimple = new javax.swing.JButton();
         ayudaPivoteoParcial = new javax.swing.JButton();
         ayudaPivoteoTotal = new javax.swing.JButton();
@@ -103,18 +103,18 @@ public class MetodosDirectos extends javax.swing.JFrame {
         getContentPane().add(pivoteoTotal);
         pivoteoTotal.setBounds(910, 285, 28, 23);
 
-        buttonGroup1.add(jRadioButton1);
-        getContentPane().add(jRadioButton1);
-        jRadioButton1.setBounds(270, 525, 28, 23);
+        buttonGroup1.add(crout);
+        getContentPane().add(crout);
+        crout.setBounds(270, 525, 28, 23);
 
-        buttonGroup1.add(jRadioButton4);
-        getContentPane().add(jRadioButton4);
-        jRadioButton4.setBounds(560, 525, 28, 23);
+        buttonGroup1.add(doolittle);
+        getContentPane().add(doolittle);
+        doolittle.setBounds(560, 525, 28, 23);
 
-        buttonGroup1.add(jRadioButton5);
-        jRadioButton5.setToolTipText("");
-        getContentPane().add(jRadioButton5);
-        jRadioButton5.setBounds(860, 525, 28, 23);
+        buttonGroup1.add(cholesky);
+        cholesky.setToolTipText("");
+        getContentPane().add(cholesky);
+        cholesky.setBounds(860, 525, 28, 23);
 
         ayudaSimple.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
         ayudaSimple.addActionListener(new java.awt.event.ActionListener() {
@@ -189,57 +189,103 @@ public class MetodosDirectos extends javax.swing.JFrame {
 
     private void calcularMetodosDirectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularMetodosDirectosActionPerformed
         // TODO add your handling code here:
+        String tipoMetodo = null;
         simple.setActionCommand("0");
         pivoteoParcial.setActionCommand("1");
         pivoteoTotal.setActionCommand("2");
-        jRadioButton1.setActionCommand("3");
-        jRadioButton4.setActionCommand("4");
-        jRadioButton5.setActionCommand("5");
-        int metodo = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        crout.setActionCommand("3");
+        doolittle.setActionCommand("4");
+        cholesky.setActionCommand("5");
+        // Caso 6 - No han seleccionado ningún método
+        int metodo;
         
+        try{
+            metodo = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        }catch(Exception e){
+            metodo = 6;
+        }
+        
+        if(Metodos2.tam > 0){
         switch(metodo){
             case 0:
                 //Simple
+                tipoMetodo = "directo";
+                Metodos2.gaussianaSimple(Metodos2.a, Metodos2.b, Metodos2.tam);
+                try {
+                    String s = null;
+                    
+                    boolean error=false;
+                    while ((s = Metodos2.stdError.readLine()) != null) {
+                        JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                        error=true;
+                    } 
+                    if(!error){
+                        //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                        String output = "";
+                        while ((s = Metodos2.stdOutput.readLine()) != null) {
+                            System.out.println(s);
+                            output = output + (s + "\n");
+                        }
+
+                        String[] arrOutput = output.split("!");
+                        etapas = arrOutput[0];
+                        matrizFinal = arrOutput[1];
+                        resultado = arrOutput[2];
+                        //System.out.println("SALIDA JAVA");
+                        //System.out.println(etapas);
+                        //System.out.println("--");
+                        //System.out.println(matrizFinal);
+                        //System.out.println("---");
+                        //System.out.println(resultado);
+                        //System.out.println("FIN SALIDA JAVA");
+                        
+
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 
                 break;
             case 1:
                 //Parcial
+                tipoMetodo = "directo";
                 Metodos2.pivoteoParcial(Metodos2.a, Metodos2.b, Metodos2.tam);
-            try {
-                String s = null;
-                boolean error=false;
-                while ((s = Metodos2.stdError.readLine()) != null) {
-                    JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
-                    error=true;
-                } 
-                if(!error){
-                    //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
-                    String output = "";
-                    while ((s = Metodos2.stdOutput.readLine()) != null) {
-                    //System.out.println(s);
-                        output = output + (s + "\n");
+                try {
+                    String s = null;
+                    boolean error=false;
+                    while ((s = Metodos2.stdError.readLine()) != null) {
+                        JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                        error=true;
+                    } 
+                    if(!error){
+                        //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                        String output = "";
+                        while ((s = Metodos2.stdOutput.readLine()) != null) {
+                            System.out.println(s);
+                            output = output + (s + "\n");
+                        }
+
+                        String[] arrOutput = output.split("!");
+                        etapas = arrOutput[0];
+                        matrizFinal = arrOutput[1];
+                        resultado = arrOutput[2];
+                        //System.out.println("SALIDA JAVA");
+                        //System.out.println(etapas);
+                        //System.out.println("--");
+                        //System.out.println(matrizFinal);
+                        //System.out.println("---");
+                        //System.out.println(resultado);
+                        //System.out.println("FIN SALIDA JAVA");
+
+
                     }
-                    
-                    String[] arrOutput = output.split("!");
-                    etapas = arrOutput[0];
-                    matrizFinal = arrOutput[1];
-                    resultado = arrOutput[2];
-                    //System.out.println("SALIDA JAVA");
-                    //System.out.println(etapas);
-                    //System.out.println("--");
-                    //System.out.println(matrizFinal);
-                    //System.out.println("---");
-                    //System.out.println(resultado);
-                    //System.out.println("FIN SALIDA JAVA");
-                    
-                    
+                } catch (IOException ex) {
+                    Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (IOException ex) {
-                Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
-            }
                 break;
             case 2:
                 //Total
+                tipoMetodo = "directo";
                 Metodos2.pivoteoTotal(Metodos2.a, Metodos2.b, Metodos2.tam);
                 //System.out.println("SALI DEL python");
                 try {
@@ -278,25 +324,45 @@ public class MetodosDirectos extends javax.swing.JFrame {
                 break;
             case 3:
                 //Crout
+                tipoMetodo = "factorizacion";
                 break;
             case 4:
                 //Doolittle
+                tipoMetodo = "factorizacion";
                 break;
             case 5:
                 //Cholesky
+                tipoMetodo = "factorizacion";
                 break;
-            default:
+            case 6:
+                JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un método");
+                break;
+            default:                
                 break;
                 
                 
+            }
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Por favor asigne valores a su matriz");
         }
         
-        ResultadosMetodosDirectos resultadosMetodosDirectos = new ResultadosMetodosDirectos(resultado, matrizFinal, etapas);
-        resultadosMetodosDirectos.setVisible(true);
-        resultadosMetodosDirectos.setSize(1024,768);
-        resultadosMetodosDirectos.setResizable(false);
-        resultadosMetodosDirectos.setLocationRelativeTo(null);
-        dispose();
+        
+        if("directo".equals(tipoMetodo)){
+            ResultadosMetodosDirectos resultadosMetodosDirectos = new ResultadosMetodosDirectos(resultado, matrizFinal, etapas);
+            resultadosMetodosDirectos.setVisible(true);
+            resultadosMetodosDirectos.setSize(1024,768);
+            resultadosMetodosDirectos.setResizable(false);
+            resultadosMetodosDirectos.setLocationRelativeTo(null);
+            dispose();
+        }else if("factorizacion".equals(tipoMetodo)){
+            ResultadosFactorizacionLU resultadosFactorizacionLU = new ResultadosFactorizacionLU();
+            resultadosFactorizacionLU.setVisible(true);
+            resultadosFactorizacionLU.setSize(1024,768);
+            resultadosFactorizacionLU.setResizable(false);
+            resultadosFactorizacionLU.setLocationRelativeTo(null);
+            dispose();
+        }
+        
     }//GEN-LAST:event_calcularMetodosDirectosActionPerformed
 
     private void simpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpleActionPerformed
@@ -354,10 +420,10 @@ public class MetodosDirectos extends javax.swing.JFrame {
     private javax.swing.JButton ayudaSimple;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton calcularMetodosDirectos;
+    private javax.swing.JRadioButton cholesky;
+    private javax.swing.JRadioButton crout;
+    private javax.swing.JRadioButton doolittle;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JButton miMatriz;
     private javax.swing.JRadioButton pivoteoParcial;
     private javax.swing.JRadioButton pivoteoTotal;

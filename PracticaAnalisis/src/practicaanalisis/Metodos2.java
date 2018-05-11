@@ -33,6 +33,47 @@ public class Metodos2 {
     public static BufferedReader stdOutput = null;
     public static BufferedReader stdError = null;
     
+    public static void gaussianaSimple(Double[][] a, Double[] b, int n) {        
+        
+        String matrizA = "[";
+        for (Double[] a1 : a) {
+            String mtemp = Arrays.toString(a1) + ":";
+            mtemp = mtemp.replace(" ", "");
+            matrizA = matrizA + mtemp ;
+        }
+        matrizA = matrizA.substring(0,matrizA.length()-1);
+        matrizA = matrizA + "]";
+        String matrizB = Arrays.toString(b);
+        matrizB = matrizB.replace(" ", "");
+        //System.out.println(matrizA);
+        //System.out.println(Arrays.toString(b));
+        //System.out.println(n);
+        String args = n +" "+matrizB+" "+matrizA;
+        
+        //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+        String ruta = new File(".").getAbsolutePath();
+        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        ruta = ruta + "metodos/gaussianaSimple.py"; 
+        if(PracticaAnalisis.os.equals("win")){
+            ruta = "\""+ruta+"\""; 
+        }
+        String comando = "python " + ruta + " " + args;
+        System.out.println(comando);
+        
+        try {
+            Process p = Runtime.getRuntime().exec(comando);
+            stdOutput = new BufferedReader(new 
+                 InputStreamReader(p.getInputStream()));
+
+            stdError = new BufferedReader(new 
+                 InputStreamReader(p.getErrorStream()));
+            //Interpretar res
+        } catch (IOException ex) {
+            Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
     public static void pivoteoParcial(Double[][] a, Double[] b, int n) {
         //init();
         /*
@@ -132,7 +173,15 @@ public class Metodos2 {
         
     }
     
+    public static void crout(Double[][] a, Double[] b, int n) {        
     
+    }
+    public static void doolittle(Double[][] a, Double[] b, int n) {        
+    
+    }
+    public static void cholesky(Double[][] a, Double[] b, int n) {        
+    
+    }
     
     /*
     public static void init(){
