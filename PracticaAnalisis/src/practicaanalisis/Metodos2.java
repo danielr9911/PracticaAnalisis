@@ -173,7 +173,15 @@ public class Metodos2 {
         
     }
     
+    public static void crout(Double[][] a, Double[] b, int n) {        
     
+    }
+    public static void doolittle(Double[][] a, Double[] b, int n) {        
+    
+    }
+    public static void cholesky(Double[][] a, Double[] b, int n) {        
+    
+    }
     
     /*
     public static void init(){

@@ -28,11 +28,16 @@ def interpretarMatriz(tam,b,a):
 
 
 def eliminacionGaussiana(Ab,tam):
-    for k in range(1,tam):
+    for k in range(1, tam):
         num = k-1
         print("+ ETAPA %d \n") % num
         print("Multiplicadores")
         for i in range(k,tam):
+            if float(Ab[k-1][k-1]) == 0.0:
+                print("##################################")
+                print("El sistema no tiene solucion unica")
+                print("##################################")
+                return Ab,False
             multiplicador = Ab[i][k-1]/float(Ab[k-1][k-1])
             print("- Multiplicador %d = %f") % (i, multiplicador)
             for j in range(k,tam+2):
@@ -42,7 +47,7 @@ def eliminacionGaussiana(Ab,tam):
         np.set_printoptions(suppress=True)
         print(arregloParcial)
         print("\n-------------------------------------------------------\n")
-    return Ab
+    return Ab, True
 
 def sustitucionRegresiva(matrizFinal, tam):
     x = np.zeros(tam)
@@ -61,12 +66,20 @@ def main():
     matrizB, matrizA = interpretarMatriz(tam, b, a)
     
     Ab = matrixAum(matrizA, matrizB, tam)
-    matrizFinal = eliminacionGaussiana(Ab, tam)
-    print("!")
-    print(matrizFinal)
-    x = sustitucionRegresiva(matrizFinal, tam)
-    print("!")
-    for i, x in enumerate(x):
-        print("x{0} = {1}  ".format(i + 1, x))
+    matrizFinal, exito = eliminacionGaussiana(Ab, tam)
+
+    if exito:
+        print("!")
+        print(matrizFinal)
+        x = sustitucionRegresiva(matrizFinal, tam)
+        print("!")
+        for i, x in enumerate(x):
+            print("x{0} = {1}  ".format(i + 1, x))
+    else:
+        print("!")
+        cero = np.zeros((tam,tam+1))
+        print(cero)
+        print("!")
+        print("El sistema no tiene solucion unica")
 
 main()

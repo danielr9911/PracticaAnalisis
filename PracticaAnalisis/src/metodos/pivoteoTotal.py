@@ -37,7 +37,7 @@ def pivoteoTotal(Ab, k, marcas, tam):
                 fila_mayor = r
                 columna_mayor = s
     if mayor == 0:
-        return "El sistema tiene infinitas soluciones"
+        return Ab, marcas, False
     else:
         if fila_mayor != k:
             aux= np.array(Ab[fila_mayor]).tolist()
@@ -57,7 +57,7 @@ def pivoteoTotal(Ab, k, marcas, tam):
 
             #marcas[k]=marcas[columna_mayor]
             #marcas[columna_mayor] = marcas[k]
-    return Ab,marcas
+    return Ab,marcas, True
 
 def gaussianaConPivoteoTotal(Ab, tam):
     marcas = np.arange(tam)
@@ -65,11 +65,21 @@ def gaussianaConPivoteoTotal(Ab, tam):
         print("+ ETAPA %d \n") %k
         #print ("Iteracion ", k, "\tam")
         #print (Ab)
-        Ab, marcas = pivoteoTotal(Ab, k, marcas, tam)
+        Ab, marcas, exito = pivoteoTotal(Ab, k, marcas, tam)
+        if not exito:
+            print("##################################")
+            print("El sistema no tiene solucion unica")
+            print("##################################")
+            return Ab, False
         #print("PIVOTEO PARCIAL:")
         #print (Ab)
         print("Multiplicadores")
         for i in range(k + 1, tam):
+            if Ab[k][k] == 0.0:
+                print("##################################")
+                print("El sistema no tiene solucion unica")
+                print("##################################")
+                return Ab, marcas,False
             multiplicador = Ab[i][k] / Ab[k][k]
             print("- Multiplicador %d = %f") %(i, multiplicador)
             #print ("Multiplicador ", i, " = ", multiplicador)
@@ -81,7 +91,7 @@ def gaussianaConPivoteoTotal(Ab, tam):
         print(arregloParcial)
         print("\n-------------------------------------------------------\n")
         #print ("\tam", "Matriz parcial  \tam", np.array(Ab), "\tam")
-    return Ab, marcas
+    return Ab, marcas, True
 
 
 def sustitucionRegresiva(matrizFinal, tam):
@@ -105,14 +115,21 @@ def main():
     #print(matrizA)
     Ab = matrixAum(matrizA, matrizB, tam)
     #print(Ab)
-    matrizFinal, marcas = gaussianaConPivoteoTotal(Ab, tam)
-    print("!")
-    print(matrizFinal)
-    #print ("Matriz final\tam ", matrizFinal)
-    
-    x = sustitucionRegresiva(matrizFinal, tam)
-    print("!")
-    for i, x in zip(marcas, x):
-        print ("x{0} = {1}  ".format(i + 1, x))
+    matrizFinal, marcas, exito = gaussianaConPivoteoTotal(Ab, tam)
 
+    if exito:
+        print("!")
+        print(matrizFinal)
+        #print ("Matriz final\tam ", matrizFinal)
+
+        x = sustitucionRegresiva(matrizFinal, tam)
+        print("!")
+        for i, x in zip(marcas, x):
+            print ("x{0} = {1}  ".format(i + 1, x))
+    else:
+        print("!")
+        cero = np.zeros((tam, tam + 1))
+        print(cero)
+        print("!")
+        print("El sistema no tiene solucion unica")
 main()
