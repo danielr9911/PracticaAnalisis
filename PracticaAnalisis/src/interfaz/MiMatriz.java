@@ -181,16 +181,17 @@ public class MiMatriz extends javax.swing.JFrame {
     
     
     private void actualizarNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarNActionPerformed
-        // TODO add your handling code here
+        // TODO add your handling code here      
         int n = Integer.parseInt(jTextField1.getText());
         //Metodos2.tam = n;
-        
+        if(n > 0){
         Double[][] matrizA = new Double[n][n];
         for(int i=0; i<matrizA.length; i++){
             for(int j=0; j<matrizA[i].length; j++){
                 matrizA[i][j] = 0.0;
             }
         }
+        
         jTable1.setVisible(true);
         jTable2.setVisible(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -212,6 +213,9 @@ public class MiMatriz extends javax.swing.JFrame {
         //System.out.println("A:" + Arrays.toString(Metodos2.a));
         //System.out.println("B:" + Arrays.toString(Metodos2.b));
         //System.out.println("n:" + Metodos2.tam);
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Recuerde que el valor de N debe ser mayor a cero");
+        }
     }//GEN-LAST:event_actualizarNActionPerformed
 
 
