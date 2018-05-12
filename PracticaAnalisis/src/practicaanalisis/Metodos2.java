@@ -173,13 +173,169 @@ public class Metodos2 {
         
     }
     
-    public static void crout(Double[][] a, Double[] b, int n) {        
+    public static void crout(Double[][] a, Double[] b, int n) { 
+        {
+        //init();
+        /*
+        PyArray pa = new PyArray(Double.class,a);
+        PyArray pb = new PyArray(Double.class,b);
+        PyInteger ptam = new PyInteger(n);
+        PyObject[] po = new PyObject[3];
+        po[0] = pa;
+        po[1] = pb;
+        po[2] = ptam;
+        PyObject res = me.invoke("metodoPivoteoParcial", po);
+        */
+        String matrizA = "[";
+        for (Double[] a1 : a) {
+            String mtemp = Arrays.toString(a1) + ":";
+            mtemp = mtemp.replace(" ", "");
+            matrizA = matrizA + mtemp ;
+        }
+        matrizA = matrizA.substring(0,matrizA.length()-1);
+        matrizA = matrizA + "]";
+        String matrizB = Arrays.toString(b);
+        matrizB = matrizB.replace(" ", "");
+        //System.out.println(matrizA);
+        //System.out.println(Arrays.toString(b));
+        //System.out.println(n);
+        String args = n +" "+matrizB+" "+matrizA;
+        
+        //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+        String ruta = new File(".").getAbsolutePath();
+        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        ruta = ruta + "metodos/Crout.py"; 
+        if(PracticaAnalisis.os.equals("win")){
+            ruta = "\""+ruta+"\""; 
+        }
+        String comando = "python " + ruta + " " + args;
+        System.out.println(comando);
+        
+        try {
+            Process p = Runtime.getRuntime().exec(comando);
+            stdOutput = new BufferedReader(new 
+                 InputStreamReader(p.getInputStream()));
+
+            stdError = new BufferedReader(new 
+                 InputStreamReader(p.getErrorStream()));
+            //Interpretar res
+        } catch (IOException ex) {
+            Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //Tenemos salida y salidaError
+        
+        
+    }
     
     }
-    public static void doolittle(Double[][] a, Double[] b, int n) {        
+    public static void doolittle(Double[][] a, Double[] b, int n) { 
+        {
+        //init();
+        /*
+        PyArray pa = new PyArray(Double.class,a);
+        PyArray pb = new PyArray(Double.class,b);
+        PyInteger ptam = new PyInteger(n);
+        PyObject[] po = new PyObject[3];
+        po[0] = pa;
+        po[1] = pb;
+        po[2] = ptam;
+        PyObject res = me.invoke("metodoPivoteoParcial", po);
+        */
+        String matrizA = "[";
+        for (Double[] a1 : a) {
+            String mtemp = Arrays.toString(a1) + ":";
+            mtemp = mtemp.replace(" ", "");
+            matrizA = matrizA + mtemp ;
+        }
+        matrizA = matrizA.substring(0,matrizA.length()-1);
+        matrizA = matrizA + "]";
+        String matrizB = Arrays.toString(b);
+        matrizB = matrizB.replace(" ", "");
+        //System.out.println(matrizA);
+        //System.out.println(Arrays.toString(b));
+        //System.out.println(n);
+        String args = n +" "+matrizB+" "+matrizA;
+        
+        //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+        String ruta = new File(".").getAbsolutePath();
+        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        ruta = ruta + "metodos/Doolittle.py"; 
+        if(PracticaAnalisis.os.equals("win")){
+            ruta = "\""+ruta+"\""; 
+        }
+        String comando = "python " + ruta + " " + args;
+        System.out.println(comando);
+        
+        try {
+            Process p = Runtime.getRuntime().exec(comando);
+            stdOutput = new BufferedReader(new 
+                 InputStreamReader(p.getInputStream()));
+
+            stdError = new BufferedReader(new 
+                 InputStreamReader(p.getErrorStream()));
+            //Interpretar res
+        } catch (IOException ex) {
+            Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //Tenemos salida y salidaError
+        
+        
+    }
     
     }
-    public static void cholesky(Double[][] a, Double[] b, int n) {        
+    public static void cholesky(Double[][] a, Double[] b, int n) {    
+        {
+        //init();
+        /*
+        PyArray pa = new PyArray(Double.class,a);
+        PyArray pb = new PyArray(Double.class,b);
+        PyInteger ptam = new PyInteger(n);
+        PyObject[] po = new PyObject[3];
+        po[0] = pa;
+        po[1] = pb;
+        po[2] = ptam;
+        PyObject res = me.invoke("metodoPivoteoParcial", po);
+        */
+        String matrizA = "[";
+        for (Double[] a1 : a) {
+            String mtemp = Arrays.toString(a1) + ":";
+            mtemp = mtemp.replace(" ", "");
+            matrizA = matrizA + mtemp ;
+        }
+        matrizA = matrizA.substring(0,matrizA.length()-1);
+        matrizA = matrizA + "]";
+        String matrizB = Arrays.toString(b);
+        matrizB = matrizB.replace(" ", "");
+        //System.out.println(matrizA);
+        //System.out.println(Arrays.toString(b));
+        //System.out.println(n);
+        String args = n +" "+matrizB+" "+matrizA;
+        
+        //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+        String ruta = new File(".").getAbsolutePath();
+        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        ruta = ruta + "metodos/Cholesky.py"; 
+        if(PracticaAnalisis.os.equals("win")){
+            ruta = "\""+ruta+"\""; 
+        }
+        String comando = "python " + ruta + " " + args;
+        System.out.println(comando);
+        
+        try {
+            Process p = Runtime.getRuntime().exec(comando);
+            stdOutput = new BufferedReader(new 
+                 InputStreamReader(p.getInputStream()));
+
+            stdError = new BufferedReader(new 
+                 InputStreamReader(p.getErrorStream()));
+            //Interpretar res
+        } catch (IOException ex) {
+            Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //Tenemos salida y salidaError
+        
+        
+    }
     
     }
     

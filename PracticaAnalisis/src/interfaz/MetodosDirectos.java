@@ -21,6 +21,8 @@ public class MetodosDirectos extends javax.swing.JFrame {
     public static String resultado;
     public static String matrizFinal;
     public static String etapas;
+    public static String matrizL;
+    public static String matrizU;
     
     /**
      * Creates new form MetodosDirectos
@@ -325,14 +327,122 @@ public class MetodosDirectos extends javax.swing.JFrame {
             case 3:
                 //Crout
                 tipoMetodo = "factorizacion";
+                Metodos2.crout(Metodos2.a, Metodos2.b, Metodos2.tam);
+                //System.out.println("SALI DEL python");
+                try {
+                    String s = null;
+                    
+                    boolean error=false;
+                    while ((s = Metodos2.stdError.readLine()) != null) {
+                        JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                        error=true;
+                    } 
+                    if(!error){
+                        //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                        String output = "";
+                        while ((s = Metodos2.stdOutput.readLine()) != null) {
+                            //System.out.println(s);
+                            output = output + (s + "\n");
+                        }
+
+                        String[] arrOutput = output.split("!");
+                        etapas = arrOutput[0];
+                        matrizL = arrOutput[1];
+                        matrizU = arrOutput[2];
+                        resultado = arrOutput[3];
+                        //System.out.println("SALIDA JAVA");
+                        //System.out.println(etapas);
+                        //System.out.println("--");
+                        //System.out.println(matrizFinal);
+                        //System.out.println("---");
+                        //System.out.println(resultado);
+                        //System.out.println("FIN SALIDA JAVA");
+                        
+
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 break;
             case 4:
                 //Doolittle
                 tipoMetodo = "factorizacion";
+                Metodos2.doolittle(Metodos2.a, Metodos2.b, Metodos2.tam);
+                //System.out.println("SALI DEL python");
+                try {
+                    String s = null;
+                    
+                    boolean error=false;
+                    while ((s = Metodos2.stdError.readLine()) != null) {
+                        JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                        error=true;
+                    } 
+                    if(!error){
+                        //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                        String output = "";
+                        while ((s = Metodos2.stdOutput.readLine()) != null) {
+                            //System.out.println(s);
+                            output = output + (s + "\n");
+                        }
+
+                        String[] arrOutput = output.split("!");
+                        etapas = arrOutput[0];
+                        matrizL = arrOutput[1];
+                        matrizU = arrOutput[2];
+                        resultado = arrOutput[3];
+                        //System.out.println("SALIDA JAVA");
+                        //System.out.println(etapas);
+                        //System.out.println("--");
+                        //System.out.println(matrizFinal);
+                        //System.out.println("---");
+                        //System.out.println(resultado);
+                        //System.out.println("FIN SALIDA JAVA");
+                        
+
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 break;
             case 5:
                 //Cholesky
                 tipoMetodo = "factorizacion";
+                Metodos2.cholesky(Metodos2.a, Metodos2.b, Metodos2.tam);
+                //System.out.println("SALI DEL python");
+                try {
+                    String s = null;
+                    
+                    boolean error=false;
+                    while ((s = Metodos2.stdError.readLine()) != null) {
+                        JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                        error=true;
+                    } 
+                    if(!error){
+                        //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                        String output = "";
+                        while ((s = Metodos2.stdOutput.readLine()) != null) {
+                            //System.out.println(s);
+                            output = output + (s + "\n");
+                        }
+
+                        String[] arrOutput = output.split("!");
+                        etapas = arrOutput[0];
+                        matrizL = arrOutput[1];
+                        matrizU = arrOutput[2];
+                        resultado = arrOutput[3];
+                        //System.out.println("SALIDA JAVA");
+                        //System.out.println(etapas);
+                        //System.out.println("--");
+                        //System.out.println(matrizFinal);
+                        //System.out.println("---");
+                        //System.out.println(resultado);
+                        //System.out.println("FIN SALIDA JAVA");
+                        
+
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 break;
             case 6:
                 JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un método");
