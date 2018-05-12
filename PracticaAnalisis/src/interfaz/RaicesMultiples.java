@@ -7,6 +7,7 @@ package interfaz;
 
 import javax.swing.JOptionPane;
 import practicaanalisis.Metodos;
+import practicaanalisis.Funcion;
 
 /**
  *
@@ -120,42 +121,79 @@ public class RaicesMultiples extends javax.swing.JFrame{
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        double x0 = Double.parseDouble(x0RaicesMultiples.getText());
-        double tol = Double.parseDouble(toleranciaRaicesMultiples.getText());
-        int iter = Integer.parseInt(iteracionesRaicesMultiples.getText());
         
-        jRadioButton1.setActionCommand("0");
-        jRadioButton2.setActionCommand("1");
-        int err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        double x0 = 0;
+        double tol = 0;
+        int iter = 0;
+        boolean camposCorrectos = true;
         
-        String mensaje = "";
-        boolean correct = false;
-        Double[][] data = null;
-        
-        if (iter <= 0){
-            mensaje = "El numero de iteraciones debe de ser mayor a cero";
-        }else if(tol <= 0){
-            mensaje = "La tolerancia debe de ser mayor a cero";
-        }else {
-            Metodos.raicesMultiples(x0, iter, tol, err);
-            //Resultados
-            data = Metodos.data;
-            Object[][] newData = formatearData(data);
-            mensaje = Metodos.mens;
-            
-            
-            ResultadosRaicesMultiples resultadosRaicesMultiples = new ResultadosRaicesMultiples(x0,tol, iter, newData, mensaje);
-            resultadosRaicesMultiples.setVisible(true);
-            resultadosRaicesMultiples.setSize(1024,768);
-            resultadosRaicesMultiples.setResizable(false);
-            resultadosRaicesMultiples.setLocationRelativeTo(null);
-            dispose();
+        try{
+            x0 = Double.parseDouble(x0RaicesMultiples.getText());
+            tol = Double.parseDouble(toleranciaRaicesMultiples.getText());
+            iter = Integer.parseInt(iteracionesRaicesMultiples.getText());
+        }catch(Exception e){
+            camposCorrectos = false;
         }
-        if (!correct){
-            JOptionPane.showMessageDialog(rootPane, mensaje);
+        
+        if(iter <= 0 && tol <= 0){
+            JOptionPane.showMessageDialog(rootPane, "Por favor ingrese información correcta a los campos, como un número mayor que cero para iteraciones y número mayor de cero para la tolerancia");
+            camposCorrectos = false;
+        }else if(iter <= 0){    
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número mayor que cero para iteraciones");
+            camposCorrectos = false;
+        } else if(tol <= 0){
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número mayor de cero para la tolerancia");
+            camposCorrectos = false;
+        } else{
+            camposCorrectos = true;
         }
                 
-       
+        jRadioButton1.setActionCommand("0");
+        jRadioButton2.setActionCommand("1");
+        
+        int err = 0;
+        
+        try{
+            err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccionar el tipo de error para trabajar");
+            camposCorrectos = false;
+        }
+        
+        
+        if(camposCorrectos){
+            if(!"".equals(Funcion.f) && !"".equals(Funcion.df) && !"".equals(Funcion.ddf)){
+                String mensaje = "";
+                boolean correct = false;
+                Double[][] data = null;
+
+                if (iter <= 0){
+                    mensaje = "El numero de iteraciones debe de ser mayor a cero";
+                }else if(tol <= 0){
+                    mensaje = "La tolerancia debe de ser mayor a cero";
+                }else {
+                    Metodos.raicesMultiples(x0, iter, tol, err);
+                    //Resultados
+                    data = Metodos.data;
+                    Object[][] newData = formatearData(data);
+                    mensaje = Metodos.mens;
+
+
+                    ResultadosRaicesMultiples resultadosRaicesMultiples = new ResultadosRaicesMultiples(x0,tol, iter, newData, mensaje);
+                    resultadosRaicesMultiples.setVisible(true);
+                    resultadosRaicesMultiples.setSize(1024,768);
+                    resultadosRaicesMultiples.setResizable(false);
+                    resultadosRaicesMultiples.setLocationRelativeTo(null);
+                    dispose();
+                }
+                if (!correct){
+                    JOptionPane.showMessageDialog(rootPane, mensaje);
+                }
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Por favor ingresar una función F(x) y G(x) válida para ejecutar el método");
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ayudaRaicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaRaicesActionPerformed

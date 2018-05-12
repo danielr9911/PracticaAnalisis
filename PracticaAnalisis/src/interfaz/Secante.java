@@ -9,6 +9,7 @@ import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.JOptionPane;
 import static practicaanalisis.Funcion.callFunction;
 import practicaanalisis.Metodos;
+import practicaanalisis.Funcion;
 /**
  *
  * @author carlosruiz
@@ -133,45 +134,84 @@ public class Secante extends javax.swing.JFrame {
 
     private void calcularSecanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularSecanteActionPerformed
         // TODO add your handling code here:
-        double x0 = Double.parseDouble(x0Secante.getText());
-        double x1 = Double.parseDouble(x1Secante.getText());
-        double tol = Double.parseDouble(toleranciaSecante.getText());
-        int iter = Integer.parseInt(iteracionesSecante.getText());
+        
+        double x0 = 0;
+        double x1 = 0;
+        double tol = 0;
+        int iter = 0;
+        boolean camposCorrectos = true;
+        
+        try{
+            x0 = Double.parseDouble(x0Secante.getText());
+            x1 = Double.parseDouble(x1Secante.getText());
+            tol = Double.parseDouble(toleranciaSecante.getText());
+            iter = Integer.parseInt(iteracionesSecante.getText());
+        }catch(Exception e){
+            camposCorrectos = false;
+        }
+
+        if(iter <= 0 && tol <= 0){
+            JOptionPane.showMessageDialog(rootPane, "Por favor ingrese información correcta a los campos, como un número mayor que cero para iteraciones y número mayor de cero para la tolerancia");
+            camposCorrectos = false;
+        }else if(iter <= 0){    
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número mayor que cero para iteraciones");
+            camposCorrectos = false;
+        } else if(tol <= 0){
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número mayor de cero para la tolerancia");
+            camposCorrectos = false;
+        } else{
+            camposCorrectos = true;
+        }
+        
         errorAbsSecante.setActionCommand("0");
         errorRelSecante.setActionCommand("1");
-        int err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
         
-        String mensaje ="";
-        boolean correct = false;
-        Double[][] data = null;
+        int err = 0;
         
-        double fx0 = callFunction("f", x0);
-        double fx1 = callFunction("f", x1);
-        
-        if(fx0 == 0){
-            mensaje = x0 + "es una raiz";
-        }else if(fx1 == 0){
-            mensaje = x1 + "es una raiz";
-        }else if(iter <= 0){
-            mensaje = "El numero de iteraciones debe ser mayor a cero";
-        }else if(tol <=0){
-            mensaje = "La tolerancia debe ser mayor a cero";
-        }else{
-            Metodos.secante(x0,x1,tol,iter,err);
-            data = Metodos.data;
-            Object[][] newData = formatearData(data);
-            mensaje = Metodos.mens;
-            
-            ResultadosSecante resultadosSecante = new ResultadosSecante(x0,x1,tol,iter,newData,mensaje);
-            resultadosSecante.setVisible(true);
-            resultadosSecante.setSize(1024,768);
-            resultadosSecante.setResizable(false);
-            resultadosSecante.setLocationRelativeTo(null);
-            dispose();
-            correct = true;
+        try{
+            err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccionar el tipo de error para trabajar");
         }
-        if (!correct){
-            JOptionPane.showMessageDialog(rootPane, mensaje);
+        
+        if(camposCorrectos){
+            if(Funcion.f !=""){
+                      String mensaje ="";
+                boolean correct = false;
+                Double[][] data = null;
+
+                double fx0 = callFunction("f", x0);
+                double fx1 = callFunction("f", x1);
+
+                if(fx0 == 0){
+                    mensaje = x0 + "es una raiz";
+                }else if(fx1 == 0){
+                    mensaje = x1 + "es una raiz";
+                }else if(iter <= 0){
+                    mensaje = "El numero de iteraciones debe ser mayor a cero";
+                }else if(tol <=0){
+                    mensaje = "La tolerancia debe ser mayor a cero";
+                }else{
+                    Metodos.secante(x0,x1,tol,iter,err);
+                    data = Metodos.data;
+                    Object[][] newData = formatearData(data);
+                    mensaje = Metodos.mens;
+
+                    ResultadosSecante resultadosSecante = new ResultadosSecante(x0,x1,tol,iter,newData,mensaje);
+                    resultadosSecante.setVisible(true);
+                    resultadosSecante.setSize(1024,768);
+                    resultadosSecante.setResizable(false);
+                    resultadosSecante.setLocationRelativeTo(null);
+                    dispose();
+                    correct = true;
+                }
+                if (!correct){
+                    JOptionPane.showMessageDialog(rootPane, mensaje);
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(rootPane, "Por favor ingresar una función F(x) válida para ejecutar el método");
+            }
         }
     }//GEN-LAST:event_calcularSecanteActionPerformed
 

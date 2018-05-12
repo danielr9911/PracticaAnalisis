@@ -173,7 +173,6 @@ public class PuntoFijo extends javax.swing.JFrame {
         
         if (camposCorrectos){
             if(!"".equals(Funcion.g) && !"".equals(Funcion.f)){
-                System.out.print(Funcion.g);
                 String mensaje = "";
                 boolean correct = false;
                 Double[][] data = null;
