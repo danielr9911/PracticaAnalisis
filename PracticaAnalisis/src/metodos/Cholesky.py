@@ -46,6 +46,12 @@ def cholesky(L, U, A, n):
         suma1 = 0
         for m in range(k):
             suma1 += L[k][m] * U[m][k]
+        if (A[k][k] - suma1) < 0.0:
+            print("##################################")
+            print("El sistema no tiene solucion en los reales")
+            print("##################################")
+            return L, U, False
+
         L[k][k] = sqrt(A[k][k] - suma1)
         U[k][k] = L[k][k]
 
@@ -61,11 +67,7 @@ def cholesky(L, U, A, n):
             print("El sistema no tiene solucion unica")
             print("##################################")
             return L, U, False
-        if (A[k][k] - suma1) < 0:
-            print("##################################")
-            print("El sistema no tiene solucion en los reales")
-            print("##################################")
-            return L, U, False
+
 
 
 
