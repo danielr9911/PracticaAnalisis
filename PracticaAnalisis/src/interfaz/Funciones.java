@@ -94,7 +94,7 @@ public class Funciones extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(890, 20, 110, 110);
+        jButton1.setBounds(890, 90, 110, 110);
 
         regresarMetodo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/RegresarMetodo.png"))); // NOI18N
         regresarMetodo.addActionListener(new java.awt.event.ActionListener() {
