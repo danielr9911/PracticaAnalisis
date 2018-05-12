@@ -97,6 +97,12 @@ def Doolittle(A, B, n):
         print (np.array(U))
         print ("\n")
         suma1=0
+        if float(U[k][k]) == 0.0 or float(L[k][k]) == 0.0:
+            print("##################################")
+            print("El sistema no tiene solucion unica")
+            print("##################################")
+            return L, U, False
+
         for m in range (k):
             #fila (L) * columna (U)
             suma1+=L[k][m]*U[m][k]
@@ -115,7 +121,7 @@ def Doolittle(A, B, n):
             for h in range (k):
                 suma3+=L[k][h]*U[h][j]
             U[k][j]=(A[k][j]-suma3)/float(L[k][k]) 
-    return L,U
+    return L,U, True
 
 def main():
     n = int(sys.argv[1])
@@ -128,27 +134,35 @@ def main():
     #print(matrizB)
     #print(matrizA)
     #print(Ab)
-    MatrizL, MatrizU = Doolittle(matrizA,matrizB,n)
+    MatrizL, MatrizU, exito = Doolittle(matrizA,matrizB,n)
     
-    Z = np.zeros(n)
-    X = np.zeros(n)
-    Z=progressiveDoolitlle(Z,b,MatrizL,n)
-    X=regressiveDoolitle(X,Z,MatrizU,n)
-    
-    print("!")
-    print(MatrizL)
-    print("!")
-    print(MatrizU)
-    print("!")
+    if exito:
+        Z = np.zeros(n)
+        X = np.zeros(n)
+        Z=progressiveDoolitlle(Z,b,MatrizL,n)
+        X=regressiveDoolitle(X,Z,MatrizU,n)
+        
+        print("!")
+        print(MatrizL)
+        print("!")
+        print(MatrizU)
+        print("!")
 
-    for i, x in enumerate(X):
-        print ("x{0} = {1}  ".format(i + 1, x))
-    print("\n")
-    for i, x in enumerate(Z):
-        print ("z{0} = {1}  ".format(i + 1, x))
+        for i, x in enumerate(X):
+            print ("x{0} = {1}  ".format(i + 1, x))
+        print("\n")
+        for i, x in enumerate(Z):
+            print ("z{0} = {1}  ".format(i + 1, x))
 
-    #print ("Matriz final\n ", matrizFinal)
-    
+        #print ("Matriz final\n ", matrizFinal)
+    else: 
+        print("!")
+        cero = np.zeros((n, n + 1))
+        print(cero)
+        print("!")
+        print(cero)
+        print("!")
+        print("El sistema no tiene solucion unica")
 
 main()
 
