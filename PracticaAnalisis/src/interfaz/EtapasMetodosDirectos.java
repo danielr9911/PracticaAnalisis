@@ -13,7 +13,10 @@ public class EtapasMetodosDirectos extends javax.swing.JFrame {
 
     public static String resultado;
     public static String matrizFinal;
+    public static String matrizFinalL;
+    public static String matrizFinalU;
     public static String etapas;
+    public static int from;
     
     /**
      * Creates new form EtapasMetodosDirectos
@@ -23,12 +26,23 @@ public class EtapasMetodosDirectos extends javax.swing.JFrame {
      */
     public EtapasMetodosDirectos(String res, String matriz, String eta) {
         initComponents();
+        from = 0;
         resultado = res;
         matrizFinal = matriz;
         etapas = eta;
         jTextArea1.setText(etapas);
     }
 
+    public EtapasMetodosDirectos(String res, String matrizL, String matrizU, String eta) {
+        initComponents();
+        from = 1;
+        resultado = res;
+        matrizFinalL = matrizL;
+        matrizFinalU = matrizU;
+        etapas = eta;
+        jTextArea1.setText(etapas);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,12 +85,22 @@ public class EtapasMetodosDirectos extends javax.swing.JFrame {
 
     private void regresarEtapasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarEtapasActionPerformed
         // TODO add your handling code here:
-        ResultadosMetodosDirectos resultadosMetodosDirectos = new ResultadosMetodosDirectos(resultado, matrizFinal, etapas);
-        resultadosMetodosDirectos.setVisible(true);
-        resultadosMetodosDirectos.setSize(1024,768);
-        resultadosMetodosDirectos.setResizable(false);
-        resultadosMetodosDirectos.setLocationRelativeTo(null);
-        dispose();
+        if(from == 0){
+            ResultadosMetodosDirectos resultadosMetodosDirectos = new ResultadosMetodosDirectos(resultado, matrizFinal, etapas);
+            resultadosMetodosDirectos.setVisible(true);
+            resultadosMetodosDirectos.setSize(1024,768);
+            resultadosMetodosDirectos.setResizable(false);
+            resultadosMetodosDirectos.setLocationRelativeTo(null);
+            dispose();
+        }else{
+            ResultadosFactorizacionLU resultadosLU = new ResultadosFactorizacionLU(resultado, matrizFinalL,matrizFinalU, etapas);
+            resultadosLU.setVisible(true);
+            resultadosLU.setSize(1024,768);
+            resultadosLU.setResizable(false);
+            resultadosLU.setLocationRelativeTo(null);
+            dispose();
+        }
+        
     }//GEN-LAST:event_regresarEtapasActionPerformed
 
 
