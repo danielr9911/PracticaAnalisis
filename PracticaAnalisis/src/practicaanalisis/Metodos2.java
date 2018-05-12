@@ -327,6 +327,88 @@ public class Metodos2 {
         //Tenemos salida y salidaError
     
     }
+    public static void jacobiRelajado(Double[][] a, Double[] b, int n, 
+            Double tol, int iter, Double relajacion, Double[] xValues) {    
+        String matrizA = "[";
+        for (Double[] a1 : a) {
+            String mtemp = Arrays.toString(a1) + ":";
+            mtemp = mtemp.replace(" ", "");
+            matrizA = matrizA + mtemp ;
+        }
+        matrizA = matrizA.substring(0,matrizA.length()-1);
+        matrizA = matrizA + "]";
+        String matrizB = Arrays.toString(b);
+        matrizB = matrizB.replace(" ", "");
+        String matrizX = Arrays.toString(xValues);
+        matrizX = matrizX.replace(" ", "");
+        //System.out.println(matrizA);
+        //System.out.println(Arrays.toString(b));
+        //System.out.println(n);
+        String args = n +" "+matrizB+" "+matrizA+" "+tol+" "+iter+" "+relajacion+" "+matrizX;
+        
+        //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+        String ruta = new File(".").getAbsolutePath();
+        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        ruta = ruta + "metodos/jacobiRelajado.py"; 
+        if(PracticaAnalisis.os.equals("win")){
+            ruta = "\""+ruta+"\""; 
+        }
+        String comando = "python " + ruta + " " + args;
+        System.out.println(comando);
+        
+        try {
+            Process p = Runtime.getRuntime().exec(comando);
+            stdOutput = new BufferedReader(new 
+                 InputStreamReader(p.getInputStream()));
 
-    
+            stdError = new BufferedReader(new 
+                 InputStreamReader(p.getErrorStream()));
+            //Interpretar res
+        } catch (IOException ex) {
+            Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //Tenemos salida y salidaError
+    }
+    public static void gaussSeidelRelajado(Double[][] a, Double[] b, int n, 
+            Double tol, int iter, Double relajacion, Double[] xValues) {        
+        String matrizA = "[";
+        for (Double[] a1 : a) {
+            String mtemp = Arrays.toString(a1) + ":";
+            mtemp = mtemp.replace(" ", "");
+            matrizA = matrizA + mtemp ;
+        }
+        matrizA = matrizA.substring(0,matrizA.length()-1);
+        matrizA = matrizA + "]";
+        String matrizB = Arrays.toString(b);
+        matrizB = matrizB.replace(" ", "");
+        String matrizX = Arrays.toString(xValues);
+        matrizX = matrizX.replace(" ", "");
+        //System.out.println(matrizA);
+        //System.out.println(Arrays.toString(b));
+        //System.out.println(n);
+        String args = n +" "+matrizB+" "+matrizA+" "+tol+" "+iter+" "+relajacion+" "+matrizX;
+        
+        //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+        String ruta = new File(".").getAbsolutePath();
+        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        ruta = ruta + "metodos/gaussSeidelRelajado.py"; 
+        if(PracticaAnalisis.os.equals("win")){
+            ruta = "\""+ruta+"\""; 
+        }
+        String comando = "python " + ruta + " " + args;
+        System.out.println(comando);
+        
+        try {
+            Process p = Runtime.getRuntime().exec(comando);
+            stdOutput = new BufferedReader(new 
+                 InputStreamReader(p.getInputStream()));
+
+            stdError = new BufferedReader(new 
+                 InputStreamReader(p.getErrorStream()));
+            //Interpretar res
+        } catch (IOException ex) {
+            Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //Tenemos salida y salidaError
+    }
 }
