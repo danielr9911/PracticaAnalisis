@@ -143,10 +143,10 @@ public class BusquedasIncr extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Por favor ingrese información correcta a los campos, como un número mayor que cero para iteraciones y número diferente de cero para el delta");
             camposCorrectos = false;
         }else if(iter <= 0){    
-            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione número mayor que cero para iteraciones");
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número mayor que cero para iteraciones");
             camposCorrectos = false;
         } else if(delta == 0){
-            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione número diferente de cero para el delta");
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número diferente de cero para el delta");
             camposCorrectos = false;
         } else{
             camposCorrectos = true;
