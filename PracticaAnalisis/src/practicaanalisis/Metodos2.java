@@ -174,7 +174,6 @@ public class Metodos2 {
     }
     
     public static void crout(Double[][] a, Double[] b, int n) { 
-        {
         //init();
         /*
         PyArray pa = new PyArray(Double.class,a);
@@ -224,12 +223,9 @@ public class Metodos2 {
         }
         //Tenemos salida y salidaError
         
-        
-    }
     
     }
     public static void doolittle(Double[][] a, Double[] b, int n) { 
-        {
         //init();
         /*
         PyArray pa = new PyArray(Double.class,a);
@@ -277,14 +273,10 @@ public class Metodos2 {
         } catch (IOException ex) {
             Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //Tenemos salida y salidaError
-        
-        
+        //Tenemos salida y salidaError   
     }
     
-    }
     public static void cholesky(Double[][] a, Double[] b, int n) {    
-        {
         //init();
         /*
         PyArray pa = new PyArray(Double.class,a);
@@ -333,17 +325,8 @@ public class Metodos2 {
             Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
         }
         //Tenemos salida y salidaError
-        
-        
-    }
     
     }
+
     
-    /*
-    public static void init(){
-        PythonConnection pc = new PythonConnection();  
-        pc.execfile("src/metodos/Metodos2.py");  
-        me = pc.createClass("Metodos2", "None"); 
-    }
-    */
 }
