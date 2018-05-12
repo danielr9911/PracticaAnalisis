@@ -5,17 +5,84 @@
  */
 package interfaz;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import practicaanalisis.Metodos2;
+
 /**
  *
  * @author carlosruiz
  */
 public class ResultadosFactorizacionLU extends javax.swing.JFrame {
 
+    public static String resultado;
+    public static String matrizFinalL;
+    public static String matrizFinalU;
+    public static String etapas;
+    
     /**
      * Creates new form ResultadosMetodosIterativos
      */
-    public ResultadosFactorizacionLU() {
+    public ResultadosFactorizacionLU(String res, String matrizL, String matrizU, String eta) {
         initComponents();
+        resultado = res;
+        matrizFinalL = matrizL;
+        matrizFinalU = matrizU;
+        etapas = eta;
+        jTextArea1.setText(resultado);
+        
+        matrizFinalL = matrizFinalL.replace("[ ", "");
+        matrizFinalL = matrizFinalL.replace("[", "");
+        matrizFinalL = matrizFinalL.replace("]", "");
+        matrizFinalL = matrizFinalL.replace("\n", "");
+        matrizFinalL =  matrizFinalL.replaceAll("\\s+"," ");
+        matrizFinalL = matrizFinalL.replace(" ", "!");
+        
+        matrizFinalU = matrizFinalU.replace("[ ", "");
+        matrizFinalU = matrizFinalU.replace("[", "");
+        matrizFinalU = matrizFinalU.replace("]", "");
+        matrizFinalU = matrizFinalU.replace("\n", "");
+        matrizFinalU =  matrizFinalU.replaceAll("\\s+"," ");
+        matrizFinalU = matrizFinalU.replace(" ", "!");
+        
+        String[] arrMatrizFinalL = matrizFinalL.split("!");
+        String[] arrMatrizFinalU = matrizFinalU.split("!");
+        
+        List<String> listL = new ArrayList<String>(Arrays.asList(arrMatrizFinalL));
+        listL.remove("");
+        arrMatrizFinalL = listL.toArray(new String[0]);
+        
+        List<String> listU = new ArrayList<String>(Arrays.asList(arrMatrizFinalU));
+        listU.remove("");
+        arrMatrizFinalU = listU.toArray(new String[0]);
+        
+        Double[][] dMatrizFinalL = new Double[Metodos2.tam][Metodos2.tam];
+        Double[][] dMatrizFinalU = new Double[Metodos2.tam][Metodos2.tam];
+        
+        int contL = 0;
+        for (int i = 0; i < Metodos2.tam; i++) {
+            for (int j = 0; j < Metodos2.tam; j++) {
+                dMatrizFinalL[i][j] = Double.parseDouble(arrMatrizFinalL[contL]);
+                contL++;
+            }
+        }
+        int contU = 0;
+        for (int i = 0; i < Metodos2.tam; i++) {
+            for (int j = 0; j < Metodos2.tam; j++) {
+                dMatrizFinalU[i][j] = Double.parseDouble(arrMatrizFinalU[contU]);
+                contU++;
+            }
+        }
+        
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                dMatrizFinalL,
+                new String [Metodos2.tam]
+            ));
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+                dMatrizFinalU,
+                new String [Metodos2.tam]
+            ));
     }
 
     /**
@@ -32,10 +99,11 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         botonRegresar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         jTextArea3.setColumns(20);
@@ -61,19 +129,48 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(260, 100, 550, 150);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonVerEtapas.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(710, 675, 300, 80);
 
-        getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(30, 320, 450, 340);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable1.setTableHeader(null);
+        jScrollPane5.setViewportView(jTable1);
 
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane4.setViewportView(jTextArea4);
+        getContentPane().add(jScrollPane5);
+        jScrollPane5.setBounds(30, 320, 452, 340);
 
-        getContentPane().add(jScrollPane4);
-        jScrollPane4.setBounds(500, 320, 500, 340);
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable2.setTableHeader(null);
+        jScrollPane6.setViewportView(jTable2);
+
+        getContentPane().add(jScrollPane6);
+        jScrollPane6.setBounds(500, 320, 452, 340);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ResultadosLU.png"))); // NOI18N
         jLabel1.setToolTipText("");
@@ -93,54 +190,28 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_botonRegresarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResultadosFactorizacionLU.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResultadosFactorizacionLU.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResultadosFactorizacionLU.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResultadosFactorizacionLU.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        EtapasMetodosDirectos etapasMetodosDirectos = new EtapasMetodosDirectos(resultado, matrizFinalL, matrizFinalU, etapas);
+        etapasMetodosDirectos.setVisible(true);
+        etapasMetodosDirectos.setSize(1024,768);
+        etapasMetodosDirectos.setResizable(false);
+        etapasMetodosDirectos.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ResultadosFactorizacionLU().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
     // End of variables declaration//GEN-END:variables
 }
