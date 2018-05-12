@@ -8,6 +8,7 @@ package interfaz;
 import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
+import practicaanalisis.Funcion;
 import static practicaanalisis.Funcion.callFunction;
 import practicaanalisis.Metodos;
 
@@ -134,43 +135,79 @@ public class PuntoFijo extends javax.swing.JFrame {
 
     private void calcularPuntoFijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularPuntoFijoActionPerformed
         // TODO add your handling code here:
-        double x0 = Double.parseDouble(xInicialPuntoFijo.getText());
-        int iter = Integer.parseInt(iteracionesPuntoFijo.getText());
-        double tol = Double.parseDouble(toleranciaPuntoFijo.getText());
+        double x0 = 0;
+        int iter = 0;
+        double tol = 0;
+        boolean camposCorrectos = true;
+        
+        try{
+            x0 = Double.parseDouble(xInicialPuntoFijo.getText());
+            iter = Integer.parseInt(iteracionesPuntoFijo.getText());
+            tol = Double.parseDouble(toleranciaPuntoFijo.getText());
+        }catch(Exception e){
+            camposCorrectos = false;
+        }
+        
+        if(iter <= 0 && tol <= 0){
+            JOptionPane.showMessageDialog(rootPane, "Por favor ingrese información correcta a los campos, como un número mayor que cero para iteraciones y número mayor de cero para la tolerancia");
+            camposCorrectos = false;
+        }else if(iter <= 0){    
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número mayor que cero para iteraciones");
+            camposCorrectos = false;
+        } else if(tol <= 0){
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número mayor de cero para la tolerancia");
+            camposCorrectos = false;
+        } else{
+            camposCorrectos = true;
+        }
+        
         errorABSPuntoFijo.setActionCommand("0");
         errorRelPuntoFijo.setActionCommand("1");
-        int err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        int err = 0;
+        try{
+            err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccionar el tipo de error para trabajar");
+            camposCorrectos = false;
+        }
         
-        String mensaje = "";
-        boolean correct = false;
-        Double[][] data = null;
-        
-        double fx0 = callFunction("f", x0);
-        
-        if(fx0 == 0){
-            mensaje = x0 + " es una raíz ";
-        }else if (iter <= 0){
-            mensaje = "El numero de iteraciones debe de ser mayor a cero";
-        }else if(tol <= 0){
-            mensaje = "La tolerancia debe de ser mayor a cero";
-        }else{
-            Metodos.PuntoFijo(x0, iter, tol, err);
-            //Resultados
-            data = Metodos.data;
-            Object[][] newData = formatearData(data);
-            mensaje = Metodos.mens;
-            
-            ResultadosPuntoFijo RpuntoFijo = new ResultadosPuntoFijo(x0, tol, iter, newData, mensaje);
-            RpuntoFijo.setVisible(true);
-            RpuntoFijo.setSize(1024,768);
-            RpuntoFijo.setResizable(false);
-            RpuntoFijo.setLocationRelativeTo(null);
-            dispose();
-            correct = true;
+        if (camposCorrectos){
+            if(!"".equals(Funcion.g) && !"".equals(Funcion.f)){
+                System.out.print(Funcion.g);
+                String mensaje = "";
+                boolean correct = false;
+                Double[][] data = null;
+
+                double fx0 = callFunction("f", x0);
+
+                if(fx0 == 0){
+                    mensaje = x0 + " es una raíz ";
+                }else if (iter <= 0){
+                    mensaje = "El numero de iteraciones debe de ser mayor a cero";
+                }else if(tol <= 0){
+                    mensaje = "La tolerancia debe de ser mayor a cero";
+                }else{
+                    Metodos.PuntoFijo(x0, iter, tol, err);
+                    //Resultados
+                    data = Metodos.data;
+                    Object[][] newData = formatearData(data);
+                    mensaje = Metodos.mens;
+
+                    ResultadosPuntoFijo RpuntoFijo = new ResultadosPuntoFijo(x0, tol, iter, newData, mensaje);
+                    RpuntoFijo.setVisible(true);
+                    RpuntoFijo.setSize(1024,768);
+                    RpuntoFijo.setResizable(false);
+                    RpuntoFijo.setLocationRelativeTo(null);
+                    dispose();
+                    correct = true;
+                    }
+                if (!correct){
+                    JOptionPane.showMessageDialog(rootPane, mensaje);            
+                }
+            }else{
+            JOptionPane.showMessageDialog(rootPane, "Por favor ingresar una función F(x) y G(x) válida para ejecutar el método");
             }
-        if (!correct){
-            JOptionPane.showMessageDialog(rootPane, mensaje);            
-        }        
+        }
     }//GEN-LAST:event_calcularPuntoFijoActionPerformed
 
     private void botonRegresarPuntoFijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarPuntoFijoActionPerformed
