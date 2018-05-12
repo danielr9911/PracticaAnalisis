@@ -89,6 +89,7 @@ def Cholesky(A, B, n):
     X = np.zeros(n)
     
     for k in range(n):
+        
         print ("+ ETAPA: %d \n") %k
         print ("Matriz L")
         print (np.array(L))
@@ -97,11 +98,23 @@ def Cholesky(A, B, n):
         print (np.array(U))
         print ("\n")
         suma1=0
+        
+        if float(U[k][k]) == 0.0 or float(L[k][k]) == 0.0:
+            print("##################################")
+            print("El sistema no tiene solucion unica")
+            print("##################################")
+            return L, U, False
+        if (A[k][k]-suma1) < 0:
+            print("##################################")
+            print("El sistema no tiene solucion en los reales")
+            print("##################################")
+            return L, U, False
+
         for m in range (k):
             #fila (L) * columna (U)
             suma1+=L[k][m]*U[m][k]
         L[k][k]= sqrt(A[k][k]-suma1)
-        U[k][k]=L[K][K]
+        U[k][k]=L[k][k]
         for i in range (k,n):
             #Crear Matriz L
             suma2=0
@@ -115,7 +128,7 @@ def Cholesky(A, B, n):
             for h in range (k):
                 suma3+=L[k][h]*U[h][j]
             U[k][j]=(A[k][j]-suma3)/float(L[k][k]) 
-    return L,U
+    return L,U, True
 
 def main():
     n = int(sys.argv[1])
@@ -128,25 +141,35 @@ def main():
     #print(matrizB)
     #print(matrizA)
     #print(Ab)
-    MatrizL, MatrizU = Cholesky(matrizA,matrizB,n)
+    MatrizL, MatrizU, exito = Cholesky(matrizA,matrizB,n)
     
-    Z = np.zeros(n)
-    X = np.zeros(n)
-    Z=progressiveCholesky(Z,b,MatrizL,n)
-    X=regresiveCholesky(X,Z,MatrizU,n)
+    if exito:
+        Z = np.zeros(n)
+        X = np.zeros(n)
+        Z=progressiveCholesky(Z,b,MatrizL,n)
+        X=regresiveCholesky(X,Z,MatrizU,n)
+        
+        print("!")
+        print(MatrizL)
+        print("!")
+        print(MatrizU)
+        print("!")
+
+        for i, x in enumerate(X):
+            print ("x{0} = {1}  ".format(i + 1, x))
+        print("\n")
+        for i, x in enumerate(Z):
+            print ("z{0} = {1}  ".format(i + 1, x))
+
+    else: 
+        print("!")
+        cero = np.zeros((n, n + 1))
+        print(cero)
+        print("!")
+        print(cero)
+        print("!")
+        print("El sistema no tiene solucion unica")
     
-    print("!")
-    print(MatrizL)
-    print("!")
-    print(MatrizU)
-    print("!")
-
-    for i, x in enumerate(X):
-        print ("x{0} = {1}  ".format(i + 1, x))
-    print("\n")
-    for i, x in enumerate(Z):
-        print ("z{0} = {1}  ".format(i + 1, x))
-
     #print ("Matriz final\n ", matrizFinal)
     
 

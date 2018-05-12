@@ -421,10 +421,10 @@ public class MetodosDirectos extends javax.swing.JFrame {
                         //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
                         String output = "";
                         while ((s = Metodos2.stdOutput.readLine()) != null) {
-                            //System.out.println(s);
+                            System.out.println(s);
                             output = output + (s + "\n");
                         }
-
+                        
                         String[] arrOutput = output.split("!");
                         etapas = arrOutput[0];
                         matrizL = arrOutput[1];
