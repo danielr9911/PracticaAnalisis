@@ -6,6 +6,7 @@
 package interfaz;
 
 import javax.swing.JOptionPane;
+import practicaanalisis.Funcion;
 import static practicaanalisis.Funcion.callFunction;
 import practicaanalisis.Metodos;
 
@@ -125,33 +126,61 @@ public class BusquedasIncr extends javax.swing.JFrame {
 
     private void botonCalcularBusquedasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularBusquedasActionPerformed
         // TODO add your handling code here:
-        double x0 = Double.parseDouble(textXo.getText());
-        double delta = Double.parseDouble(textDelta.getText());       
-        int iter = Integer.parseInt(textIter.getText());  
+        double x0 = 0;
+        double delta = 0;
+        int iter = 0;
+        boolean camposCorrectos = true;
         
-        String mensaje = "";
-        boolean correct = false;
-        Double[][] data = null;
-        double fxi = callFunction("f", x0);       
-        if (fxi == 0){
-            mensaje = x0 + " es una raiz";               
-        }else {
-            Metodos.busquedas_incrementales(x0, delta, iter);
-            //Resultados
-            data = Metodos.data;
-            Object[][] newData = formatearData(data);
-            mensaje = Metodos.mens;
-            
-            ResultadosBusquedas resultadosBusquedas = new ResultadosBusquedas(x0, delta, iter, newData, mensaje);
-            resultadosBusquedas.setVisible(true);
-            resultadosBusquedas.setSize(1024,768);
-            resultadosBusquedas.setResizable(false);
-            resultadosBusquedas.setLocationRelativeTo(null);
-            dispose();
-            correct = true;
+        try{
+            x0 = Double.parseDouble(textXo.getText());
+            delta = Double.parseDouble(textDelta.getText());       
+            iter = Integer.parseInt(textIter.getText());
+        }catch(Exception e){
+            camposCorrectos = false;
         }
-        if (!correct){
-            JOptionPane.showMessageDialog(rootPane, mensaje);
+        
+        if(iter <= 0 && delta == 0){
+            JOptionPane.showMessageDialog(rootPane, "Por favor ingrese información correcta a los campos, como un número mayor que cero para iteraciones y número diferente de cero para el delta");
+            camposCorrectos = false;
+        }else if(iter <= 0){    
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione número mayor que cero para iteraciones");
+            camposCorrectos = false;
+        } else if(delta == 0){
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione número diferente de cero para el delta");
+            camposCorrectos = false;
+        } else{
+            camposCorrectos = true;
+        }
+        
+        if (camposCorrectos){
+            if(Funcion.f != ""){
+                String mensaje = "";
+                boolean correct = false;
+                Double[][] data = null;
+                double fxi = callFunction("f", x0);       
+                if (fxi == 0){
+                    mensaje = x0 + " es una raiz";               
+                }else {
+                    Metodos.busquedas_incrementales(x0, delta, iter);
+                    //Resultados
+                    data = Metodos.data;
+                    Object[][] newData = formatearData(data);
+                    mensaje = Metodos.mens;
+
+                    ResultadosBusquedas resultadosBusquedas = new ResultadosBusquedas(x0, delta, iter, newData, mensaje);
+                    resultadosBusquedas.setVisible(true);
+                    resultadosBusquedas.setSize(1024,768);
+                    resultadosBusquedas.setResizable(false);
+                    resultadosBusquedas.setLocationRelativeTo(null);
+                    dispose();
+                    correct = true;
+                }
+                if (!correct){
+                    JOptionPane.showMessageDialog(rootPane, mensaje);
+                }
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Por favor ingresar una función F(x) válida para ejecutar el método");
+            }
         }
     }//GEN-LAST:event_botonCalcularBusquedasActionPerformed
 
