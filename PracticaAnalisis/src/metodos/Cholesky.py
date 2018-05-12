@@ -43,16 +43,31 @@ def readMatrix(file, size):
 
 def cholesky(L, U, A, n):
     for k in range(n):
-        print("+ ETAPA: %d \n") % k
-        print("Matriz L")
-        print(np.array(L))
-        print("Matrix U")
-        print(np.array(U))
         suma1 = 0
         for m in range(k):
             suma1 += L[k][m] * U[m][k]
         L[k][k] = sqrt(A[k][k] - suma1)
         U[k][k] = L[k][k]
+
+        print("+ ETAPA: %d \n") % k
+        print("Matriz L")
+        print(np.array(L))
+        print("Matrix U")
+        print(np.array(U))
+
+
+        if float(U[k][k]) == 0.0 or float(L[k][k]) == 0.0:
+            print("##################################")
+            print("El sistema no tiene solucion unica")
+            print("##################################")
+            return L, U, False
+        if (A[k][k] - suma1) < 0:
+            print("##################################")
+            print("El sistema no tiene solucion en los reales")
+            print("##################################")
+            return L, U, False
+
+
 
         for i in range(k, n):
             suma2 = 0
