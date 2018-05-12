@@ -77,6 +77,7 @@ public class ResultadosReglaFalsa extends javax.swing.JFrame {
         getContentPane().add(iteracionesResultdosReglaFalsa);
         iteracionesResultdosReglaFalsa.setBounds(690, 100, 240, 50);
 
+        toleranciaResultadosReglaFalsa.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         toleranciaResultadosReglaFalsa.setSize(new java.awt.Dimension(240, 50));
         getContentPane().add(toleranciaResultadosReglaFalsa);
         toleranciaResultadosReglaFalsa.setBounds(690, 160, 240, 50);

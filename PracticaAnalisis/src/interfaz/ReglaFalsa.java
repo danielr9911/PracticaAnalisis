@@ -8,6 +8,7 @@ package interfaz;
 import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
+import practicaanalisis.Funcion;
 import static practicaanalisis.Funcion.callFunction;
 import practicaanalisis.Metodos;
 
@@ -162,46 +163,82 @@ public class ReglaFalsa extends javax.swing.JFrame {
 
     private void botonCalcularReglaFalsaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularReglaFalsaActionPerformed
         // TODO add your handling code here:
+        double xi = 0;
+        double xs = 0;
+        double tol = 0;
+        int iter = 0;
+        boolean camposCorrectos = true;
         
-        double xi = Double.parseDouble(xInferiorReglaFalsa.getText());
-        double xs = Double.parseDouble(xSuperiorReglaFalsa.getText());
-        double tol = Double.parseDouble(toleranciaReglaFalsa.getText());
-        int iter = Integer.parseInt(iteracionesReglaFalsa.getText());
+        try{
+            xi = Double.parseDouble(xInferiorReglaFalsa.getText());
+            xs = Double.parseDouble(xSuperiorReglaFalsa.getText());
+            tol = Double.parseDouble(toleranciaReglaFalsa.getText());
+            iter = Integer.parseInt(iteracionesReglaFalsa.getText());
+        }catch(Exception e){
+            camposCorrectos = false;
+        }
+        
+        if(iter <= 0 && tol <= 0){
+            JOptionPane.showMessageDialog(rootPane, "Por favor ingrese información correcta a los campos, como un número mayor que cero para iteraciones y número mayor de cero para la tolerancia");
+            camposCorrectos = false;
+        }else if(iter <= 0){    
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número mayor que cero para iteraciones");
+            camposCorrectos = false;
+        } else if(tol <= 0){
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número mayor de cero para la tolerancia");
+            camposCorrectos = false;
+        } else{
+            camposCorrectos = true;
+        }
+        
+        
+        
         errorABSReglaFalsa.setActionCommand("0");
         errorRelReglaFalsa.setActionCommand("1");
-        int err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        int err = 0;
+        try{
+            err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccionar el tipo de error para trabajar");
+        }   
         
-        String mensaje = "";
-        boolean correct = false;
-        Double[][] data = null;
-        double fxi = callFunction("f", xi);
-        double fxs = callFunction("f", xs);
-        if(fxi == 0){
-            mensaje = xi + "es una raíz";
-        }else if (fxs == 0){
-            mensaje = xs + " es una raiz";
-        }else if(fxi * fxs > 0){
-            mensaje = "El intervalo ingresado no es valido";
-        }else if (iter <= 0){
-            mensaje = "El numero de iteraciones debe de ser mayor a cero";
-        }else if(tol <= 0){
-            mensaje = "La tolerancia debe de ser mayor a cero";
-        }else {
-            Metodos.reglaFalsa(xi, xs, iter, tol, err);
-            data = Metodos.data;
-            Object[][] newData = formatearData(data);
-            mensaje = Metodos.mens;
-            ResultadosReglaFalsa resultadosReglaFalsa = new ResultadosReglaFalsa(xi, xs, tol, iter, newData, mensaje);
-            resultadosReglaFalsa.setVisible(true);
-            resultadosReglaFalsa.setSize(1024,768);
-            resultadosReglaFalsa.setResizable(false);
-            resultadosReglaFalsa.setLocationRelativeTo(null);
-            dispose();
-            correct = true;
+        if (camposCorrectos){
+            if(Funcion.f != ""){
+                String mensaje = "";
+                boolean correct = false;
+                Double[][] data = null;
+                double fxi = callFunction("f", xi);
+                double fxs = callFunction("f", xs);
+                if(fxi == 0){
+                    mensaje = xi + "es una raíz";
+                }else if (fxs == 0){
+                    mensaje = xs + " es una raiz";
+                }else if(fxi * fxs > 0){
+                    mensaje = "El intervalo ingresado no es valido";
+                }else if (iter <= 0){
+                    mensaje = "El numero de iteraciones debe de ser mayor a cero";
+                }else if(tol <= 0){
+                    mensaje = "La tolerancia debe de ser mayor a cero";
+                }else {
+                    Metodos.reglaFalsa(xi, xs, iter, tol, err);
+                    data = Metodos.data;
+                    Object[][] newData = formatearData(data);
+                    mensaje = Metodos.mens;
+                    ResultadosReglaFalsa resultadosReglaFalsa = new ResultadosReglaFalsa(xi, xs, tol, iter, newData, mensaje);
+                    resultadosReglaFalsa.setVisible(true);
+                    resultadosReglaFalsa.setSize(1024,768);
+                    resultadosReglaFalsa.setResizable(false);
+                    resultadosReglaFalsa.setLocationRelativeTo(null);
+                    dispose();
+                    correct = true;
+                }
+                if(!correct){
+                    JOptionPane.showMessageDialog(rootPane, mensaje);
+                }
+            }else{
+            JOptionPane.showMessageDialog(rootPane, "Por favor ingresar una función F(x) válida para ejecutar el método");
         }
-        if(!correct){
-            JOptionPane.showMessageDialog(rootPane, mensaje);
-        }
+      }
     }//GEN-LAST:event_botonCalcularReglaFalsaActionPerformed
 
     private void funcionesReglaFalsaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcionesReglaFalsaActionPerformed
