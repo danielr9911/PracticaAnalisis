@@ -8,6 +8,7 @@ package interfaz;
 import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
+import practicaanalisis.Funcion;
 import static practicaanalisis.Funcion.callFunction;
 import practicaanalisis.Metodos;
 
@@ -155,43 +156,78 @@ public class Newton extends javax.swing.JFrame {
 
     private void calcularNewtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularNewtonActionPerformed
         // TODO add your handling code here:
-        double xi = Double.parseDouble(xInicialNewton.getText());
-        double tol = Double.parseDouble(toleranciaNewton.getText());
-        int iter = Integer.parseInt(iteracionesNewton.getText());
+        double xi = 0;
+        double tol = 0;
+        int iter = 0;
+        boolean camposCorrectos = true;
+        
+        try{
+            xi = Double.parseDouble(xInicialNewton.getText());
+            tol = Double.parseDouble(toleranciaNewton.getText());
+            iter = Integer.parseInt(iteracionesNewton.getText());
+        }catch(Exception e){
+            camposCorrectos = false;
+        }
+        
+        if(iter <= 0 && tol <= 0){
+            JOptionPane.showMessageDialog(rootPane, "Por favor ingrese información correcta a los campos, como un número mayor que cero para iteraciones y número mayor de cero para la tolerancia");
+            camposCorrectos = false;
+        }else if(iter <= 0){    
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número mayor que cero para iteraciones");
+            camposCorrectos = false;
+        } else if(tol <= 0){
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número mayor de cero para la tolerancia");
+            camposCorrectos = false;
+        } else{
+            camposCorrectos = true;
+        }
+        
         errorABSNewton.setActionCommand("0");
         errorRelNewton.setActionCommand("1");
-        int err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
-        
-        String mensaje = "";
-        boolean correct = false;
-        Double[][] data = null;
-        double fxi = callFunction("f", xi);
-        double dfxi = callFunction("df", xi);
-        if (fxi == 0){
-            mensaje = xi + " es una raiz";
-        }else if (dfxi == 0){
-            mensaje = xi + " es una posible raiz múltiple";
-        }else if (iter <= 0){
-            mensaje = "El numero de iteraciones debe de ser mayor a cero";
-        }else if(tol <= 0){
-            mensaje = "La tolerancia debe de ser mayor a cero";
-        }else {
-            Metodos.newton(xi,iter, tol, err);
-            //Resultados
-            data = Metodos.data;
-            Object[][] newData = formatearData(data);
-            mensaje = Metodos.mens;
-            
-            ResultadosNewton Rnewton = new ResultadosNewton(xi,iter,tol,newData,mensaje);
-            Rnewton.setVisible(true);
-            Rnewton.setSize(1024,768);
-            Rnewton.setResizable(false);
-            Rnewton.setLocationRelativeTo(null);
-            dispose();
+        int err = 0;
+        try{
+            err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccionar el tipo de error para trabajar");
+            camposCorrectos = false;
         }
-        if (!correct){
-            JOptionPane.showMessageDialog(rootPane, mensaje);
-        } 
+        
+        if (camposCorrectos){
+            if(!"".equals(Funcion.f) && !"".equals(Funcion.df)){
+                String mensaje = "";
+                boolean correct = false;
+                Double[][] data = null;
+                double fxi = callFunction("f", xi);
+                double dfxi = callFunction("df", xi);
+                if (fxi == 0){
+                    mensaje = xi + " es una raiz";
+                }else if (dfxi == 0){
+                    mensaje = xi + " es una posible raiz múltiple";
+                }else if (iter <= 0){
+                    mensaje = "El numero de iteraciones debe de ser mayor a cero";
+                }else if(tol <= 0){
+                    mensaje = "La tolerancia debe de ser mayor a cero";
+                }else {
+                    Metodos.newton(xi,iter, tol, err);
+                    //Resultados
+                    data = Metodos.data;
+                    Object[][] newData = formatearData(data);
+                    mensaje = Metodos.mens;
+
+                    ResultadosNewton Rnewton = new ResultadosNewton(xi,iter,tol,newData,mensaje);
+                    Rnewton.setVisible(true);
+                    Rnewton.setSize(1024,768);
+                    Rnewton.setResizable(false);
+                    Rnewton.setLocationRelativeTo(null);
+                    dispose();
+                }
+                if (!correct){
+                    JOptionPane.showMessageDialog(rootPane, mensaje);
+                }
+            }else{
+            JOptionPane.showMessageDialog(rootPane, "Por favor ingresar una función F(x) y F'(x) válida para ejecutar el método");
+            }
+        }
     }//GEN-LAST:event_calcularNewtonActionPerformed
 
     private void xInicialNewtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xInicialNewtonActionPerformed
