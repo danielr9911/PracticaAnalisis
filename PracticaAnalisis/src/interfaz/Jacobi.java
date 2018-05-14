@@ -5,7 +5,13 @@
  */
 package interfaz;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import practicaanalisis.Funcion;
+import practicaanalisis.Metodos;
+import practicaanalisis.Metodos2;
 
 /**
  *
@@ -176,37 +182,30 @@ public class Jacobi extends javax.swing.JFrame {
         }
         
         if (camposCorrectos){
-            if(!"".equals(Funcion.f) && !"".equals(Funcion.df)){
-                String mensaje = "";
-                boolean correct = false;
-                Double[][] data = null;
-                double fxi = callFunction("f", xi);
-                double dfxi = callFunction("df", xi);
-                if (fxi == 0){
-                    mensaje = xi + " es una raiz";
-                }else if (dfxi == 0){
-                    mensaje = xi + " es una posible raiz múltiple";
-                }else if (iter <= 0){
-                    mensaje = "El numero de iteraciones debe de ser mayor a cero";
-                }else if(tol <= 0){
-                    mensaje = "La tolerancia debe de ser mayor a cero";
-                }else {
-                    Metodos.newton(xi,iter, tol, err);
-                    //Resultados
-                    data = Metodos.data;
-                    Object[][] newData = formatearData(data);
-                    mensaje = Metodos.mens;
-
-                    ResultadosNewton Rnewton = new ResultadosNewton(xi,iter,tol,newData,mensaje);
-                    Rnewton.setVisible(true);
-                    Rnewton.setSize(1024,768);
-                    Rnewton.setResizable(false);
-                    Rnewton.setLocationRelativeTo(null);
-                    dispose();
+            if(Metodos2.tam != 0){
+                Metodos2.jacobiRelajado(Metodos2.a, Metodos2.b, Metodos2.tam, tol, iter, lambda, Metodos2.x);
+                try {
+                    String s = null;
+                    
+                    boolean error=false;
+                    while ((s = Metodos2.stdError.readLine()) != null) {
+                        JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                        error=true;
+                    } 
+                    if(!error){
+                        String output = "";
+                        while ((s = Metodos2.stdOutput.readLine()) != null) {
+                            System.out.println(s);
+                            output = output + (s + "\n");
+                        }
+                        //INTERPRETAR S
+                        
+                        
+                    }
+                }catch (IOException ex) {
+                    Logger.getLogger(Jacobi.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                if (!correct){
-                    JOptionPane.showMessageDialog(rootPane, mensaje);
-                }
+                
             }else{
             JOptionPane.showMessageDialog(rootPane, "Por favor ingresar una función F(x) y F'(x) válida para ejecutar el método");
             }

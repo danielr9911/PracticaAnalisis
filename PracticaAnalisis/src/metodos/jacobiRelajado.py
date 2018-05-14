@@ -48,17 +48,20 @@ def newJacobi(xValues,xNewValues,A,size,r):
 def jacobi(xValues,xNewValues,A,size,tol,niter,r):
     disp = tol+1
     cont = 0
+    print(cont)
+    print(xValues)
+    print(0)
+    print("!")
     while (disp > tol and cont < niter):
         for i in range (size):
             xValues[i] = xNewValues[i]
         disp,xNewValues = newJacobi(xValues,xNewValues,A,size,r)
-        print("+ ETAPA %d \n") % cont
-        cont+=1
 
-        print("Vector x :",np.array(xNewValues))
-        print ("\n")
-        print("Error: ",disp)
-        print ("\n")
+        cont+=1
+        print(cont)
+        print(xNewValues)
+        print(disp)
+        print("!")
 
     if (disp <= tol):
         bandera= True
@@ -77,18 +80,13 @@ def main():
 
     xNewValues = np.zeros(tam)
     matrizB, matrizA = interpretarMatriz(tam, b, a)
-
-    success,xValues,xNewValues,A,tol,niter,error = jacobi(xValues,xNewValues,matrizA,tam, tolerance, maxIterations,relajacion)
+    Ab = matrixAum(matrizA, matrizB, tam)
+    success,xValues,xNewValues,A,tol,niter,error = jacobi(xValues,xNewValues,Ab,tam, tolerance, maxIterations,relajacion)
     #print success,xValues,xNewValues,A,tol,niter
     if (success):
-        print ("Matrix A")
-        print (np.array(A))
-        print ("\n")
-        print(np.array(xValues))
-        print ("\n")
-        print("Error: ",error)
-        print ("\n")
-
+        for i, x in enumerate(xValues):
+            print("x{0} = {1}  ".format(i + 1, x))
+        
     else:
         print("could not reach the solutions in ", maxIterations , " iterations")
 
