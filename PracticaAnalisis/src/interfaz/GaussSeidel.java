@@ -120,7 +120,7 @@ public class GaussSeidel extends javax.swing.JFrame {
 
     private void ayudaLambdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaLambdaActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, null, "AYUDA - Jacobi", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaLambda.png")));
+        JOptionPane.showMessageDialog(null, null, "AYUDA - λ", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaLambda.png")));
     }//GEN-LAST:event_ayudaLambdaActionPerformed
 
     private void botonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularActionPerformed
