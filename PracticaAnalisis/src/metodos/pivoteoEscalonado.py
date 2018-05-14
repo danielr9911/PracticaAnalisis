@@ -102,7 +102,6 @@ def main():
     #ab = np.zeros((4,4))
     #ab = np.array([[2,-3,4,1,10],[-4,2,1,-2,-10],[1,3,-5,3,32],[-3,-1,1,1,-21]], dtype='f')
     tam = int(sys.argv[1])
-
     b = sys.argv[2]
     a = sys.argv[3]
     matrizB, matrizA = interpretarMatriz(tam, b, a)

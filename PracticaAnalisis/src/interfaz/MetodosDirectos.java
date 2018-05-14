@@ -99,28 +99,28 @@ public class MetodosDirectos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(simple);
-        simple.setBounds(280, 285, 30, 23);
+        simple.setBounds(280, 285, 30, 21);
 
         buttonGroup1.add(pivoteoParcial);
         getContentPane().add(pivoteoParcial);
-        pivoteoParcial.setBounds(620, 285, 28, 23);
+        pivoteoParcial.setBounds(620, 285, 21, 21);
 
         buttonGroup1.add(pivoteoTotal);
         getContentPane().add(pivoteoTotal);
-        pivoteoTotal.setBounds(910, 285, 28, 23);
+        pivoteoTotal.setBounds(910, 285, 21, 21);
 
         buttonGroup1.add(crout);
         getContentPane().add(crout);
-        crout.setBounds(270, 525, 28, 23);
+        crout.setBounds(270, 525, 21, 21);
 
         buttonGroup1.add(doolittle);
         getContentPane().add(doolittle);
-        doolittle.setBounds(560, 525, 28, 23);
+        doolittle.setBounds(560, 525, 21, 21);
 
         buttonGroup1.add(cholesky);
         cholesky.setToolTipText("");
         getContentPane().add(cholesky);
-        cholesky.setBounds(860, 525, 28, 23);
+        cholesky.setBounds(860, 525, 21, 21);
 
         ayudaSimple.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
         ayudaSimple.addActionListener(new java.awt.event.ActionListener() {
@@ -178,13 +178,18 @@ public class MetodosDirectos extends javax.swing.JFrame {
 
         buttonGroup1.add(pivoteoEscalonado);
         getContentPane().add(pivoteoEscalonado);
-        pivoteoEscalonado.setBounds(480, 375, 30, 23);
+        pivoteoEscalonado.setBounds(480, 375, 30, 21);
 
         buttonGroup1.add(matrizInversa);
         getContentPane().add(matrizInversa);
-        matrizInversa.setBounds(750, 370, 28, 23);
+        matrizInversa.setBounds(750, 370, 21, 21);
 
         ayudaPivoteoEscalonado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaPivoteoEscalonado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaPivoteoEscalonadoActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaPivoteoEscalonado);
         ayudaPivoteoEscalonado.setBounds(190, 360, 50, 50);
 
@@ -218,13 +223,15 @@ public class MetodosDirectos extends javax.swing.JFrame {
         crout.setActionCommand("3");
         doolittle.setActionCommand("4");
         cholesky.setActionCommand("5");
+        pivoteoEscalonado.setActionCommand("6");
+        matrizInversa.setActionCommand("7");
         // Caso 6 - No han seleccionado ningún método
         int metodo;
         
         try{
             metodo = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
         }catch(Exception e){
-            metodo = 6;
+            metodo = -1;
         }
         
         if(Metodos2.tam > 0){
@@ -465,9 +472,47 @@ public class MetodosDirectos extends javax.swing.JFrame {
                 }
                 break;
             case 6:
-                JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un método");
+                //Escalonado
+                tipoMetodo = "directo";
+                Metodos2.pivoteoEscalonado(Metodos2.a, Metodos2.b, Metodos2.tam);
+                try {
+                    String s = null;
+                    boolean error=false;
+                    while ((s = Metodos2.stdError.readLine()) != null) {
+                        JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                        error=true;
+                    } 
+                    if(!error){
+                        //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                        String output = "";
+                        while ((s = Metodos2.stdOutput.readLine()) != null) {
+                            System.out.println(s);
+                            output = output + (s + "\n");
+                        }
+
+                        String[] arrOutput = output.split("!");
+                        etapas = arrOutput[0];
+                        matrizFinal = arrOutput[1];
+                        resultado = arrOutput[2];
+                        //System.out.println("SALIDA JAVA");
+                        //System.out.println(etapas);
+                        //System.out.println("--");
+                        //System.out.println(matrizFinal);
+                        //System.out.println("---");
+                        //System.out.println(resultado);
+                        //System.out.println("FIN SALIDA JAVA");
+
+
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                break;
+            case 7:
+                //Matriz inversa
                 break;
             default:                
+                JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un método");
                 break;
                 
                 
@@ -538,6 +583,10 @@ public class MetodosDirectos extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, null, "AYUDA - Cholesky", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaCholesky.png")));
     }//GEN-LAST:event_ayudaCholeskyActionPerformed
+
+    private void ayudaPivoteoEscalonadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaPivoteoEscalonadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ayudaPivoteoEscalonadoActionPerformed
 
     
 
