@@ -5,6 +5,9 @@
  */
 package interfaz;
 
+import javax.swing.JOptionPane;
+import practicaanalisis.Metodos2;
+
 /**
  *
  * @author carlosruiz
@@ -16,6 +19,37 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
      */
     public MiMatrizIterativa() {
         initComponents();
+        jTextField1.setText(String.valueOf(Metodos2.tam));
+        if(Metodos2.tam != 0){
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                Metodos2.a,
+                new String [Metodos2.tam]
+            ));
+            Double[][] matrizB = new Double[Metodos2.tam][1];
+            for(int i=0; i<matrizB.length; i++){
+                matrizB[i][0] = Metodos2.b[i];
+            }
+            jTable2.setModel(new javax.swing.table.DefaultTableModel(
+                matrizB,
+                new String [1]
+            ));
+            
+            Double[][] matrizX = new Double[1][Metodos2.tam];
+            String[] titulos = new String[Metodos2.tam];
+            for(int i=0; i<Metodos2.tam; i++){
+                titulos[i] = "X"+(i+1);
+                matrizX[0][i] = Metodos2.x[i];
+            }
+            jTable3.setModel(new javax.swing.table.DefaultTableModel(
+                matrizX,
+                titulos
+            ));
+            
+        }else{
+            jTable1.setVisible(false);
+            jTable2.setVisible(false);
+            jTable3.setVisible(false);  
+        }
     }
 
     /**
@@ -57,6 +91,7 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setTableHeader(null);
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
@@ -73,6 +108,7 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.setTableHeader(null);
         jScrollPane2.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane2);
@@ -95,6 +131,11 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         jScrollPane3.setBounds(20, 540, 960, 90);
 
         actualizarN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonActualizarN.png"))); // NOI18N
+        actualizarN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actualizarNActionPerformed(evt);
+            }
+        });
         getContentPane().add(actualizarN);
         actualizarN.setBounds(690, 140, 150, 40);
 
@@ -109,6 +150,11 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         regresarMiMatriz.setBounds(80, 30, 80, 80);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/GuardarBoton.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(610, 650, 370, 100);
 
@@ -129,41 +175,75 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_regresarMiMatrizActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+    private void actualizarNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarNActionPerformed
+        // TODO add your handling code here:
+        int n = Integer.parseInt(jTextField1.getText());
+        //Metodos2.tam = n;
+        if(n > 0){
+        
+        jTable1.setVisible(true);
+        jTable2.setVisible(true);
+        jTable3.setVisible(true);
+        Double[][] matrizA = new Double[n][n];
+        for(int i=0; i<matrizA.length; i++){
+            for(int j=0; j<matrizA[i].length; j++){
+                matrizA[i][j] = 0.0;
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MiMatrizIterativa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MiMatrizIterativa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MiMatrizIterativa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MiMatrizIterativa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
+        
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            matrizA,
+            new String [n]
+        ));
+        
+        Double[][] matrizB = new Double[n][1];
+        for(int i=0; i<matrizB.length; i++){
+            matrizB[i][0] = 0.0;
+        }
+        //System.out.println(Arrays.toString(matrizB));
+        //System.out.println(Arrays.toString(matrizB[0]));
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            matrizB,
+            new String [1]
+        ));
+        Double[][] matrizX = new Double[1][n];
+        String[] titulos = new String[n];
+        for(int i=0; i<n; i++){
+            matrizX[0][i] = 0.0;
+            titulos[i] = "X"+(i+1);
+        }
+        //System.out.println(Arrays.toString(matrizB));
+        //System.out.println(Arrays.toString(matrizB[0]));
+        
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            matrizX,
+            titulos
+        ));
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Recuerde que el valor de N debe ser mayor a cero");
+        }
+    }//GEN-LAST:event_actualizarNActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MiMatrizIterativa().setVisible(true);
-            }
-        });
-    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Metodos2.tam = 4;
+        //Metodos2.a = {};
+        Metodos2.b = new Double[4];
+        Double[] tb = {-25.0,82.0,75.0,-43.0};
+        Metodos2.b = tb;
+        //Double[][] ta = {{7.0,2.0,-3.0,4.0},{5.0,-1.0,14.0,-1.0},{1.0,9.0,-7.0,13.0},{-12.0,13.0,-8.0,-4.0}};
+        //Double[][] ta = {{-7.0,0.0,-3.0,4.0},{5.0,0.0,14.0,-1.0},{1.0,0.0,-7.0,13.0},{-12.0,0.0,-8.0,-4.0}};
+        Double[][] ta = {{45.0,13.0,-4.0, 8.0},{-5.0,-28.0,4.0,-14.0},{9.0,15.0,63.0,-7.0},{2.0,3.0,-8.0,-42.0}};
+        Metodos2.a = ta;
+        
+        Metodos2.x = new Double[4];
+        Double[] tx = {2.0,2.0,2.0,2.0};
+        Metodos2.x = tx;
+        
+        JOptionPane.showMessageDialog(rootPane, "Matriz guardada exitosamente");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actualizarN;
     private javax.swing.JButton jButton1;

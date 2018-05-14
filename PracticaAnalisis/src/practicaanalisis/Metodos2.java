@@ -25,6 +25,7 @@ public class Metodos2 {
     public static PyInstance me;
     public static Double[][] a = null;
     public static Double[] b = null;
+    public static Double[] x = null;
     public static int tam = 0;
     public static Double[][] matizFinal = null;
     public static String resX= "";
