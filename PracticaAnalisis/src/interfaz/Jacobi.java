@@ -22,6 +22,7 @@ import practicaanalisis.Metodos2;
  */
 public class Jacobi extends javax.swing.JFrame {
 
+    private static java.text.DecimalFormat sf = new java.text.DecimalFormat("0.#E0"); 
     /**
      * Creates new form Jacobi
      */
@@ -209,12 +210,39 @@ public class Jacobi extends javax.swing.JFrame {
                         Double[][] tabla = new Double[arrOutput.length][Metodos2.tam+2];
                         for (int i = 0; i < arrOutput.length-1; i++) {
                             String temp = arrOutput[i];
-                            temp = temp.replaceAll("\n", " ");
-                            temp = temp.replace("[", "");
-                            temp = temp.replace("]", "");
-                            temp = temp.replaceAll("\\s+"," ");
-                            temp = temp.replace(" ", "!");
                             System.out.println(temp);
+                            temp = temp.replaceAll("\n", " ");
+                            System.out.println(temp);
+                            temp = temp.replace("[", "");
+                            System.out.println(temp);
+                            temp = temp.replace("]", "");
+                            System.out.println(temp);
+                            temp = temp.replace(",", "");
+                            System.out.println(temp);
+                            temp = temp.replaceAll("\\s+"," ");
+                            System.out.println(temp);
+                            
+                            temp = temp.replace(" ", "!");
+                            if(temp.charAt(0) == '!'){
+                                temp = temp.substring(1,temp.length());
+                            }
+                            if(temp.charAt(temp.length()-1) == '!'){
+                                temp = temp.substring(0,temp.length()-1);
+                            }
+                            //temp = temp.substring(1,temp.length()-1);
+                            System.out.println(temp);
+                            String[] arrTemp = temp.split("!");
+                            
+                            System.out.println(Arrays.toString(arrTemp));
+                            
+                            for (int j = 0; j < arrTemp.length; j++) {
+                                
+                                tabla[i][j] = Double.parseDouble(arrTemp[j]);
+                            }
+                            
+                            
+                            
+                            
                             //String[] sFila = arrOutput[i].split("\n");
                             //Double[] fila = new Double[Metodos2.tam+2];
                             
