@@ -29,7 +29,7 @@ public class SistemasEcuaciones extends javax.swing.JFrame {
 
         regresarSistemasEcuaciones = new javax.swing.JButton();
         MetodosDirectos = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        MetodosIterativos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,9 +53,14 @@ public class SistemasEcuaciones extends javax.swing.JFrame {
         getContentPane().add(MetodosDirectos);
         MetodosDirectos.setBounds(300, 350, 430, 120);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMetodosIterativos.png"))); // NOI18N
-        getContentPane().add(jButton2);
-        jButton2.setBounds(300, 530, 430, 120);
+        MetodosIterativos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMetodosIterativos.png"))); // NOI18N
+        MetodosIterativos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MetodosIterativosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(MetodosIterativos);
+        MetodosIterativos.setBounds(300, 530, 430, 120);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/SistemasEcuaciones.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -84,11 +89,21 @@ public class SistemasEcuaciones extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_MetodosDirectosActionPerformed
 
+    private void MetodosIterativosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MetodosIterativosActionPerformed
+        // TODO add your handling code here:
+        MetodosIterativos metodosIterativos = new MetodosIterativos();
+        metodosIterativos.setVisible(true);
+        metodosIterativos.setSize(1024,768);
+        metodosIterativos.setResizable(false);
+        metodosIterativos.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_MetodosIterativosActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton MetodosDirectos;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton MetodosIterativos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton regresarSistemasEcuaciones;
     // End of variables declaration//GEN-END:variables
