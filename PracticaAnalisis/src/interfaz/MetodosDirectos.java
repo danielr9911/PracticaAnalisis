@@ -56,6 +56,10 @@ public class MetodosDirectos extends javax.swing.JFrame {
         ayudaCrout = new javax.swing.JButton();
         ayudaDoolittle = new javax.swing.JButton();
         ayudaCholesky = new javax.swing.JButton();
+        pivoteoEscalonado = new javax.swing.JRadioButton();
+        matrizInversa = new javax.swing.JRadioButton();
+        ayudaPivoteoEscalonado = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -171,6 +175,22 @@ public class MetodosDirectos extends javax.swing.JFrame {
         });
         getContentPane().add(ayudaCholesky);
         ayudaCholesky.setBounds(690, 505, 50, 50);
+
+        buttonGroup1.add(pivoteoEscalonado);
+        getContentPane().add(pivoteoEscalonado);
+        pivoteoEscalonado.setBounds(480, 375, 30, 23);
+
+        buttonGroup1.add(matrizInversa);
+        getContentPane().add(matrizInversa);
+        matrizInversa.setBounds(750, 370, 28, 23);
+
+        ayudaPivoteoEscalonado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        getContentPane().add(ayudaPivoteoEscalonado);
+        ayudaPivoteoEscalonado.setBounds(190, 360, 50, 50);
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        getContentPane().add(jButton2);
+        jButton2.setBounds(520, 360, 50, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/MetodosDirectos.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -525,6 +545,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
     private javax.swing.JButton ayudaCholesky;
     private javax.swing.JButton ayudaCrout;
     private javax.swing.JButton ayudaDoolittle;
+    private javax.swing.JButton ayudaPivoteoEscalonado;
     private javax.swing.JButton ayudaPivoteoParcial;
     private javax.swing.JButton ayudaPivoteoTotal;
     private javax.swing.JButton ayudaSimple;
@@ -533,8 +554,11 @@ public class MetodosDirectos extends javax.swing.JFrame {
     private javax.swing.JRadioButton cholesky;
     private javax.swing.JRadioButton crout;
     private javax.swing.JRadioButton doolittle;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JRadioButton matrizInversa;
     private javax.swing.JButton miMatriz;
+    private javax.swing.JRadioButton pivoteoEscalonado;
     private javax.swing.JRadioButton pivoteoParcial;
     private javax.swing.JRadioButton pivoteoTotal;
     private javax.swing.JButton regresarMetodosDirectos;
