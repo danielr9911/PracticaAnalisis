@@ -175,7 +175,7 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_regresarMiMatrizActionPerformed
 
-    private void actualizarNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarNActionPerformed
+    private void actualizarNActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
         int n = Integer.parseInt(jTextField1.getText());
         //Metodos2.tam = n;
@@ -225,18 +225,21 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Metodos2.tam = 4;
+        Metodos2.tam = 3;
         //Metodos2.a = {};
-        Metodos2.b = new Double[4];
-        Double[] tb = {-25.0,82.0,75.0,-43.0};
+        Metodos2.b = new Double[3];
+        //Double[] tb = {-25.0,82.0,75.0,-43.0};
+        Double[] tb = {-23.0,5.0,34.0};
         Metodos2.b = tb;
         //Double[][] ta = {{7.0,2.0,-3.0,4.0},{5.0,-1.0,14.0,-1.0},{1.0,9.0,-7.0,13.0},{-12.0,13.0,-8.0,-4.0}};
         //Double[][] ta = {{-7.0,0.0,-3.0,4.0},{5.0,0.0,14.0,-1.0},{1.0,0.0,-7.0,13.0},{-12.0,0.0,-8.0,-4.0}};
-        Double[][] ta = {{45.0,13.0,-4.0, 8.0},{-5.0,-28.0,4.0,-14.0},{9.0,15.0,63.0,-7.0},{2.0,3.0,-8.0,-42.0}};
+        //Double[][] ta = {{45.0,13.0,-4.0, 8.0},{-5.0,-28.0,4.0,-14.0},{9.0,15.0,63.0,-7.0},{2.0,3.0,-8.0,-42.0}};
+        Double[][] ta = {{13.0,-4.0,-9.0},{3.0,-7.0,4.0},{-4.0,15.0,-16.0}};
         Metodos2.a = ta;
         
-        Metodos2.x = new Double[4];
-        Double[] tx = {2.0,2.0,2.0,2.0};
+        Metodos2.x = new Double[3];
+        //Double[] tx = {2.0,2.0,2.0,2.0};
+        Double[] tx = {1.0,1.0,1.0};
         Metodos2.x = tx;
         
         JOptionPane.showMessageDialog(rootPane, "Matriz guardada exitosamente");

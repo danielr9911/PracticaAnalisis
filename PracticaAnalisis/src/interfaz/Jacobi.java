@@ -270,7 +270,7 @@ public class Jacobi extends javax.swing.JFrame {
                 }
                 
             }else{
-            JOptionPane.showMessageDialog(rootPane, "Por favor ingresar una función F(x) y F'(x) válida para ejecutar el método");
+            JOptionPane.showMessageDialog(rootPane, "Por favor asigne valores a su matriz");
             }
         }
     }//GEN-LAST:event_botonCalcularActionPerformed
