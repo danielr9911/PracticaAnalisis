@@ -205,7 +205,23 @@ public class Jacobi extends javax.swing.JFrame {
                         String[] arrOutput = output.split("!");
                         
                         System.out.println(Arrays.toString(arrOutput));
-                        
+                        String resultadoX = arrOutput[arrOutput.length-1];
+                        Double[][] tabla = new Double[arrOutput.length][Metodos2.tam+2];
+                        for (int i = 0; i < arrOutput.length-1; i++) {
+                            String temp = arrOutput[i];
+                            temp = temp.replaceAll("\n", " ");
+                            temp = temp.replace("[", "");
+                            temp = temp.replace("]", "");
+                            temp = temp.replaceAll("\\s+"," ");
+                            temp = temp.replace(" ", "!");
+                            System.out.println(temp);
+                            //String[] sFila = arrOutput[i].split("\n");
+                            //Double[] fila = new Double[Metodos2.tam+2];
+                            
+                            //System.out.println(Arrays.toString(sFila));
+                            
+                        }
+                    
                     }
                 }catch (IOException ex) {
                     Logger.getLogger(Jacobi.class.getName()).log(Level.SEVERE, null, ex);
