@@ -6,6 +6,9 @@
 package interfaz;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -199,7 +202,9 @@ public class Jacobi extends javax.swing.JFrame {
                             output = output + (s + "\n");
                         }
                         //INTERPRETAR S
+                        String[] arrOutput = output.split("!");
                         
+                        System.out.println(Arrays.toString(arrOutput));
                         
                     }
                 }catch (IOException ex) {
