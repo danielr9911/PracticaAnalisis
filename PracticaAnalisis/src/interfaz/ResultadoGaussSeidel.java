@@ -14,8 +14,35 @@ public class ResultadoGaussSeidel extends javax.swing.JFrame {
     /**
      * Creates new form ResultadoGaussSeidel
      */
-    public ResultadoGaussSeidel() {
+    public ResultadoGaussSeidel(int iter, double tol, int norma, double relajacion, Object[][] tabla, String res) {
         initComponents();
+        String[] titulos = new String[tabla[0].length];
+        titulos[0] = "n";
+        for (int i = 0; i < titulos.length-1; i++) {
+            titulos[i+1] = "X"+(i+1);
+        }
+        titulos[titulos.length-1] = "norma";
+        
+        tablaGaussSeidel.setModel(new javax.swing.table.DefaultTableModel(
+            tabla,
+            titulos
+             ));
+        resultado.setText(res);
+        campoIteraciones.setText(String.valueOf(iter));
+        campoTolerancia.setText(String.valueOf(tol));
+        if(norma == 0){
+            campoNorma.setText("Infinita");
+        }else{
+            campoNorma.setText("Euclidiana");
+        }
+        
+        lambdaGaussSeidel.setText(String.valueOf(relajacion));
+        
+        resultado.setEditable(false);
+        campoIteraciones.setEditable(false);
+        campoTolerancia.setEditable(false);
+        campoNorma.setEditable(false);
+        lambdaGaussSeidel.setEditable(false);
     }
 
     /**
@@ -32,9 +59,9 @@ public class ResultadoGaussSeidel extends javax.swing.JFrame {
         resultado = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaGaussSeidel = new javax.swing.JTable();
-        iteracionesGaussSeidel = new javax.swing.JTextField();
-        toleranciaGaussSeidel = new javax.swing.JTextField();
-        normaGaussSeidel = new javax.swing.JTextField();
+        campoIteraciones = new javax.swing.JTextField();
+        campoTolerancia = new javax.swing.JTextField();
+        campoNorma = new javax.swing.JTextField();
         lambdaGaussSeidel = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
@@ -73,19 +100,19 @@ public class ResultadoGaussSeidel extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(60, 270, 910, 290);
 
-        iteracionesGaussSeidel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        iteracionesGaussSeidel.setSize(new java.awt.Dimension(200, 40));
-        getContentPane().add(iteracionesGaussSeidel);
-        iteracionesGaussSeidel.setBounds(325, 110, 200, 40);
+        campoIteraciones.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        campoIteraciones.setSize(new java.awt.Dimension(200, 40));
+        getContentPane().add(campoIteraciones);
+        campoIteraciones.setBounds(325, 110, 200, 40);
 
-        toleranciaGaussSeidel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        toleranciaGaussSeidel.setSize(new java.awt.Dimension(200, 40));
-        getContentPane().add(toleranciaGaussSeidel);
-        toleranciaGaussSeidel.setBounds(325, 160, 200, 40);
+        campoTolerancia.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        campoTolerancia.setSize(new java.awt.Dimension(200, 40));
+        getContentPane().add(campoTolerancia);
+        campoTolerancia.setBounds(325, 160, 200, 40);
 
-        normaGaussSeidel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        getContentPane().add(normaGaussSeidel);
-        normaGaussSeidel.setBounds(660, 110, 200, 40);
+        campoNorma.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        getContentPane().add(campoNorma);
+        campoNorma.setBounds(660, 110, 200, 40);
 
         lambdaGaussSeidel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(lambdaGaussSeidel);
@@ -111,48 +138,17 @@ public class ResultadoGaussSeidel extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResultadoGaussSeidel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResultadoGaussSeidel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResultadoGaussSeidel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResultadoGaussSeidel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ResultadoGaussSeidel().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresar;
-    private javax.swing.JTextField iteracionesGaussSeidel;
+    private javax.swing.JTextField campoIteraciones;
+    private javax.swing.JTextField campoNorma;
+    private javax.swing.JTextField campoTolerancia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField lambdaGaussSeidel;
-    private javax.swing.JTextField normaGaussSeidel;
     private javax.swing.JTextArea resultado;
     private javax.swing.JTable tablaGaussSeidel;
-    private javax.swing.JTextField toleranciaGaussSeidel;
     // End of variables declaration//GEN-END:variables
 }
