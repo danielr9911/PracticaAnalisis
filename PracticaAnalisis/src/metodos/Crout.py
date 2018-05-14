@@ -49,7 +49,7 @@ def crout(L, U, A, n):
         L[k][k] = A[k][k] - suma1
         U[k][k] = 1
 
-        print("+ ETAPA: %d \n") % k
+        print("+ ETAPA: %d \n" % k)
         print("Matriz L")
         print(np.array(L))
         print("Matrix U")

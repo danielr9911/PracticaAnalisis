@@ -41,12 +41,12 @@ def eliminacionGaussiana(tam, ab):
     vectorMayores = busquedaMayorFila(tam, ab)
     #print("Vector ", vectorMayores)
     for k in range(0, tam):
-        print("+ ETAPA %d \n") % k
+        print("+ ETAPA %d \n" % k)
         ab = pivoteoEscalonado(ab, k, tam, vectorMayores)
-        print("Multiplicadores")
+        print("\nMultiplicadores")
         for i in range(k+1,tam):
             multiplicador = ab[i][k] / ab[k][k]
-            print("- Multiplicador %d = %f") % (i, multiplicador)
+            print("- Multiplicador %d = %f" % (i, multiplicador))
             for j in range(k,tam+1):
                 ab[i][j] = ab[i][j] - (multiplicador*ab[k][j])
         print("\nMatriz parcial")
@@ -84,8 +84,8 @@ def pivoteoEscalonado(ab, k, tam, vectorMayores):
             aux2 = vectorMayores[k]
             vectorMayores[k] = vectorMayores[filaMayor]
             vectorMayores[filaMayor] = aux2
-    print("intercambio de filas\n")
-    print(ab)
+    #print("intercambio de filas\n")
+    #print(ab)
     return ab
 
 def sustitucionRegresiva(matrizFinal, tam):
