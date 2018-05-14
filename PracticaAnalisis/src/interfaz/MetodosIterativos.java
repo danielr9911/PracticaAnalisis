@@ -46,6 +46,11 @@ public class MetodosIterativos extends javax.swing.JFrame {
         botonJacobi.setBounds(310, 220, 430, 120);
 
         botonGaussSeidel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonGaussSeidel.png"))); // NOI18N
+        botonGaussSeidel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGaussSeidelActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonGaussSeidel);
         botonGaussSeidel.setBounds(310, 390, 430, 120);
 
@@ -104,6 +109,16 @@ public class MetodosIterativos extends javax.swing.JFrame {
         miMatriz.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_botonMiMatrizIterativaActionPerformed
+
+    private void botonGaussSeidelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGaussSeidelActionPerformed
+        // TODO add your handling code here:
+        GaussSeidel gaussSeidel = new GaussSeidel();
+        gaussSeidel.setVisible(true);
+        gaussSeidel.setSize(1024,768);
+        gaussSeidel.setResizable(false);
+        gaussSeidel.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_botonGaussSeidelActionPerformed
 
     /**
      * @param args the command line arguments
