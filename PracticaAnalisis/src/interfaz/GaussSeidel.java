@@ -7,6 +7,7 @@ package interfaz;
 
 import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.JOptionPane;
+import practicaanalisis.Metodos2;
 
 /**
  *
@@ -119,6 +120,7 @@ public class GaussSeidel extends javax.swing.JFrame {
 
     private void ayudaLambdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaLambdaActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - λ", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaLambda.png")));
     }//GEN-LAST:event_ayudaLambdaActionPerformed
 
     private void botonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularActionPerformed
@@ -160,6 +162,21 @@ public class GaussSeidel extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(rootPane, "Por favor seleccionar el tipo de norma para trabajar");
             camposCorrectos = false;
+        }
+        
+        if (camposCorrectos){
+            if(Metodos2.tam > 0){
+                //Ejecutar Gauss Seidel
+                            
+                ResultadoGaussSeidel resultadoGaussSeidel = new ResultadoGaussSeidel();
+                resultadoGaussSeidel.setVisible(true);
+                resultadoGaussSeidel.setSize(1024,768);
+                resultadoGaussSeidel.setResizable(false);
+                resultadoGaussSeidel.setLocationRelativeTo(null);
+                dispose();
+            }else{
+            JOptionPane.showMessageDialog(rootPane, "Por favor asigne valores a su matriz");
+            }
         }
         
     }//GEN-LAST:event_botonCalcularActionPerformed
