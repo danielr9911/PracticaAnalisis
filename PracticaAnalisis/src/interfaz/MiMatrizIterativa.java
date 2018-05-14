@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author carlosruiz
@@ -109,6 +111,11 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         regresarMiMatriz.setBounds(80, 30, 80, 80);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/GuardarBoton.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(610, 650, 370, 100);
 
@@ -128,6 +135,11 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         metodosIterativos.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_regresarMiMatrizActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane, "Matriz guardada exitosamente");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
