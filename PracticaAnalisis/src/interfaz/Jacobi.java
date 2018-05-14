@@ -187,7 +187,7 @@ public class Jacobi extends javax.swing.JFrame {
         
         if (camposCorrectos){
             if(Metodos2.tam != 0){
-                Metodos2.jacobiRelajado(Metodos2.a, Metodos2.b, Metodos2.tam, tol, iter, lambda, Metodos2.x);
+                Metodos2.jacobiRelajado(Metodos2.a, Metodos2.b, Metodos2.tam, tol, iter, lambda, Metodos2.x, err);
                 try {
                     String s = null;
                     

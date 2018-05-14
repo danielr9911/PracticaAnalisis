@@ -29,8 +29,9 @@ def interpretarMatriz(tam,b,a):
     matrizA = np.array(matrizA)
     return matrizB, matrizA
 
-def sIteration(xValues,A,size,r):
-    disp = 0
+def sIteration(xValues,A,size,r, norma):
+    nInf = 0
+    nEuc = 0
     for i in range (size):
         suma = 0
         for j in range (size):
@@ -44,21 +45,30 @@ def sIteration(xValues,A,size,r):
         xNewValues = (var - suma)/aii
         xNewValues= r*xNewValues+(1-r)*xValues[i]
 
-        disp = max(disp, abs(xNewValues- xValues[i]))
+        nInf = max(nInf, abs(xNewValues- xValues[i]))
+        nEuc = nEuc + (xNewValues[i] - xValues[i]) ** 2
         xValues[i]=xNewValues
+    if norma == 0:
+        disp = nInf
+    else:
+        disp = nEuc
+
     return disp,xValues
 
-def gaussS(xValues,A,size,tol,niter,r):
+def gaussS(xValues,A,size,tol,niter,r, norma):
     disp = tol+1
     cont = 0
+    print(cont)
+    print(xValues)
+    print(0)
+    print("!")
     while (disp > tol and cont < niter):
-        disp,xNewValues = sIteration(xValues,A,size,r)
-        print("+ ETAPA %d \n") % cont
+        disp,xNewValues = sIteration(xValues,A,size,r,norma)
         cont+=1
-        print ("X vector:",np.array(xNewValues))
-        print ("\n")
-        print ("Error: ",disp)
-        print ("\n")
+        print(cont)
+        print(xNewValues)
+        print(disp)
+        print("!")
 
     if (disp <= tol):
         bandera= True
@@ -72,24 +82,20 @@ def main():
     a = sys.argv[3]
     tolerance = float(sys.argv[4])
     maxIterations = float(sys.argv[5])
-    relajacion = float(sys.argv[6])
-    xValues = json.loads(sys.argv[7])
+    norma = sys.argv[6]
+    relajacion = float(sys.argv[7])
+    xValues = json.loads(sys.argv[8])
 
     xNewValues = np.zeros(tam)
     matrizB, matrizA = interpretarMatriz(tam, b, a)
 
-    print("xValues",xValues)
+    Ab = matrixAum(matrizA, matrizB, tam)
 
-    success,xNewValues,A,tol,niter,error = gaussS(xValues,matrizA,tam, tolerance, maxIterations,relajacion)
+    success,xNewValues,A,tol,niter,error = gaussS(xValues,Ab,tam, tolerance, maxIterations,relajacion,norma)
     #print success,xValues,xNewValues,A,tol,niter
     if (success):
-        print ("Matrix A")
-        print (np.array(A))
-        print ("\n")
-        print (np.array(xNewValues))
-        print ("\n")
-        print ("Error: ",error)
-        print ("\n")
+        for i, x in enumerate(xValues):
+            print("x{0} = {1}  ".format(i + 1, x))
 
     else:
         print ("could not reach the solutions in ", maxIterations , " iterations")
