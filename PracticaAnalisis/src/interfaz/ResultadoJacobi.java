@@ -14,8 +14,35 @@ public class ResultadoJacobi extends javax.swing.JFrame {
     /**
      * Creates new form ResultadoJacobi
      */
-    public ResultadoJacobi() {
+    public ResultadoJacobi(int iter, double tol, int norma, double relajacion, Object[][] tabla, String res) {
         initComponents();
+        String[] titulos = new String[tabla[0].length];
+        titulos[0] = "n";
+        for (int i = 0; i < titulos.length-1; i++) {
+            titulos[i+1] = "X"+(i+1);
+        }
+        titulos[titulos.length-1] = "norma";
+        
+        tablaJacobi.setModel(new javax.swing.table.DefaultTableModel(
+            tabla,
+            titulos
+             ));
+        resultado.setText(res);
+        campoIteraciones.setText(String.valueOf(iter));
+        campoTolerancia.setText(String.valueOf(tol));
+        if(norma == 0){
+            campoNorma.setText("Infinita");
+        }else{
+            campoNorma.setText("Euclidiana");
+        }
+        
+        jTextField1.setText(String.valueOf(relajacion));
+        
+        resultado.setEditable(false);
+        campoIteraciones.setEditable(false);
+        campoTolerancia.setEditable(false);
+        campoNorma.setEditable(false);
+        jTextField1.setEditable(false);
     }
 
     /**
@@ -109,40 +136,6 @@ public class ResultadoJacobi extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResultadoJacobi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResultadoJacobi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResultadoJacobi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResultadoJacobi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ResultadoJacobi().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campoIteraciones;
