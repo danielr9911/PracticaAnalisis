@@ -371,7 +371,7 @@ public class Metodos2 {
         //Tenemos salida y salidaError
     }
     public static void gaussSeidelRelajado(Double[][] a, Double[] b, int n, 
-            Double tol, int iter, Double relajacion, Double[] xValues) {        
+            Double tol, int iter, Double relajacion, Double[] xValues, int norma) {        
         String matrizA = "[";
         for (Double[] a1 : a) {
             String mtemp = Arrays.toString(a1) + ":";
@@ -387,7 +387,7 @@ public class Metodos2 {
         //System.out.println(matrizA);
         //System.out.println(Arrays.toString(b));
         //System.out.println(n);
-        String args = n +" "+matrizB+" "+matrizA+" "+tol+" "+iter+" "+relajacion+" "+matrizX;
+        String args = n +" "+matrizB+" "+matrizA+" "+tol+" "+iter+" "+norma+" "+relajacion+" "+matrizX;
         
         //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
         String ruta = new File(".").getAbsolutePath();

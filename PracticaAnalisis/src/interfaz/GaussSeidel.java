@@ -150,7 +150,7 @@ public class GaussSeidel extends javax.swing.JFrame {
             camposCorrectos = false;
         }
         
-        if(iter <= 0 && tol <= 0 && (lambda > 0 || lambda < 2)){
+        if(iter <= 0 && tol <= 0 && (lambda < 0 || lambda > 2)){
             JOptionPane.showMessageDialog(rootPane, "Por favor ingrese información correcta a los campos, como un número mayor que cero para iteraciones, número mayor de cero para la tolerancia y un número para Lambda del rango (0,2)");
             camposCorrectos = false;
         }else if(iter <= 0){    
@@ -159,7 +159,7 @@ public class GaussSeidel extends javax.swing.JFrame {
         } else if(tol <= 0){
             JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número mayor de cero para la tolerancia");
             camposCorrectos = false;
-        } else if(lambda > 0 || lambda < 2){
+        } else if(lambda < 0 || lambda > 2){
             JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número para Lambda del rango (0,2)");
             camposCorrectos = false;    
         } else{
@@ -178,7 +178,7 @@ public class GaussSeidel extends javax.swing.JFrame {
         
         if (camposCorrectos){
             if(Metodos2.tam != 0){
-                Metodos2.gaussSeidelRelajado(Metodos2.a, Metodos2.b, Metodos2.tam, tol, iter, lambda, Metodos2.x);
+                Metodos2.gaussSeidelRelajado(Metodos2.a, Metodos2.b, Metodos2.tam, tol, iter, lambda, Metodos2.x, err);
                 try {
                     String s = null;
                     

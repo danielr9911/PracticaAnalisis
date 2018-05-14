@@ -46,7 +46,7 @@ def sIteration(xValues,A,size,r, norma):
         xNewValues= r*xNewValues+(1-r)*xValues[i]
 
         nInf = max(nInf, abs(xNewValues- xValues[i]))
-        nEuc = nEuc + (xNewValues[i] - xValues[i]) ** 2
+        nEuc = nEuc + (xNewValues- xValues[i]) ** 2
         xValues[i]=xNewValues
     if norma == 0:
         disp = nInf
