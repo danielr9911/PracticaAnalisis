@@ -175,24 +175,21 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_regresarMiMatrizActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+    private void actualizarNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarNActionPerformed
+        // TODO add your handling code here:
+        int n = Integer.parseInt(jTextField1.getText());
+        //Metodos2.tam = n;
+        if(n > 0){
+        
+        jTable1.setVisible(true);
+        jTable2.setVisible(true);
+        jTable3.setVisible(true);
+        Double[][] matrizA = new Double[n][n];
+        for(int i=0; i<matrizA.length; i++){
+            for(int j=0; j<matrizA[i].length; j++){
+                matrizA[i][j] = 0.0;
             }
         }
-        
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             matrizA,
             new String [n]
@@ -224,7 +221,7 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(rootPane, "Recuerde que el valor de N debe ser mayor a cero");
         }
-    }//GEN-LAST:event_actualizarNActionPerformed
+    }                                           
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
