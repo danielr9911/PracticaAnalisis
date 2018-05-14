@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -254,15 +255,15 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         }
         Metodos2.b = matrizB;
         
-        Double[][] arregloX = getTableData(jTable2);
-        Double[] matrizX = new Double[arregloX.length];
+        Double[][] arregloX = getTableData(jTable3);
+        Double[] matrizX = new Double[arregloX[0].length];
         for(int i=0; i < matrizX.length; i++){
-            matrizX[i] = arregloX[i][0];
+            matrizX[i] = arregloX[0][i];
         }
         Metodos2.x = matrizX;
         
         
-        
+        System.out.println(Arrays.toString(Metodos2.x));
         JOptionPane.showMessageDialog(rootPane, "Matriz guardada exitosamente");
     }//GEN-LAST:event_jButton1ActionPerformed
 
