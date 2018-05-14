@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author carlosruiz
@@ -32,7 +34,7 @@ public class Jacobi extends javax.swing.JFrame {
         toleranciaJacobi = new javax.swing.JTextField();
         regresarJacobi = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        lamdaJacobi = new javax.swing.JTextField();
         normaInfinito = new javax.swing.JRadioButton();
         normaEuclidiana = new javax.swing.JRadioButton();
         botonCalcular = new javax.swing.JButton();
@@ -66,9 +68,9 @@ public class Jacobi extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(170, 350, 40, 40);
 
-        jTextField1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(280, 355, 590, 40);
+        lamdaJacobi.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        getContentPane().add(lamdaJacobi);
+        lamdaJacobi.setBounds(280, 355, 590, 40);
 
         buttonGroup1.add(normaInfinito);
         getContentPane().add(normaInfinito);
@@ -79,10 +81,20 @@ public class Jacobi extends javax.swing.JFrame {
         normaEuclidiana.setBounds(865, 415, 30, 23);
 
         botonCalcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CalcularBoton.png"))); // NOI18N
+        botonCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCalcularActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonCalcular);
         botonCalcular.setBounds(540, 520, 370, 100);
 
         ayudaLamba.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaLamba.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaLambaActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaLamba);
         ayudaLamba.setBounds(205, 345, 50, 50);
 
@@ -104,6 +116,7 @@ public class Jacobi extends javax.swing.JFrame {
 
     private void ayudaJacobiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaJacobiActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Jacobi", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaJacobi.png")));
     }//GEN-LAST:event_ayudaJacobiActionPerformed
 
     private void regresarJacobiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarJacobiActionPerformed
@@ -115,6 +128,90 @@ public class Jacobi extends javax.swing.JFrame {
         metodosIterativos.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_regresarJacobiActionPerformed
+
+    private void ayudaLambaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaLambaActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Jacobi", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaLambda.png")));
+    }//GEN-LAST:event_ayudaLambaActionPerformed
+
+    private void botonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularActionPerformed
+        // TODO add your handling code here:
+        double lambda = 0;
+        double tol = 0;
+        int iter = 0;
+        boolean camposCorrectos = true;
+        
+        try{
+            lambda = Double.parseDouble(lamdaJacobi.getText());
+            tol = Double.parseDouble(toleranciaJacobi.getText());
+            iter = Integer.parseInt(iteracionesJacobi.getText());
+        }catch(Exception e){
+            camposCorrectos = false;
+        }
+        
+        if(iter <= 0 && tol <= 0 && (lambda < 0 || lambda > 2)){
+            JOptionPane.showMessageDialog(rootPane, "Por favor ingrese información correcta a los campos, como un número mayor que cero para iteraciones y número mayor de cero para la tolerancia");
+            camposCorrectos = false;
+        }else if(iter <= 0){    
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número mayor que cero para iteraciones");
+            camposCorrectos = false;
+        } else if(tol <= 0){
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número mayor de cero para la tolerancia");
+            camposCorrectos = false;
+        }else if(lambda < 0 || lambda > 2){
+            JOptionPane.showMessageDialog(rootPane, "Por favor ingrese un número mayor a 0 y menor a 2 para el valor de lambda");
+            camposCorrectos = false; 
+        }else{
+            camposCorrectos = true;
+        }
+        
+        normaInfinito.setActionCommand("0");
+        normaEuclidiana.setActionCommand("1");
+        int err = 0;
+        try{
+            err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccionar el tipo de norma para trabajar");
+            camposCorrectos = false;
+        }
+        
+        if (camposCorrectos){
+            if(!"".equals(Funcion.f) && !"".equals(Funcion.df)){
+                String mensaje = "";
+                boolean correct = false;
+                Double[][] data = null;
+                double fxi = callFunction("f", xi);
+                double dfxi = callFunction("df", xi);
+                if (fxi == 0){
+                    mensaje = xi + " es una raiz";
+                }else if (dfxi == 0){
+                    mensaje = xi + " es una posible raiz múltiple";
+                }else if (iter <= 0){
+                    mensaje = "El numero de iteraciones debe de ser mayor a cero";
+                }else if(tol <= 0){
+                    mensaje = "La tolerancia debe de ser mayor a cero";
+                }else {
+                    Metodos.newton(xi,iter, tol, err);
+                    //Resultados
+                    data = Metodos.data;
+                    Object[][] newData = formatearData(data);
+                    mensaje = Metodos.mens;
+
+                    ResultadosNewton Rnewton = new ResultadosNewton(xi,iter,tol,newData,mensaje);
+                    Rnewton.setVisible(true);
+                    Rnewton.setSize(1024,768);
+                    Rnewton.setResizable(false);
+                    Rnewton.setLocationRelativeTo(null);
+                    dispose();
+                }
+                if (!correct){
+                    JOptionPane.showMessageDialog(rootPane, mensaje);
+                }
+            }else{
+            JOptionPane.showMessageDialog(rootPane, "Por favor ingresar una función F(x) y F'(x) válida para ejecutar el método");
+            }
+        }
+    }//GEN-LAST:event_botonCalcularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,7 +256,7 @@ public class Jacobi extends javax.swing.JFrame {
     private javax.swing.JTextField iteracionesJacobi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField lamdaJacobi;
     private javax.swing.JRadioButton normaEuclidiana;
     private javax.swing.JRadioButton normaInfinito;
     private javax.swing.JButton regresarJacobi;
