@@ -6,6 +6,8 @@
 package interfaz;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import practicaanalisis.Metodos2;
 
 /**
@@ -225,6 +227,7 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        /*
         Metodos2.tam = 3;
         //Metodos2.a = {};
         Metodos2.b = new Double[3];
@@ -241,11 +244,39 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         //Double[] tx = {2.0,2.0,2.0,2.0};
         Double[] tx = {1.0,1.0,1.0};
         Metodos2.x = tx;
+        */
+        Metodos2.tam = Integer.parseInt(jTextField1.getText());
+        Metodos2.a = getTableData(jTable1);
+        Double[][] arregloB = getTableData(jTable2);
+        Double[] matrizB = new Double[arregloB.length];
+        for(int i=0; i < matrizB.length; i++){
+            matrizB[i] = arregloB[i][0];
+        }
+        Metodos2.b = matrizB;
+        
+        Double[][] arregloX = getTableData(jTable2);
+        Double[] matrizX = new Double[arregloX.length];
+        for(int i=0; i < matrizX.length; i++){
+            matrizX[i] = arregloX[i][0];
+        }
+        Metodos2.x = matrizX;
+        
+        
         
         JOptionPane.showMessageDialog(rootPane, "Matriz guardada exitosamente");
     }//GEN-LAST:event_jButton1ActionPerformed
 
  
+    public static Double[][] getTableData (JTable table) {
+        DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+        int nRow = dtm.getRowCount(), nCol = dtm.getColumnCount();
+        Double[][] tableData = new Double[nRow][nCol];
+        for (int i = 0 ; i < nRow ; i++)
+            for (int j = 0 ; j < nCol ; j++)
+                tableData[i][j] = Double.parseDouble(dtm.getValueAt(i,j).toString());                
+        return tableData;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actualizarN;
     private javax.swing.JButton jButton1;

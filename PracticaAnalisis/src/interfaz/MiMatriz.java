@@ -151,6 +151,7 @@ public class MiMatriz extends javax.swing.JFrame {
     private void guardarMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarMatrizActionPerformed
         // TODO add your handling code here:
         //EJEMPLO JAVA
+        /*
         Metodos2.tam = 4;
         //Metodos2.a = {};
         Metodos2.b = new Double[4];
@@ -160,8 +161,7 @@ public class MiMatriz extends javax.swing.JFrame {
         //Double[][] ta = {{-7.0,0.0,-3.0,4.0},{5.0,0.0,14.0,-1.0},{1.0,0.0,-7.0,13.0},{-12.0,0.0,-8.0,-4.0}};
         Double[][] ta = {{25.0, -2.0, -7.0, -2.0},{-2.0,36.0,-3.0,-5.0},{-7.0,-3.0,54.0,-5.0},{-2.0,-5.0,-5.0,75.0}};
         Metodos2.a = ta;
-        
-        /*
+        */
         Metodos2.tam = Integer.parseInt(jTextField1.getText());
         Metodos2.a = getTableData(jTable1);
         Double[][] arregloB = getTableData(jTable2);
@@ -170,7 +170,13 @@ public class MiMatriz extends javax.swing.JFrame {
             matrizB[i] = arregloB[i][0];
         }
         Metodos2.b = matrizB;
-        */
+        
+        Double[] matrizX = new Double[Metodos2.tam];
+        for(int i=0; i < matrizX.length; i++){
+            matrizX[i] = 0.0;
+        }
+        Metodos2.x = matrizX;
+        
         //System.out.println(Arrays.toString(Metodos2.b));
         
         //System.out.println("A:" + Arrays.toString(Metodos2.a));
