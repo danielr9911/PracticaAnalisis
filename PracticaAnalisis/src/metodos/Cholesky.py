@@ -55,7 +55,7 @@ def cholesky(L, U, A, n):
         L[k][k] = sqrt(A[k][k] - suma1)
         U[k][k] = L[k][k]
 
-        print("+ ETAPA: %d \n") % k
+        print("+ ETAPA: %d \n" % k)
         print("Matriz L")
         print(np.array(L))
         print("Matrix U")

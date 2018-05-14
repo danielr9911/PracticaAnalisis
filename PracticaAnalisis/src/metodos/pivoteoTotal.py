@@ -62,7 +62,7 @@ def pivoteoTotal(Ab, k, marcas, tam):
 def gaussianaConPivoteoTotal(Ab, tam):
     marcas = np.arange(tam)
     for k in range(0, tam - 1):
-        print("+ ETAPA %d \n") %k
+        print("+ ETAPA %d \n" %k)
         #print ("Iteracion ", k, "\tam")
         #print (Ab)
         Ab, marcas, exito = pivoteoTotal(Ab, k, marcas, tam)
@@ -81,7 +81,7 @@ def gaussianaConPivoteoTotal(Ab, tam):
                 print("##################################")
                 return Ab, marcas,False
             multiplicador = Ab[i][k] / Ab[k][k]
-            print("- Multiplicador %d = %f") %(i, multiplicador)
+            print("- Multiplicador %d = %f" %(i, multiplicador))
             #print ("Multiplicador ", i, " = ", multiplicador)
             for j in range(k, tam + 1):
                 Ab[i][j] = Ab[i][j] - multiplicador * Ab[k][j]
