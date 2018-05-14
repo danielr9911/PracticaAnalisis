@@ -27,8 +27,9 @@ def interpretarMatriz(tam,b,a):
     matrizA = np.array(matrizA)
     return matrizB, matrizA
 
-def newJacobi(xValues,xNewValues,A,size,r):
-    disp = 0
+def newJacobi(xValues,xNewValues,A,size,r, norma):
+    nInf = 0
+    nEuc = 0
     for i in range (size):
         suma = 0
         for j in range (size):
@@ -41,11 +42,17 @@ def newJacobi(xValues,xNewValues,A,size,r):
         var = A[i][size]
         xNewValues[i] = (var - suma)/aii
         xNewValues[i]= r*xNewValues[i]+(1-r)*xValues[i]
-        disp = max(disp, abs(xNewValues[i]- xValues[i]))
+        nInf = max(nInf, abs(xNewValues[i]- xValues[i]))
+        nEuc = nEuc + (xNewValues[i]- xValues[i])**2
+
+    if norma == 0:
+        disp = nInf
+    else:
+        disp = nEuc
 
     return disp,xNewValues
 
-def jacobi(xValues,xNewValues,A,size,tol,niter,r):
+def jacobi(xValues,xNewValues,A,size,tol,niter,r,norma):
     disp = tol+1
     cont = 0
     print(cont)
@@ -55,7 +62,7 @@ def jacobi(xValues,xNewValues,A,size,tol,niter,r):
     while (disp > tol and cont < niter):
         for i in range (size):
             xValues[i] = xNewValues[i]
-        disp,xNewValues = newJacobi(xValues,xNewValues,A,size,r)
+        disp,xNewValues = newJacobi(xValues,xNewValues,A,size,r, norma)
 
         cont+=1
         print(cont)
@@ -75,13 +82,15 @@ def main():
     a = sys.argv[3]
     tolerance = float(sys.argv[4])
     maxIterations=float(sys.argv[5])
-    relajacion= float(sys.argv[6])
-    xValues = json.loads(sys.argv[7])
+    norma = sys.argv[6]
+    relajacion= float(sys.argv[7])
+    xValues = json.loads(sys.argv[8])
+
 
     xNewValues = np.zeros(tam)
     matrizB, matrizA = interpretarMatriz(tam, b, a)
     Ab = matrixAum(matrizA, matrizB, tam)
-    success,xValues,xNewValues,A,tol,niter,error = jacobi(xValues,xNewValues,Ab,tam, tolerance, maxIterations,relajacion)
+    success,xValues,xNewValues,A,tol,niter,error = jacobi(xValues,xNewValues,Ab,tam, tolerance, maxIterations,relajacion,norma)
     #print success,xValues,xNewValues,A,tol,niter
     if (success):
         for i, x in enumerate(xValues):

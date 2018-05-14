@@ -187,7 +187,7 @@ public class Jacobi extends javax.swing.JFrame {
         
         if (camposCorrectos){
             if(Metodos2.tam != 0){
-                Metodos2.jacobiRelajado(Metodos2.a, Metodos2.b, Metodos2.tam, tol, iter, lambda, Metodos2.x);
+                Metodos2.jacobiRelajado(Metodos2.a, Metodos2.b, Metodos2.tam, tol, iter, lambda, Metodos2.x, err);
                 try {
                     String s = null;
                     
@@ -207,7 +207,10 @@ public class Jacobi extends javax.swing.JFrame {
                         
                         System.out.println(Arrays.toString(arrOutput));
                         String resultadoX = arrOutput[arrOutput.length-1];
-                        Double[][] tabla = new Double[arrOutput.length][Metodos2.tam+2];
+                        System.out.println("TAMAÑOO");
+                        System.out.println(arrOutput.length-1);
+                        System.out.println(Metodos2.tam+2);
+                        Object [][] tabla = new Object[arrOutput.length-1][Metodos2.tam+2];
                         for (int i = 0; i < arrOutput.length-1; i++) {
                             String temp = arrOutput[i];
                             System.out.println(temp);
@@ -236,8 +239,13 @@ public class Jacobi extends javax.swing.JFrame {
                             System.out.println(Arrays.toString(arrTemp));
                             
                             for (int j = 0; j < arrTemp.length; j++) {
-                                
-                                tabla[i][j] = Double.parseDouble(arrTemp[j]);
+                                if(j == 0){
+                                    tabla[i][j] = arrTemp[j];
+                                }else if(j == arrTemp.length-1){
+                                    tabla[i][j] = sf.format(Double.parseDouble(arrTemp[j]));
+                                }else{
+                                    tabla[i][j] = Double.parseDouble(arrTemp[j]);
+                                }
                             }
                             
                             
@@ -249,6 +257,12 @@ public class Jacobi extends javax.swing.JFrame {
                             //System.out.println(Arrays.toString(sFila));
                             
                         }
+                        ResultadoJacobi rj = new ResultadoJacobi(iter, tol, err, lambda, tabla, resultadoX);
+                        rj.setVisible(true);
+                        rj.setSize(1024,768);
+                        rj.setResizable(false);
+                        rj.setLocationRelativeTo(null);
+                        dispose();
                     
                     }
                 }catch (IOException ex) {

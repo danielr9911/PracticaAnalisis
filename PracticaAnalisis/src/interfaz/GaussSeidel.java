@@ -8,12 +8,23 @@ package interfaz;
 import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.JOptionPane;
 import practicaanalisis.Metodos2;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import practicaanalisis.Funcion;
+import practicaanalisis.Metodos;
+import practicaanalisis.Metodos2;
 
 /**
  *
  * @author carlosruiz
  */
 public class GaussSeidel extends javax.swing.JFrame {
+    private static java.text.DecimalFormat sf = new java.text.DecimalFormat("0.#E0"); 
 
     /**
      * Creates new form GaussSeidel
@@ -130,6 +141,7 @@ public class GaussSeidel extends javax.swing.JFrame {
         double lambda = 0;
         boolean camposCorrectos = true;
         
+        
         try{            
             tol = Double.parseDouble(toleranciaGaussSeidel.getText());
             iter = Integer.parseInt(iteracionesGaussSeidel.getText());
@@ -138,7 +150,7 @@ public class GaussSeidel extends javax.swing.JFrame {
             camposCorrectos = false;
         }
         
-        if(iter <= 0 && tol <= 0 && (lambda > 0 || lambda < 2)){
+        if(iter <= 0 && tol <= 0 && (lambda < 0 || lambda > 2)){
             JOptionPane.showMessageDialog(rootPane, "Por favor ingrese información correcta a los campos, como un número mayor que cero para iteraciones, número mayor de cero para la tolerancia y un número para Lambda del rango (0,2)");
             camposCorrectos = false;
         }else if(iter <= 0){    
@@ -147,7 +159,7 @@ public class GaussSeidel extends javax.swing.JFrame {
         } else if(tol <= 0){
             JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número mayor de cero para la tolerancia");
             camposCorrectos = false;
-        } else if(lambda > 0 || lambda < 2){
+        } else if(lambda < 0 || lambda > 2){
             JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un número para Lambda del rango (0,2)");
             camposCorrectos = false;    
         } else{
@@ -156,29 +168,102 @@ public class GaussSeidel extends javax.swing.JFrame {
         
         normaInfinito.setActionCommand("0");
         normaEuclidiana.setActionCommand("1");
-        int tipoNorma = 0;
+        int err = 0;
         try{
-            tipoNorma = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+            err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
         }catch(Exception e){
             JOptionPane.showMessageDialog(rootPane, "Por favor seleccionar el tipo de norma para trabajar");
             camposCorrectos = false;
         }
         
         if (camposCorrectos){
-            if(Metodos2.tam > 0){
-                //Ejecutar Gauss Seidel
+            if(Metodos2.tam != 0){
+                Metodos2.gaussSeidelRelajado(Metodos2.a, Metodos2.b, Metodos2.tam, tol, iter, lambda, Metodos2.x, err);
+                try {
+                    String s = null;
+                    
+                    boolean error=false;
+                    while ((s = Metodos2.stdError.readLine()) != null) {
+                        JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                        error=true;
+                    } 
+                    if(!error){
+                        String output = "";
+                        while ((s = Metodos2.stdOutput.readLine()) != null) {
+                            System.out.println(s);
+                            output = output + (s + "\n");
+                        }
+                        //INTERPRETAR S
+                        String[] arrOutput = output.split("!");
+                        
+                        System.out.println(Arrays.toString(arrOutput));
+                        String resultadoX = arrOutput[arrOutput.length-1];
+                        System.out.println("TAMAÑOO");
+                        System.out.println(arrOutput.length-1);
+                        System.out.println(Metodos2.tam+2);
+                        Object [][] tabla = new Object[arrOutput.length-1][Metodos2.tam+2];
+                        for (int i = 0; i < arrOutput.length-1; i++) {
+                            String temp = arrOutput[i];
+                            System.out.println(temp);
+                            temp = temp.replaceAll("\n", " ");
+                            System.out.println(temp);
+                            temp = temp.replace("[", "");
+                            System.out.println(temp);
+                            temp = temp.replace("]", "");
+                            System.out.println(temp);
+                            temp = temp.replace(",", "");
+                            System.out.println(temp);
+                            temp = temp.replaceAll("\\s+"," ");
+                            System.out.println(temp);
                             
-                ResultadoGaussSeidel resultadoGaussSeidel = new ResultadoGaussSeidel();
-                resultadoGaussSeidel.setVisible(true);
-                resultadoGaussSeidel.setSize(1024,768);
-                resultadoGaussSeidel.setResizable(false);
-                resultadoGaussSeidel.setLocationRelativeTo(null);
-                dispose();
+                            temp = temp.replace(" ", "!");
+                            if(temp.charAt(0) == '!'){
+                                temp = temp.substring(1,temp.length());
+                            }
+                            if(temp.charAt(temp.length()-1) == '!'){
+                                temp = temp.substring(0,temp.length()-1);
+                            }
+                            //temp = temp.substring(1,temp.length()-1);
+                            System.out.println(temp);
+                            String[] arrTemp = temp.split("!");
+                            
+                            System.out.println(Arrays.toString(arrTemp));
+                            
+                            for (int j = 0; j < arrTemp.length; j++) {
+                                if(j == 0){
+                                    tabla[i][j] = arrTemp[j];
+                                }else if(j == arrTemp.length-1){
+                                    tabla[i][j] = sf.format(Double.parseDouble(arrTemp[j]));
+                                }else{
+                                    tabla[i][j] = Double.parseDouble(arrTemp[j]);
+                                }
+                            }
+                            
+                            
+                            
+                            
+                            //String[] sFila = arrOutput[i].split("\n");
+                            //Double[] fila = new Double[Metodos2.tam+2];
+                            
+                            //System.out.println(Arrays.toString(sFila));
+                            
+                        }
+                        ResultadoGaussSeidel rgs = new ResultadoGaussSeidel(iter, tol, err, lambda, tabla, resultadoX);
+                        rgs.setVisible(true);
+                        rgs.setSize(1024,768);
+                        rgs.setResizable(false);
+                        rgs.setLocationRelativeTo(null);
+                        dispose();
+                    
+                    }
+                }catch (IOException ex) {
+                    Logger.getLogger(Jacobi.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             }else{
-            JOptionPane.showMessageDialog(rootPane, "Por favor asigne valores a su matriz");
+            JOptionPane.showMessageDialog(rootPane, "Por favor ingresar una función F(x) y F'(x) válida para ejecutar el método");
             }
-        }
-        
+        }   
     }//GEN-LAST:event_botonCalcularActionPerformed
 
     private void ayudaGaussSeidelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaGaussSeidelActionPerformed
