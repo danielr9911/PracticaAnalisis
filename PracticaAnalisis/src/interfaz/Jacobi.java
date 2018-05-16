@@ -199,31 +199,21 @@ public class Jacobi extends javax.swing.JFrame {
                     if(!error){
                         String output = "";
                         while ((s = Metodos2.stdOutput.readLine()) != null) {
-                            System.out.println(s);
+                            //System.out.println(s);
                             output = output + (s + "\n");
                         }
                         //INTERPRETAR S
                         String[] arrOutput = output.split("!");
                         
-                        System.out.println(Arrays.toString(arrOutput));
                         String resultadoX = arrOutput[arrOutput.length-1];
-                        System.out.println("TAMAÑOO");
-                        System.out.println(arrOutput.length-1);
-                        System.out.println(Metodos2.tam+2);
                         Object [][] tabla = new Object[arrOutput.length-1][Metodos2.tam+2];
                         for (int i = 0; i < arrOutput.length-1; i++) {
                             String temp = arrOutput[i];
-                            System.out.println(temp);
                             temp = temp.replaceAll("\n", " ");
-                            System.out.println(temp);
                             temp = temp.replace("[", "");
-                            System.out.println(temp);
                             temp = temp.replace("]", "");
-                            System.out.println(temp);
                             temp = temp.replace(",", "");
-                            System.out.println(temp);
                             temp = temp.replaceAll("\\s+"," ");
-                            System.out.println(temp);
                             
                             temp = temp.replace(" ", "!");
                             if(temp.charAt(0) == '!'){
@@ -233,10 +223,8 @@ public class Jacobi extends javax.swing.JFrame {
                                 temp = temp.substring(0,temp.length()-1);
                             }
                             //temp = temp.substring(1,temp.length()-1);
-                            System.out.println(temp);
                             String[] arrTemp = temp.split("!");
                             
-                            System.out.println(Arrays.toString(arrTemp));
                             
                             for (int j = 0; j < arrTemp.length; j++) {
                                 if(j == 0){
@@ -275,40 +263,6 @@ public class Jacobi extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonCalcularActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Jacobi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Jacobi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Jacobi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Jacobi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Jacobi().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ayudaJacobi;

@@ -117,8 +117,6 @@ public class Metodos {
             int contj = 0;
             Double[] fila = new Double[6];
             for(PyObject j:i.asIterable()){
-                System.out.println(contj);
-                System.out.println(j.asDouble());
                 fila[contj] = j.asDouble();
                 contj++;
             }

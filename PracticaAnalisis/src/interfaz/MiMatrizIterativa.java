@@ -263,7 +263,7 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         Metodos2.x = matrizX;
         
         
-        System.out.println(Arrays.toString(Metodos2.x));
+        //System.out.println(Arrays.toString(Metodos2.x));
         JOptionPane.showMessageDialog(rootPane, "Matriz guardada exitosamente");
     }//GEN-LAST:event_jButton1ActionPerformed
 

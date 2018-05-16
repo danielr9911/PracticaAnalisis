@@ -252,7 +252,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
                         //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
                         String output = "";
                         while ((s = Metodos2.stdOutput.readLine()) != null) {
-                            System.out.println(s);
+                            //System.out.println(s);
                             output = output + (s + "\n");
                         }
 
@@ -290,7 +290,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
                         //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
                         String output = "";
                         while ((s = Metodos2.stdOutput.readLine()) != null) {
-                            System.out.println(s);
+                            //System.out.println(s);
                             output = output + (s + "\n");
                         }
 
@@ -448,7 +448,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
                         //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
                         String output = "";
                         while ((s = Metodos2.stdOutput.readLine()) != null) {
-                            System.out.println(s);
+                            //System.out.println(s);
                             output = output + (s + "\n");
                         }
                         
@@ -486,7 +486,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
                         //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
                         String output = "";
                         while ((s = Metodos2.stdOutput.readLine()) != null) {
-                            System.out.println(s);
+                            //System.out.println(s);
                             output = output + (s + "\n");
                         }
 
