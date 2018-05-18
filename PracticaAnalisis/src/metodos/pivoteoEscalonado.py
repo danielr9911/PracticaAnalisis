@@ -74,7 +74,7 @@ def pivoteoEscalonado(ab, k, tam, vectorMayores):
 
 #   print("El cociente mayor es %f de la fila %f" % (mayor,filaMayor))
     if mayor == 0:
-        print("El sistema no tiene solucion única")
+        print("El sistema no tiene solucion unica")
     else:
         if filaMayor != k:
             for i in range(0, ab[0].size):

@@ -158,7 +158,7 @@ public class Metodos2 {
         //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
         String ruta = new File(".").getAbsolutePath();
         ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
-        ruta = ruta + "metodos/pivoteoParcial.py"; 
+        ruta = ruta + "metodos/pivoteoEscalonado.py"; 
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -204,7 +204,7 @@ public class Metodos2 {
         //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
         String ruta = new File(".").getAbsolutePath();
         ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
-        ruta = ruta + "metodos/pivoteoEscalonado.py";
+        ruta = ruta + "metodos/pivoteoTotal.py";
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
