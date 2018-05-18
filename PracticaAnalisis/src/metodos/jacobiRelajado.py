@@ -60,9 +60,10 @@ def jacobi(xValues,xNewValues,A,size,tol,niter,r,norma):
     print(0)
     print("!")
     while (disp > tol and cont < niter):
+        disp, xNewValues = newJacobi(xValues, xNewValues, A, size, r, norma)
         for i in range (size):
             xValues[i] = xNewValues[i]
-        disp,xNewValues = newJacobi(xValues,xNewValues,A,size,r, norma)
+
 
         cont+=1
         print(cont)
@@ -86,7 +87,7 @@ def main():
     relajacion= float(sys.argv[7])
     xValues = json.loads(sys.argv[8])
 
-
+    
     xNewValues = np.zeros(tam)
     matrizB, matrizA = interpretarMatriz(tam, b, a)
     Ab = matrixAum(matrizA, matrizB, tam)
