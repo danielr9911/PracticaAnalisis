@@ -190,7 +190,7 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         Double[][] matrizA = new Double[n][n];
         for(int i=0; i<matrizA.length; i++){
             for(int j=0; j<matrizA[i].length; j++){
-                matrizA[i][j] = 0.0;
+                matrizA[i][j] = null;
             }
         }
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -200,7 +200,7 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         
         Double[][] matrizB = new Double[n][1];
         for(int i=0; i<matrizB.length; i++){
-            matrizB[i][0] = 0.0;
+            matrizB[i][0] = null;
         }
         //System.out.println(Arrays.toString(matrizB));
         //System.out.println(Arrays.toString(matrizB[0]));
@@ -211,7 +211,7 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         Double[][] matrizX = new Double[1][n];
         String[] titulos = new String[n];
         for(int i=0; i<n; i++){
-            matrizX[0][i] = 0.0;
+            matrizX[0][i] = null;
             titulos[i] = "X"+(i+1);
         }
         //System.out.println(Arrays.toString(matrizB));
@@ -272,9 +272,17 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         DefaultTableModel dtm = (DefaultTableModel) table.getModel();
         int nRow = dtm.getRowCount(), nCol = dtm.getColumnCount();
         Double[][] tableData = new Double[nRow][nCol];
-        for (int i = 0 ; i < nRow ; i++)
-            for (int j = 0 ; j < nCol ; j++)
-                tableData[i][j] = Double.parseDouble(dtm.getValueAt(i,j).toString());                
+        for (int i = 0 ; i < nRow ; i++){
+            for (int j = 0 ; j < nCol ; j++){
+                System.out.println(dtm.getValueAt(i,j));
+                if (dtm.getValueAt(i,j) == null || dtm.getValueAt(i,j).toString().replaceAll("\\s","").equals("")){
+                    tableData[i][j] = 0.0;
+                }else{
+                    tableData[i][j] = Double.parseDouble(dtm.getValueAt(i,j).toString());
+                }
+                //tableData[i][j] = Double.parseDouble(dtm.getValueAt(i,j).toString());
+            }
+        }
         return tableData;
     }
     
