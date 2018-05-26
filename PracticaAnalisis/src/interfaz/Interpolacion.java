@@ -73,22 +73,47 @@ public class Interpolacion extends javax.swing.JFrame {
         calcular.setBounds(310, 640, 370, 100);
 
         ayudaNewtonInterpolacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaNewtonInterpolacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaNewtonInterpolacionActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaNewtonInterpolacion);
         ayudaNewtonInterpolacion.setBounds(120, 455, 50, 50);
 
         ayudaLagrange.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaLagrange.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaLagrangeActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaLagrange);
         ayudaLagrange.setBounds(400, 455, 50, 50);
 
         ayudaSplineLineal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaSplineLineal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaSplineLinealActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaSplineLineal);
         ayudaSplineLineal.setBounds(680, 455, 50, 50);
 
         ayudaSplineCuadratico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaSplineCuadratico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaSplineCuadraticoActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaSplineCuadratico);
         ayudaSplineCuadratico.setBounds(210, 550, 50, 50);
 
         ayudaSplineCubico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaSplineCubico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaSplineCubicoActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaSplineCubico);
         ayudaSplineCubico.setBounds(580, 550, 50, 50);
 
@@ -238,6 +263,31 @@ public class Interpolacion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Recuerde que el valor de N debe ser mayor a cero");
         }
     }//GEN-LAST:event_actualizarNActionPerformed
+
+    private void ayudaNewtonInterpolacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaNewtonInterpolacionActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Newton", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaNewtonInterpolacion.png")));
+    }//GEN-LAST:event_ayudaNewtonInterpolacionActionPerformed
+
+    private void ayudaLagrangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaLagrangeActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Lagrange", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaLagrange.png")));
+    }//GEN-LAST:event_ayudaLagrangeActionPerformed
+
+    private void ayudaSplineLinealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaSplineLinealActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Spline Lineal", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaSplineLineal.png")));
+    }//GEN-LAST:event_ayudaSplineLinealActionPerformed
+
+    private void ayudaSplineCuadraticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaSplineCuadraticoActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Spline Cuadrático", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaSplineCuadratico.png")));
+    }//GEN-LAST:event_ayudaSplineCuadraticoActionPerformed
+
+    private void ayudaSplineCubicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaSplineCubicoActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Spline Cúbico", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaSplineCubico.png")));
+    }//GEN-LAST:event_ayudaSplineCubicoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
