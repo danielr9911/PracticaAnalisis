@@ -17,6 +17,7 @@ public class Interpolacion extends javax.swing.JFrame {
      * Creates new form Interpolacion
      */
     int n = 0;
+    int valorX = 0;
     public Interpolacion() {
         initComponents();
     }
@@ -179,6 +180,7 @@ public class Interpolacion extends javax.swing.JFrame {
         splineCuadratico.setActionCommand("3");
         splineCubico.setActionCommand("4");        
         int metodo;
+        boolean metodoCorrecto = false;
         
         try{
             metodo = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
@@ -186,29 +188,44 @@ public class Interpolacion extends javax.swing.JFrame {
             metodo = -1;
         }
         
-        if(n >= 1){
+        if(n >= 1 && (valorX >= 0 || valorX <= 0)){
             switch(metodo){
                 case 0:
                     //Newton
+                    metodoCorrecto = true;
                     break;
                 case 1:
                     // Lagrange
+                    metodoCorrecto = true;
                     break;
                 case 2:
                     //Spline Lineal
+                    metodoCorrecto = true;
                     break;
                 case 3:
                     //Spline Cuadrático
+                    metodoCorrecto = true;
                     break;
                 case 4:
                     //Spline Cúbico
+                    metodoCorrecto = true;
                     break;
-                default:                
+                default:
+                    metodoCorrecto = false;
                     JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un método");
                     break;
             }
         }else{
-            JOptionPane.showMessageDialog(rootPane, "Por favor asigne valores a sus puntos");
+            JOptionPane.showMessageDialog(rootPane, "Por favor asigne valores a sus puntos y a X");
+        }
+        
+        if(metodoCorrecto){
+            ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion();
+            resultadoInterpolacion.setVisible(true);
+            resultadoInterpolacion.setSize(1024,768);
+            resultadoInterpolacion.setResizable(false);
+            resultadoInterpolacion.setLocationRelativeTo(null);        
+            dispose();
         }
     }//GEN-LAST:event_calcularActionPerformed
 
