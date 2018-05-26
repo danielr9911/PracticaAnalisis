@@ -49,10 +49,16 @@ public class GaussSeidel extends javax.swing.JFrame {
         ayudaLambda = new javax.swing.JButton();
         toleranciaGaussSeidel = new javax.swing.JTextField();
         lambdaGaussSeidel = new javax.swing.JTextField();
-        normaInfinito = new javax.swing.JRadioButton();
-        normaEuclidiana = new javax.swing.JRadioButton();
+        errorAbsInfinito = new javax.swing.JRadioButton();
+        errorRelativoInfinito = new javax.swing.JRadioButton();
         botonCalcular = new javax.swing.JButton();
         iteracionesGaussSeidel = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        errorAbsEuclidiana = new javax.swing.JRadioButton();
+        errorRelativoEuclidiana = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -92,7 +98,6 @@ public class GaussSeidel extends javax.swing.JFrame {
         ayudaLambda.setBounds(210, 345, 50, 50);
 
         toleranciaGaussSeidel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        toleranciaGaussSeidel.setSize(new java.awt.Dimension(510, 40));
         getContentPane().add(toleranciaGaussSeidel);
         toleranciaGaussSeidel.setBounds(360, 290, 510, 40);
 
@@ -100,13 +105,13 @@ public class GaussSeidel extends javax.swing.JFrame {
         getContentPane().add(lambdaGaussSeidel);
         lambdaGaussSeidel.setBounds(270, 355, 600, 40);
 
-        buttonGroup1.add(normaInfinito);
-        getContentPane().add(normaInfinito);
-        normaInfinito.setBounds(405, 415, 30, 23);
+        buttonGroup1.add(errorAbsInfinito);
+        getContentPane().add(errorAbsInfinito);
+        errorAbsInfinito.setBounds(160, 460, 30, 23);
 
-        buttonGroup1.add(normaEuclidiana);
-        getContentPane().add(normaEuclidiana);
-        normaEuclidiana.setBounds(865, 415, 30, 23);
+        buttonGroup1.add(errorRelativoInfinito);
+        getContentPane().add(errorRelativoInfinito);
+        errorRelativoInfinito.setBounds(160, 495, 30, 23);
 
         botonCalcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CalcularBoton.png"))); // NOI18N
         botonCalcular.addActionListener(new java.awt.event.ActionListener() {
@@ -115,12 +120,47 @@ public class GaussSeidel extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonCalcular);
-        botonCalcular.setBounds(540, 520, 370, 100);
+        botonCalcular.setBounds(540, 570, 370, 100);
 
         iteracionesGaussSeidel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        iteracionesGaussSeidel.setSize(new java.awt.Dimension(510, 40));
         getContentPane().add(iteracionesGaussSeidel);
         iteracionesGaussSeidel.setBounds(360, 210, 510, 40);
+
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 22)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(174, 0, 5));
+        jLabel3.setText("Error Relativo");
+        jLabel3.setToolTipText("");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(590, 490, 170, 30);
+
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 22)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(174, 0, 5));
+        jLabel4.setText("Error Relativo");
+        jLabel4.setToolTipText("");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(190, 490, 170, 30);
+
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 22)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(174, 0, 5));
+        jLabel6.setText("Error Absoluto");
+        jLabel6.setToolTipText("");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(190, 455, 170, 30);
+
+        jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 22)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(174, 0, 5));
+        jLabel5.setText("Error Absoluto");
+        jLabel5.setToolTipText("");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(590, 450, 170, 30);
+
+        buttonGroup1.add(errorAbsEuclidiana);
+        getContentPane().add(errorAbsEuclidiana);
+        errorAbsEuclidiana.setBounds(560, 455, 28, 23);
+
+        buttonGroup1.add(errorRelativoEuclidiana);
+        getContentPane().add(errorRelativoEuclidiana);
+        errorRelativoEuclidiana.setBounds(560, 495, 28, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Gauss Seidel.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -166,13 +206,15 @@ public class GaussSeidel extends javax.swing.JFrame {
             camposCorrectos = true;
         }
         
-        normaInfinito.setActionCommand("0");
-        normaEuclidiana.setActionCommand("1");
+        errorAbsInfinito.setActionCommand("0");
+        errorRelativoInfinito.setActionCommand("1");
+        errorAbsEuclidiana.setActionCommand("2");
+        errorRelativoEuclidiana.setActionCommand("3");
         int err = 0;
         try{
             err = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
         }catch(Exception e){
-            JOptionPane.showMessageDialog(rootPane, "Por favor seleccionar el tipo de norma para trabajar");
+            JOptionPane.showMessageDialog(rootPane, "Por favor seleccionar el tipo de norma para trabajar y su respectivo error");
             camposCorrectos = false;
         }
         
@@ -277,12 +319,18 @@ public class GaussSeidel extends javax.swing.JFrame {
     private javax.swing.JButton botonCalcular;
     private javax.swing.JButton botonRegresar;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton errorAbsEuclidiana;
+    private javax.swing.JRadioButton errorAbsInfinito;
+    private javax.swing.JRadioButton errorRelativoEuclidiana;
+    private javax.swing.JRadioButton errorRelativoInfinito;
     private javax.swing.JTextField iteracionesGaussSeidel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField lambdaGaussSeidel;
-    private javax.swing.JRadioButton normaEuclidiana;
-    private javax.swing.JRadioButton normaInfinito;
     private javax.swing.JTextField toleranciaGaussSeidel;
     // End of variables declaration//GEN-END:variables
 }
