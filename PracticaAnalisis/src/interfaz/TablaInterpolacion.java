@@ -9,12 +9,12 @@ package interfaz;
  *
  * @author carlosruiz
  */
-public class ResultadoInterpolacion extends javax.swing.JFrame {
+public class TablaInterpolacion extends javax.swing.JFrame {
 
     /**
-     * Creates new form ResultadoInterpolacion
+     * Creates new form TablaInterpolacion
      */
-    public ResultadoInterpolacion() {
+    public TablaInterpolacion() {
         initComponents();
     }
 
@@ -28,7 +28,6 @@ public class ResultadoInterpolacion extends javax.swing.JFrame {
     private void initComponents() {
 
         botonRegresar = new javax.swing.JButton();
-        botonVerTabla = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
@@ -43,25 +42,16 @@ public class ResultadoInterpolacion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonRegresar);
-        botonRegresar.setBounds(240, 20, 80, 80);
-
-        botonVerTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonVerTabla.png"))); // NOI18N
-        botonVerTabla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonVerTablaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(botonVerTabla);
-        botonVerTabla.setBounds(740, 670, 240, 70);
+        botonRegresar.setBounds(100, 20, 80, 80);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(90, 540, 880, 120);
+        jScrollPane1.setBounds(40, 110, 940, 610);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ResultadoInterpolacion.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/TablaInterpolacion.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1024, 768);
 
@@ -70,28 +60,16 @@ public class ResultadoInterpolacion extends javax.swing.JFrame {
 
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
         // TODO add your handling code here:
-        Interpolacion in = new Interpolacion();
-        in.setVisible(true);
-        in.setSize(1024,768);
-        in.setResizable(false);
-        in.setLocationRelativeTo(null);
+        ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion();
+        resultadoInterpolacion.setVisible(true);
+        resultadoInterpolacion.setSize(1024,768);
+        resultadoInterpolacion.setResizable(false);
+        resultadoInterpolacion.setLocationRelativeTo(null);        
         dispose();
     }//GEN-LAST:event_botonRegresarActionPerformed
 
-    private void botonVerTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerTablaActionPerformed
-        // TODO add your handling code here:
-        TablaInterpolacion tablaIn = new TablaInterpolacion();
-        tablaIn.setVisible(true);
-        tablaIn.setSize(1024,768);
-        tablaIn.setResizable(false);
-        tablaIn.setLocationRelativeTo(null);
-        dispose();
-    }//GEN-LAST:event_botonVerTablaActionPerformed
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresar;
-    private javax.swing.JButton botonVerTabla;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
