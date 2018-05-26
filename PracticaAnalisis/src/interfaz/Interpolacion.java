@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Daniel Rendon M
@@ -14,6 +16,8 @@ public class Interpolacion extends javax.swing.JFrame {
     /**
      * Creates new form Interpolacion
      */
+    int n = 0;
+    int valorX = 0;
     public Interpolacion() {
         initComponents();
     }
@@ -30,7 +34,6 @@ public class Interpolacion extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         botonRegresar = new javax.swing.JButton();
         calcular = new javax.swing.JButton();
-        miSistemaDeEcuaciones = new javax.swing.JButton();
         ayudaNewtonInterpolacion = new javax.swing.JButton();
         ayudaLagrange = new javax.swing.JButton();
         ayudaSplineLineal = new javax.swing.JButton();
@@ -41,6 +44,11 @@ public class Interpolacion extends javax.swing.JFrame {
         splineLineal = new javax.swing.JRadioButton();
         splineCuadratico = new javax.swing.JRadioButton();
         splineCubico = new javax.swing.JRadioButton();
+        jTextField1 = new javax.swing.JTextField();
+        actualizarN = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,41 +64,62 @@ public class Interpolacion extends javax.swing.JFrame {
         botonRegresar.setBounds(140, 70, 80, 80);
 
         calcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CalcularBoton.png"))); // NOI18N
-        getContentPane().add(calcular);
-        calcular.setBounds(550, 590, 370, 100);
-
-        miSistemaDeEcuaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMiSistemaDeEcuaciones.png"))); // NOI18N
-        miSistemaDeEcuaciones.addActionListener(new java.awt.event.ActionListener() {
+        calcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miSistemaDeEcuacionesActionPerformed(evt);
+                calcularActionPerformed(evt);
             }
         });
-        getContentPane().add(miSistemaDeEcuaciones);
-        miSistemaDeEcuaciones.setBounds(120, 590, 370, 100);
+        getContentPane().add(calcular);
+        calcular.setBounds(310, 640, 370, 100);
 
         ayudaNewtonInterpolacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaNewtonInterpolacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaNewtonInterpolacionActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaNewtonInterpolacion);
-        ayudaNewtonInterpolacion.setBounds(130, 270, 50, 50);
+        ayudaNewtonInterpolacion.setBounds(120, 455, 50, 50);
 
         ayudaLagrange.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaLagrange.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaLagrangeActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaLagrange);
-        ayudaLagrange.setBounds(410, 270, 50, 50);
+        ayudaLagrange.setBounds(400, 455, 50, 50);
 
         ayudaSplineLineal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaSplineLineal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaSplineLinealActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaSplineLineal);
-        ayudaSplineLineal.setBounds(690, 270, 50, 50);
+        ayudaSplineLineal.setBounds(680, 455, 50, 50);
 
         ayudaSplineCuadratico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaSplineCuadratico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaSplineCuadraticoActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaSplineCuadratico);
-        ayudaSplineCuadratico.setBounds(210, 370, 50, 50);
+        ayudaSplineCuadratico.setBounds(210, 550, 50, 50);
 
         ayudaSplineCubico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaSplineCubico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaSplineCubicoActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaSplineCubico);
-        ayudaSplineCubico.setBounds(580, 370, 50, 50);
+        ayudaSplineCubico.setBounds(580, 550, 50, 50);
 
         buttonGroup1.add(newtonInterpolacion);
         getContentPane().add(newtonInterpolacion);
-        newtonInterpolacion.setBounds(280, 285, 30, 23);
+        newtonInterpolacion.setBounds(280, 470, 30, 23);
 
         buttonGroup1.add(lagrange);
         lagrange.addActionListener(new java.awt.event.ActionListener() {
@@ -99,20 +128,53 @@ public class Interpolacion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lagrange);
-        lagrange.setBounds(585, 285, 30, 23);
+        lagrange.setBounds(580, 470, 30, 23);
 
         buttonGroup1.add(splineLineal);
         getContentPane().add(splineLineal);
-        splineLineal.setBounds(900, 285, 28, 23);
+        splineLineal.setBounds(900, 470, 28, 23);
 
         buttonGroup1.add(splineCuadratico);
         getContentPane().add(splineCuadratico);
-        splineCuadratico.setBounds(485, 385, 28, 23);
+        splineCuadratico.setBounds(480, 565, 28, 23);
 
         buttonGroup1.add(splineCubico);
         splineCubico.setToolTipText("");
         getContentPane().add(splineCubico);
-        splineCubico.setBounds(810, 385, 28, 23);
+        splineCubico.setBounds(800, 565, 28, 23);
+
+        jTextField1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(410, 175, 280, 40);
+
+        actualizarN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonActualizarN.png"))); // NOI18N
+        actualizarN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actualizarNActionPerformed(evt);
+            }
+        });
+        getContentPane().add(actualizarN);
+        actualizarN.setBounds(700, 173, 150, 40);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(40, 260, 950, 190);
+
+        jTextField2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(320, 215, 370, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Interpolacion.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -135,18 +197,101 @@ public class Interpolacion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lagrangeActionPerformed
 
-    private void miSistemaDeEcuacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSistemaDeEcuacionesActionPerformed
+    private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
+        // TODO add your handling code here:        
+        newtonInterpolacion.setActionCommand("0");
+        lagrange.setActionCommand("1");
+        splineLineal.setActionCommand("2");
+        splineCuadratico.setActionCommand("3");
+        splineCubico.setActionCommand("4");        
+        int metodo;
+        boolean metodoCorrecto = false;
+        
+        try{
+            metodo = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
+        }catch(Exception e){
+            metodo = -1;
+        }
+        
+        if(n >= 1 && (valorX >= 0 || valorX <= 0)){
+            switch(metodo){
+                case 0:
+                    //Newton
+                    metodoCorrecto = true;
+                    break;
+                case 1:
+                    // Lagrange
+                    metodoCorrecto = true;
+                    break;
+                case 2:
+                    //Spline Lineal
+                    metodoCorrecto = true;
+                    break;
+                case 3:
+                    //Spline Cuadrático
+                    metodoCorrecto = true;
+                    break;
+                case 4:
+                    //Spline Cúbico
+                    metodoCorrecto = true;
+                    break;
+                default:
+                    metodoCorrecto = false;
+                    JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un método");
+                    break;
+            }
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Por favor asigne valores a sus puntos y a X");
+        }
+        
+        if(metodoCorrecto){
+            ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion();
+            resultadoInterpolacion.setVisible(true);
+            resultadoInterpolacion.setSize(1024,768);
+            resultadoInterpolacion.setResizable(false);
+            resultadoInterpolacion.setLocationRelativeTo(null);        
+            dispose();
+        }
+    }//GEN-LAST:event_calcularActionPerformed
+
+    private void actualizarNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarNActionPerformed
         // TODO add your handling code here:
-        MiSistemaDeEcuaciones miSistemaEcuaciones = new MiSistemaDeEcuaciones();
-        miSistemaEcuaciones.setVisible(true);
-        miSistemaEcuaciones.setSize(1024,768);
-        miSistemaEcuaciones.setResizable(false);
-        miSistemaEcuaciones.setLocationRelativeTo(null);
-        dispose();
-    }//GEN-LAST:event_miSistemaDeEcuacionesActionPerformed
+        n = Integer.parseInt(jTextField1.getText());
+        if(n > 0){
+            
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Recuerde que el valor de N debe ser mayor a cero");
+        }
+    }//GEN-LAST:event_actualizarNActionPerformed
+
+    private void ayudaNewtonInterpolacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaNewtonInterpolacionActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Newton", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaNewtonInterpolacion.png")));
+    }//GEN-LAST:event_ayudaNewtonInterpolacionActionPerformed
+
+    private void ayudaLagrangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaLagrangeActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Lagrange", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaLagrange.png")));
+    }//GEN-LAST:event_ayudaLagrangeActionPerformed
+
+    private void ayudaSplineLinealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaSplineLinealActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Spline Lineal", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaSplineLineal.png")));
+    }//GEN-LAST:event_ayudaSplineLinealActionPerformed
+
+    private void ayudaSplineCuadraticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaSplineCuadraticoActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Spline Cuadrático", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaSplineCuadratico.png")));
+    }//GEN-LAST:event_ayudaSplineCuadraticoActionPerformed
+
+    private void ayudaSplineCubicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaSplineCubicoActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Spline Cúbico", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaSplineCubico.png")));
+    }//GEN-LAST:event_ayudaSplineCubicoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton actualizarN;
     private javax.swing.JButton ayudaLagrange;
     private javax.swing.JButton ayudaNewtonInterpolacion;
     private javax.swing.JButton ayudaSplineCuadratico;
@@ -156,8 +301,11 @@ public class Interpolacion extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton calcular;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JRadioButton lagrange;
-    private javax.swing.JButton miSistemaDeEcuaciones;
     private javax.swing.JRadioButton newtonInterpolacion;
     private javax.swing.JRadioButton splineCuadratico;
     private javax.swing.JRadioButton splineCubico;
