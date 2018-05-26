@@ -224,8 +224,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
         doolittle.setActionCommand("4");
         cholesky.setActionCommand("5");
         pivoteoEscalonado.setActionCommand("6");
-        matrizInversa.setActionCommand("7");
-        // Caso 6 - No han seleccionado ningún método
+        matrizInversa.setActionCommand("7");        
         int metodo;
         
         try{
