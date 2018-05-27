@@ -261,10 +261,11 @@ public class Interpolacion extends javax.swing.JFrame {
         lagrange.setActionCommand("1");
         splineLineal.setActionCommand("2");
         splineCuadratico.setActionCommand("3");
-        splineCubico.setActionCommand("4");        
+        splineCubico.setActionCommand("4");  
+        neville.setActionCommand("5");
         int metodo;
         boolean metodoCorrecto = false;
-        
+        String tipoMetodo = null;
         try{
             metodo = Integer.parseInt(buttonGroup1.getSelection().getActionCommand());
         }catch(Exception e){
@@ -276,6 +277,7 @@ public class Interpolacion extends javax.swing.JFrame {
                 case 0:
                     //Newton
                     isNewton = true;
+                    tipoMetodo = "newton";
                     Metodos2.newtonDifDiv(Metodos2.nPuntos, Metodos2.valorX, x, y);
                     try {
                         String s = null;
@@ -314,6 +316,7 @@ public class Interpolacion extends javax.swing.JFrame {
                     break;
                 case 1:
                     // Lagrange
+                    tipoMetodo= "lagrange";
                     isNewton = false;
                     Metodos2.lagrange(Metodos2.nPuntos, Metodos2.valorX, x, y);
                     try {
@@ -364,6 +367,46 @@ public class Interpolacion extends javax.swing.JFrame {
                     //Spline Cúbico
                     metodoCorrecto = true;
                     break;
+                case 5:
+                    //Neville
+                    metodoCorrecto = true;
+                    isNewton = false;
+                    tipoMetodo = "neville";
+                    Metodos2.neville(Metodos2.nPuntos, Metodos2.valorX, x, y);
+                    try {
+                        String s = null;
+
+                        boolean error=false;
+                        while ((s = Metodos2.stdError.readLine()) != null) {
+                            JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                            error=true;
+                        } 
+                        if(!error){
+                            //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                            String output = "";
+                            while ((s = Metodos2.stdOutput.readLine()) != null) {
+                                System.out.println(s);
+                                output = output + (s + "\n");
+                            }
+
+                            String[] arrOutput = output.split("!");
+                            tabla = arrOutput[0];
+                            resultado = arrOutput[1];
+                            polinomio = arrOutput[2];
+                            //System.out.println("SALIDA JAVA");
+                            //System.out.println(etapas);
+                            //System.out.println("--");
+                            //System.out.println(matrizFinal);
+                            //System.out.println("---");
+                            //System.out.println(resultado);
+                            //System.out.println("FIN SALIDA JAVA");
+
+
+                        }
+                    } catch (IOException ex) {
+                        Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    break;                    
                 default:
                     metodoCorrecto = false;
                     JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un método");
@@ -374,13 +417,23 @@ public class Interpolacion extends javax.swing.JFrame {
         }
         
         if(metodoCorrecto){
-            
-            ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion(tabla, resultado, polinomio, isNewton);
-            resultadoInterpolacion.setVisible(true);
-            resultadoInterpolacion.setSize(1024,768);
-            resultadoInterpolacion.setResizable(false);
-            resultadoInterpolacion.setLocationRelativeTo(null);        
-            dispose();
+            if("neville".equals(tipoMetodo)){
+                TablaInterpolacion tablaIn = new TablaInterpolacion(tabla, resultado, polinomio,isNewton);
+                tablaIn.setVisible(true);
+                tablaIn.setSize(1024,768);
+                tablaIn.setResizable(false);
+                tablaIn.setLocationRelativeTo(null);
+                dispose();
+                
+            }else{
+
+                ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion(tabla, resultado, polinomio, isNewton);
+                resultadoInterpolacion.setVisible(true);
+                resultadoInterpolacion.setSize(1024,768);
+                resultadoInterpolacion.setResizable(false);
+                resultadoInterpolacion.setLocationRelativeTo(null);        
+                dispose();
+            }
         }
     }//GEN-LAST:event_calcularActionPerformed
 
