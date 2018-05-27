@@ -14,14 +14,17 @@ public class TablaInterpolacion extends javax.swing.JFrame {
     public static String tabla;
     public static String resultado;
     public static String polinomio;
+    public static boolean isNewton;
+    
     /**
      * Creates new form TablaInterpolacion
      */
-    public TablaInterpolacion(String tab, String res, String pol) {
+    public TablaInterpolacion(String tab, String res, String pol, boolean isN) {
         initComponents();
         tabla = tab;
         resultado = res;
         polinomio = pol;
+        isNewton = isN;
         jTextArea1.setText(tabla);
         
     }
@@ -68,7 +71,7 @@ public class TablaInterpolacion extends javax.swing.JFrame {
 
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
         // TODO add your handling code here:
-        ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion(tabla, resultado, polinomio);
+        ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion(tabla, resultado, polinomio,isNewton);
         resultadoInterpolacion.setVisible(true);
         resultadoInterpolacion.setSize(1024,768);
         resultadoInterpolacion.setResizable(false);
