@@ -391,8 +391,8 @@ public class Interpolacion extends javax.swing.JFrame {
 
                             String[] arrOutput = output.split("!");
                             tabla = arrOutput[0];
-                            resultado = arrOutput[1];
-                            polinomio = arrOutput[2];
+                            resultado = "";
+                            polinomio = "";
                             //System.out.println("SALIDA JAVA");
                             //System.out.println(etapas);
                             //System.out.println("--");
@@ -418,7 +418,7 @@ public class Interpolacion extends javax.swing.JFrame {
         
         if(metodoCorrecto){
             if("neville".equals(tipoMetodo)){
-                TablaInterpolacion tablaIn = new TablaInterpolacion(tabla, resultado, polinomio,isNewton);
+                TablaInterpolacion tablaIn = new TablaInterpolacion(tabla, resultado, polinomio,isNewton, true);
                 tablaIn.setVisible(true);
                 tablaIn.setSize(1024,768);
                 tablaIn.setResizable(false);

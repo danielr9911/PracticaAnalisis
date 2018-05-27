@@ -15,17 +15,20 @@ public class TablaInterpolacion extends javax.swing.JFrame {
     public static String resultado;
     public static String polinomio;
     public static boolean isNewton;
+    public static boolean neville;
     
     /**
      * Creates new form TablaInterpolacion
      */
-    public TablaInterpolacion(String tab, String res, String pol, boolean isN) {
+    public TablaInterpolacion(String tab, String res, String pol, boolean isN, boolean nev) {
         initComponents();
         tabla = tab;
         resultado = res;
         polinomio = pol;
         isNewton = isN;
+        neville = nev;
         jTextArea1.setText(tabla);
+        
         
     }
 
@@ -71,12 +74,23 @@ public class TablaInterpolacion extends javax.swing.JFrame {
 
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
         // TODO add your handling code here:
-        ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion(tabla, resultado, polinomio,isNewton);
-        resultadoInterpolacion.setVisible(true);
-        resultadoInterpolacion.setSize(1024,768);
-        resultadoInterpolacion.setResizable(false);
-        resultadoInterpolacion.setLocationRelativeTo(null);        
-        dispose();
+        if(!neville){
+            ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion(tabla, resultado, polinomio,isNewton);
+            resultadoInterpolacion.setVisible(true);
+            resultadoInterpolacion.setSize(1024,768);
+            resultadoInterpolacion.setResizable(false);
+            resultadoInterpolacion.setLocationRelativeTo(null);        
+            dispose();
+        }else{
+            Interpolacion in = new Interpolacion();
+            in.setVisible(true);
+            in.setSize(1024,768);
+            in.setResizable(false);
+            in.setLocationRelativeTo(null);
+            dispose();
+        }
+        
+        
     }//GEN-LAST:event_botonRegresarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
