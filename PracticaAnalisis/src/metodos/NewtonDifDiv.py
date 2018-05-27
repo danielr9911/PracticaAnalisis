@@ -62,7 +62,7 @@ def main():
     print("POLINOMIO:")
     pol = pol.replace("--", "+")
     print("P(x): " + pol)
-
+    print("----------------------------------------")
     print("RESULTADO:")
     res = "f(%f) = %f" %(val, resultado)
     print(res)

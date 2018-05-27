@@ -297,9 +297,7 @@ public class Interpolacion extends javax.swing.JFrame {
                     } catch (IOException ex) {
                         Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
                     }
-
-                    metodoCorrecto = true;
-                    break;
+                    
                 case 1:
                     // Lagrange
                     metodoCorrecto = true;
@@ -326,7 +324,7 @@ public class Interpolacion extends javax.swing.JFrame {
         }
         
         if(metodoCorrecto){
-            ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion();
+            ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion(tabla, resultado, polinomio);
             resultadoInterpolacion.setVisible(true);
             resultadoInterpolacion.setSize(1024,768);
             resultadoInterpolacion.setResizable(false);

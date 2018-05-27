@@ -14,8 +14,15 @@ public class ResultadoInterpolacion extends javax.swing.JFrame {
     /**
      * Creates new form ResultadoInterpolacion
      */
-    public ResultadoInterpolacion() {
+    public static String tabla;
+    public static String resultado;
+    public static String polinomio;
+    public ResultadoInterpolacion(String tab, String res, String pol) {
         initComponents();
+        tabla = tab;
+        resultado = res;
+        polinomio = pol;
+        jTextArea1.setText(resultado);
     }
 
     /**
@@ -80,7 +87,7 @@ public class ResultadoInterpolacion extends javax.swing.JFrame {
 
     private void botonVerTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerTablaActionPerformed
         // TODO add your handling code here:
-        TablaInterpolacion tablaIn = new TablaInterpolacion();
+        TablaInterpolacion tablaIn = new TablaInterpolacion(tabla, resultado, polinomio);
         tablaIn.setVisible(true);
         tablaIn.setSize(1024,768);
         tablaIn.setResizable(false);
