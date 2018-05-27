@@ -104,7 +104,7 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
+        calcularInversa = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         jTextArea3.setColumns(20);
@@ -173,9 +173,14 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         getContentPane().add(jScrollPane6);
         jScrollPane6.setBounds(500, 320, 454, 340);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonCalcularInversa.png"))); // NOI18N
-        getContentPane().add(jButton2);
-        jButton2.setBounds(360, 665, 340, 90);
+        calcularInversa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonCalcularInversa.png"))); // NOI18N
+        calcularInversa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcularInversaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(calcularInversa);
+        calcularInversa.setBounds(360, 665, 340, 90);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ResultadosLU.png"))); // NOI18N
         jLabel1.setToolTipText("");
@@ -205,11 +210,21 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void calcularInversaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularInversaActionPerformed
+        // TODO add your handling code here:
+        MatrizInversa matrizInversa = new MatrizInversa();
+        matrizInversa.setVisible(true);
+        matrizInversa.setSize(1024,768);
+        matrizInversa.setResizable(false);
+        matrizInversa.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_calcularInversaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresar;
+    private javax.swing.JButton calcularInversa;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
