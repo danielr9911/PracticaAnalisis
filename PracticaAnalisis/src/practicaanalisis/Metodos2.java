@@ -506,4 +506,41 @@ public class Metodos2 {
             Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public static void lagrange(int n, double val, Double[] x, Double[] y) {
+        String xVal = "";
+        String yVal = "";
+        for (int i = 0; i < x.length; i++) {
+            if(i!=x.length-1){
+                xVal = xVal + x[i] + ";";
+                yVal = yVal + y[i] + ";";
+            }else{
+                xVal = xVal + x[i];
+                yVal = yVal + y[i];
+            }
+        }
+        
+        String args = n +" "+ val+" " + xVal+" " + yVal;
+        
+        String ruta = new File(".").getAbsolutePath();
+        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        ruta = ruta + "metodos/Lagrange.py"; 
+        if(PracticaAnalisis.os.equals("win")){
+            ruta = "\""+ruta+"\""; 
+        }
+        String comando = "python " + ruta + " " + args;
+        System.out.println(comando);
+        
+        try {
+            Process p = Runtime.getRuntime().exec(comando);
+            stdOutput = new BufferedReader(new 
+                 InputStreamReader(p.getInputStream()));
+
+            stdError = new BufferedReader(new 
+                 InputStreamReader(p.getErrorStream()));
+            //Interpretar res
+        } catch (IOException ex) {
+            Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

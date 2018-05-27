@@ -64,13 +64,19 @@ public class ResultadoInterpolacion extends javax.swing.JFrame {
     public static String tabla;
     public static String resultado;
     public static String polinomio;
-    public ResultadoInterpolacion(String tab, String res, String pol) {
+    public ResultadoInterpolacion(String tab, String res, String pol, boolean isNewton) {
         initComponents();
         tabla = tab;
         resultado = res;
         polinomio = pol;
         jTextArea1.setText(resultado);
         funRes=pol;
+        
+        if(isNewton){
+            botonVerTabla.setVisible(true);
+        }else{
+            botonVerTabla.setVisible(false);
+        }
         
         imageIcon = new ImageIcon(getClass().getResource("/imagenes/background.jpg"));
 
