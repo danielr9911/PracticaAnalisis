@@ -28,9 +28,9 @@ def main():
             if i!=k:
                 productoria = productoria * (val - x[i]) / (x[k] - x[i])
                 #termino = termino + ("[(x-"+x[i]+")/("+x[k]+"-"+x[i]+")]")
-                termino = termino + "[(x-%f)/(%f-%f)]" %(x[i],x[k],x[i])
+                termino = termino + "((x-%f)/(%f-%f))" %(x[i],x[k],x[i])
 
-        temp = "L%f(x): " %k
+        temp = "L%d(x): " %k
         temp = temp + termino
         print(temp)
         if y[k]>0:
@@ -42,6 +42,7 @@ def main():
     print("POLINOMIO:")
     pol.replace("\n", "").replace(")(", ")*(")
     print("P(x): " + pol)
+    print("----------------------------------------")
     print("RESULTADO:")
     res = "f(%f) = %f" % (val, resultado)
     print(res)
