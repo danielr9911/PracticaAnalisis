@@ -6,6 +6,12 @@
 package interfaz;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import practicaanalisis.Metodos2;
 
 /**
  *
@@ -16,10 +22,25 @@ public class Interpolacion extends javax.swing.JFrame {
     /**
      * Creates new form Interpolacion
      */
-    int n = 0;
-    int valorX = 0;
+    //int n = 0;
+    public static String tabla;
+    public static String resultado;
+    public static String polinomio;
+    
     public Interpolacion() {
         initComponents();
+        jTextField1.setText(String.valueOf(Metodos2.nPuntos));
+        jTextField2.setText(String.valueOf(Metodos2.valorX));
+        if(Metodos2.nPuntos != 0){
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                Metodos2.puntos,
+                new String [Metodos2.nPuntos]
+            ));
+            
+        }else{
+            jTable1.setVisible(false); 
+        }
+        
     }
 
     /**
@@ -197,8 +218,33 @@ public class Interpolacion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lagrangeActionPerformed
 
+    public static Double[][] getTableData (JTable table) {
+        DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+        int nRow = dtm.getRowCount(), nCol = dtm.getColumnCount();
+        Double[][] tableData = new Double[nRow][nCol];
+        for (int i = 0 ; i < nRow ; i++){
+            for (int j = 0 ; j < nCol ; j++){
+                System.out.println(dtm.getValueAt(i,j));
+                if (dtm.getValueAt(i,j) == null || dtm.getValueAt(i,j).toString().replaceAll("\\s","").equals("")){
+                    tableData[i][j] = 0.0;
+                }else{
+                    tableData[i][j] = Double.parseDouble(dtm.getValueAt(i,j).toString());
+                }
+                //tableData[i][j] = Double.parseDouble(dtm.getValueAt(i,j).toString());
+            }
+        }
+        return tableData;
+    }
+    
     private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
         // TODO add your handling code here:        
+        Metodos2.nPuntos = Integer.parseInt(jTextField1.getText());
+        Metodos2.puntos = getTableData(jTable1);
+        Metodos2.valorX = Double.parseDouble(jTextField2.getText());
+        
+        Double[] x = Metodos2.puntos[0];
+        Double[] y = Metodos2.puntos[1];
+        
         newtonInterpolacion.setActionCommand("0");
         lagrange.setActionCommand("1");
         splineLineal.setActionCommand("2");
@@ -213,10 +259,45 @@ public class Interpolacion extends javax.swing.JFrame {
             metodo = -1;
         }
         
-        if(n >= 1 && (valorX >= 0 || valorX <= 0)){
+        if(Metodos2.nPuntos >= 2){
             switch(metodo){
                 case 0:
                     //Newton
+                    Metodos2.newtonDifDiv(Metodos2.nPuntos, Metodos2.valorX, x, y);
+                    try {
+                        String s = null;
+
+                        boolean error=false;
+                        while ((s = Metodos2.stdError.readLine()) != null) {
+                            JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                            error=true;
+                        } 
+                        if(!error){
+                            //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                            String output = "";
+                            while ((s = Metodos2.stdOutput.readLine()) != null) {
+                                //System.out.println(s);
+                                output = output + (s + "\n");
+                            }
+
+                            String[] arrOutput = output.split("!");
+                            tabla = arrOutput[0];
+                            resultado = arrOutput[1];
+                            polinomio = arrOutput[2];
+                            //System.out.println("SALIDA JAVA");
+                            //System.out.println(etapas);
+                            //System.out.println("--");
+                            //System.out.println(matrizFinal);
+                            //System.out.println("---");
+                            //System.out.println(resultado);
+                            //System.out.println("FIN SALIDA JAVA");
+
+
+                        }
+                    } catch (IOException ex) {
+                        Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
                     metodoCorrecto = true;
                     break;
                 case 1:
@@ -256,9 +337,19 @@ public class Interpolacion extends javax.swing.JFrame {
 
     private void actualizarNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarNActionPerformed
         // TODO add your handling code here:
-        n = Integer.parseInt(jTextField1.getText());
+        int n = Integer.parseInt(jTextField1.getText());
         if(n > 0){
-            
+            Double[][] matrizA = new Double[2][n];
+            for(int i=0; i<matrizA.length; i++){
+                for(int j=0; j<matrizA[i].length; j++){
+                    matrizA[i][j] = null;
+                }
+            }
+            jTable1.setVisible(true);
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            matrizA,
+            new String [n]
+        ));
         }else{
             JOptionPane.showMessageDialog(rootPane, "Recuerde que el valor de N debe ser mayor a cero");
         }

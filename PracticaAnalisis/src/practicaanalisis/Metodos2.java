@@ -27,6 +27,9 @@ public class Metodos2 {
     public static Double[] b = null;
     public static Double[] x = null;
     public static int tam = 0;
+    public static int nPuntos = 0;
+    public static Double[][] puntos = null;
+    public static double valorX = 0;
     public static Double[][] matizFinal = null;
     public static String resX= "";
     public static int[] vectorMarcas = null;
@@ -464,5 +467,10 @@ public class Metodos2 {
             Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
         }
         //Tenemos salida y salidaError
+    }
+    
+    
+    public static void newtonDifDiv(int n, double val, Double[] x, Double[] y) {
+        
     }
 }
