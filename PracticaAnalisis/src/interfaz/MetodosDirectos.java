@@ -57,9 +57,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
         ayudaDoolittle = new javax.swing.JButton();
         ayudaCholesky = new javax.swing.JButton();
         pivoteoEscalonado = new javax.swing.JRadioButton();
-        matrizInversa = new javax.swing.JRadioButton();
         ayudaPivoteoEscalonado = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,28 +97,28 @@ public class MetodosDirectos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(simple);
-        simple.setBounds(280, 285, 30, 21);
+        simple.setBounds(345, 285, 30, 23);
 
         buttonGroup1.add(pivoteoParcial);
         getContentPane().add(pivoteoParcial);
-        pivoteoParcial.setBounds(620, 285, 21, 21);
+        pivoteoParcial.setBounds(730, 285, 28, 23);
 
         buttonGroup1.add(pivoteoTotal);
         getContentPane().add(pivoteoTotal);
-        pivoteoTotal.setBounds(910, 285, 21, 21);
+        pivoteoTotal.setBounds(420, 373, 28, 23);
 
         buttonGroup1.add(crout);
         getContentPane().add(crout);
-        crout.setBounds(270, 525, 21, 21);
+        crout.setBounds(270, 525, 28, 23);
 
         buttonGroup1.add(doolittle);
         getContentPane().add(doolittle);
-        doolittle.setBounds(560, 525, 21, 21);
+        doolittle.setBounds(560, 525, 28, 23);
 
         buttonGroup1.add(cholesky);
         cholesky.setToolTipText("");
         getContentPane().add(cholesky);
-        cholesky.setBounds(860, 525, 21, 21);
+        cholesky.setBounds(860, 525, 28, 23);
 
         ayudaSimple.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
         ayudaSimple.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +127,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ayudaSimple);
-        ayudaSimple.setBounds(130, 270, 50, 50);
+        ayudaSimple.setBounds(210, 270, 50, 50);
 
         ayudaPivoteoParcial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
         ayudaPivoteoParcial.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +136,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ayudaPivoteoParcial);
-        ayudaPivoteoParcial.setBounds(375, 270, 50, 50);
+        ayudaPivoteoParcial.setBounds(500, 270, 50, 50);
 
         ayudaPivoteoTotal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
         ayudaPivoteoTotal.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +145,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ayudaPivoteoTotal);
-        ayudaPivoteoTotal.setBounds(685, 270, 50, 50);
+        ayudaPivoteoTotal.setBounds(210, 360, 50, 50);
 
         ayudaCrout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
         ayudaCrout.addActionListener(new java.awt.event.ActionListener() {
@@ -178,11 +176,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
 
         buttonGroup1.add(pivoteoEscalonado);
         getContentPane().add(pivoteoEscalonado);
-        pivoteoEscalonado.setBounds(480, 375, 30, 21);
-
-        buttonGroup1.add(matrizInversa);
-        getContentPane().add(matrizInversa);
-        matrizInversa.setBounds(750, 370, 21, 21);
+        pivoteoEscalonado.setBounds(780, 373, 30, 23);
 
         ayudaPivoteoEscalonado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
         ayudaPivoteoEscalonado.addActionListener(new java.awt.event.ActionListener() {
@@ -191,11 +185,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ayudaPivoteoEscalonado);
-        ayudaPivoteoEscalonado.setBounds(190, 360, 50, 50);
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
-        getContentPane().add(jButton2);
-        jButton2.setBounds(520, 360, 50, 50);
+        ayudaPivoteoEscalonado.setBounds(500, 355, 50, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/MetodosDirectos.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -602,9 +592,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
     private javax.swing.JRadioButton cholesky;
     private javax.swing.JRadioButton crout;
     private javax.swing.JRadioButton doolittle;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JRadioButton matrizInversa;
     private javax.swing.JButton miMatriz;
     private javax.swing.JRadioButton pivoteoEscalonado;
     private javax.swing.JRadioButton pivoteoParcial;

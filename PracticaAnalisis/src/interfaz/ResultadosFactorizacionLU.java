@@ -104,6 +104,7 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         jTextArea3.setColumns(20);
@@ -153,7 +154,7 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         jScrollPane5.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane5);
-        jScrollPane5.setBounds(30, 320, 452, 340);
+        jScrollPane5.setBounds(30, 320, 454, 340);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -170,7 +171,11 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         jScrollPane6.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane6);
-        jScrollPane6.setBounds(500, 320, 452, 340);
+        jScrollPane6.setBounds(500, 320, 454, 340);
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonCalcularInversa.png"))); // NOI18N
+        getContentPane().add(jButton2);
+        jButton2.setBounds(360, 665, 340, 90);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ResultadosLU.png"))); // NOI18N
         jLabel1.setToolTipText("");
@@ -204,6 +209,7 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
