@@ -64,13 +64,20 @@ public class ResultadoInterpolacion extends javax.swing.JFrame {
     public static String tabla;
     public static String resultado;
     public static String polinomio;
-    public ResultadoInterpolacion(String tab, String res, String pol) {
+    public static boolean isNewton;
+    public ResultadoInterpolacion(String tab, String res, String pol, boolean isN) {
         initComponents();
         tabla = tab;
         resultado = res;
         polinomio = pol;
         jTextArea1.setText(resultado);
         funRes=pol;
+        isNewton = isN;
+        if(isNewton){
+            botonVerTabla.setVisible(true);
+        }else{
+            botonVerTabla.setVisible(false);
+        }
         
         imageIcon = new ImageIcon(getClass().getResource("/imagenes/background.jpg"));
 
@@ -161,7 +168,7 @@ public class ResultadoInterpolacion extends javax.swing.JFrame {
 
     private void botonVerTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerTablaActionPerformed
         // TODO add your handling code here:
-        TablaInterpolacion tablaIn = new TablaInterpolacion(tabla, resultado, polinomio);
+        TablaInterpolacion tablaIn = new TablaInterpolacion(tabla, resultado, polinomio,isNewton);
         tablaIn.setVisible(true);
         tablaIn.setSize(1024,768);
         tablaIn.setResizable(false);

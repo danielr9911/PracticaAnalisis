@@ -252,6 +252,7 @@ public class Interpolacion extends javax.swing.JFrame {
         Metodos2.nPuntos = Integer.parseInt(jTextField1.getText());
         Metodos2.puntos = getTableData(jTable1);
         Metodos2.valorX = Double.parseDouble(jTextField2.getText());
+        boolean isNewton = false;
         
         Double[] x = Metodos2.puntos[0];
         Double[] y = Metodos2.puntos[1];
@@ -274,6 +275,7 @@ public class Interpolacion extends javax.swing.JFrame {
             switch(metodo){
                 case 0:
                     //Newton
+                    isNewton = true;
                     Metodos2.newtonDifDiv(Metodos2.nPuntos, Metodos2.valorX, x, y);
                     try {
                         String s = null;
@@ -287,7 +289,7 @@ public class Interpolacion extends javax.swing.JFrame {
                             //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
                             String output = "";
                             while ((s = Metodos2.stdOutput.readLine()) != null) {
-                                //System.out.println(s);
+                                System.out.println(s);
                                 output = output + (s + "\n");
                             }
 
@@ -308,11 +310,48 @@ public class Interpolacion extends javax.swing.JFrame {
                     } catch (IOException ex) {
                         Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    
-                case 1:
-                    // Lagrange
                     metodoCorrecto = true;
                     break;
+                case 1:
+                    // Lagrange
+                    isNewton = false;
+                    Metodos2.lagrange(Metodos2.nPuntos, Metodos2.valorX, x, y);
+                    try {
+                        String s = null;
+
+                        boolean error=false;
+                        while ((s = Metodos2.stdError.readLine()) != null) {
+                            JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                            error=true;
+                        } 
+                        if(!error){
+                            //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                            String output = "";
+                            while ((s = Metodos2.stdOutput.readLine()) != null) {
+                                System.out.println(s);
+                                output = output + (s + "\n");
+                            }
+
+                            String[] arrOutput = output.split("!");
+                            tabla = arrOutput[0];
+                            resultado = arrOutput[1];
+                            polinomio = arrOutput[2];
+                            //System.out.println("SALIDA JAVA");
+                            //System.out.println(etapas);
+                            //System.out.println("--");
+                            //System.out.println(matrizFinal);
+                            //System.out.println("---");
+                            //System.out.println(resultado);
+                            //System.out.println("FIN SALIDA JAVA");
+
+
+                        }
+                    } catch (IOException ex) {
+                        Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    metodoCorrecto = true;
+                    break;
+                    
                 case 2:
                     //Spline Lineal
                     metodoCorrecto = true;
@@ -335,7 +374,8 @@ public class Interpolacion extends javax.swing.JFrame {
         }
         
         if(metodoCorrecto){
-            ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion(tabla, resultado, polinomio);
+            
+            ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion(tabla, resultado, polinomio, isNewton);
             resultadoInterpolacion.setVisible(true);
             resultadoInterpolacion.setSize(1024,768);
             resultadoInterpolacion.setResizable(false);
