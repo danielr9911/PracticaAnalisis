@@ -168,7 +168,7 @@ public class ResultadoInterpolacion extends javax.swing.JFrame {
 
     private void botonVerTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerTablaActionPerformed
         // TODO add your handling code here:
-        TablaInterpolacion tablaIn = new TablaInterpolacion(tabla, resultado, polinomio,isNewton);
+        TablaInterpolacion tablaIn = new TablaInterpolacion(tabla, resultado, polinomio,isNewton, false);
         tablaIn.setVisible(true);
         tablaIn.setSize(1024,768);
         tablaIn.setResizable(false);
