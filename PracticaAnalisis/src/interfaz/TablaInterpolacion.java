@@ -11,11 +11,19 @@ package interfaz;
  */
 public class TablaInterpolacion extends javax.swing.JFrame {
 
+    public static String tabla;
+    public static String resultado;
+    public static String polinomio;
     /**
      * Creates new form TablaInterpolacion
      */
-    public TablaInterpolacion() {
+    public TablaInterpolacion(String tab, String res, String pol) {
         initComponents();
+        tabla = tab;
+        resultado = res;
+        polinomio = pol;
+        jTextArea1.setText(tabla);
+        
     }
 
     /**
@@ -60,7 +68,7 @@ public class TablaInterpolacion extends javax.swing.JFrame {
 
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
         // TODO add your handling code here:
-        ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion();
+        ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion(tabla, resultado, polinomio);
         resultadoInterpolacion.setVisible(true);
         resultadoInterpolacion.setSize(1024,768);
         resultadoInterpolacion.setResizable(false);

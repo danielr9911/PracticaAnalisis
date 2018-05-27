@@ -33,41 +33,49 @@ def main():
 
     for i in range(n):
         tabla[i][0] = y[i]
-
+    ban = True
     for i in range(n):
         for j in range(1,i+1):
-            tabla[i][j] = (tabla[i][j-1] - tabla[i-1][j-1])/(x[i] - x[i-j])
+            if (float(x[i]) - float(x[i-j])) == 0.0:
+                print("Se encontro una division por cero")
+                print("!")
+                print("Se encontro una division por cero")
+                print("!")
+                print("0")
+                ban = False
+            else:
+                tabla[i][j] = (float(tabla[i][j-1]) - float(tabla[i-1][j-1]))/(float(x[i]) - float(x[i-j]))
+    if ban:
+        print("TABLA:")
+        imprimirTabla(tabla, n, x)
 
-    print("TABLA:")
-    imprimirTabla(tabla, n, x)
+        pol = "%f" %tabla[0][0]
+        temp = ""
+        resultado = tabla[0][0]
+        aux = 1
 
-    pol = "%f" %tabla[0][0]
-    temp = ""
-    resultado = tabla[0][0]
-    aux = 1
+        for i in range(1,n):
+            temp = temp+"(x"+"-"+str(x[i-1])+")"
+            #pol = pol + "\n"+(tabla[i][i]>0?"+":"")+(tabla[i][i]+"*"+temp);
+            pol = pol + "\n"
+            if tabla[i][i]>0:
+                pol = pol + "+"
+            pol = pol + str(tabla[i][i])
+            pol = pol + "*" + temp
 
-    for i in range(1,n):
-        temp = temp+"(x"+"-"+str(x[i-1])+")"
-        #pol = pol + "\n"+(tabla[i][i]>0?"+":"")+(tabla[i][i]+"*"+temp);
-        pol = pol + "\n"
-        if tabla[i][i]>0:
-            pol = pol + "+"
-        pol = pol + str(tabla[i][i])
-        pol = pol + "*" + temp
+            aux = aux *(val-x[i-1])
+            resultado = resultado + tabla[i][i] * aux
 
-        aux = aux *(val-x[i-1])
-        resultado = resultado + tabla[i][i] * aux
+        print("!")
+        print("POLINOMIO:")
+        pol = pol.replace("--", "+")
+        print("P(x): " + pol)
+        print("----------------------------------------")
+        print("RESULTADO:")
+        res = "f(%f) = %f" %(val, resultado)
+        print(res)
 
-    print("!")
-    print("POLINOMIO:")
-    pol = pol.replace("--", "+")
-    print("P(x): " + pol)
-
-    print("RESULTADO:")
-    res = "f(%f) = %f" %(val, resultado)
-    print(res)
-
-    print("!")
-    print(pol.replace("\n", "").replace(")(", ")*("))
+        print("!")
+        print(pol.replace("\n", "").replace(")(", ")*("))
 
 main()
