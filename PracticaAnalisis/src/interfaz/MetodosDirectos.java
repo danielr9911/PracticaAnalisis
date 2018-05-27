@@ -213,8 +213,7 @@ public class MetodosDirectos extends javax.swing.JFrame {
         crout.setActionCommand("3");
         doolittle.setActionCommand("4");
         cholesky.setActionCommand("5");
-        pivoteoEscalonado.setActionCommand("6");
-        matrizInversa.setActionCommand("7");        
+        pivoteoEscalonado.setActionCommand("6");       
         int metodo;
         
         try{
