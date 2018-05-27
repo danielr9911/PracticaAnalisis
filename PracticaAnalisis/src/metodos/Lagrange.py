@@ -20,7 +20,7 @@ def main():
     print("POLINOMIOS Li(x):")
 
     resultado = 0
-    pol = "P(x): "
+    pol = ""
     for k in range(n):
         productoria = 1
         termino = ""
@@ -32,6 +32,7 @@ def main():
 
         temp = "L%f(x): " %k
         temp = temp + termino
+        print(temp)
         if y[k]>0:
             pol = pol + "+"
         pol = pol + str(y[k]) + "*" + termino +"\n"
@@ -39,8 +40,11 @@ def main():
 
     print("----------------------------------------")
     print("POLINOMIO:")
-    print(pol.replace("\n", "").replace(")(", ")*("))
-    print(pol)
+    pol.replace("\n", "").replace(")(", ")*(")
+    print("P(x): " + pol)
+    print("RESULTADO:")
+    res = "f(%f) = %f" % (val, resultado)
+    print(res)
     print("!")
     print(pol.replace("\n", "").replace(")(", ")*("))
 main()
