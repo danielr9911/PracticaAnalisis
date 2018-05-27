@@ -36,14 +36,15 @@ def main():
     ban = True
     for i in range(n):
         for j in range(1,i+1):
-            if x[i] - x[i-j]:
+            if (float(x[i]) - float(x[i-j])) == 0.0:
                 print("Se encontro una division por cero")
                 print("!")
                 print("Se encontro una division por cero")
                 print("!")
                 print("0")
                 ban = False
-            tabla[i][j] = (tabla[i][j-1] - tabla[i-1][j-1])/(x[i] - x[i-j])
+            else:
+                tabla[i][j] = (float(tabla[i][j-1]) - float(tabla[i-1][j-1]))/(float(x[i]) - float(x[i-j]))
     if ban:
         print("TABLA:")
         imprimirTabla(tabla, n, x)
