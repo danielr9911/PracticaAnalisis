@@ -53,7 +53,7 @@ public class TablaInterpolacion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonRegresar);
-        botonRegresar.setBounds(100, 20, 80, 80);
+        botonRegresar.setBounds(90, 10, 80, 80);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
