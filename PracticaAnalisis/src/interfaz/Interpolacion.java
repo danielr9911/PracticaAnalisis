@@ -70,6 +70,8 @@ public class Interpolacion extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jTextField2 = new javax.swing.JTextField();
+        ayudaNeville = new javax.swing.JButton();
+        neville = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -100,7 +102,7 @@ public class Interpolacion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ayudaNewtonInterpolacion);
-        ayudaNewtonInterpolacion.setBounds(120, 455, 50, 50);
+        ayudaNewtonInterpolacion.setBounds(110, 455, 50, 50);
 
         ayudaLagrange.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
         ayudaLagrange.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +111,7 @@ public class Interpolacion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ayudaLagrange);
-        ayudaLagrange.setBounds(400, 455, 50, 50);
+        ayudaLagrange.setBounds(355, 455, 50, 50);
 
         ayudaSplineLineal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
         ayudaSplineLineal.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +120,7 @@ public class Interpolacion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ayudaSplineLineal);
-        ayudaSplineLineal.setBounds(680, 455, 50, 50);
+        ayudaSplineLineal.setBounds(110, 550, 50, 50);
 
         ayudaSplineCuadratico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
         ayudaSplineCuadratico.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +129,7 @@ public class Interpolacion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ayudaSplineCuadratico);
-        ayudaSplineCuadratico.setBounds(210, 550, 50, 50);
+        ayudaSplineCuadratico.setBounds(354, 550, 50, 50);
 
         ayudaSplineCubico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
         ayudaSplineCubico.addActionListener(new java.awt.event.ActionListener() {
@@ -136,11 +138,11 @@ public class Interpolacion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ayudaSplineCubico);
-        ayudaSplineCubico.setBounds(580, 550, 50, 50);
+        ayudaSplineCubico.setBounds(670, 550, 50, 50);
 
         buttonGroup1.add(newtonInterpolacion);
         getContentPane().add(newtonInterpolacion);
-        newtonInterpolacion.setBounds(280, 470, 30, 23);
+        newtonInterpolacion.setBounds(255, 470, 30, 23);
 
         buttonGroup1.add(lagrange);
         lagrange.addActionListener(new java.awt.event.ActionListener() {
@@ -149,20 +151,20 @@ public class Interpolacion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lagrange);
-        lagrange.setBounds(580, 470, 30, 23);
+        lagrange.setBounds(530, 470, 30, 23);
 
         buttonGroup1.add(splineLineal);
         getContentPane().add(splineLineal);
-        splineLineal.setBounds(900, 470, 28, 23);
+        splineLineal.setBounds(320, 565, 28, 23);
 
         buttonGroup1.add(splineCuadratico);
         getContentPane().add(splineCuadratico);
-        splineCuadratico.setBounds(480, 565, 28, 23);
+        splineCuadratico.setBounds(620, 565, 28, 23);
 
         buttonGroup1.add(splineCubico);
         splineCubico.setToolTipText("");
         getContentPane().add(splineCubico);
-        splineCubico.setBounds(800, 565, 28, 23);
+        splineCubico.setBounds(890, 565, 28, 23);
 
         jTextField1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(jTextField1);
@@ -196,6 +198,15 @@ public class Interpolacion extends javax.swing.JFrame {
         jTextField2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(jTextField2);
         jTextField2.setBounds(320, 215, 370, 40);
+
+        ayudaNeville.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        getContentPane().add(ayudaNeville);
+        ayudaNeville.setBounds(670, 455, 50, 50);
+
+        buttonGroup1.add(neville);
+        neville.setToolTipText("");
+        getContentPane().add(neville);
+        neville.setBounds(810, 470, 28, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Interpolacion.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -382,6 +393,7 @@ public class Interpolacion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actualizarN;
     private javax.swing.JButton ayudaLagrange;
+    private javax.swing.JButton ayudaNeville;
     private javax.swing.JButton ayudaNewtonInterpolacion;
     private javax.swing.JButton ayudaSplineCuadratico;
     private javax.swing.JButton ayudaSplineCubico;
@@ -395,6 +407,7 @@ public class Interpolacion extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JRadioButton lagrange;
+    private javax.swing.JRadioButton neville;
     private javax.swing.JRadioButton newtonInterpolacion;
     private javax.swing.JRadioButton splineCuadratico;
     private javax.swing.JRadioButton splineCubico;
