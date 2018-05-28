@@ -30,8 +30,13 @@ def interpretarMatriz(tam,b,a):
     return matrizB, matrizA
 
 def sIteration(xValues,A,size,r, norma):
-    nInf = 0
-    nEuc = 0
+    nInfAbs = 0
+    nEucAbs = 0
+    nInfRel = 0
+    nInfRelD = 0
+    nEucRel = 0
+    nEucRelD = 0
+
     for i in range (size):
         suma = 0
         for j in range (size):
@@ -45,13 +50,23 @@ def sIteration(xValues,A,size,r, norma):
         xNewValues = (var - suma)/aii
         xNewValues= r*xNewValues+(1-r)*xValues[i]
 
-        nInf = max(nInf, abs(xNewValues- xValues[i]))
-        nEuc = nEuc + (xNewValues- xValues[i]) ** 2
+        nInfAbs = max(nInfAbs, abs(xNewValues- xValues[i]))
+        nInfRelD = max(nInfRelD, abs(xNewValues))
+        nEucAbs = nEucAbs + (xNewValues- xValues[i]) ** 2
+        nEucRelD = nEucRelD + (xNewValues) ** 2
         xValues[i]=xNewValues
+
+    nInfRel = nInfAbs / nInfRelD
+    nEucRel = nEucAbs / nEucRelD
+
     if norma == 0:
-        disp = nInf
-    else:
-        disp = nEuc
+        disp = nInfAbs
+    elif norma == 1:
+        disp = nInfRel
+    elif norma == 2:
+        disp = nEucAbs
+    elif norma == 3:
+        disp = nEucRel
 
     return disp,xValues
 
