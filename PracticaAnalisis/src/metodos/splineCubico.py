@@ -29,6 +29,8 @@ def main():
     exp = 0
     cont = 1
 
+    print("----------------------- ECUACIONES RESULTANTES -----------------------")
+    print("")
     print("Ecuaciones producidas de f(x):")
 
     for i in range(n*2):
@@ -166,17 +168,20 @@ def main():
         numeroEcuacion = numeroEcuacion + 1
         m = m + 1
         var = (len(x)-1)
-
     print("")
+    print("")
+    print("----------------------- SISTEMA DE ECUACIONES RESULTANTE -----------------------")
+    print("")
+    print("MATRIZ INICIAL")
     for i in range(len(b)):
         tabla[i][4 * n] = b[i]
-    print("!")
+    print("")
     marcasIni = titulosTabla(n*4)
-    print(np.array2string(marcasIni, separator=";")[1:-1])
-    print("!")
+    #print(np.array2string(marcasIni, separator=";")[1:-1])
+    print(marcasIni)
     print(tabla)
-    print("!")
-
+    print("")
+    print("")
     #PIVOTEO TOTAL
     matrizFinal, marcas, exito = gaussianaConPivoteoTotal(tabla, n*4)
 
@@ -184,10 +189,11 @@ def main():
     #print(marcas)
     for i in range(len(marcas)):
         marcasFin[i] = marcasIni[int(marcas[i])]
-    print(np.array2string(marcasFin, separator=";")[1:-1])
-    print("!")
+    #print(np.array2string(marcasFin, separator=";")[1:-1])
+    print("MATRIZ FINAL POR PIVOTEO TOTAL")
+    print("")
+    print(marcasFin)
     print(matrizFinal)
-    print("!")
     #FUNCION POR TRAMOS
 
     #RESULTADO EVALUACION X
@@ -214,8 +220,11 @@ def main():
         fila = fila + str(coeficientes[("d")+str(i+1)])
         intervalo = str(xCopia[i]) + " <= X <= " + str(xCopia[i+1])
         funcion = funcion + fila +" -----> " + intervalo + "\n"
-
-
+    print("")
+    print("----------------------- RESULTADO FINAL -----------------------")
+    print("")
+    print("FUNCION POR TRAMOS")
+    print("")
     funcion = funcion + "}"
     print(funcion)
     xOrden = organizarX(marcasFin, marcasIni, x)
@@ -232,8 +241,10 @@ def main():
     for i in range(4):
         resp = resp + xOrden[(ind*4)+i]*math.pow(val, 3-i)
 
-
-    print("RESULTADO")
+    print("")
+    print("")
+    print("RESULTADO DE LA EVALUACION")
+    print("")
     print("f("+str(val)+") = "+str(resp))
 
 

@@ -26,6 +26,8 @@ public class Interpolacion extends javax.swing.JFrame {
     public static String tabla;
     public static String resultado;
     public static String polinomio;
+    public static String tablaIni;
+    public static String tablaFin;
     
     public Interpolacion() {
         initComponents();
@@ -361,10 +363,48 @@ public class Interpolacion extends javax.swing.JFrame {
                     break;
                 case 3:
                     //Spline Cuadrático
+                    isNewton = false;
+                    
                     metodoCorrecto = true;
                     break;
                 case 4:
                     //Spline Cúbico
+                    tipoMetodo = "spline";
+                    Metodos2.splineCubico(Metodos2.nPuntos, Metodos2.valorX, x, y);
+                    try {
+                        String s = null;
+
+                        boolean error=false;
+                        while ((s = Metodos2.stdError.readLine()) != null) {
+                            JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                            error=true;
+                        } 
+                        if(!error){
+                            //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                            String output = "";
+                            while ((s = Metodos2.stdOutput.readLine()) != null) {
+                                System.out.println(s);
+                                output = output + (s + "\n");
+                            }
+
+                            String[] arrOutput = output.split("!");
+                            tabla = arrOutput[0];
+                            resultado = "";
+                            polinomio = "";
+                            
+                            //System.out.println("SALIDA JAVA");
+                            //System.out.println(etapas);
+                            //System.out.println("--");
+                            //System.out.println(matrizFinal);
+                            //System.out.println("---");
+                            //System.out.println(resultado);
+                            //System.out.println("FIN SALIDA JAVA");
+
+
+                        }
+                    } catch (IOException ex) {
+                        Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     metodoCorrecto = true;
                     break;
                 case 5:
@@ -417,13 +457,14 @@ public class Interpolacion extends javax.swing.JFrame {
         }
         
         if(metodoCorrecto){
-            if("neville".equals(tipoMetodo)){
+            if("neville".equals(tipoMetodo) || "spline".equals(tipoMetodo)){
                 TablaInterpolacion tablaIn = new TablaInterpolacion(tabla, resultado, polinomio,isNewton, true);
                 tablaIn.setVisible(true);
                 tablaIn.setSize(1024,768);
                 tablaIn.setResizable(false);
                 tablaIn.setLocationRelativeTo(null);
                 dispose();
+            }else if ("spline".equals(tipoMetodo)){
                 
             }else{
 
