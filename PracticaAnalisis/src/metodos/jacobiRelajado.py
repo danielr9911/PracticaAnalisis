@@ -34,6 +34,7 @@ def newJacobi(xValues,xNewValues,A,size,r, norma):
     nInfRelD = 0
     nEucRel = 0
     nEucRelD = 0
+    disp = 0
     for i in range (size):
         suma = 0
         for j in range (size):
