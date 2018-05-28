@@ -37,6 +37,7 @@ def sIteration(xValues,A,size,r, norma):
     nEucRel = 0
     nEucRelD = 0
     disp = 0
+
     for i in range (size):
         suma = 0
         for j in range (size):
@@ -56,18 +57,19 @@ def sIteration(xValues,A,size,r, norma):
         nEucRelD = nEucRelD + (xNewValues) ** 2
         xValues[i]=xNewValues
 
+
     nInfRel = nInfAbs / nInfRelD
-    nEucRel = nEucAbs / nEucRelD
-
-    if norma == 0:
+    nEucRel = sqrt(nEucAbs) / sqrt(nEucRelD)
+    
+    if int(norma) == 0:
         disp = nInfAbs
-    elif norma == 1:
+    elif int(norma) == 1:
         disp = nInfRel
-    elif norma == 2:
-        disp = nEucAbs
-    elif norma == 3:
+    elif int(norma) == 2:
+        disp = sqrt(nEucAbs)
+    elif int(norma) == 3:
         disp = nEucRel
-
+    
     return disp,xValues
 
 def gaussS(xValues,A,size,tol,niter,r, norma):
@@ -78,7 +80,9 @@ def gaussS(xValues,A,size,tol,niter,r, norma):
     print(0)
     print("!")
     while (disp > tol and cont < niter):
+        
         disp,xNewValues = sIteration(xValues,A,size,r,norma)
+        
         cont+=1
         print(cont)
         print(xNewValues)
@@ -113,6 +117,6 @@ def main():
             print("x{0} = {1}  ".format(i + 1, x))
 
     else:
-        print ("could not reach the solutions in ", maxIterations , " iterations")
+        print("No se pudo alcanzar una solucion en %d iteraciones") %maxIterations
 
 main()

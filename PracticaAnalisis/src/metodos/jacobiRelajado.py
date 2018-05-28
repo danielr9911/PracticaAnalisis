@@ -51,14 +51,18 @@ def newJacobi(xValues,xNewValues,A,size,r, norma):
         nInfRelD = max(nInfRelD, abs(xNewValues[i]))
         nEucAbs = nEucAbs + (xNewValues[i] - xValues[i]) ** 2
         nEucRelD = nEucRelD + (xNewValues[i]) ** 2
+        
 
-    if norma == 0:
+    nInfRel = nInfAbs / nInfRelD
+    nEucRel = sqrt(nEucAbs) / sqrt(nEucRelD)
+    
+    if int(norma) == 0:
         disp = nInfAbs
-    elif norma == 1:
+    elif int(norma) == 1:
         disp = nInfRel
-    elif norma == 2:
-        disp = nEucAbs
-    elif norma == 3:
+    elif int(norma) == 2:
+        disp = sqrt(nEucAbs)
+    elif int(norma) == 3:
         disp = nEucRel
 
     return disp,xNewValues
@@ -109,6 +113,7 @@ def main():
             print("x{0} = {1}  ".format(i + 1, x))
         
     else:
-        print("could not reach the solutions in ", maxIterations , " iterations")
+        
+        print("No se pudo alcanzar una solucion en %d iteraciones") %maxIterations
 
 main()
