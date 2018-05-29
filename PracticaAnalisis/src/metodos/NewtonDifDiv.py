@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from ast import literal_eval
 import numpy as np
 import sys

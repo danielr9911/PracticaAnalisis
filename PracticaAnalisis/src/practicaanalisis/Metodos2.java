@@ -13,6 +13,7 @@ import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.python.core.PyInstance;
 import org.python.core.PyObject;
 import org.python.core.PyArray;
@@ -470,7 +471,7 @@ public class Metodos2 {
     }
     
     
-    public static void newtonDifDiv(int n, double val, Double[] x, Double[] y) {
+    public static String newtonDifDiv(int n, double val, Double[] x, Double[] y) {
         String xVal = "";
         String yVal = "";
         for (int i = 0; i < x.length; i++) {
@@ -485,9 +486,14 @@ public class Metodos2 {
         
         String args = n +" "+ val+" " + xVal+" " + yVal;
         
-        String ruta = new File(".").getAbsolutePath();
-        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
-        ruta = ruta + "metodos/NewtonDifDiv.py"; 
+        //String ruta = new File(".").getAbsolutePath();
+        //ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        //ruta = ruta.substring(0,ruta.length()-1);
+        
+        //String ruta = System.getProperty("user.dir");
+        
+        String ruta = Metodos2.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        ruta = ruta + "/metodos/NewtonDifDiv.py"; 
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -505,6 +511,7 @@ public class Metodos2 {
         } catch (IOException ex) {
             Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return comando;
     }
     
     public static void lagrange(int n, double val, Double[] x, Double[] y) {
