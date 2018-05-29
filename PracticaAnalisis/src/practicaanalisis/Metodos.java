@@ -265,11 +265,11 @@ public class Metodos {
     public static void init(){
         PythonConnection pc = new PythonConnection();  
         String ruta = System.getProperty("user.dir");
-        System.out.println(ruta);
+        //System.out.println(ruta);
         ruta = ruta + "/lib/metodos/";
-        System.out.println(ruta);
+        //System.out.println(ruta);
         ruta = ruta + "Metodos.py";
-        System.out.println(ruta);
+        //System.out.println(ruta);
         
         //pc.execfile("lib/metodos/Metodos.py");  
         pc.execfile(ruta);  
