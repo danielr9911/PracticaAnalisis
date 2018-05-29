@@ -56,9 +56,13 @@ public class Metodos2 {
         String args = n +" "+matrizB+" "+matrizA;
         
         //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
-        String ruta = new File(".").getAbsolutePath();
-        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
-        ruta = ruta + "metodos/gaussianaSimple.py"; 
+        //String ruta = new File(".").getAbsolutePath();
+        //ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        //ruta = ruta + "metodos/gaussianaSimple.py"; 
+        String ruta = System.getProperty("user.dir");
+        ruta = ruta + "/lib/metodos/";
+        ruta = ruta + "gaussianaSimple.py";
+        
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -107,9 +111,13 @@ public class Metodos2 {
         String args = n +" "+matrizB+" "+matrizA;
         
         //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
-        String ruta = new File(".").getAbsolutePath();
-        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
-        ruta = ruta + "metodos/pivoteoParcial.py"; 
+        //String ruta = new File(".").getAbsolutePath();
+        //ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        //ruta = ruta + "metodos/pivoteoParcial.py"; 
+        String ruta = System.getProperty("user.dir");
+        ruta = ruta + "/lib/metodos/";
+        ruta = ruta + "pivoteoParcial.py";
+        
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -160,9 +168,13 @@ public class Metodos2 {
         String args = n +" "+matrizB+" "+matrizA;
         
         //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
-        String ruta = new File(".").getAbsolutePath();
-        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
-        ruta = ruta + "metodos/pivoteoEscalonado.py"; 
+        //String ruta = new File(".").getAbsolutePath();
+        //ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        //ruta = ruta + "metodos/pivoteoEscalonado.py"; 
+        String ruta = System.getProperty("user.dir");
+        ruta = ruta + "/lib/metodos/";
+        ruta = ruta + "pivoteoEscalonado.py";
+        
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -206,9 +218,13 @@ public class Metodos2 {
         String args = n +" "+matrizB+" "+matrizA;
         
         //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
-        String ruta = new File(".").getAbsolutePath();
-        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
-        ruta = ruta + "metodos/pivoteoTotal.py";
+        //String ruta = new File(".").getAbsolutePath();
+        //ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        //ruta = ruta + "metodos/pivoteoTotal.py";
+        String ruta = System.getProperty("user.dir");
+        ruta = ruta + "/lib/metodos/";
+        ruta = ruta + "pivoteoTotal.py";
+        
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -259,9 +275,13 @@ public class Metodos2 {
         String args = n +" "+matrizB+" "+matrizA;
         
         //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
-        String ruta = new File(".").getAbsolutePath();
-        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
-        ruta = ruta + "metodos/Crout.py"; 
+        //String ruta = new File(".").getAbsolutePath();
+        //ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        //ruta = ruta + "metodos/Crout.py"; 
+        String ruta = System.getProperty("user.dir");
+        ruta = ruta + "/lib/metodos/";
+        ruta = ruta + "Crout.py";
+        
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -311,9 +331,13 @@ public class Metodos2 {
         String args = n +" "+matrizB+" "+matrizA;
         
         //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
-        String ruta = new File(".").getAbsolutePath();
-        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
-        ruta = ruta + "metodos/Doolittle.py"; 
+        //String ruta = new File(".").getAbsolutePath();
+        //ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        //ruta = ruta + "metodos/Doolittle.py"; 
+        String ruta = System.getProperty("user.dir");
+        ruta = ruta + "/lib/metodos/";
+        ruta = ruta + "Doolittle.py";
+        
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -362,9 +386,12 @@ public class Metodos2 {
         String args = n +" "+matrizB+" "+matrizA;
         
         //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
-        String ruta = new File(".").getAbsolutePath();
-        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
-        ruta = ruta + "metodos/Cholesky.py"; 
+        //String ruta = new File(".").getAbsolutePath();
+        //ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        //ruta = ruta + "metodos/Cholesky.py"; 
+        String ruta = System.getProperty("user.dir");
+        ruta = ruta + "/lib/metodos/";
+        ruta = ruta + "Cholesky.py";
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -405,9 +432,13 @@ public class Metodos2 {
         String args = n +" "+matrizB+" "+matrizA+" "+tol+" "+iter+" "+norma+" "+relajacion+" "+matrizX;
         
         //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
-        String ruta = new File(".").getAbsolutePath();
-        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
-        ruta = ruta + "metodos/jacobiRelajado.py"; 
+        //String ruta = new File(".").getAbsolutePath();
+        //ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        //ruta = ruta + "metodos/jacobiRelajado.py"; 
+        String ruta = System.getProperty("user.dir");
+        ruta = ruta + "/lib/metodos/";
+        ruta = ruta + "jacobiRelajado.py";
+        
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -447,9 +478,12 @@ public class Metodos2 {
         String args = n +" "+matrizB+" "+matrizA+" "+tol+" "+iter+" "+norma+" "+relajacion+" "+matrizX;
         
         //String ruta = "\"" +Metodos2.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
-        String ruta = new File(".").getAbsolutePath();
-        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
-        ruta = ruta + "metodos/gaussSeidelRelajado.py"; 
+        //String ruta = new File(".").getAbsolutePath();
+        //ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        //ruta = ruta + "metodos/gaussSeidelRelajado.py"; 
+        String ruta = System.getProperty("user.dir");
+        ruta = ruta + "/lib/metodos/";
+        ruta = ruta + "gaussSeidelRelajado.py";
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -490,13 +524,16 @@ public class Metodos2 {
         //ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
         //ruta = ruta.substring(0,ruta.length()-1);
         
-        //String ruta = System.getProperty("user.dir");
-        
+        String ruta = System.getProperty("user.dir");
+        ruta = ruta + "/lib/metodos/";
+        ruta = ruta + "NewtonDifDiv.py";
         //Hasta .jar
         //String ruta = Metodos2.class.getProtectionDomain().getCodeSource().getLocation().getPath();
         //ruta = ruta + "/metodos/NewtonDifDiv.py"; 
         
-        String ruta = "/metodos/NewtonDifDiv.py";
+        //String ruta = "./metodos/NewtonDifDiv.py";
+        
+        
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -532,9 +569,12 @@ public class Metodos2 {
         
         String args = n +" "+ val+" " + xVal+" " + yVal;
         
-        String ruta = new File(".").getAbsolutePath();
-        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
-        ruta = ruta + "metodos/Lagrange.py"; 
+        //String ruta = new File(".").getAbsolutePath();
+        //ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        //ruta = ruta + "metodos/Lagrange.py"; 
+        String ruta = System.getProperty("user.dir");
+        ruta = ruta + "/lib/metodos/";
+        ruta = ruta + "Lagrange.py";
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -568,9 +608,12 @@ public class Metodos2 {
         
         String args = n +" "+ val+" " + xVal+" " + yVal;
         
-        String ruta = new File(".").getAbsolutePath();
-        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
-        ruta = ruta + "metodos/Neville.py"; 
+        //String ruta = new File(".").getAbsolutePath();
+        //ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        //ruta = ruta + "metodos/Neville.py"; 
+        String ruta = System.getProperty("user.dir");
+        ruta = ruta + "/lib/metodos/";
+        ruta = ruta + "Neville.py";
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -605,9 +648,12 @@ public class Metodos2 {
         
         String args = n +" "+ val+" " + xVal+" " + yVal;
         
-        String ruta = new File(".").getAbsolutePath();
-        ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
-        ruta = ruta + "metodos/splineCubico.py"; 
+        //String ruta = new File(".").getAbsolutePath();
+        //ruta = ruta.substring(0,ruta.length()-1) + "build/classes/";
+        //ruta = ruta + "metodos/splineCubico.py"; 
+        String ruta = System.getProperty("user.dir");
+        ruta = ruta + "/lib/metodos/";
+        ruta = ruta + "splineCubico.py";
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
