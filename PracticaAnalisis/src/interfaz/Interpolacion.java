@@ -280,8 +280,7 @@ public class Interpolacion extends javax.swing.JFrame {
                     //Newton
                     isNewton = true;
                     tipoMetodo = "newton";
-                    String com = Metodos2.newtonDifDiv(Metodos2.nPuntos, Metodos2.valorX, x, y);
-                    JOptionPane.showMessageDialog(rootPane, com);
+                    Metodos2.newtonDifDiv(Metodos2.nPuntos, Metodos2.valorX, x, y);
                     try {
                         String s = null;
 

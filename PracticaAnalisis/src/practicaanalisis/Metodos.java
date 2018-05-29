@@ -264,7 +264,16 @@ public class Metodos {
      
     public static void init(){
         PythonConnection pc = new PythonConnection();  
-        pc.execfile("src/metodos/Metodos.py");  
+        String ruta = System.getProperty("user.dir");
+        System.out.println(ruta);
+        ruta = ruta + "/lib/metodos/";
+        System.out.println(ruta);
+        ruta = ruta + "Metodos.py";
+        System.out.println(ruta);
+        
+        //pc.execfile("lib/metodos/Metodos.py");  
+        pc.execfile(ruta);  
+        
         me = pc.createClass("Metodos", "None"); 
     }
 }

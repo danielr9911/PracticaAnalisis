@@ -505,7 +505,7 @@ public class Metodos2 {
     }
     
     
-    public static String newtonDifDiv(int n, double val, Double[] x, Double[] y) {
+    public static void newtonDifDiv(int n, double val, Double[] x, Double[] y) {
         String xVal = "";
         String yVal = "";
         for (int i = 0; i < x.length; i++) {
@@ -551,7 +551,6 @@ public class Metodos2 {
         } catch (IOException ex) {
             Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return comando;
     }
     
     public static void lagrange(int n, double val, Double[] x, Double[] y) {
