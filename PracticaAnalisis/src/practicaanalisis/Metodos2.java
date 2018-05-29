@@ -492,8 +492,11 @@ public class Metodos2 {
         
         //String ruta = System.getProperty("user.dir");
         
-        String ruta = Metodos2.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-        ruta = ruta + "/metodos/NewtonDifDiv.py"; 
+        //Hasta .jar
+        //String ruta = Metodos2.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        //ruta = ruta + "/metodos/NewtonDifDiv.py"; 
+        
+        String ruta = "/metodos/NewtonDifDiv.py";
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
