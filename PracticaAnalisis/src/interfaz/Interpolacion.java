@@ -359,16 +359,88 @@ public class Interpolacion extends javax.swing.JFrame {
                     
                 case 2:
                     //Spline Lineal
+                    tipoMetodo= "spline";
+                    isNewton = false;
+                    Metodos2.splineLineal(Metodos2.nPuntos, Metodos2.valorX, x, y);
+                    try {
+                        String s = null;
+
+                        boolean error=false;
+                        while ((s = Metodos2.stdError.readLine()) != null) {
+                            JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                            error=true;
+                        } 
+                        if(!error){
+                            //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                            String output = "";
+                            while ((s = Metodos2.stdOutput.readLine()) != null) {
+                                System.out.println(s);
+                                output = output + (s + "\n");
+                            }
+
+                            String[] arrOutput = output.split("!");
+                            tabla = arrOutput[0];
+                            resultado = "";
+                            polinomio = "";
+                            //System.out.println("SALIDA JAVA");
+                            //System.out.println(etapas);
+                            //System.out.println("--");
+                            //System.out.println(matrizFinal);
+                            //System.out.println("---");
+                            //System.out.println(resultado);
+                            //System.out.println("FIN SALIDA JAVA");
+
+
+                        }
+                    } catch (IOException ex) {
+                        Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     metodoCorrecto = true;
                     break;
                 case 3:
                     //Spline Cuadrático
                     isNewton = false;
-                    
+                    tipoMetodo = "spline";
+                    Metodos2.splineCuadratico(Metodos2.nPuntos, Metodos2.valorX, x, y);
+                    try {
+                        String s = null;
+
+                        boolean error=false;
+                        while ((s = Metodos2.stdError.readLine()) != null) {
+                            JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                            error=true;
+                        } 
+                        if(!error){
+                            //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                            String output = "";
+                            while ((s = Metodos2.stdOutput.readLine()) != null) {
+                                System.out.println(s);
+                                output = output + (s + "\n");
+                            }
+
+                            String[] arrOutput = output.split("!");
+                            tabla = arrOutput[0];
+                            resultado = "";
+                            polinomio = "";
+                            
+                            //System.out.println("SALIDA JAVA");
+                            //System.out.println(etapas);
+                            //System.out.println("--");
+                            //System.out.println(matrizFinal);
+                            //System.out.println("---");
+                            //System.out.println(resultado);
+                            //System.out.println("FIN SALIDA JAVA");
+
+
+                        }
+                    } catch (IOException ex) {
+                        Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     metodoCorrecto = true;
                     break;
                 case 4:
                     //Spline Cúbico
+                    isNewton = false;
                     tipoMetodo = "spline";
                     Metodos2.splineCubico(Metodos2.nPuntos, Metodos2.valorX, x, y);
                     try {
@@ -464,8 +536,7 @@ public class Interpolacion extends javax.swing.JFrame {
                 tablaIn.setResizable(false);
                 tablaIn.setLocationRelativeTo(null);
                 dispose();
-            }else if ("spline".equals(tipoMetodo)){
-                
+            
             }else{
 
                 ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion(tabla, resultado, polinomio, isNewton);
