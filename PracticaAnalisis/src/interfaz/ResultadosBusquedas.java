@@ -90,6 +90,7 @@ public class ResultadosBusquedas extends javax.swing.JFrame {
         jScrollPane1.setBounds(40, 270, 940, 290);
 
         textResultado.setColumns(20);
+        textResultado.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         textResultado.setRows(5);
         jScrollPane2.setViewportView(textResultado);
 
