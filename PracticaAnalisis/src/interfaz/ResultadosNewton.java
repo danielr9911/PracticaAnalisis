@@ -55,23 +55,21 @@ public class ResultadosNewton extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         xInicialNewton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        xInicialNewton.setSize(new java.awt.Dimension(240, 50));
         getContentPane().add(xInicialNewton);
-        xInicialNewton.setBounds(240, 100, 240, 50);
+        xInicialNewton.setBounds(360, 100, 120, 50);
 
         iteracionesNewton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         getContentPane().add(iteracionesNewton);
         iteracionesNewton.setBounds(360, 160, 120, 50);
 
         toleranciaNewton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        toleranciaNewton.setSize(new java.awt.Dimension(240, 50));
         toleranciaNewton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 toleranciaNewtonActionPerformed(evt);
             }
         });
         getContentPane().add(toleranciaNewton);
-        toleranciaNewton.setBounds(690, 160, 240, 50);
+        toleranciaNewton.setBounds(675, 160, 150, 50);
 
         botonRegresarResultadosNewton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
         botonRegresarResultadosNewton.addActionListener(new java.awt.event.ActionListener() {
