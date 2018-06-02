@@ -63,7 +63,7 @@ public class Biseccion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(xSuperiorBiseccion);
-        xSuperiorBiseccion.setBounds(480, 300, 290, 50);
+        xSuperiorBiseccion.setBounds(390, 310, 500, 50);
 
         xInferiorBiseccion.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         xInferiorBiseccion.addActionListener(new java.awt.event.ActionListener() {
@@ -72,15 +72,15 @@ public class Biseccion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(xInferiorBiseccion);
-        xInferiorBiseccion.setBounds(480, 230, 290, 50);
+        xInferiorBiseccion.setBounds(390, 240, 500, 50);
 
         iteracionesBiseccion.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(iteracionesBiseccion);
-        iteracionesBiseccion.setBounds(480, 380, 290, 50);
+        iteracionesBiseccion.setBounds(390, 385, 500, 50);
 
         toleranciaBiseccion.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(toleranciaBiseccion);
-        toleranciaBiseccion.setBounds(480, 450, 290, 50);
+        toleranciaBiseccion.setBounds(390, 465, 500, 50);
 
         botonRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
         botonRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +107,7 @@ public class Biseccion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonCalcularBiseccion);
-        botonCalcularBiseccion.setBounds(580, 640, 370, 100);
+        botonCalcularBiseccion.setBounds(620, 640, 310, 90);
 
         buttonGroup1.add(errorRelBiseccion);
         errorRelBiseccion.setToolTipText("");
@@ -135,7 +135,7 @@ public class Biseccion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(funcionesBiseccion);
-        funcionesBiseccion.setBounds(170, 645, 310, 90);
+        funcionesBiseccion.setBounds(170, 640, 310, 90);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Biseccion Pagina Principal.png"))); // NOI18N
         getContentPane().add(jLabel1);

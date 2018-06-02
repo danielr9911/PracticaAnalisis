@@ -99,11 +99,11 @@ public class GaussSeidel extends javax.swing.JFrame {
 
         toleranciaGaussSeidel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(toleranciaGaussSeidel);
-        toleranciaGaussSeidel.setBounds(360, 290, 510, 40);
+        toleranciaGaussSeidel.setBounds(360, 285, 510, 50);
 
         lambdaGaussSeidel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(lambdaGaussSeidel);
-        lambdaGaussSeidel.setBounds(270, 355, 600, 40);
+        lambdaGaussSeidel.setBounds(360, 350, 510, 50);
 
         buttonGroup1.add(errorAbsInfinito);
         getContentPane().add(errorAbsInfinito);
@@ -120,11 +120,11 @@ public class GaussSeidel extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonCalcular);
-        botonCalcular.setBounds(540, 570, 370, 100);
+        botonCalcular.setBounds(540, 570, 310, 90);
 
         iteracionesGaussSeidel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(iteracionesGaussSeidel);
-        iteracionesGaussSeidel.setBounds(360, 210, 510, 40);
+        iteracionesGaussSeidel.setBounds(360, 200, 510, 50);
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 22)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(174, 0, 5));

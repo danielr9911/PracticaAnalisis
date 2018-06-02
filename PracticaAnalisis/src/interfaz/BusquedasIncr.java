@@ -52,15 +52,15 @@ public class BusquedasIncr extends javax.swing.JFrame {
             }
         });
         getContentPane().add(textXo);
-        textXo.setBounds(240, 300, 590, 50);
+        textXo.setBounds(370, 300, 450, 50);
 
         textDelta.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         getContentPane().add(textDelta);
-        textDelta.setBounds(270, 390, 560, 50);
+        textDelta.setBounds(370, 393, 450, 50);
 
         textIter.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         getContentPane().add(textIter);
-        textIter.setBounds(370, 490, 460, 50);
+        textIter.setBounds(370, 487, 450, 50);
 
         botonRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
         botonRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +69,7 @@ public class BusquedasIncr extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonRegresar);
-        botonRegresar.setBounds(40, 40, 80, 80);
+        botonRegresar.setBounds(140, 120, 80, 80);
 
         botonAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ayuda.png"))); // NOI18N
         botonAyuda.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +87,7 @@ public class BusquedasIncr extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonCalcularBusquedas);
-        botonCalcularBusquedas.setBounds(500, 620, 370, 100);
+        botonCalcularBusquedas.setBounds(530, 625, 300, 90);
 
         funcionesBusquedasIncrementales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
         funcionesBusquedasIncrementales.addActionListener(new java.awt.event.ActionListener() {

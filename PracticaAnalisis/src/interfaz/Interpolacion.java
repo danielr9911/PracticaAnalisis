@@ -97,7 +97,7 @@ public class Interpolacion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(calcular);
-        calcular.setBounds(310, 640, 370, 100);
+        calcular.setBounds(340, 650, 300, 90);
 
         ayudaNewtonInterpolacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
         ayudaNewtonInterpolacion.addActionListener(new java.awt.event.ActionListener() {
@@ -209,7 +209,7 @@ public class Interpolacion extends javax.swing.JFrame {
 
         jTextField2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(320, 215, 370, 40);
+        jTextField2.setBounds(410, 215, 280, 40);
 
         ayudaNeville.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
         getContentPane().add(ayudaNeville);

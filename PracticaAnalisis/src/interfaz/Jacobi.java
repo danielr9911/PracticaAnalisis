@@ -63,11 +63,11 @@ public class Jacobi extends javax.swing.JFrame {
 
         iteracionesJacobi.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(iteracionesJacobi);
-        iteracionesJacobi.setBounds(360, 210, 510, 40);
+        iteracionesJacobi.setBounds(360, 205, 510, 50);
 
         toleranciaJacobi.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(toleranciaJacobi);
-        toleranciaJacobi.setBounds(360, 290, 510, 40);
+        toleranciaJacobi.setBounds(360, 285, 510, 50);
 
         regresarJacobi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
         regresarJacobi.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +86,7 @@ public class Jacobi extends javax.swing.JFrame {
 
         lamdaJacobi.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(lamdaJacobi);
-        lamdaJacobi.setBounds(280, 355, 590, 40);
+        lamdaJacobi.setBounds(360, 350, 510, 50);
 
         buttonGroup1.add(errorAbsInfinito);
         getContentPane().add(errorAbsInfinito);
@@ -103,7 +103,7 @@ public class Jacobi extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonCalcular);
-        botonCalcular.setBounds(550, 560, 370, 100);
+        botonCalcular.setBounds(550, 560, 310, 90);
 
         ayudaLamba.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
         ayudaLamba.addActionListener(new java.awt.event.ActionListener() {
