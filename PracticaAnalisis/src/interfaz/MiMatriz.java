@@ -130,6 +130,7 @@ public class MiMatriz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.setRowHeight(30);
         jTable2.setTableHeader(null);
         jScrollPane2.setViewportView(jTable2);
 

@@ -78,6 +78,7 @@ public class ResultadoJacobi extends javax.swing.JFrame {
         jButton1.setBounds(130, 20, 80, 80);
 
         resultado.setColumns(20);
+        resultado.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         resultado.setRows(5);
         jScrollPane1.setViewportView(resultado);
 

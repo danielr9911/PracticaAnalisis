@@ -114,12 +114,14 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.setRowHeight(30);
         jTable2.setTableHeader(null);
         jScrollPane2.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(850, 230, 120, 250);
 
+        jTable3.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -131,6 +133,7 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable3.setRowHeight(30);
         jScrollPane3.setViewportView(jTable3);
 
         getContentPane().add(jScrollPane3);
