@@ -96,6 +96,7 @@ public class ResultadoJacobi extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaJacobi.setRowHeight(30);
         jScrollPane2.setViewportView(tablaJacobi);
 
         getContentPane().add(jScrollPane2);

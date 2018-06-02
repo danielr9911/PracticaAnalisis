@@ -111,6 +111,7 @@ public class ResultadosReglaFalsa extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableReglaFalsa.setRowHeight(30);
         jScrollPane2.setViewportView(tableReglaFalsa);
 
         getContentPane().add(jScrollPane2);

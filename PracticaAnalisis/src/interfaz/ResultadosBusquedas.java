@@ -83,6 +83,7 @@ public class ResultadosBusquedas extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableBusquedas.setRowHeight(30);
         jScrollPane1.setViewportView(tableBusquedas);
 
         getContentPane().add(jScrollPane1);

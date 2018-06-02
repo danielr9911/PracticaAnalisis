@@ -71,6 +71,7 @@ public class MiSistemaDeEcuaciones extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setRowHeight(30);
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);

@@ -87,6 +87,7 @@ public class ResultadosRaicesMultiples extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableRaicesMultiples.setRowHeight(30);
         jScrollPane1.setViewportView(tableRaicesMultiples);
 
         getContentPane().add(jScrollPane1);
