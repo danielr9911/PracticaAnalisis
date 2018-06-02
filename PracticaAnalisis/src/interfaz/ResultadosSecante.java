@@ -92,7 +92,6 @@ public class ResultadosSecante extends javax.swing.JFrame  {
         jScrollPane1.setBounds(60, 610, 910, 130);
 
         x1Secante.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        x1Secante.setSize(new java.awt.Dimension(260, 50));
         getContentPane().add(x1Secante);
         x1Secante.setBounds(240, 160, 260, 40);
 
@@ -108,6 +107,7 @@ public class ResultadosSecante extends javax.swing.JFrame  {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableSecante.setRowHeight(30);
         jScrollPane2.setViewportView(tableSecante);
 
         getContentPane().add(jScrollPane2);

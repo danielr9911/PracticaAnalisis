@@ -152,6 +152,7 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setRowHeight(30);
         jTable1.setTableHeader(null);
         jScrollPane5.setViewportView(jTable1);
 
@@ -170,6 +171,7 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.setRowHeight(30);
         jTable2.setTableHeader(null);
         jScrollPane6.setViewportView(jTable2);
 

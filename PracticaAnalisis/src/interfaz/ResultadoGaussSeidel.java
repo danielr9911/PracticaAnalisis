@@ -96,6 +96,7 @@ public class ResultadoGaussSeidel extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaGaussSeidel.setRowHeight(30);
         jScrollPane2.setViewportView(tablaGaussSeidel);
 
         getContentPane().add(jScrollPane2);

@@ -98,6 +98,7 @@ public class ResultadosPuntoFijo extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablePuntoFijo.setRowHeight(30);
         jScrollPane1.setViewportView(tablePuntoFijo);
 
         getContentPane().add(jScrollPane1);

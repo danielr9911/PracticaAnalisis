@@ -131,6 +131,7 @@ public class ResultadosMetodosDirectos extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TablaPivoteoParcial.setRowHeight(30);
         TablaPivoteoParcial.setTableHeader(null);
         TablaPivoteoParcial.setUpdateSelectionOnSort(false);
         jScrollPane2.setViewportView(TablaPivoteoParcial);

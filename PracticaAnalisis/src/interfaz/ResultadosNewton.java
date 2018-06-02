@@ -94,6 +94,7 @@ public class ResultadosNewton extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableNewton.setRowHeight(30);
         jScrollPane1.setViewportView(tableNewton);
 
         getContentPane().add(jScrollPane1);
