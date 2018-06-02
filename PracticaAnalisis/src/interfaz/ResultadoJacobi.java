@@ -84,6 +84,7 @@ public class ResultadoJacobi extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(60, 620, 910, 120);
 
+        tablaJacobi.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         tablaJacobi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -105,17 +106,14 @@ public class ResultadoJacobi extends javax.swing.JFrame {
         campoIteraciones.setBounds(325, 110, 200, 40);
 
         campoTolerancia.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        campoTolerancia.setSize(new java.awt.Dimension(200, 40));
         getContentPane().add(campoTolerancia);
         campoTolerancia.setBounds(325, 160, 200, 40);
 
         campoNorma.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        campoNorma.setSize(new java.awt.Dimension(200, 40));
         getContentPane().add(campoNorma);
         campoNorma.setBounds(655, 110, 200, 40);
 
         jTextField1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jTextField1.setSize(new java.awt.Dimension(295, 40));
         getContentPane().add(jTextField1);
         jTextField1.setBounds(560, 160, 300, 40);
 

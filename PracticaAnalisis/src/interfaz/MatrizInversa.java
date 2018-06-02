@@ -9,6 +9,7 @@ import static interfaz.MetodosDirectos.etapas;
 import static interfaz.MetodosDirectos.matrizL;
 import static interfaz.MetodosDirectos.matrizU;
 import static interfaz.MetodosDirectos.resultado;
+import java.awt.Font;
 
 /**
  *
@@ -49,6 +50,8 @@ public class MatrizInversa extends javax.swing.JFrame {
         getContentPane().add(botonRegresar);
         botonRegresar.setBounds(160, 40, 80, 80);
 
+        jTable1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jTable1.getTableHeader().setFont(new Font("Lucida Grande", 0, 24));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

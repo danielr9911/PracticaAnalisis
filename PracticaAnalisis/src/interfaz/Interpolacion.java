@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import java.awt.Font;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -38,6 +39,7 @@ public class Interpolacion extends javax.swing.JFrame {
                 Metodos2.puntos,
                 new String [Metodos2.nPuntos]
             ));
+            
             
         }else{
             jTable1.setVisible(false); 
@@ -169,6 +171,11 @@ public class Interpolacion extends javax.swing.JFrame {
         splineCubico.setBounds(890, 565, 28, 23);
 
         jTextField1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextField1);
         jTextField1.setBounds(410, 175, 280, 40);
 
@@ -181,6 +188,7 @@ public class Interpolacion extends javax.swing.JFrame {
         getContentPane().add(actualizarN);
         actualizarN.setBounds(700, 173, 150, 40);
 
+        jTable1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -192,6 +200,8 @@ public class Interpolacion extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setRowHeight(30);
+        jTable1.setTableHeader(null);
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
@@ -593,6 +603,10 @@ public class Interpolacion extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, null, "AYUDA - Spline Cúbico", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaSplineCubico.png")));
     }//GEN-LAST:event_ayudaSplineCubicoActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

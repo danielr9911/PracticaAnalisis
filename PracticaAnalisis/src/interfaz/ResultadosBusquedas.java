@@ -71,7 +71,7 @@ public class ResultadosBusquedas extends javax.swing.JFrame {
         getContentPane().add(valorInicialBusquedas);
         valorInicialBusquedas.setBounds(240, 100, 240, 50);
 
-        tableBusquedas.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        tableBusquedas.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         tableBusquedas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
