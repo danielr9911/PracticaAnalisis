@@ -124,6 +124,7 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         botonRegresar.setBounds(70, 30, 80, 80);
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -139,6 +140,7 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(710, 675, 300, 80);
 
+        jTable1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -156,6 +158,7 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         getContentPane().add(jScrollPane5);
         jScrollPane5.setBounds(30, 320, 454, 340);
 
+        jTable2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

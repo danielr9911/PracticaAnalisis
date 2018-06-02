@@ -76,6 +76,8 @@ public class MiMatriz extends javax.swing.JFrame {
         });
         getContentPane().add(regresarMiMatriz);
         regresarMiMatriz.setBounds(60, 40, 80, 80);
+
+        jTextField1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(jTextField1);
         jTextField1.setBounds(360, 135, 320, 50);
 
@@ -97,6 +99,7 @@ public class MiMatriz extends javax.swing.JFrame {
         getContentPane().add(guardarMatriz);
         guardarMatriz.setBounds(700, 660, 300, 90);
 
+        jTable1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -114,6 +117,7 @@ public class MiMatriz extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(20, 240, 800, 410);
 
+        jTable2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
