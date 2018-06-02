@@ -70,6 +70,7 @@ public class EtapasMetodosDirectos extends javax.swing.JFrame {
         regresarEtapas.setBounds(70, 30, 80, 80);
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 

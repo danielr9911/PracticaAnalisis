@@ -86,7 +86,7 @@ public class ResultadosPuntoFijo extends javax.swing.JFrame {
         getContentPane().add(botonRegresarResultadosPuntoFijo);
         botonRegresarResultadosPuntoFijo.setBounds(40, 30, 80, 80);
 
-        tablePuntoFijo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tablePuntoFijo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         tablePuntoFijo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

@@ -84,6 +84,7 @@ public class ResultadoGaussSeidel extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(60, 610, 910, 140);
 
+        tablaGaussSeidel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         tablaGaussSeidel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

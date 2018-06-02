@@ -112,12 +112,14 @@ public class ResultadosMetodosDirectos extends javax.swing.JFrame {
         verEtapasPivoteoParcial.setBounds(700, 660, 300, 90);
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(190, 90, 720, 120);
 
+        TablaPivoteoParcial.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         TablaPivoteoParcial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

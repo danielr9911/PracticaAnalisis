@@ -75,7 +75,7 @@ public class ResultadosRaicesMultiples extends javax.swing.JFrame {
         getContentPane().add(toleranciaRaicesMultiples);
         toleranciaRaicesMultiples.setBounds(710, 160, 210, 60);
 
-        tableRaicesMultiples.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tableRaicesMultiples.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         tableRaicesMultiples.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

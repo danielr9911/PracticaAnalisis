@@ -99,6 +99,7 @@ public class ResultadosReglaFalsa extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(60, 610, 930, 150);
 
+        tableReglaFalsa.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         tableReglaFalsa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

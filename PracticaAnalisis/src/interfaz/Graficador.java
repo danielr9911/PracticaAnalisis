@@ -186,8 +186,15 @@ public class Graficador extends javax.swing.JFrame {
         fA1 = new javax.swing.JCheckBox();
         fA2 = new javax.swing.JCheckBox();
         fA3 = new javax.swing.JCheckBox();
+        jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         graficadorClasico = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -316,11 +323,54 @@ public class Graficador extends javax.swing.JFrame {
         getContentPane().add(fA3);
         fA3.setBounds(910, 620, 80, 27);
 
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 60)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(244, 208, 63));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("-");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(53, 635, 40, 20);
+
         graficadorClasico = new ZonaGrafica();
         jScrollPane1.setViewportView(graficadorClasico);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(10, 160, 1000, 450);
+
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 60)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(231, 76, 60));
+        jLabel7.setText("-");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(760, 635, 38, 20);
+
+        jLabel9.setFont(new java.awt.Font("Lucida Grande", 1, 60)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(46, 204, 113));
+        jLabel9.setText("-");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(940, 635, 45, 16);
+
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 60)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(142, 68, 173));
+        jLabel8.setText("-");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(850, 635, 45, 16);
+
+        jLabel10.setFont(new java.awt.Font("Lucida Grande", 1, 60)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(18, 25, 178));
+        jLabel10.setText("-");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(127, 630, 38, 30);
+
+        jLabel11.setFont(new java.awt.Font("Lucida Grande", 1, 60)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 146, 57));
+        jLabel11.setText("-");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(267, 635, 40, 20);
+
+        jLabel12.setFont(new java.awt.Font("Lucida Grande", 1, 60)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(230, 77, 255));
+        jLabel12.setText("-");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(197, 635, 50, 20);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Graficador.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -411,10 +461,17 @@ public class Graficador extends javax.swing.JFrame {
     private javax.swing.JPanel graficadorClasico;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
@@ -594,16 +651,16 @@ public class ZonaGrafica extends JPanel  implements MouseListener, MouseMotionLi
             errorEnExpresion4 = miEvaluador4.hasError(); //hay error?
         }
         if (dfX.isSelected()){
-            miEvaluador5.parseExpression(Funcion.df);
-            errorEnExpresion5 = miEvaluador5.hasError(); //hay error?
+            miEvaluador7.parseExpression(Funcion.df);
+            errorEnExpresion7 = miEvaluador7.hasError(); //hay error?
         }
         if (ddfX.isSelected()){
-            miEvaluador6.parseExpression(Funcion.ddf);
-            errorEnExpresion6 = miEvaluador6.hasError(); //hay error?
+            miEvaluador5.parseExpression(Funcion.ddf);
+            errorEnExpresion5 = miEvaluador5.hasError(); //hay error?
         }
         if (gX.isSelected()){
-            miEvaluador7.parseExpression(Funcion.g);
-            errorEnExpresion7 = miEvaluador7.hasError(); //hay error?
+            miEvaluador6.parseExpression(Funcion.g);
+            errorEnExpresion6 = miEvaluador6.hasError(); //hay error?
         }
 
         if(!errorEnExpresion && !errorEnExpresion2 && !errorEnExpresion3
@@ -748,7 +805,7 @@ public class ZonaGrafica extends JPanel  implements MouseListener, MouseMotionLi
                     if(i%(100-puntosInt)==0){
                         Complex valC = miEvaluador5.getComplexValue();
                         //System.out.println("valc "+valC);
-                        double imgx = (double)Math.abs(valC.im()); 
+                        double imgx = (double)Math.abs(valC.im());                        
                         if(dist(valxi,valyi,valxi1,valyi1)< 1000 && imgx==0)
                         {
                             g.draw(new Line2D.Double(xg+xi,yg-yi,xg+xi1,yg-yi1)); 

@@ -95,7 +95,7 @@ public class ResultadosBiseccion extends javax.swing.JFrame {
         getContentPane().add(botonRegresarResultadosBiseccion);
         botonRegresarResultadosBiseccion.setBounds(40, 50, 80, 80);
 
-        tableBiseccion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tableBiseccion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         tableBiseccion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

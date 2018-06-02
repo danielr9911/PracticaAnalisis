@@ -96,6 +96,7 @@ public class ResultadosSecante extends javax.swing.JFrame  {
         getContentPane().add(x1Secante);
         x1Secante.setBounds(240, 160, 260, 40);
 
+        tableSecante.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         tableSecante.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

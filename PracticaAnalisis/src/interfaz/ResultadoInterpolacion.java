@@ -121,6 +121,7 @@ public class ResultadoInterpolacion extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         graficadorClasico = new ZonaGrafica();
+        graficadorClasico.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(graficadorClasico);
         graficadorClasico.setBounds(90, 110, 880, 370);
 

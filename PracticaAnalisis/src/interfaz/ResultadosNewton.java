@@ -82,7 +82,7 @@ public class ResultadosNewton extends javax.swing.JFrame {
         getContentPane().add(botonRegresarResultadosNewton);
         botonRegresarResultadosNewton.setBounds(50, 40, 80, 80);
 
-        tableNewton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tableNewton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         tableNewton.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
