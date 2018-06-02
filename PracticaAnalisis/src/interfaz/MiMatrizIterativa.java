@@ -95,6 +95,7 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setRowHeight(30);
         jTable1.setTableHeader(null);
         jScrollPane1.setViewportView(jTable1);
 
