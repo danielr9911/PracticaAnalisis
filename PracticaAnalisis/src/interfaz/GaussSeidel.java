@@ -220,6 +220,9 @@ public class GaussSeidel extends javax.swing.JFrame {
         
         if (camposCorrectos){
             if(Metodos2.tam != 0){
+                if(MiMatrizIterativa.matrizMalCondicionada == true){
+                    JOptionPane.showMessageDialog(rootPane, "La matriz insertada no es diagonal estricta dominante.\nPor favor, inserte una matriz que lo sea para poder ejecutar el método o revise la matriz con un método de pivoteo");
+                }else{  
                 Metodos2.gaussSeidelRelajado(Metodos2.a, Metodos2.b, Metodos2.tam, tol, iter, lambda, Metodos2.x, err);
                 try {
                     String s = null;
@@ -291,10 +294,11 @@ public class GaussSeidel extends javax.swing.JFrame {
                     Logger.getLogger(Jacobi.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-            }else{
-            JOptionPane.showMessageDialog(rootPane, "Por favor asigne valores a su matriz");
             }
-        }   
+            }
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Por favor asigne valores a su matriz");
+        }
     }//GEN-LAST:event_botonCalcularActionPerformed
 
     private void ayudaGaussSeidelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaGaussSeidelActionPerformed

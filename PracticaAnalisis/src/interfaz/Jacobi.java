@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import static interfaz.MiMatrizIterativa.getEstadoMatriz;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -192,7 +193,7 @@ public class Jacobi extends javax.swing.JFrame {
         double lambda = 0;
         double tol = 0;
         int iter = 0;
-        boolean camposCorrectos = true;
+        boolean camposCorrectos = true;        
         
         try{
             lambda = Double.parseDouble(lamdaJacobi.getText());
@@ -232,6 +233,9 @@ public class Jacobi extends javax.swing.JFrame {
         
         if (camposCorrectos){
             if(Metodos2.tam != 0){
+                if(MiMatrizIterativa.matrizMalCondicionada == true){
+                    JOptionPane.showMessageDialog(rootPane, "La matriz insertada no es diagonal estricta dominante.\nPor favor, inserte una matriz que lo sea para poder ejecutar el método o revise la matriz con un método de pivoteo");
+                }else{                
                 Metodos2.jacobiRelajado(Metodos2.a, Metodos2.b, Metodos2.tam, tol, iter, lambda, Metodos2.x, err);
                 try {
                     String s = null;
@@ -301,9 +305,10 @@ public class Jacobi extends javax.swing.JFrame {
                     Logger.getLogger(Jacobi.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-            }else{
-            JOptionPane.showMessageDialog(rootPane, "Por favor asigne valores a su matriz");
             }
+            }
+          }else{
+            JOptionPane.showMessageDialog(rootPane, "Por favor asigne valores a su matriz");
         }
     }//GEN-LAST:event_botonCalcularActionPerformed
 
