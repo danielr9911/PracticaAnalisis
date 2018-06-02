@@ -119,7 +119,7 @@ public class ResultadoGaussSeidel extends javax.swing.JFrame {
 
         lambdaGaussSeidel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(lambdaGaussSeidel);
-        lambdaGaussSeidel.setBounds(570, 160, 290, 40);
+        lambdaGaussSeidel.setBounds(660, 160, 200, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Resultado Gauss Seidel.png"))); // NOI18N
         getContentPane().add(jLabel1);

@@ -49,15 +49,15 @@ public class RaicesMultiples extends javax.swing.JFrame{
 
         x0RaicesMultiples.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(x0RaicesMultiples);
-        x0RaicesMultiples.setBounds(370, 225, 480, 45);
+        x0RaicesMultiples.setBounds(370, 225, 480, 50);
 
         iteracionesRaicesMultiples.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(iteracionesRaicesMultiples);
-        iteracionesRaicesMultiples.setBounds(370, 315, 480, 40);
+        iteracionesRaicesMultiples.setBounds(370, 312, 480, 50);
 
         toleranciaRaicesMultiples.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(toleranciaRaicesMultiples);
-        toleranciaRaicesMultiples.setBounds(370, 415, 480, 45);
+        toleranciaRaicesMultiples.setBounds(370, 412, 480, 50);
 
         botonRegresarRaicesMultiples.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
         botonRegresarRaicesMultiples.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +75,7 @@ public class RaicesMultiples extends javax.swing.JFrame{
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(550, 610, 380, 100);
+        jButton1.setBounds(530, 615, 310, 90);
 
         buttonGroup1.add(jRadioButton1);
         getContentPane().add(jRadioButton1);
@@ -102,7 +102,7 @@ public class RaicesMultiples extends javax.swing.JFrame{
             }
         });
         getContentPane().add(botonMisFunciones);
-        botonMisFunciones.setBounds(190, 620, 300, 80);
+        botonMisFunciones.setBounds(160, 620, 300, 80);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/RaicesMultiples.png"))); // NOI18N
         getContentPane().add(jLabel1);

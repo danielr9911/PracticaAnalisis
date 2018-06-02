@@ -144,6 +144,7 @@ public class ResultadoInterpolacion extends javax.swing.JFrame {
         botonVerTabla.setBounds(740, 670, 240, 70);
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 

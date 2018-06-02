@@ -69,11 +69,11 @@ public class ResultadosRaicesMultiples extends javax.swing.JFrame {
 
         iteracionesRaicesMultiples.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         getContentPane().add(iteracionesRaicesMultiples);
-        iteracionesRaicesMultiples.setBounds(370, 160, 140, 50);
+        iteracionesRaicesMultiples.setBounds(370, 160, 140, 45);
 
         toleranciaRaicesMultiples.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         getContentPane().add(toleranciaRaicesMultiples);
-        toleranciaRaicesMultiples.setBounds(710, 160, 210, 60);
+        toleranciaRaicesMultiples.setBounds(710, 160, 210, 45);
 
         tableRaicesMultiples.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         tableRaicesMultiples.setModel(new javax.swing.table.DefaultTableModel(
