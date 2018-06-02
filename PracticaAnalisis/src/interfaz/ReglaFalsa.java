@@ -52,7 +52,7 @@ public class ReglaFalsa extends javax.swing.JFrame {
 
         xInferiorReglaFalsa.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(xInferiorReglaFalsa);
-        xInferiorReglaFalsa.setBounds(460, 210, 300, 50);
+        xInferiorReglaFalsa.setBounds(380, 230, 500, 50);
 
         xSuperiorReglaFalsa.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         xSuperiorReglaFalsa.addActionListener(new java.awt.event.ActionListener() {
@@ -61,15 +61,15 @@ public class ReglaFalsa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(xSuperiorReglaFalsa);
-        xSuperiorReglaFalsa.setBounds(460, 290, 300, 50);
+        xSuperiorReglaFalsa.setBounds(380, 305, 500, 50);
 
         iteracionesReglaFalsa.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(iteracionesReglaFalsa);
-        iteracionesReglaFalsa.setBounds(460, 370, 300, 50);
+        iteracionesReglaFalsa.setBounds(380, 380, 500, 50);
 
         toleranciaReglaFalsa.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(toleranciaReglaFalsa);
-        toleranciaReglaFalsa.setBounds(460, 450, 300, 50);
+        toleranciaReglaFalsa.setBounds(380, 460, 500, 50);
 
         buttonGroup1.add(errorRelReglaFalsa);
         errorRelReglaFalsa.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +96,7 @@ public class ReglaFalsa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonRegresarReglaFalsa);
-        botonRegresarReglaFalsa.setBounds(70, 70, 80, 80);
+        botonRegresarReglaFalsa.setBounds(90, 70, 80, 80);
 
         botonAyudaReglaFalsa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ayuda.png"))); // NOI18N
         botonAyudaReglaFalsa.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +105,7 @@ public class ReglaFalsa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonAyudaReglaFalsa);
-        botonAyudaReglaFalsa.setBounds(890, 60, 110, 110);
+        botonAyudaReglaFalsa.setBounds(840, 60, 110, 110);
 
         botonCalcularReglaFalsa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CalcularBoton.png"))); // NOI18N
         botonCalcularReglaFalsa.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +114,7 @@ public class ReglaFalsa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonCalcularReglaFalsa);
-        botonCalcularReglaFalsa.setBounds(580, 640, 380, 100);
+        botonCalcularReglaFalsa.setBounds(610, 645, 310, 90);
 
         funcionesReglaFalsa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
         funcionesReglaFalsa.addActionListener(new java.awt.event.ActionListener() {

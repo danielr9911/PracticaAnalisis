@@ -78,6 +78,7 @@ public class ResultadoJacobi extends javax.swing.JFrame {
         jButton1.setBounds(130, 20, 80, 80);
 
         resultado.setColumns(20);
+        resultado.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         resultado.setRows(5);
         jScrollPane1.setViewportView(resultado);
 
@@ -116,7 +117,7 @@ public class ResultadoJacobi extends javax.swing.JFrame {
 
         jTextField1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(560, 160, 300, 40);
+        jTextField1.setBounds(655, 160, 200, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Resultado Jacobi.png"))); // NOI18N
         getContentPane().add(jLabel1);
