@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import java.awt.Font;
+
 /**
  *
  * @author carlosruiz
@@ -86,6 +88,7 @@ public class ResultadoJacobi extends javax.swing.JFrame {
         jScrollPane1.setBounds(60, 620, 910, 120);
 
         tablaJacobi.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        tablaJacobi.getTableHeader().setFont(new Font("Lucida Grande", Font.ITALIC, 24));
         tablaJacobi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
