@@ -29,23 +29,20 @@ def interpretarMatriz(tam, b, a):
     matrizA = np.array(matrizA)
     return matrizB, matrizA
 
+
 def jacobiParalelo(size, xValues, A, i, xNewValues, r):
-    print("CICLO I")
     suma = 0
-    aii = 0
     for j in range(size):
-        print("CICLO J")
         var = A[i][j]
         if (i != j):
             suma += var * xValues[j]
         else:
             aii = var
-        print("Suma = ", suma)
 
-    print("Aii = ", aii)
     var = A[i][size]
     xNewValues[i] = (var - suma) / aii
     xNewValues[i] = r * xNewValues[i] + (1 - r) * xValues[i]
+
 
 def newJacobi(xValues, xNewValues, A, size, r, norma):
     nInfAbs = 0
@@ -63,8 +60,6 @@ def newJacobi(xValues, xNewValues, A, size, r, norma):
         nInfRelD = max(nInfRelD, abs(xNewValues[i]))
         nEucAbs = nEucAbs + (xNewValues[i] - xValues[i]) ** 2
         nEucRelD = nEucRelD + (xNewValues[i]) ** 2
-        print("VAR = ", var)
-        print(xNewValues)
 
     nInfRel = nInfAbs / nInfRelD
     nEucRel = sqrt(nEucAbs) / sqrt(nEucRelD)
@@ -89,20 +84,10 @@ def jacobi(xValues, xNewValues, A, size, tol, niter, r, norma):
     print(0)
     print("!")
     while (disp > tol and cont < niter):
-
-        print("ITERACICON JACOBI")
-        print("PARAMETROS")
-        print(xValues, xNewValues, A, size, r, norma)
-
         disp, xNewValues = newJacobi(xValues, xNewValues, A, size, r, norma)
-        print("-----")
-        print(disp)
-        print(xNewValues)
-        print("-----")
         for i in range(size):
             xValues[i] = xNewValues[i]
 
-        print("SALIDA JACOBI")
         cont += 1
         print(cont)
         print(xNewValues)
@@ -117,6 +102,7 @@ def jacobi(xValues, xNewValues, A, size, tol, niter, r, norma):
 
 
 def main():
+
     tam = int(sys.argv[1])
     b = sys.argv[2]
     a = sys.argv[3]
@@ -139,6 +125,5 @@ def main():
     else:
 
         print("No se pudo alcanzar una solucion en %d iteraciones") % maxIterations
-
 
 main()
