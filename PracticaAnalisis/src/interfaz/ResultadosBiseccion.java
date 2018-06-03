@@ -107,6 +107,7 @@ public class ResultadosBiseccion extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableBiseccion.setRowHeight(30);
         jScrollPane1.setViewportView(tableBiseccion);
 
         getContentPane().add(jScrollPane1);

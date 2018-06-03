@@ -60,16 +60,15 @@ public class ResultadosBusquedas extends javax.swing.JFrame {
 
         deltaBusquedas.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(deltaBusquedas);
-        deltaBusquedas.setBounds(280, 160, 290, 50);
+        deltaBusquedas.setBounds(265, 163, 220, 40);
 
         iteracionesBusquedas.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(iteracionesBusquedas);
-        iteracionesBusquedas.setBounds(680, 100, 290, 50);
+        iteracionesBusquedas.setBounds(680, 112, 200, 40);
 
         valorInicialBusquedas.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        valorInicialBusquedas.setSize(new java.awt.Dimension(240, 50));
         getContentPane().add(valorInicialBusquedas);
-        valorInicialBusquedas.setBounds(240, 100, 240, 50);
+        valorInicialBusquedas.setBounds(265, 110, 220, 40);
 
         tableBusquedas.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         tableBusquedas.setModel(new javax.swing.table.DefaultTableModel(
@@ -83,12 +82,14 @@ public class ResultadosBusquedas extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableBusquedas.setRowHeight(30);
         jScrollPane1.setViewportView(tableBusquedas);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(40, 270, 940, 290);
 
         textResultado.setColumns(20);
+        textResultado.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         textResultado.setRows(5);
         jScrollPane2.setViewportView(textResultado);
 

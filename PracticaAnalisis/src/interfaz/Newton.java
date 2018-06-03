@@ -53,12 +53,12 @@ public class Newton extends javax.swing.JFrame {
         iteracionesNewton.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         iteracionesNewton.setSize(new java.awt.Dimension(300, 50));
         getContentPane().add(iteracionesNewton);
-        iteracionesNewton.setBounds(380, 310, 300, 50);
+        iteracionesNewton.setBounds(380, 313, 400, 50);
 
         toleranciaNewton.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         toleranciaNewton.setSize(new java.awt.Dimension(300, 50));
         getContentPane().add(toleranciaNewton);
-        toleranciaNewton.setBounds(380, 400, 300, 50);
+        toleranciaNewton.setBounds(380, 410, 400, 50);
 
         xInicialNewton.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         xInicialNewton.setSize(new java.awt.Dimension(300, 50));
@@ -68,7 +68,7 @@ public class Newton extends javax.swing.JFrame {
             }
         });
         getContentPane().add(xInicialNewton);
-        xInicialNewton.setBounds(380, 220, 300, 50);
+        xInicialNewton.setBounds(380, 230, 400, 50);
 
         buttonGroup1.add(errorABSNewton);
         errorABSNewton.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +95,7 @@ public class Newton extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonRegresarNewton);
-        botonRegresarNewton.setBounds(80, 83, 80, 80);
+        botonRegresarNewton.setBounds(160, 70, 80, 80);
 
         botonAyudaNewton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ayuda.png"))); // NOI18N
         botonAyudaNewton.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +104,7 @@ public class Newton extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonAyudaNewton);
-        botonAyudaNewton.setBounds(870, 70, 110, 110);
+        botonAyudaNewton.setBounds(760, 60, 110, 110);
 
         calcularNewton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CalcularBoton.png"))); // NOI18N
         calcularNewton.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +113,7 @@ public class Newton extends javax.swing.JFrame {
             }
         });
         getContentPane().add(calcularNewton);
-        calcularNewton.setBounds(520, 600, 380, 100);
+        calcularNewton.setBounds(550, 605, 310, 90);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {

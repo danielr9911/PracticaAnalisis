@@ -64,7 +64,7 @@ public class Funciones extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonGuardarFunciones);
-        botonGuardarFunciones.setBounds(570, 620, 370, 100);
+        botonGuardarFunciones.setBounds(520, 605, 370, 100);
 
         botonRegresarFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
         botonRegresarFunciones.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +103,7 @@ public class Funciones extends javax.swing.JFrame {
             }
         });
         getContentPane().add(regresarMetodo);
-        regresarMetodo.setBounds(120, 615, 430, 110);
+        regresarMetodo.setBounds(130, 600, 380, 110);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Funciones.png"))); // NOI18N
         getContentPane().add(jLabel1);

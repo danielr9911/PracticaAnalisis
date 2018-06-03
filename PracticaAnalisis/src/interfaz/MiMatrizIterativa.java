@@ -17,6 +17,7 @@ import practicaanalisis.Metodos2;
  */
 public class MiMatrizIterativa extends javax.swing.JFrame {
 
+    public static boolean matrizMalCondicionada;
     /**
      * Creates new form MiMatrizIterativa
      */
@@ -95,6 +96,7 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setRowHeight(30);
         jTable1.setTableHeader(null);
         jScrollPane1.setViewportView(jTable1);
 
@@ -113,12 +115,14 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.setRowHeight(30);
         jTable2.setTableHeader(null);
         jScrollPane2.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(850, 230, 120, 250);
 
+        jTable3.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -130,6 +134,7 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable3.setRowHeight(30);
         jScrollPane3.setViewportView(jTable3);
 
         getContentPane().add(jScrollPane3);
@@ -250,6 +255,26 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         */
         Metodos2.tam = Integer.parseInt(jTextField1.getText());
         Metodos2.a = getTableData(jTable1);
+                
+        double pivote = 0;
+        double sumaFila = 0;        
+        for(int i = 0; i < Metodos2.a.length; i++){
+            pivote = Metodos2.a[i][i];
+            sumaFila = 0;
+            for(int j = 0; j < Metodos2.a.length; j++){
+                if(i != j){
+                    sumaFila = sumaFila + Metodos2.a[i][j];
+                }
+            }
+            if(sumaFila > pivote){
+                JOptionPane.showMessageDialog(rootPane, "La matriz insertada no es diagonal estricta dominante.\nPor favor, inserte una matriz que lo sea para poder ejecutar el método o revise la matriz con un método de pivoteo");
+                matrizMalCondicionada = true;
+                break;
+            }else{
+                matrizMalCondicionada = false;
+            }
+        }
+        
         Double[][] arregloB = getTableData(jTable2);
         Double[] matrizB = new Double[arregloB.length];
         for(int i=0; i < matrizB.length; i++){
@@ -264,11 +289,15 @@ public class MiMatrizIterativa extends javax.swing.JFrame {
         }
         Metodos2.x = matrizX;
         
-        
+        if(matrizMalCondicionada != true){
         //System.out.println(Arrays.toString(Metodos2.x));
         JOptionPane.showMessageDialog(rootPane, "Matriz guardada exitosamente");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public static boolean getEstadoMatriz(){
+        return matrizMalCondicionada;
+    }
  
     public static Double[][] getTableData (JTable table) {
         DefaultTableModel dtm = (DefaultTableModel) table.getModel();

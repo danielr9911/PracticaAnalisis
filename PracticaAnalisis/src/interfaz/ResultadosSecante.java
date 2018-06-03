@@ -60,11 +60,16 @@ public class ResultadosSecante extends javax.swing.JFrame  {
 
         x0Secante.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(x0Secante);
-        x0Secante.setBounds(240, 110, 260, 50);
+        x0Secante.setBounds(240, 110, 260, 40);
 
         iteracionesSecante.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        iteracionesSecante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iteracionesSecanteActionPerformed(evt);
+            }
+        });
         getContentPane().add(iteracionesSecante);
-        iteracionesSecante.setBounds(700, 110, 260, 50);
+        iteracionesSecante.setBounds(700, 110, 260, 40);
 
         toleranciaSecante.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         toleranciaSecante.addActionListener(new java.awt.event.ActionListener() {
@@ -73,7 +78,7 @@ public class ResultadosSecante extends javax.swing.JFrame  {
             }
         });
         getContentPane().add(toleranciaSecante);
-        toleranciaSecante.setBounds(700, 155, 260, 50);
+        toleranciaSecante.setBounds(700, 160, 260, 40);
 
         botonRegresarResultadoSecante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
         botonRegresarResultadoSecante.addActionListener(new java.awt.event.ActionListener() {
@@ -85,6 +90,7 @@ public class ResultadosSecante extends javax.swing.JFrame  {
         botonRegresarResultadoSecante.setBounds(80, 50, 80, 80);
 
         textResult.setColumns(20);
+        textResult.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         textResult.setRows(5);
         jScrollPane1.setViewportView(textResult);
 
@@ -92,7 +98,6 @@ public class ResultadosSecante extends javax.swing.JFrame  {
         jScrollPane1.setBounds(60, 610, 910, 130);
 
         x1Secante.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        x1Secante.setSize(new java.awt.Dimension(260, 50));
         getContentPane().add(x1Secante);
         x1Secante.setBounds(240, 160, 260, 40);
 
@@ -108,6 +113,7 @@ public class ResultadosSecante extends javax.swing.JFrame  {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableSecante.setRowHeight(30);
         jScrollPane2.setViewportView(tableSecante);
 
         getContentPane().add(jScrollPane2);
@@ -132,6 +138,10 @@ public class ResultadosSecante extends javax.swing.JFrame  {
     private void toleranciaSecanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toleranciaSecanteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_toleranciaSecanteActionPerformed
+
+    private void iteracionesSecanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iteracionesSecanteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iteracionesSecanteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

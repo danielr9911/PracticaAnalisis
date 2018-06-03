@@ -52,17 +52,20 @@ public class PuntoFijo extends javax.swing.JFrame {
 
         xInicialPuntoFijo.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(xInicialPuntoFijo);
-        xInicialPuntoFijo.setBounds(410, 230, 300, 50);
+        xInicialPuntoFijo.setBounds(370, 234, 460, 50);
 
         iteracionesPuntoFijo.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        iteracionesPuntoFijo.setSize(new java.awt.Dimension(300, 50));
         getContentPane().add(iteracionesPuntoFijo);
-        iteracionesPuntoFijo.setBounds(410, 310, 300, 50);
+        iteracionesPuntoFijo.setBounds(370, 310, 460, 50);
 
         toleranciaPuntoFijo.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        toleranciaPuntoFijo.setSize(new java.awt.Dimension(300, 50));
+        toleranciaPuntoFijo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toleranciaPuntoFijoActionPerformed(evt);
+            }
+        });
         getContentPane().add(toleranciaPuntoFijo);
-        toleranciaPuntoFijo.setBounds(410, 400, 300, 50);
+        toleranciaPuntoFijo.setBounds(370, 410, 460, 50);
 
         buttonGroup1.add(errorABSPuntoFijo);
         errorABSPuntoFijo.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +92,7 @@ public class PuntoFijo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonRegresarPuntoFijo);
-        botonRegresarPuntoFijo.setBounds(70, 70, 80, 80);
+        botonRegresarPuntoFijo.setBounds(160, 70, 80, 80);
 
         ayudaPuntoFijo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ayuda.png"))); // NOI18N
         ayudaPuntoFijo.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +101,7 @@ public class PuntoFijo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ayudaPuntoFijo);
-        ayudaPuntoFijo.setBounds(880, 50, 110, 110);
+        ayudaPuntoFijo.setBounds(790, 60, 110, 110);
 
         calcularPuntoFijo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CalcularBoton.png"))); // NOI18N
         calcularPuntoFijo.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +110,7 @@ public class PuntoFijo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(calcularPuntoFijo);
-        calcularPuntoFijo.setBounds(540, 590, 380, 100);
+        calcularPuntoFijo.setBounds(570, 597, 300, 90);
 
         funcionesPuntoFijo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
         funcionesPuntoFijo.addActionListener(new java.awt.event.ActionListener() {
@@ -233,6 +236,10 @@ public class PuntoFijo extends javax.swing.JFrame {
         func.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_funcionesPuntoFijoActionPerformed
+
+    private void toleranciaPuntoFijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toleranciaPuntoFijoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_toleranciaPuntoFijoActionPerformed
 
     private void groupButton(){
         ButtonGroup bgroup = new ButtonGroup();

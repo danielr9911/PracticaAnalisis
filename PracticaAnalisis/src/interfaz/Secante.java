@@ -49,22 +49,18 @@ public class Secante extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         x0Secante.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        x0Secante.setSize(new java.awt.Dimension(610, 45));
         getContentPane().add(x0Secante);
-        x0Secante.setBounds(240, 210, 610, 45);
+        x0Secante.setBounds(370, 210, 480, 45);
 
         x1Secante.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        x1Secante.setSize(new java.awt.Dimension(610, 45));
         getContentPane().add(x1Secante);
-        x1Secante.setBounds(240, 270, 610, 45);
+        x1Secante.setBounds(370, 270, 480, 45);
 
         iteracionesSecante.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        iteracionesSecante.setSize(new java.awt.Dimension(480, 45));
         getContentPane().add(iteracionesSecante);
         iteracionesSecante.setBounds(370, 340, 480, 45);
 
         toleranciaSecante.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        toleranciaSecante.setSize(new java.awt.Dimension(480, 45));
         getContentPane().add(toleranciaSecante);
         toleranciaSecante.setBounds(370, 410, 480, 45);
 
@@ -97,7 +93,7 @@ public class Secante extends javax.swing.JFrame {
             }
         });
         getContentPane().add(calcularSecante);
-        calcularSecante.setBounds(550, 630, 380, 100);
+        calcularSecante.setBounds(540, 635, 310, 90);
 
         ayudaSecante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Ayuda.png"))); // NOI18N
         ayudaSecante.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +102,7 @@ public class Secante extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ayudaSecante);
-        ayudaSecante.setBounds(850, 60, 110, 110);
+        ayudaSecante.setBounds(770, 60, 110, 110);
 
         botonMisFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonMisFunciones.png"))); // NOI18N
         botonMisFunciones.addActionListener(new java.awt.event.ActionListener() {

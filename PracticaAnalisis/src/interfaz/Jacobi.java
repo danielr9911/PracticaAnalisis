@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import static interfaz.MiMatrizIterativa.getEstadoMatriz;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -63,11 +64,11 @@ public class Jacobi extends javax.swing.JFrame {
 
         iteracionesJacobi.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(iteracionesJacobi);
-        iteracionesJacobi.setBounds(360, 210, 510, 40);
+        iteracionesJacobi.setBounds(360, 205, 510, 50);
 
         toleranciaJacobi.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(toleranciaJacobi);
-        toleranciaJacobi.setBounds(360, 290, 510, 40);
+        toleranciaJacobi.setBounds(360, 285, 510, 50);
 
         regresarJacobi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
         regresarJacobi.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +87,7 @@ public class Jacobi extends javax.swing.JFrame {
 
         lamdaJacobi.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(lamdaJacobi);
-        lamdaJacobi.setBounds(280, 355, 590, 40);
+        lamdaJacobi.setBounds(360, 350, 510, 50);
 
         buttonGroup1.add(errorAbsInfinito);
         getContentPane().add(errorAbsInfinito);
@@ -103,7 +104,7 @@ public class Jacobi extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonCalcular);
-        botonCalcular.setBounds(550, 560, 370, 100);
+        botonCalcular.setBounds(550, 560, 310, 90);
 
         ayudaLamba.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
         ayudaLamba.addActionListener(new java.awt.event.ActionListener() {
@@ -192,7 +193,7 @@ public class Jacobi extends javax.swing.JFrame {
         double lambda = 0;
         double tol = 0;
         int iter = 0;
-        boolean camposCorrectos = true;
+        boolean camposCorrectos = true;        
         
         try{
             lambda = Double.parseDouble(lamdaJacobi.getText());
@@ -232,6 +233,9 @@ public class Jacobi extends javax.swing.JFrame {
         
         if (camposCorrectos){
             if(Metodos2.tam != 0){
+                if(MiMatrizIterativa.matrizMalCondicionada == true){
+                    JOptionPane.showMessageDialog(rootPane, "La matriz insertada no es diagonal estricta dominante.\nPor favor, inserte una matriz que lo sea para poder ejecutar el método o revise la matriz con un método de pivoteo");
+                }else{                
                 Metodos2.jacobiRelajado(Metodos2.a, Metodos2.b, Metodos2.tam, tol, iter, lambda, Metodos2.x, err);
                 try {
                     String s = null;
@@ -301,9 +305,10 @@ public class Jacobi extends javax.swing.JFrame {
                     Logger.getLogger(Jacobi.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-            }else{
-            JOptionPane.showMessageDialog(rootPane, "Por favor asigne valores a su matriz");
             }
+            }
+          }else{
+            JOptionPane.showMessageDialog(rootPane, "Por favor asigne valores a su matriz");
         }
     }//GEN-LAST:event_botonCalcularActionPerformed
 

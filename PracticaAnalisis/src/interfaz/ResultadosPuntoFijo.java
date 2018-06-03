@@ -58,24 +58,21 @@ public class ResultadosPuntoFijo extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         xInicialPuntoFijo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        xInicialPuntoFijo.setSize(new java.awt.Dimension(240, 50));
         xInicialPuntoFijo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 xInicialPuntoFijoActionPerformed(evt);
             }
         });
         getContentPane().add(xInicialPuntoFijo);
-        xInicialPuntoFijo.setBounds(240, 100, 240, 50);
+        xInicialPuntoFijo.setBounds(360, 105, 120, 45);
 
         iteracionesPuntoFijo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        iteracionesPuntoFijo.setSize(new java.awt.Dimension(240, 50));
         getContentPane().add(iteracionesPuntoFijo);
-        iteracionesPuntoFijo.setBounds(380, 160, 240, 50);
+        iteracionesPuntoFijo.setBounds(360, 160, 120, 45);
 
         toleranciaPuntoFijo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        toleranciaPuntoFijo.setSize(new java.awt.Dimension(240, 50));
         getContentPane().add(toleranciaPuntoFijo);
-        toleranciaPuntoFijo.setBounds(680, 100, 240, 50);
+        toleranciaPuntoFijo.setBounds(675, 108, 170, 45);
 
         botonRegresarResultadosPuntoFijo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Boton Regresar.png"))); // NOI18N
         botonRegresarResultadosPuntoFijo.addActionListener(new java.awt.event.ActionListener() {
@@ -98,6 +95,7 @@ public class ResultadosPuntoFijo extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablePuntoFijo.setRowHeight(30);
         jScrollPane1.setViewportView(tablePuntoFijo);
 
         getContentPane().add(jScrollPane1);

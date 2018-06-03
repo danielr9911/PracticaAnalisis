@@ -93,6 +93,7 @@ public class ResultadosReglaFalsa extends javax.swing.JFrame {
         botonRegresarResultadosReglaFalsa.setBounds(40, 30, 80, 80);
 
         textResultado.setColumns(20);
+        textResultado.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         textResultado.setRows(5);
         jScrollPane1.setViewportView(textResultado);
 
@@ -111,6 +112,7 @@ public class ResultadosReglaFalsa extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableReglaFalsa.setRowHeight(30);
         jScrollPane2.setViewportView(tableReglaFalsa);
 
         getContentPane().add(jScrollPane2);

@@ -99,11 +99,11 @@ public class GaussSeidel extends javax.swing.JFrame {
 
         toleranciaGaussSeidel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(toleranciaGaussSeidel);
-        toleranciaGaussSeidel.setBounds(360, 290, 510, 40);
+        toleranciaGaussSeidel.setBounds(360, 285, 510, 50);
 
         lambdaGaussSeidel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(lambdaGaussSeidel);
-        lambdaGaussSeidel.setBounds(270, 355, 600, 40);
+        lambdaGaussSeidel.setBounds(360, 350, 510, 50);
 
         buttonGroup1.add(errorAbsInfinito);
         getContentPane().add(errorAbsInfinito);
@@ -120,11 +120,11 @@ public class GaussSeidel extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonCalcular);
-        botonCalcular.setBounds(540, 570, 370, 100);
+        botonCalcular.setBounds(540, 570, 310, 90);
 
         iteracionesGaussSeidel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         getContentPane().add(iteracionesGaussSeidel);
-        iteracionesGaussSeidel.setBounds(360, 210, 510, 40);
+        iteracionesGaussSeidel.setBounds(360, 200, 510, 50);
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 22)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(174, 0, 5));
@@ -220,6 +220,9 @@ public class GaussSeidel extends javax.swing.JFrame {
         
         if (camposCorrectos){
             if(Metodos2.tam != 0){
+                if(MiMatrizIterativa.matrizMalCondicionada == true){
+                    JOptionPane.showMessageDialog(rootPane, "La matriz insertada no es diagonal estricta dominante.\nPor favor, inserte una matriz que lo sea para poder ejecutar el método o revise la matriz con un método de pivoteo");
+                }else{  
                 Metodos2.gaussSeidelRelajado(Metodos2.a, Metodos2.b, Metodos2.tam, tol, iter, lambda, Metodos2.x, err);
                 try {
                     String s = null;
@@ -291,10 +294,11 @@ public class GaussSeidel extends javax.swing.JFrame {
                     Logger.getLogger(Jacobi.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-            }else{
-            JOptionPane.showMessageDialog(rootPane, "Por favor asigne valores a su matriz");
             }
-        }   
+            }
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Por favor asigne valores a su matriz");
+        }
     }//GEN-LAST:event_botonCalcularActionPerformed
 
     private void ayudaGaussSeidelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaGaussSeidelActionPerformed
