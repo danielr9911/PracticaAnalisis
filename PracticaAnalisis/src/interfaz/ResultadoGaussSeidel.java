@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package interfaz;
+import java.awt.Font;
 
 /**
  *
@@ -86,6 +87,7 @@ public class ResultadoGaussSeidel extends javax.swing.JFrame {
         jScrollPane1.setBounds(60, 610, 910, 140);
 
         tablaGaussSeidel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        tablaGaussSeidel.getTableHeader().setFont(new Font("Lucida Grande", Font.ITALIC, 24));
         tablaGaussSeidel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
