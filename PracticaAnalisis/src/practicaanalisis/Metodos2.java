@@ -34,7 +34,6 @@ public class Metodos2 {
     public static Double[][] matizFinal = null;
     public static String resX= "";
     public static int[] vectorMarcas = null;
-    
     public static BufferedReader stdOutput = null;
     public static BufferedReader stdError = null;
     
@@ -411,6 +410,48 @@ public class Metodos2 {
         }
         //Tenemos salida y salidaError
     
+    }
+    
+    public static void matrizInversa(Double[][] l, Double[][] u, int n){
+        String matrizL = "[";
+        for(Double[] l1: l){
+            String mtemp = Arrays.toString(l1) + ":";
+            mtemp = mtemp.replace(" ","");
+            matrizL = matrizL + mtemp;
+        }
+        matrizL = matrizL.substring(0,matrizL.length()-1);
+        matrizL = matrizL + "]";
+        String matrizU = "[";
+        for(Double[] u1: u){
+            String mtemp2 = Arrays.toString(u1) + ":";
+            mtemp2 = mtemp2.replace(" ","");
+            matrizU = matrizU + mtemp2;
+        }
+        matrizU = matrizU.substring(0,matrizU.length()-1);
+        matrizU = matrizU + "]";
+        String args = n +" "+matrizL+" "+matrizU;   
+        String ruta = System.getProperty("user.dir");
+        ruta = ruta + "/lib/metodos/";
+        ruta = ruta + "Inversa.py";
+        
+        if(PracticaAnalisis.os.equals("win")){
+            ruta = "\""+ruta+"\""; 
+        }
+        String comando = "python " + ruta + " " + args;
+        System.out.println(comando);
+        
+        try {
+            Process p = Runtime.getRuntime().exec(comando);
+            stdOutput = new BufferedReader(new 
+                 InputStreamReader(p.getInputStream()));
+
+            stdError = new BufferedReader(new 
+                 InputStreamReader(p.getErrorStream()));
+            //Interpretar res
+        } catch (IOException ex) {
+            Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+               
     }
     public static void jacobiRelajado(Double[][] a, Double[] b, int n, 
             Double tol, int iter, Double relajacion, Double[] xValues, int norma) {    

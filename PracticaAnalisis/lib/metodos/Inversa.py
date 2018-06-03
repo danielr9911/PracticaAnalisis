@@ -49,12 +49,26 @@ def sustitucionRegresiva(X, Z, U, n):
         X[i] = (Z[i] - sum) / U[i][i]
     return X
 
+def interpretarMatriz(tam,l,u):
+    matrizL = np.zeros((tam,tam))
+    matrizA = []
+    b = b[1:-1]
+    matrizB = np.fromstring(b,dtype=float,sep=",")
+    a = a[1:-1]
+    temp = a.split(":")
+    for i in range(tam):
+        fila = temp[i]
+        fila = fila[1:-1]
+        mtemp = np.fromstring(fila,dtype=float,sep=",")
+        matrizA.append(mtemp)
+    matrizA = np.array(matrizA)
+    return matrizB, matrizA
+
 def main():
     tam = int(sys.argv[1])
     sl = sys.argv[2]
     su = sys.argv[3]
-    L = np.fromstring(sl,dtype=float,sep=",")
-    U = np.fromstring(su,dtype=float,sep=",")
+
     inv = calcularInversa(L, U, tam)
     imprimirMatriz(inv, tam)
 

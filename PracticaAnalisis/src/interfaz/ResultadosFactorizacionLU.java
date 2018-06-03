@@ -75,11 +75,11 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
             }
         }
         
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        factorizacionL.setModel(new javax.swing.table.DefaultTableModel(
                 dMatrizFinalL,
                 new String [Metodos2.tam]
             ));
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        factorizacionU.setModel(new javax.swing.table.DefaultTableModel(
                 dMatrizFinalU,
                 new String [Metodos2.tam]
             ));
@@ -101,9 +101,9 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        factorizacionL = new javax.swing.JTable();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        factorizacionU = new javax.swing.JTable();
         calcularInversa = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -140,8 +140,8 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(710, 675, 300, 80);
 
-        jTable1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        factorizacionL.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        factorizacionL.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -152,15 +152,15 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setRowHeight(30);
-        jTable1.setTableHeader(null);
-        jScrollPane5.setViewportView(jTable1);
+        factorizacionL.setRowHeight(30);
+        factorizacionL.setTableHeader(null);
+        jScrollPane5.setViewportView(factorizacionL);
 
         getContentPane().add(jScrollPane5);
         jScrollPane5.setBounds(30, 320, 454, 340);
 
-        jTable2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        factorizacionU.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        factorizacionU.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -171,9 +171,9 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable2.setRowHeight(30);
-        jTable2.setTableHeader(null);
-        jScrollPane6.setViewportView(jTable2);
+        factorizacionU.setRowHeight(30);
+        factorizacionU.setTableHeader(null);
+        jScrollPane6.setViewportView(factorizacionU);
 
         getContentPane().add(jScrollPane6);
         jScrollPane6.setBounds(500, 320, 454, 340);
@@ -216,6 +216,7 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void calcularInversaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularInversaActionPerformed
+
         // TODO add your handling code here:
         MatrizInversa matrizInversa = new MatrizInversa();
         matrizInversa.setVisible(true);
@@ -229,14 +230,14 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresar;
     private javax.swing.JButton calcularInversa;
+    private javax.swing.JTable factorizacionL;
+    private javax.swing.JTable factorizacionU;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea3;
     // End of variables declaration//GEN-END:variables
