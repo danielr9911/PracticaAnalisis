@@ -573,7 +573,8 @@ public class MetodosDirectos extends javax.swing.JFrame {
     }//GEN-LAST:event_ayudaCholeskyActionPerformed
 
     private void ayudaPivoteoEscalonadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaPivoteoEscalonadoActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Pivoteo Escalonado", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/ayudaPivoteoEscalonado.png")));
+
     }//GEN-LAST:event_ayudaPivoteoEscalonadoActionPerformed
 
     
