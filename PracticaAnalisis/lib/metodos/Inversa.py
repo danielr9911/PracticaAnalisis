@@ -50,23 +50,25 @@ def sustitucionRegresiva(X, Z, U, n):
     return X
 
 def interpretarMatriz(tam,l,u):
+
     matrizL = []
+    matrizU = []
     l = l[1:-1]
-    temp = a.split(":")
+    u = u[1:-1]
+    temp = l.split(":")
+    temp2 = u.split(":")
+
     for i in range(tam):
         fila = temp[i]
         fila = fila[1:-1]
         mtemp = np.fromstring(fila,dtype=float,sep=",")
         matrizL.append(mtemp)
-    matrizL = np.array(matrizL)
-    matrizU = []
-    u = u[1:-1]
-    temp2 = a.split(":")
     for i in range(tam):
         fila2 = temp2[i]
         fila2 = fila2[1:-1]
         mtemp2 = np.fromstring(fila2,dtype=float,sep=",")
         matrizU.append(mtemp2)
+    matrizL = np.array(matrizL)
     matrizU = np.array(matrizU)
     return matrizL, matrizU
 
@@ -74,7 +76,10 @@ def main():
     tam = int(sys.argv[1])
     sl = sys.argv[2]
     su = sys.argv[3]
+    L, U = interpretarMatriz(tam, sl, su)
 
+    print(L)
+    print(U)
     inv = calcularInversa(L, U, tam)
     imprimirMatriz(inv, tam)
 
