@@ -518,6 +518,8 @@ public class MetodosDirectos extends javax.swing.JFrame {
             resultadosMetodosDirectos.setLocationRelativeTo(null);
             dispose();
         }else if("factorizacion".equals(tipoMetodo)){
+            //System.out.println(matrizL);
+            //System.out.println(matrizU);
             ResultadosFactorizacionLU resultadosFactorizacionLU = new ResultadosFactorizacionLU(resultado, matrizL,matrizU, etapas);
             resultadosFactorizacionLU.setVisible(true);
             resultadosFactorizacionLU.setSize(1024,768);

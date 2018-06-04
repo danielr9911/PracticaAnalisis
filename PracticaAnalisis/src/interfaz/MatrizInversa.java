@@ -10,6 +10,7 @@ import static interfaz.MetodosDirectos.matrizL;
 import static interfaz.MetodosDirectos.matrizU;
 import static interfaz.MetodosDirectos.resultado;
 import java.awt.Font;
+import practicaanalisis.Metodos2;
 
 /**
  *
@@ -20,8 +21,22 @@ public class MatrizInversa extends javax.swing.JFrame {
     /**
      * Creates new form MatrizInversa
      */
-    public MatrizInversa() {
+    public MatrizInversa(String matrizInv) {
+        System.out.println("PARAMETRO");
+        System.out.println(matrizInv);
         initComponents();
+        Double[][] inversa = new Double[Metodos2.tam][Metodos2.tam];
+        String[] arr = matrizInv.split(":");
+        for (int i = 0; i < arr.length; i++) {
+            String[] fila = arr[i].split(";");
+            for (int j = 0; j < fila.length; j++) {
+                inversa[i][j] = Double.parseDouble(fila[j]);
+            }
+        }
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                inversa,
+                new String [Metodos2.tam]
+            ));
     }
 
     /**

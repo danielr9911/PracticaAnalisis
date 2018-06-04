@@ -78,8 +78,8 @@ def main():
     su = sys.argv[3]
     L, U = interpretarMatriz(tam, sl, su)
 
-    print(L)
-    print(U)
+    #print(L)
+    #print(U)
     inv = calcularInversa(L, U, tam)
     imprimirMatriz(inv, tam)
 

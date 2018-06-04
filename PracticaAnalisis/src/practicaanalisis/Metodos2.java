@@ -25,6 +25,8 @@ import org.python.core.PyInteger;
 public class Metodos2 {
     public static PyInstance me;
     public static Double[][] a = null;
+    public static Double[][] l = null;
+    public static Double[][] u = null;
     public static Double[] b = null;
     public static Double[] x = null;
     public static int tam = 0;
@@ -413,6 +415,7 @@ public class Metodos2 {
     }
     
     public static void matrizInversa(Double[][] l, Double[][] u, int n){
+        System.out.println("MATRIZ INVERSA");
         String matrizL = "[";
         for(Double[] l1: l){
             String mtemp = Arrays.toString(l1) + ":";
@@ -791,4 +794,5 @@ public class Metodos2 {
             Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+   
 }

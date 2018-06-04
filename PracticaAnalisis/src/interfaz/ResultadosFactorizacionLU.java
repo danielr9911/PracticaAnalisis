@@ -5,9 +5,15 @@
  */
 package interfaz;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import practicaanalisis.Metodos2;
 
 /**
@@ -20,12 +26,15 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
     public static String matrizFinalL;
     public static String matrizFinalU;
     public static String etapas;
+    public static String matrizInv;
     
     /**
      * Creates new form ResultadosMetodosIterativos
      */
     public ResultadosFactorizacionLU(String res, String matrizL, String matrizU, String eta) {
         initComponents();
+        System.out.println("MATRIZ L");
+        System.out.println(matrizL);
         resultado = res;
         matrizFinalL = matrizL;
         matrizFinalU = matrizU;
@@ -83,6 +92,10 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
                 dMatrizFinalU,
                 new String [Metodos2.tam]
             ));
+        Double[][] ml = getTableData(factorizacionL);
+        Double[][] mu = getTableData(factorizacionU);
+        Metodos2.l = ml;
+        Metodos2.u = mu;
     }
 
     /**
@@ -218,7 +231,41 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
     private void calcularInversaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularInversaActionPerformed
 
         // TODO add your handling code here:
-        MatrizInversa matrizInversa = new MatrizInversa();
+        
+        //System.out.println(Arrays.deepToString(ml));
+        Metodos2.matrizInversa(Metodos2.l, Metodos2.u, Metodos2.tam);
+        try {
+            String s = null;
+
+            boolean error=false;
+            while ((s = Metodos2.stdError.readLine()) != null) {
+                JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                error=true;
+            } 
+            if(!error){
+                //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                String output = "";
+                while ((s = Metodos2.stdOutput.readLine()) != null) {
+                    //System.out.println(s);
+                    output = output + (s + "\n");
+                }
+
+                String[] arrOutput = output.split("!");
+                matrizInv = arrOutput[0];
+                //System.out.println("SALIDA JAVA");
+                //System.out.println(etapas);
+                //System.out.println("--");
+                //System.out.println(matrizFinal);
+                //System.out.println("---");
+                //System.out.println(resultado);
+                //System.out.println("FIN SALIDA JAVA");
+
+
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        MatrizInversa matrizInversa = new MatrizInversa(matrizInv);
         matrizInversa.setVisible(true);
         matrizInversa.setSize(1024,768);
         matrizInversa.setResizable(false);
@@ -226,6 +273,23 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_calcularInversaActionPerformed
 
+    public static Double[][] getTableData (JTable table) {
+        DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+        int nRow = dtm.getRowCount(), nCol = dtm.getColumnCount();
+        Double[][] tableData = new Double[nRow][nCol];
+        for (int i = 0 ; i < nRow ; i++){
+            for (int j = 0 ; j < nCol ; j++){
+                //System.out.println(dtm.getValueAt(i,j));
+                if (dtm.getValueAt(i,j) == null || dtm.getValueAt(i,j).toString().replaceAll("\\s","").equals("")){
+                    tableData[i][j] = 0.0;
+                }else{
+                    tableData[i][j] = Double.parseDouble(dtm.getValueAt(i,j).toString());
+                }
+                //tableData[i][j] = Double.parseDouble(dtm.getValueAt(i,j).toString());
+            }
+        }
+        return tableData;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresar;
