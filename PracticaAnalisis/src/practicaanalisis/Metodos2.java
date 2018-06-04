@@ -62,7 +62,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/gaussianaSimple.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "gaussianaSimple.py";
+        ruta = ruta + "gaussianaSimpleParalelo.py";
         
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
@@ -117,7 +117,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/pivoteoParcial.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "pivoteoParcial.py";
+        ruta = ruta + "pivoteoParcialParalelo.py";
         
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
@@ -174,7 +174,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/pivoteoEscalonado.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "pivoteoEscalonado.py";
+        ruta = ruta + "pivoteoEscalonadoParalelo.py";
         
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
@@ -224,7 +224,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/pivoteoTotal.py";
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "pivoteoTotal.py";
+        ruta = ruta + "pivoteoTotalParalelo.py";
         
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
@@ -281,7 +281,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/Crout.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "Crout.py";
+        ruta = ruta + "CroutParalelo.py";
         
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
@@ -337,7 +337,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/Doolittle.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "Doolittle.py";
+        ruta = ruta + "DoolittleParalelo.py";
         
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
@@ -392,7 +392,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/Cholesky.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "Cholesky.py";
+        ruta = ruta + "CholeskyParalelo.py";
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -481,7 +481,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/jacobiRelajado.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "jacobiRelajado.py";
+        ruta = ruta + "jacobiParalelo.py";
         
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
@@ -570,7 +570,7 @@ public class Metodos2 {
         
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "NewtonDifDiv.py";
+        ruta = ruta + "NewtonDifDivParalelo.py";
         //Hasta .jar
         //String ruta = Metodos2.class.getProtectionDomain().getCodeSource().getLocation().getPath();
         //ruta = ruta + "/metodos/NewtonDifDiv.py"; 
@@ -617,7 +617,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/Lagrange.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "Lagrange.py";
+        ruta = ruta + "LagrangeParalelo.py";
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -656,7 +656,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/Neville.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "Neville.py";
+        ruta = ruta + "NevilleParalelo.py";
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
