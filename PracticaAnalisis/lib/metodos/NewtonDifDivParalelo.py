@@ -63,8 +63,9 @@ def main():
             temp = temp+"(x"+"-"+str(x[i-1])+")"
             #pol = pol + "\n"+(tabla[i][i]>0?"+":"")+(tabla[i][i]+"*"+temp);
             pol = pol + "\n"
-            if tabla[i][i]>0:
-                pol = pol + "+"
+            #if tabla[i][i]>0:
+            #    pol = pol + "+"
+            pol = pol + "+"
             pol = pol + str(tabla[i][i])
             pol = pol + "*" + temp
 
