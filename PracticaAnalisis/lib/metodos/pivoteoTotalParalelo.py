@@ -111,7 +111,7 @@ def gaussianaConPivoteoTotal(Ab, tam):
         #np.set_printoptions(suppress=True)
         #print(arregloParcial)
         imprimirMatriz(arregloParcial)
-        print("\n-------------------------------------------------------\n")
+        print("\n##################################################\n")
         # print ("\tam", "Matriz parcial  \tam", np.array(Ab), "\tam")
     return Ab, marcas, True
 

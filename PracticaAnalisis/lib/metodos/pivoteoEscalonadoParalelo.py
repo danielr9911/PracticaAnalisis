@@ -70,7 +70,7 @@ def eliminacionGaussiana(tam, ab):
         print("\nMatriz parcial")
         #print(ab)
         imprimirMatriz(ab)
-        print("\n-------------------------------------------------------\n")
+        print("\n##################################################\n")
     print("!")
     print(ab)
     resultado = sustitucionRegresiva(ab, tam)

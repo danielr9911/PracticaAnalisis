@@ -52,7 +52,7 @@ def eliminacionGaussiana(Ab, tam):
         #np.set_printoptions(suppress=True)
         #print(arregloParcial)
         imprimirMatriz(arregloParcial)
-        print("\n-------------------------------------------------------\n")
+        print("\n##################################################\n")
     return Ab, True
 
 def imprimirMatriz(matriz):
