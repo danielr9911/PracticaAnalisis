@@ -79,6 +79,7 @@ public class MatrizInversa extends javax.swing.JFrame {
             }
         ));
         jTable1.setRowHeight(30);
+        jTable1.setTableHeader(null);
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
