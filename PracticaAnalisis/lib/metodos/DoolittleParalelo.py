@@ -26,7 +26,7 @@ def interpretarMatriz(tam, b, a):
 
 def imprimirMatriz(matriz):
     n = len(matriz)
-    print("----------------------------" * n)
+    print("----------------------" * n)
     for i in range(n):
         elem = matriz[i]
         linea = "| "
@@ -35,7 +35,7 @@ def imprimirMatriz(matriz):
             m = 20-len(str(elem[j]))
             linea = linea + (" "*m) + "| "
         print(linea)
-    print("----------------------------" * n)
+    print("----------------------" * n)
 
 def readMatrix(file, size):
     L = np.zeros((size, size))
