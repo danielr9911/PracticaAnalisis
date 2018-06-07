@@ -25,6 +25,18 @@ def interpretarMatriz(tam,b,a):
     matrizA = np.array(matrizA)
     return matrizB, matrizA
 
+def imprimirMatriz(matriz):
+    n = len(matriz)
+    print("----------------------------" * n)
+    for i in range(n):
+        elem = matriz[i]
+        linea = "| "
+        for j in range(len(elem)):
+            linea = linea + str(elem[j])
+            m = 20-len(str(elem[j]))
+            linea = linea + (" "*m) + "| "
+        print(linea)
+    print("----------------------------" * n)
 
 def pivoteoTotal(Ab, k, marcas, tam):
     mayor = 0
@@ -87,8 +99,9 @@ def gaussianaConPivoteoTotal(Ab, tam):
                 Ab[i][j] = Ab[i][j] - multiplicador * Ab[k][j]
         print("\nMatriz parcial")
         arregloParcial = np.array(Ab) 
-        np.set_printoptions(suppress=True)
-        print(arregloParcial)
+        #np.set_printoptions(suppress=True)
+        #print(arregloParcial)
+        imprimirMatriz(arregloParcial)
         print("\n-------------------------------------------------------\n")
         #print ("\tam", "Matriz parcial  \tam", np.array(Ab), "\tam")
     return Ab, marcas, True
@@ -120,6 +133,7 @@ def main():
     if exito:
         print("!")
         print(matrizFinal)
+        #imprimirMatriz(matrizFinal)
         #print ("Matriz final\tam ", matrizFinal)
 
         x = sustitucionRegresiva(matrizFinal, tam)

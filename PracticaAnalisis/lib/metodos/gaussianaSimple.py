@@ -26,6 +26,18 @@ def interpretarMatriz(tam,b,a):
     matrizA = np.array(matrizA)
     return matrizB, matrizA
 
+def imprimirMatriz(matriz):
+    n = len(matriz)
+    print("----------------------------" * n)
+    for i in range(n):
+        elem = matriz[i]
+        linea = "| "
+        for j in range(len(elem)):
+            linea = linea + str(elem[j])
+            m = 20-len(str(elem[j]))
+            linea = linea + (" "*m) + "| "
+        print(linea)
+    print("----------------------------" * n)
 
 def eliminacionGaussiana(Ab,tam):
     for k in range(1, tam):
@@ -44,8 +56,9 @@ def eliminacionGaussiana(Ab,tam):
                 Ab[i][j-1] = Ab[i][j-1] - multiplicador * Ab[k-1][j-1]
         print("\nMatriz parcial")
         arregloParcial = np.array(Ab)
-        np.set_printoptions(suppress=True)
-        print(arregloParcial)
+        #np.set_printoptions(suppress=True)
+        #print(arregloParcial)
+        imprimirMatriz(arregloParcial)
         print("\n-------------------------------------------------------\n")
     return Ab, True
 
@@ -71,6 +84,7 @@ def main():
     if exito:
         print("!")
         print(matrizFinal)
+        #imprimirMatriz(matrizFinal)
         x = sustitucionRegresiva(matrizFinal, tam)
         print("!")
         for i, x in enumerate(x):
