@@ -518,6 +518,8 @@ public class MetodosDirectos extends javax.swing.JFrame {
             resultadosMetodosDirectos.setLocationRelativeTo(null);
             dispose();
         }else if("factorizacion".equals(tipoMetodo)){
+            //System.out.println(matrizL);
+            //System.out.println(matrizU);
             ResultadosFactorizacionLU resultadosFactorizacionLU = new ResultadosFactorizacionLU(resultado, matrizL,matrizU, etapas);
             resultadosFactorizacionLU.setVisible(true);
             resultadosFactorizacionLU.setSize(1024,768);
@@ -573,7 +575,8 @@ public class MetodosDirectos extends javax.swing.JFrame {
     }//GEN-LAST:event_ayudaCholeskyActionPerformed
 
     private void ayudaPivoteoEscalonadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaPivoteoEscalonadoActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Pivoteo Escalonado", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/ayudaPivoteoEscalonado.png")));
+
     }//GEN-LAST:event_ayudaPivoteoEscalonadoActionPerformed
 
     

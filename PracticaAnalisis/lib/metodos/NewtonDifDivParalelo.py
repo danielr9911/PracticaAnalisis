@@ -1,5 +1,5 @@
 #!/usr/bin/python
-
+import threading
 from ast import literal_eval
 import numpy as np
 import sys
@@ -10,7 +10,16 @@ def imprimirTabla(tabla, n, x):
     tablaAum = np.hstack((nx, tabla))
     print(tablaAum)
 
-
+def newtonParalelo(x,i,j,tabla):
+    if (float(x[i]) - float(x[i - j])) == 0.0:
+        print("Se encontro una division por cero")
+        print("!")
+        print("Se encontro una division por cero")
+        print("!")
+        print("0")
+        ban = False
+    else:
+        tabla[i][j] = (float(tabla[i][j - 1]) - float(tabla[i - 1][j - 1])) / (float(x[i]) - float(x[i - j]))
 
 def main():
     # (2,3);(3,5);(4,6)
@@ -38,15 +47,9 @@ def main():
     ban = True
     for i in range(n):
         for j in range(1,i+1):
-            if (float(x[i]) - float(x[i-j])) == 0.0:
-                print("Se encontro una division por cero")
-                print("!")
-                print("Se encontro una division por cero")
-                print("!")
-                print("0")
-                ban = False
-            else:
-                tabla[i][j] = (float(tabla[i][j-1]) - float(tabla[i-1][j-1]))/(float(x[i]) - float(x[i-j]))
+            t = threading.Thread(target=newtonParalelo, args=(x,i,j,tabla))
+            t.start()
+            t.join()
     if ban:
         print("TABLA:")
         imprimirTabla(tabla, n, x)

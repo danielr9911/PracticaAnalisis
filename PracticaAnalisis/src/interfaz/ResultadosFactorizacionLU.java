@@ -5,9 +5,15 @@
  */
 package interfaz;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import practicaanalisis.Metodos2;
 
 /**
@@ -20,12 +26,15 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
     public static String matrizFinalL;
     public static String matrizFinalU;
     public static String etapas;
+    public static String matrizInv;
     
     /**
      * Creates new form ResultadosMetodosIterativos
      */
     public ResultadosFactorizacionLU(String res, String matrizL, String matrizU, String eta) {
         initComponents();
+        System.out.println("MATRIZ L");
+        System.out.println(matrizL);
         resultado = res;
         matrizFinalL = matrizL;
         matrizFinalU = matrizU;
@@ -75,14 +84,18 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
             }
         }
         
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        factorizacionL.setModel(new javax.swing.table.DefaultTableModel(
                 dMatrizFinalL,
                 new String [Metodos2.tam]
             ));
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        factorizacionU.setModel(new javax.swing.table.DefaultTableModel(
                 dMatrizFinalU,
                 new String [Metodos2.tam]
             ));
+        Double[][] ml = getTableData(factorizacionL);
+        Double[][] mu = getTableData(factorizacionU);
+        Metodos2.l = ml;
+        Metodos2.u = mu;
     }
 
     /**
@@ -101,9 +114,9 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        factorizacionL = new javax.swing.JTable();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        factorizacionU = new javax.swing.JTable();
         calcularInversa = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -140,8 +153,8 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(710, 675, 300, 80);
 
-        jTable1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        factorizacionL.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        factorizacionL.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -152,15 +165,15 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setRowHeight(30);
-        jTable1.setTableHeader(null);
-        jScrollPane5.setViewportView(jTable1);
+        factorizacionL.setRowHeight(30);
+        factorizacionL.setTableHeader(null);
+        jScrollPane5.setViewportView(factorizacionL);
 
         getContentPane().add(jScrollPane5);
         jScrollPane5.setBounds(30, 320, 454, 340);
 
-        jTable2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        factorizacionU.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        factorizacionU.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -171,9 +184,9 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable2.setRowHeight(30);
-        jTable2.setTableHeader(null);
-        jScrollPane6.setViewportView(jTable2);
+        factorizacionU.setRowHeight(30);
+        factorizacionU.setTableHeader(null);
+        jScrollPane6.setViewportView(factorizacionU);
 
         getContentPane().add(jScrollPane6);
         jScrollPane6.setBounds(500, 320, 454, 340);
@@ -216,8 +229,43 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void calcularInversaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularInversaActionPerformed
+
         // TODO add your handling code here:
-        MatrizInversa matrizInversa = new MatrizInversa();
+        
+        //System.out.println(Arrays.deepToString(ml));
+        Metodos2.matrizInversa(Metodos2.l, Metodos2.u, Metodos2.tam);
+        try {
+            String s = null;
+
+            boolean error=false;
+            while ((s = Metodos2.stdError.readLine()) != null) {
+                JOptionPane.showMessageDialog(this,s,"Error",JOptionPane.ERROR_MESSAGE);
+                error=true;
+            } 
+            if(!error){
+                //Interpretar para obtener 3 cosas: matrizFinal(Pasar a Double[][]), Resultados de X(String) y etapas(String)
+                String output = "";
+                while ((s = Metodos2.stdOutput.readLine()) != null) {
+                    //System.out.println(s);
+                    output = output + (s + "\n");
+                }
+
+                String[] arrOutput = output.split("!");
+                matrizInv = arrOutput[0];
+                //System.out.println("SALIDA JAVA");
+                //System.out.println(etapas);
+                //System.out.println("--");
+                //System.out.println(matrizFinal);
+                //System.out.println("---");
+                //System.out.println(resultado);
+                //System.out.println("FIN SALIDA JAVA");
+
+
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(MetodosDirectos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        MatrizInversa matrizInversa = new MatrizInversa(matrizInv);
         matrizInversa.setVisible(true);
         matrizInversa.setSize(1024,768);
         matrizInversa.setResizable(false);
@@ -225,18 +273,35 @@ public class ResultadosFactorizacionLU extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_calcularInversaActionPerformed
 
+    public static Double[][] getTableData (JTable table) {
+        DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+        int nRow = dtm.getRowCount(), nCol = dtm.getColumnCount();
+        Double[][] tableData = new Double[nRow][nCol];
+        for (int i = 0 ; i < nRow ; i++){
+            for (int j = 0 ; j < nCol ; j++){
+                //System.out.println(dtm.getValueAt(i,j));
+                if (dtm.getValueAt(i,j) == null || dtm.getValueAt(i,j).toString().replaceAll("\\s","").equals("")){
+                    tableData[i][j] = 0.0;
+                }else{
+                    tableData[i][j] = Double.parseDouble(dtm.getValueAt(i,j).toString());
+                }
+                //tableData[i][j] = Double.parseDouble(dtm.getValueAt(i,j).toString());
+            }
+        }
+        return tableData;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresar;
     private javax.swing.JButton calcularInversa;
+    private javax.swing.JTable factorizacionL;
+    private javax.swing.JTable factorizacionU;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea3;
     // End of variables declaration//GEN-END:variables

@@ -25,6 +25,8 @@ import org.python.core.PyInteger;
 public class Metodos2 {
     public static PyInstance me;
     public static Double[][] a = null;
+    public static Double[][] l = null;
+    public static Double[][] u = null;
     public static Double[] b = null;
     public static Double[] x = null;
     public static int tam = 0;
@@ -34,7 +36,6 @@ public class Metodos2 {
     public static Double[][] matizFinal = null;
     public static String resX= "";
     public static int[] vectorMarcas = null;
-    
     public static BufferedReader stdOutput = null;
     public static BufferedReader stdError = null;
     
@@ -61,7 +62,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/gaussianaSimple.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "gaussianaSimple.py";
+        ruta = ruta + "gaussianaSimpleParalelo.py";
         
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
@@ -116,7 +117,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/pivoteoParcial.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "pivoteoParcial.py";
+        ruta = ruta + "pivoteoParcialParalelo.py";
         
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
@@ -173,7 +174,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/pivoteoEscalonado.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "pivoteoEscalonado.py";
+        ruta = ruta + "pivoteoEscalonadoParalelo.py";
         
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
@@ -223,7 +224,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/pivoteoTotal.py";
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "pivoteoTotal.py";
+        ruta = ruta + "pivoteoTotalParalelo.py";
         
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
@@ -280,7 +281,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/Crout.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "Crout.py";
+        ruta = ruta + "CroutParalelo.py";
         
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
@@ -336,7 +337,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/Doolittle.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "Doolittle.py";
+        ruta = ruta + "DoolittleParalelo.py";
         
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
@@ -391,7 +392,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/Cholesky.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "Cholesky.py";
+        ruta = ruta + "CholeskyParalelo.py";
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -411,6 +412,49 @@ public class Metodos2 {
         }
         //Tenemos salida y salidaError
     
+    }
+    
+    public static void matrizInversa(Double[][] l, Double[][] u, int n){
+        System.out.println("MATRIZ INVERSA");
+        String matrizL = "[";
+        for(Double[] l1: l){
+            String mtemp = Arrays.toString(l1) + ":";
+            mtemp = mtemp.replace(" ","");
+            matrizL = matrizL + mtemp;
+        }
+        matrizL = matrizL.substring(0,matrizL.length()-1);
+        matrizL = matrizL + "]";
+        String matrizU = "[";
+        for(Double[] u1: u){
+            String mtemp2 = Arrays.toString(u1) + ":";
+            mtemp2 = mtemp2.replace(" ","");
+            matrizU = matrizU + mtemp2;
+        }
+        matrizU = matrizU.substring(0,matrizU.length()-1);
+        matrizU = matrizU + "]";
+        String args = n +" "+matrizL+" "+matrizU;   
+        String ruta = System.getProperty("user.dir");
+        ruta = ruta + "/lib/metodos/";
+        ruta = ruta + "Inversa.py";
+        
+        if(PracticaAnalisis.os.equals("win")){
+            ruta = "\""+ruta+"\""; 
+        }
+        String comando = "python " + ruta + " " + args;
+        System.out.println(comando);
+        
+        try {
+            Process p = Runtime.getRuntime().exec(comando);
+            stdOutput = new BufferedReader(new 
+                 InputStreamReader(p.getInputStream()));
+
+            stdError = new BufferedReader(new 
+                 InputStreamReader(p.getErrorStream()));
+            //Interpretar res
+        } catch (IOException ex) {
+            Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+               
     }
     public static void jacobiRelajado(Double[][] a, Double[] b, int n, 
             Double tol, int iter, Double relajacion, Double[] xValues, int norma) {    
@@ -437,7 +481,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/jacobiRelajado.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "jacobiRelajado.py";
+        ruta = ruta + "jacobiParalelo.py";
         
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
@@ -526,7 +570,7 @@ public class Metodos2 {
         
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "NewtonDifDiv.py";
+        ruta = ruta + "NewtonDifDivParalelo.py";
         //Hasta .jar
         //String ruta = Metodos2.class.getProtectionDomain().getCodeSource().getLocation().getPath();
         //ruta = ruta + "/metodos/NewtonDifDiv.py"; 
@@ -573,7 +617,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/Lagrange.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "Lagrange.py";
+        ruta = ruta + "LagrangeParalelo.py";
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -612,7 +656,7 @@ public class Metodos2 {
         //ruta = ruta + "metodos/Neville.py"; 
         String ruta = System.getProperty("user.dir");
         ruta = ruta + "/lib/metodos/";
-        ruta = ruta + "Neville.py";
+        ruta = ruta + "NevilleParalelo.py";
         if(PracticaAnalisis.os.equals("win")){
             ruta = "\""+ruta+"\""; 
         }
@@ -750,4 +794,5 @@ public class Metodos2 {
             Logger.getLogger(Metodos2.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+   
 }

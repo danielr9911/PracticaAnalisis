@@ -212,6 +212,11 @@ public class Interpolacion extends javax.swing.JFrame {
         jTextField2.setBounds(410, 215, 280, 40);
 
         ayudaNeville.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAyudaPequeno.png"))); // NOI18N
+        ayudaNeville.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaNevilleActionPerformed(evt);
+            }
+        });
         getContentPane().add(ayudaNeville);
         ayudaNeville.setBounds(670, 455, 50, 50);
 
@@ -607,6 +612,10 @@ public class Interpolacion extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void ayudaNevilleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaNevilleActionPerformed
+        JOptionPane.showMessageDialog(null, null, "AYUDA - Neville", HEIGHT, new javax.swing.ImageIcon(getClass().getResource("/imagenes/AyudaNeville.png")));        // TODO add your handling code here:
+    }//GEN-LAST:event_ayudaNevilleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

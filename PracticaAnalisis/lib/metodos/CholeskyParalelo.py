@@ -1,8 +1,11 @@
+import threading
+
 import numpy as np
 import sys
 from math import *
 
-def interpretarMatriz(tam,b,a):
+
+def interpretarMatriz(tam, b, a):
     L = np.zeros((tam, tam))
     U = np.zeros((tam, tam))
     Z = np.zeros(tam)
@@ -10,16 +13,17 @@ def interpretarMatriz(tam,b,a):
     matrizB = np.zeros(tam)
     matrizA = []
     b = b[1:-1]
-    matrizB = np.fromstring(b,dtype=float,sep=",")
+    matrizB = np.fromstring(b, dtype=float, sep=",")
     a = a[1:-1]
     temp = a.split(":")
     for i in range(tam):
         fila = temp[i]
         fila = fila[1:-1]
-        mtemp = np.fromstring(fila,dtype=float,sep=",")
+        mtemp = np.fromstring(fila, dtype=float, sep=",")
         matrizA.append(mtemp)
     matrizA = np.array(matrizA)
     return L, U, matrizA, matrizB, Z, X
+
 
 def readMatrix(file, size):
     L = np.zeros((size, size))
@@ -41,6 +45,18 @@ def readMatrix(file, size):
     return L, U, A, B, Z, X
 
 
+def calcularLParalelo(k,L,A,i,U):
+    suma2 = 0
+    for p in range(0, k):
+        suma2 += L[i][p] * U[p][k]
+    L[i][k] = (A[i][k] - suma2) / float(U[k][k])
+
+def calcularUParalelo(k,L,A,j,U):
+    suma3 = 0
+    for h in range(k):
+        suma3 += L[k][h] * U[h][j]
+    U[k][j] = (A[k][j] - suma3) / float(L[k][k])
+
 def cholesky(L, U, A, n):
     for k in range(n):
         print("+ ETAPA: %d \n" % k)
@@ -61,29 +77,21 @@ def cholesky(L, U, A, n):
         L[k][k] = sqrt(A[k][k] - suma1)
         U[k][k] = L[k][k]
 
-
-
-
         if float(U[k][k]) == 0.0 or float(L[k][k]) == 0.0:
             print("##################################")
             print("El sistema no tiene solucion unica")
             print("##################################")
             return L, U, False
 
-
-
-
         for i in range(k, n):
-            suma2 = 0
-            for p in range(0, k):
-                suma2 += L[i][p] * U[p][k]
-            L[i][k] = (A[i][k] - suma2) / float(U[k][k])
+            t = threading.Thread(target=calcularLParalelo, args=(k,L,A,i,U))
+            t.start()
+            t.join()
 
         for j in range(k + 1, n):
-            suma3 = 0
-            for h in range(k):
-                suma3 += L[k][h] * U[h][j]
-            U[k][j] = (A[k][j] - suma3) / float(L[k][k])
+            t = threading.Thread(target=calcularUParalelo, args=(k,L,A,j,U))
+            t.start()
+            t.join()
 
     return L, U, True
 
@@ -122,10 +130,10 @@ def main():
         print(U)
         print("!")
         for i, x in enumerate(X):
-            print ("x{0} = {1}  ".format(i + 1, x))
+            print("x{0} = {1}  ".format(i + 1, x))
         print("\n")
         for i, x in enumerate(Z):
-            print ("z{0} = {1}  ".format(i + 1, x))
+            print("z{0} = {1}  ".format(i + 1, x))
     else:
         print("!")
         cero = np.zeros((tam, tam + 1))

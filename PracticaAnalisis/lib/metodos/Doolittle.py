@@ -43,17 +43,19 @@ def readMatrix(file, size):
 
 def doolittle(L, U, A, n):
     for k in range(n):
+        print("+ ETAPA: %d \n" % k)
+        print("Matriz L")
+        print(np.array(L))
+        print("Matrix U")
+        print(np.array(U))
+
         suma1 = 0
         for m in range(k):
             suma1 += L[k][m] * U[m][k]
         L[k][k] = 1
         U[k][k] = A[k][k]-suma1
 
-        print("+ ETAPA: %d \n" % k)
-        print("Matriz L")
-        print(np.array(L))
-        print("Matrix U")
-        print(np.array(U))
+
 
 
         if float(U[k][k]) == 0.0 or float(L[k][k]) == 0.0:
