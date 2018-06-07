@@ -108,7 +108,7 @@ public class ResultadoTablaNewton extends javax.swing.JFrame {
 
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
         // TODO add your handling code here:
-        ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion(tabla, resultado, polinomio, true);
+        ResultadoDiferenciasDivididas resultadoInterpolacion = new ResultadoDiferenciasDivididas(tabla, resultado, polinomio, true);
         resultadoInterpolacion.setVisible(true);
         resultadoInterpolacion.setSize(1024,768);
         resultadoInterpolacion.setResizable(false);

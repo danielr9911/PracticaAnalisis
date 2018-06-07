@@ -5,17 +5,53 @@
  */
 package interfaz;
 
+import practicaanalisis.Metodos2;
+
 /**
  *
  * @author carlosruiz
  */
 public class DetalleSplines extends javax.swing.JFrame {
+    public static String res, tabIni, tabFin, ecua, titIni, titFin;
+    public static boolean esLineal;
 
     /**
      * Creates new form DetalleSplines
      */
-    public DetalleSplines() {
+    public DetalleSplines(String resultado, String tablaIni, String tablaFin, String ecuaciones, String titulosIni, String titulosFin, boolean isLineal) {
+        res = resultado;
+        tabIni = tablaIni;       
+        tabFin = tablaFin;
+        ecua = ecuaciones;
+        titIni = titulosIni;
+        titFin = titulosFin;
+        esLineal = isLineal;
         initComponents();
+        jTextArea1.setText(ecua);
+        String[] titulos1 = titulosIni.split(";");
+        String[] titulos2 = titulosFin.split(";");
+        Double[][] tablaInicial = new Double[titulos1.length][titulos1.length];
+        Double[][] tablaFinal = new Double[titulos2.length][titulos2.length];
+        
+        String[] arr1 = tabIni.split(":");
+        String[] arr2 = tabFin.split(":");
+        for (int i = 0; i < arr1.length; i++){
+            String[] fila1 = arr1[i].split(";");
+            String[] fila2 = arr2[i].split(";");
+            for(int j = 0; j < fila1.length; j++){
+                tablaInicial[i][j] = Double.parseDouble(fila1[j]);
+                tablaFinal[i][j] = Double.parseDouble(fila2[j]);
+            }
+        }
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                tablaInicial,
+                titulos1
+            ));
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+                tablaFinal,
+                titulos2
+            ));
+        
     }
 
     /**
@@ -96,7 +132,7 @@ public class DetalleSplines extends javax.swing.JFrame {
 
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
         // TODO add your handling code here:
-        ResultadoSplines resultadoSplines = new ResultadoSplines();
+        ResultadoSplines resultadoSplines = new ResultadoSplines(res, tabIni, tabFin, ecua, titIni, titFin, esLineal);
         resultadoSplines.setVisible(true);
         resultadoSplines.setSize(1024,768);
         resultadoSplines.setResizable(false);
@@ -107,38 +143,7 @@ public class DetalleSplines extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DetalleSplines.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DetalleSplines.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DetalleSplines.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DetalleSplines.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DetalleSplines().setVisible(true);
-            }
-        });
-    }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresar;
     private javax.swing.JLabel jLabel1;
