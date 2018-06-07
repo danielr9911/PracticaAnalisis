@@ -101,7 +101,7 @@ public class DetalleSplines extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(60, 120, 890, 140);
 
-        jTable1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jTable1.setFont(new java.awt.Font("Lucida Grande", 0, 22)); // NOI18N
         jTable1.getTableHeader().setFont(new Font("Lucida Grande", Font.ITALIC, 24));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -120,7 +120,7 @@ public class DetalleSplines extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(60, 340, 890, 140);
 
-        jTable2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jTable2.setFont(new java.awt.Font("Lucida Grande", 0, 22)); // NOI18N
         jTable2.getTableHeader().setFont(new Font("Lucida Grande", Font.ITALIC, 24));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
