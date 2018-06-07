@@ -121,7 +121,7 @@ public class ResultadoInterpolacion extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         graficadorClasico = new ZonaGrafica();
-        graficadorClasico.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        graficadorClasico.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         getContentPane().add(graficadorClasico);
         graficadorClasico.setBounds(90, 110, 880, 370);
 
@@ -170,11 +170,11 @@ public class ResultadoInterpolacion extends javax.swing.JFrame {
 
     private void botonVerTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerTablaActionPerformed
         // TODO add your handling code here:
-        TablaInterpolacion tablaIn = new TablaInterpolacion(tabla, resultado, polinomio,isNewton, false);
-        tablaIn.setVisible(true);
-        tablaIn.setSize(1024,768);
-        tablaIn.setResizable(false);
-        tablaIn.setLocationRelativeTo(null);
+        ResultadoTablaNewton tablaNewton = new ResultadoTablaNewton(tabla, resultado, polinomio,isNewton);
+        tablaNewton.setVisible(true);
+        tablaNewton.setSize(1024,768);
+        tablaNewton.setResizable(false);
+        tablaNewton.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_botonVerTablaActionPerformed
 

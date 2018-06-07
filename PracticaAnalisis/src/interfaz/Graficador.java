@@ -331,6 +331,7 @@ public class Graficador extends javax.swing.JFrame {
         jLabel6.setBounds(53, 635, 40, 20);
 
         graficadorClasico = new ZonaGrafica();
+        graficadorClasico.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jScrollPane1.setViewportView(graficadorClasico);
 
         getContentPane().add(jScrollPane1);
