@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import practicaanalisis.Metodos2;
+
 /**
  *
  * @author carlosruiz
@@ -14,8 +16,21 @@ public class ResultadoNeville extends javax.swing.JFrame {
     /**
      * Creates new form ResultadoNeville
      */
-    public ResultadoNeville() {
+    public ResultadoNeville(String tabla, String resultado) {
         initComponents();
+        Double[][] neville = new Double[Metodos2.nPuntos][Metodos2.nPuntos + 2];
+        String[] arr = tabla.split(":");
+        for (int i = 0; i < arr.length; i++){
+            String[] fila = arr[i].split(";");
+            for(int j = 0; j < fila.length; j++){
+                neville[i][j] = Double.parseDouble(fila[j]);
+            }
+        }
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                neville,
+                new String [Metodos2.tam]
+            ));
+        jTextArea1.setText(resultado);
     }
 
     /**
@@ -89,37 +104,6 @@ public class ResultadoNeville extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResultadoNeville.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResultadoNeville.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResultadoNeville.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResultadoNeville.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ResultadoNeville().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresar;
