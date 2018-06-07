@@ -6,7 +6,16 @@ import sys
 def imprimirTabla(tabla, n, x):
     nx = np.column_stack((range(n), x))
     tablaAum = np.hstack((nx, tabla))
-    print(tablaAum)
+    t = ""
+    for i in range(len(tablaAum)):
+        for j in range(len(tablaAum[0])):
+            if j != (len(tablaAum[0])-1):
+                t = t + str(tablaAum[i][j]) + ";"
+            else:
+                t = t + str(tablaAum[i][j])
+        if i!=(len(tablaAum)-1):
+            t = t + ":"
+    print(t)
 
 def nevilleParalelo(x,i,j,tabla,val):
     if (x[i] - x[i - j]) == 0.0:
@@ -39,10 +48,9 @@ def main():
             t.join()
 
     if ban:
-        print("TABLA DE RESULTADOS:")
         imprimirTabla(tabla, n, x)
-        print("----------------------------------------")
-        print("RESULTADO:")
+        print("!")
+        print("RESULTADO DE LA EVALUACION:")
         res = "f(%f) = %f" % (val, tabla[n-1][n-1])
         print(res)
 
