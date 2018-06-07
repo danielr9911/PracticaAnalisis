@@ -423,7 +423,8 @@ public class Interpolacion extends javax.swing.JFrame {
                 case 3:
                     //Spline Cuadrático
                     isNewton = false;
-                    tipoMetodo = "spline";
+                    tipoMetodo = "spline";                 
+                    esLineal = false;
                     Metodos2.splineCuadratico(Metodos2.nPuntos, Metodos2.valorX, x, y);
                     try {
                         String s = null;
@@ -469,6 +470,7 @@ public class Interpolacion extends javax.swing.JFrame {
                     //Spline Cúbico
                     isNewton = false;
                     tipoMetodo = "spline";
+                    esLineal = false;
                     Metodos2.splineCubico(Metodos2.nPuntos, Metodos2.valorX, x, y);
                     try {
                         String s = null;

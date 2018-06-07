@@ -188,10 +188,8 @@ def imprimirTabla(tablaAum):
 def imprimirTitulos(titulos):
     linea = ""
     for i in range(len(titulos)):
-        if i != (len(titulos)-1):
-            linea = linea + str(titulos[i]) + ";"
-        else:
-            linea = linea + str(titulos[i])
+        linea = linea + str(titulos[i]) + ";"
+    linea = linea + "r"
     print(linea)
 
 def organizarX(marcas, original, x):
