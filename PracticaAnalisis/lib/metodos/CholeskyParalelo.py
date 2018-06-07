@@ -24,6 +24,18 @@ def interpretarMatriz(tam, b, a):
     matrizA = np.array(matrizA)
     return L, U, matrizA, matrizB, Z, X
 
+def imprimirMatriz(matriz):
+    n = len(matriz)
+    print("----------------------------" * n)
+    for i in range(n):
+        elem = matriz[i]
+        linea = "| "
+        for j in range(len(elem)):
+            linea = linea + str(elem[j])
+            m = 20-len(str(elem[j]))
+            linea = linea + (" "*m) + "| "
+        print(linea)
+    print("----------------------------" * n)
 
 def readMatrix(file, size):
     L = np.zeros((size, size))
@@ -61,10 +73,12 @@ def cholesky(L, U, A, n):
     for k in range(n):
         print("+ ETAPA: %d \n" % k)
         print("Matriz L")
-        print(np.array(L))
-        print("Matrix U")
-        print(np.array(U))
-
+        #print(np.array(L))
+        imprimirMatriz(np.array(L))
+        print("Matriz U")
+        imprimirMatriz(np.array(U))
+        #print(np.array(U))
+        print("\n##################################################\n")
         suma1 = 0
         for m in range(k):
             suma1 += L[k][m] * U[m][k]

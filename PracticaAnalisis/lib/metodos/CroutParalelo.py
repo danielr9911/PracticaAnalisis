@@ -76,7 +76,7 @@ def crout(L, U, A, n):
         print("Matriz U")
         imprimirMatriz(np.array(U))
         #print(np.array(U))
-
+        print("\n##################################################\n")
         suma1 = 0
         for m in range(k):
             suma1 += L[k][m] * U[m][k]
