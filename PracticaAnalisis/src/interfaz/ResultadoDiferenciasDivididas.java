@@ -27,7 +27,7 @@ import org.nfunk.jep.type.Complex;
  *
  * @author carlosruiz
  */
-public class ResultadoInterpolacion extends javax.swing.JFrame {
+public class ResultadoDiferenciasDivididas extends javax.swing.JFrame {
 
     public static String funRes = "";
     
@@ -59,13 +59,13 @@ public class ResultadoInterpolacion extends javax.swing.JFrame {
                                                       5.0f, dash1, 0.0f);
     ImageIcon imageIcon;
     /**
-     * Creates new form ResultadoInterpolacion
+     * Creates new form ResultadoDiferenciasDivididas
      */
     public static String tabla;
     public static String resultado;
     public static String polinomio;
     public static boolean isNewton;
-    public ResultadoInterpolacion(String tab, String res, String pol, boolean isN) {
+    public ResultadoDiferenciasDivididas(String tab, String res, String pol, boolean isN) {
         initComponents();
         tabla = tab;
         resultado = res;

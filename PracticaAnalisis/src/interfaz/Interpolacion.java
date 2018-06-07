@@ -29,6 +29,10 @@ public class Interpolacion extends javax.swing.JFrame {
     public static String polinomio;
     public static String tablaIni;
     public static String tablaFin;
+    public static String ecuaciones;
+    public static String titulosIni;
+    public static String titulosFin;
+    public static boolean esLineal;
     
     public Interpolacion() {
         initComponents();
@@ -376,6 +380,7 @@ public class Interpolacion extends javax.swing.JFrame {
                     //Spline Lineal
                     tipoMetodo= "spline";
                     isNewton = false;
+                    esLineal = true;
                     Metodos2.splineLineal(Metodos2.nPuntos, Metodos2.valorX, x, y);
                     try {
                         String s = null;
@@ -394,9 +399,12 @@ public class Interpolacion extends javax.swing.JFrame {
                             }
 
                             String[] arrOutput = output.split("!");
-                            tabla = arrOutput[0];
-                            resultado = "";
-                            polinomio = "";
+                            resultado = arrOutput[0];
+                            ecuaciones = "";
+                            titulosIni = "";
+                            titulosFin = "";
+                            tablaIni = "";
+                            tablaFin = "";
                             //System.out.println("SALIDA JAVA");
                             //System.out.println(etapas);
                             //System.out.println("--");
@@ -434,9 +442,13 @@ public class Interpolacion extends javax.swing.JFrame {
                             }
 
                             String[] arrOutput = output.split("!");
-                            tabla = arrOutput[0];
-                            resultado = "";
-                            polinomio = "";
+                            ecuaciones = arrOutput[0];
+                            titulosIni = arrOutput[1];
+                            tablaIni = arrOutput[2];
+                            titulosFin = arrOutput[3];
+                            tablaFin = arrOutput[4];
+                            resultado = arrOutput[5];
+                            
                             
                             //System.out.println("SALIDA JAVA");
                             //System.out.println(etapas);
@@ -475,9 +487,12 @@ public class Interpolacion extends javax.swing.JFrame {
                             }
 
                             String[] arrOutput = output.split("!");
-                            tabla = arrOutput[0];
-                            resultado = "";
-                            polinomio = "";
+                            ecuaciones = arrOutput[0];
+                            titulosIni = arrOutput[1];
+                            tablaIni = arrOutput[2];
+                            titulosFin = arrOutput[3];
+                            tablaFin = arrOutput[4];
+                            resultado = arrOutput[5];
                             
                             //System.out.println("SALIDA JAVA");
                             //System.out.println(etapas);
@@ -544,21 +559,26 @@ public class Interpolacion extends javax.swing.JFrame {
         }
         
         if(metodoCorrecto){
-            if("neville".equals(tipoMetodo) || "spline".equals(tipoMetodo)){
+            if("neville".equals(tipoMetodo)){
                 ResultadoNeville rn = new ResultadoNeville(tabla, resultado);
                 rn.setVisible(true);
                 rn.setSize(1024,768);
                 rn.setResizable(false);
                 rn.setLocationRelativeTo(null);
                 dispose();
-            
-            }else{
-
-                ResultadoInterpolacion resultadoInterpolacion = new ResultadoInterpolacion(tabla, resultado, polinomio, isNewton);
+            }else if ("spline".equals(tipoMetodo)){
+                ResultadoSplines resultadoInterpolacion = new ResultadoSplines( resultado, tablaIni, tablaFin, ecuaciones, titulosIni, titulosFin, esLineal);
                 resultadoInterpolacion.setVisible(true);
                 resultadoInterpolacion.setSize(1024,768);
                 resultadoInterpolacion.setResizable(false);
                 resultadoInterpolacion.setLocationRelativeTo(null);        
+                dispose();    
+            }else{
+                ResultadoDiferenciasDivididas resultadosDiffDiv = new ResultadoDiferenciasDivididas(tabla, resultado, polinomio, isNewton);
+                resultadosDiffDiv.setVisible(true);
+                resultadosDiffDiv.setSize(1024,768);
+                resultadosDiffDiv.setResizable(false);
+                resultadosDiffDiv.setLocationRelativeTo(null);        
                 dispose();
             }
         }
