@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import java.awt.Font;
 import practicaanalisis.Metodos2;
 
 /**
@@ -18,6 +19,8 @@ public class ResultadoNeville extends javax.swing.JFrame {
      */
     public ResultadoNeville(String tabla, String resultado) {
         initComponents();
+        System.out.println("Resultados de Java");
+        System.out.println(Metodos2.nPuntos);
         Double[][] neville = new Double[Metodos2.nPuntos][Metodos2.nPuntos + 2];
         String[] arr = tabla.split(":");
         for (int i = 0; i < arr.length; i++){
@@ -26,11 +29,23 @@ public class ResultadoNeville extends javax.swing.JFrame {
                 neville[i][j] = Double.parseDouble(fila[j]);
             }
         }
+        String[] titulos = titulos(Metodos2.nPuntos + 2);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 neville,
-                new String [Metodos2.tam]
+                titulos
             ));
         jTextArea1.setText(resultado);
+    }
+    
+    private String[] titulos(int n){
+        String[] titulos = new String[n];
+        titulos[0] = "n";
+        titulos[1] = "Xi";
+        titulos[2] = "f(Xi)";
+        for (int i = 3; i < n; i++){
+            titulos[i] = "Grado "+ (i - 2);
+        }return titulos;
+        
     }
 
     /**
@@ -62,12 +77,15 @@ public class ResultadoNeville extends javax.swing.JFrame {
         botonRegresar.setBounds(180, 25, 80, 80);
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(60, 620, 910, 130);
 
+        jTable1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jTable1.getTableHeader().setFont(new Font("Lucida Grande", Font.ITALIC, 24));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -79,6 +97,7 @@ public class ResultadoNeville extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setRowHeight(30);
         jScrollPane2.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane2);
