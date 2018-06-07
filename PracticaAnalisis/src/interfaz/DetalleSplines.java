@@ -118,7 +118,7 @@ public class DetalleSplines extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(60, 340, 890, 160);
+        jScrollPane2.setBounds(60, 340, 890, 140);
 
         jTable2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jTable2.getTableHeader().setFont(new Font("Lucida Grande", Font.ITALIC, 24));
