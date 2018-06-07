@@ -8,8 +8,16 @@ import sys
 def imprimirTabla(tabla, n, x):
     nx = np.column_stack((range(n), x))
     tablaAum = np.hstack((nx, tabla))
-    print(tablaAum)
-
+    t = ""
+    for i in range(len(tablaAum)):
+        for j in range(len(tablaAum[0])):
+            if j != (len(tablaAum[0])-1):
+                t = t + str(tablaAum[i][j]) + ";"
+            else:
+                t = t + str(tablaAum[i][j])
+        if i!=(len(tablaAum)-1):
+            t = t + ":"
+    print(t)
 
 
 def main():

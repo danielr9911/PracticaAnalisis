@@ -8,7 +8,16 @@ import sys
 def imprimirTabla(tabla, n, x):
     nx = np.column_stack((range(n), x))
     tablaAum = np.hstack((nx, tabla))
-    print(tablaAum)
+    t = ""
+    for i in range(len(tablaAum)):
+        for j in range(len(tablaAum[0])):
+            if j != (len(tablaAum[0])-1):
+                t = t + str(tablaAum[i][j]) + ";"
+            else:
+                t = t + str(tablaAum[i][j])
+        if i!=(len(tablaAum)-1):
+            t = t + ":"
+    print(t)
 
 def newtonParalelo(x,i,j,tabla):
     if (float(x[i]) - float(x[i - j])) == 0.0:
@@ -51,7 +60,6 @@ def main():
             t.start()
             t.join()
     if ban:
-        print("TABLA:")
         imprimirTabla(tabla, n, x)
 
         pol = "%f" %tabla[0][0]
