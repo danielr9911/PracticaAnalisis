@@ -26,7 +26,18 @@ def interpretarMatriz(tam,b,a):
     matrizA = np.array(matrizA)
     return matrizB, matrizA
 
-
+def imprimirMatriz(matriz):
+    n = len(matriz)
+    print("----------------------------" * n)
+    for i in range(n):
+        elem = matriz[i]
+        linea = "| "
+        for j in range(len(elem)):
+            linea = linea + str(elem[j])
+            m = 20-len(str(elem[j]))
+            linea = linea + (" "*m) + "| "
+        print(linea)
+    print("----------------------------" * n)
 
 def busquedaMayorFila(tam, matriz):
     vectorMayores = np.zeros(tam)
@@ -50,7 +61,8 @@ def eliminacionGaussiana(tam, ab):
             for j in range(k,tam+1):
                 ab[i][j] = ab[i][j] - (multiplicador*ab[k][j])
         print("\nMatriz parcial")
-        print(ab)
+        #print(ab)
+        imprimirMatriz(ab)
         print("\n-------------------------------------------------------\n")
     print("!")
     print(ab)

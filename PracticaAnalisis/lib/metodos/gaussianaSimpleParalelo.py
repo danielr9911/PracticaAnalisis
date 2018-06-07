@@ -49,11 +49,24 @@ def eliminacionGaussiana(Ab, tam):
             t.join()
         print("\nMatriz parcial")
         arregloParcial = np.array(Ab)
-        np.set_printoptions(suppress=True)
-        print(arregloParcial)
+        #np.set_printoptions(suppress=True)
+        #print(arregloParcial)
+        imprimirMatriz(arregloParcial)
         print("\n-------------------------------------------------------\n")
     return Ab, True
 
+def imprimirMatriz(matriz):
+    n = len(matriz)
+    print("----------------------------" * n)
+    for i in range(n):
+        elem = matriz[i]
+        linea = "| "
+        for j in range(len(elem)):
+            linea = linea + str(elem[j])
+            m = 20-len(str(elem[j]))
+            linea = linea + (" "*m) + "| "
+        print(linea)
+    print("----------------------------" * n)
 
 def sustitucionRegresiva(matrizFinal, tam):
     x = np.zeros(tam)
@@ -78,6 +91,7 @@ def main():
     if exito:
         print("!")
         print(matrizFinal)
+        #imprimirMatriz(matrizFinal)
         x = sustitucionRegresiva(matrizFinal, tam)
         print("!")
         for i, x in enumerate(x):
