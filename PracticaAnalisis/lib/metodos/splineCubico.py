@@ -29,8 +29,7 @@ def main():
     exp = 0
     cont = 1
 
-    print("----------------------- ECUACIONES RESULTANTES -----------------------")
-    print("")
+
     print("Ecuaciones producidas de f(x):")
 
     for i in range(n*2):
@@ -168,20 +167,15 @@ def main():
         numeroEcuacion = numeroEcuacion + 1
         m = m + 1
         var = (len(x)-1)
-    print("")
-    print("")
-    print("----------------------- SISTEMA DE ECUACIONES RESULTANTE -----------------------")
-    print("")
-    print("MATRIZ INICIAL")
+    print("!")
     for i in range(len(b)):
         tabla[i][4 * n] = b[i]
-    print("")
     marcasIni = titulosTabla(n*4)
     #print(np.array2string(marcasIni, separator=";")[1:-1])
-    print(marcasIni)
-    print(tabla)
-    print("")
-    print("")
+    imprimirTitulos(marcasIni)
+    print("!")
+    imprimirTabla(tabla)
+    print("!")
     #PIVOTEO TOTAL
     matrizFinal, marcas, exito = gaussianaConPivoteoTotal(tabla, n*4)
 
@@ -190,10 +184,10 @@ def main():
     for i in range(len(marcas)):
         marcasFin[i] = marcasIni[int(marcas[i])]
     #print(np.array2string(marcasFin, separator=";")[1:-1])
-    print("MATRIZ FINAL POR PIVOTEO TOTAL")
-    print("")
-    print(marcasFin)
-    print(matrizFinal)
+    imprimirTitulos(marcasFin)
+    print("!")
+    imprimirTabla(matrizFinal)
+    print("!")
     #FUNCION POR TRAMOS
 
     #RESULTADO EVALUACION X
@@ -220,9 +214,7 @@ def main():
         fila = fila + str(coeficientes[("d")+str(i+1)])
         intervalo = str(xCopia[i]) + " <= X <= " + str(xCopia[i+1])
         funcion = funcion + fila +" -----> " + intervalo + "\n"
-    print("")
-    print("----------------------- RESULTADO FINAL -----------------------")
-    print("")
+
     print("FUNCION POR TRAMOS")
     print("")
     funcion = funcion + "}"
@@ -247,6 +239,26 @@ def main():
     print("")
     print("f("+str(val)+") = "+str(resp))
 
+def imprimirTabla(tablaAum):
+    t = ""
+    for i in range(len(tablaAum)):
+        for j in range(len(tablaAum[0])):
+            if j != (len(tablaAum[0])-1):
+                t = t + str(tablaAum[i][j]) + ";"
+            else:
+                t = t + str(tablaAum[i][j])
+        if i!=(len(tablaAum)-1):
+            t = t + ":"
+    print(t)
+
+def imprimirTitulos(titulos):
+    linea = ""
+    for i in range(len(titulos)):
+        if i != (len(titulos)-1):
+            linea = linea + str(titulos[i]) + ";"
+        else:
+            linea = linea + str(titulos[i])
+    print(linea)
 
 def organizarX(marcas, original, x):
     for i in range(len(original)):
