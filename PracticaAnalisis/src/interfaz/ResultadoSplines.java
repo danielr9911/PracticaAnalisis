@@ -24,6 +24,9 @@ public class ResultadoSplines extends javax.swing.JFrame {
         titIni = titulosIni;
         titFin = titulosFin;
         esLineal = isLineal;
+        initComponents();
+        System.out.println("ES LINEAL");
+        System.out.println(esLineal);
         
         if (esLineal){
             botonVerDetalle.setVisible(false);
@@ -62,6 +65,7 @@ public class ResultadoSplines extends javax.swing.JFrame {
         botonRegresar.setBounds(170, 30, 80, 80);
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 

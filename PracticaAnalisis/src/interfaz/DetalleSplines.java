@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import java.awt.Font;
 import practicaanalisis.Metodos2;
 
 /**
@@ -30,15 +31,23 @@ public class DetalleSplines extends javax.swing.JFrame {
         jTextArea1.setText(ecua);
         String[] titulos1 = titulosIni.split(";");
         String[] titulos2 = titulosFin.split(";");
-        Double[][] tablaInicial = new Double[titulos1.length][titulos1.length];
-        Double[][] tablaFinal = new Double[titulos2.length][titulos2.length];
-        
+        Double[][] tablaInicial = new Double[titulos1.length][titulos1.length+1];
+        Double[][] tablaFinal = new Double[titulos2.length][titulos2.length+1];
+        System.out.println("TAMAÑO TITULOS");
+        System.out.println(titulos1.length);
+        System.out.println(titulos2.length);
         String[] arr1 = tabIni.split(":");
         String[] arr2 = tabFin.split(":");
         for (int i = 0; i < arr1.length; i++){
+            System.out.println("TAMAÑO ARR");
+            System.out.println(arr1.length);
+            System.out.println(arr2.length);
             String[] fila1 = arr1[i].split(";");
             String[] fila2 = arr2[i].split(";");
             for(int j = 0; j < fila1.length; j++){
+                System.out.println("TAMAÑO FILA");
+                System.out.println(fila1.length);
+                System.out.println(fila2.length);
                 tablaInicial[i][j] = Double.parseDouble(fila1[j]);
                 tablaFinal[i][j] = Double.parseDouble(fila2[j]);
             }
@@ -85,12 +94,15 @@ public class DetalleSplines extends javax.swing.JFrame {
         botonRegresar.setBounds(210, 20, 80, 80);
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(60, 120, 890, 140);
 
+        jTable1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jTable1.getTableHeader().setFont(new Font("Lucida Grande", Font.ITALIC, 24));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -102,11 +114,14 @@ public class DetalleSplines extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setRowHeight(30);
         jScrollPane2.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(30, 330, 400, 420);
+        jScrollPane2.setBounds(60, 340, 890, 160);
 
+        jTable2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jTable2.getTableHeader().setFont(new Font("Lucida Grande", Font.ITALIC, 24));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -118,10 +133,11 @@ public class DetalleSplines extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.setRowHeight(30);
         jScrollPane3.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(590, 330, 410, 420);
+        jScrollPane3.setBounds(60, 560, 890, 170);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/DetalleSplines.png"))); // NOI18N
         getContentPane().add(jLabel1);
