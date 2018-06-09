@@ -46,7 +46,9 @@ def newJacobi(xValues,xNewValues,A,size,r, norma):
 
         var = A[i][size]
         xNewValues[i] = (var - suma)/aii
+        #Relajacion
         xNewValues[i]= r*xNewValues[i]+(1-r)*xValues[i]
+        #Calculo de normas
         nInfAbs = max(nInfAbs, abs(xNewValues[i] - xValues[i]))
         nInfRelD = max(nInfRelD, abs(xNewValues[i]))
         nEucAbs = nEucAbs + (xNewValues[i] - xValues[i]) ** 2

@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import java.awt.Font;
+
 /**
  *
  * @author pedrosalzedo
@@ -71,6 +73,7 @@ public class ResultadosBusquedas extends javax.swing.JFrame {
         valorInicialBusquedas.setBounds(265, 110, 220, 40);
 
         tableBusquedas.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        tableBusquedas.getTableHeader().setFont(new Font("Lucida Grande", Font.ITALIC, 24));
         tableBusquedas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

@@ -168,27 +168,43 @@ public class MiMatriz extends javax.swing.JFrame {
         Double[][] ta = {{25.0, -2.0, -7.0, -2.0},{-2.0,36.0,-3.0,-5.0},{-7.0,-3.0,54.0,-5.0},{-2.0,-5.0,-5.0,75.0}};
         Metodos2.a = ta;
         */
+        
         Metodos2.tam = Integer.parseInt(jTextField1.getText());
         Metodos2.a = getTableData(jTable1);
-        Double[][] arregloB = getTableData(jTable2);
-        Double[] matrizB = new Double[arregloB.length];
-        for(int i=0; i < matrizB.length; i++){
-            matrizB[i] = arregloB[i][0];
+        if(Metodos2.a[0][0] == 0.0){
+            JOptionPane.showMessageDialog(rootPane, "La matriz no puede tener un 0 en la primera posicion de la fila 1");
+            
+            Double[] matrizX = new Double[Metodos2.tam];
+            for(int i=0; i < matrizX.length; i++){
+                matrizX[i] = 0.0;
+            }
+            Metodos2.x = matrizX;
+            Metodos2.b = matrizX;
+            Double[][] ma = new Double[Metodos2.tam][Metodos2.tam];
+            for(int i = 0; i< Metodos2.tam; i++){
+                ma[i] = matrizX;
+            }
+            Metodos2.a = ma;
+        }else{
+            //System.out.println(Arrays.toString(Metodos2.b));
+
+            //System.out.println("A:" + Arrays.toString(Metodos2.a));
+            //System.out.println("B:" + Arrays.toString(Metodos2.b));
+            //System.out.println("n:" + Metodos2.tam);
+            Double[][] arregloB = getTableData(jTable2);
+            Double[] matrizB = new Double[arregloB.length];
+            for(int i=0; i < matrizB.length; i++){
+                matrizB[i] = arregloB[i][0];
+            }
+            Metodos2.b = matrizB;
+
+            Double[] matrizX = new Double[Metodos2.tam];
+            for(int i=0; i < matrizX.length; i++){
+                matrizX[i] = 0.0;
+            }
+            Metodos2.x = matrizX;
+            JOptionPane.showMessageDialog(rootPane, "Matriz guardada exitosamente");
         }
-        Metodos2.b = matrizB;
-        
-        Double[] matrizX = new Double[Metodos2.tam];
-        for(int i=0; i < matrizX.length; i++){
-            matrizX[i] = 0.0;
-        }
-        Metodos2.x = matrizX;
-        
-        //System.out.println(Arrays.toString(Metodos2.b));
-        
-        //System.out.println("A:" + Arrays.toString(Metodos2.a));
-        //System.out.println("B:" + Arrays.toString(Metodos2.b));
-        //System.out.println("n:" + Metodos2.tam);
-        JOptionPane.showMessageDialog(rootPane, "Matriz guardada exitosamente");
     }//GEN-LAST:event_guardarMatrizActionPerformed
 
     
